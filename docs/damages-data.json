@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -8,12 +8,16 @@
       "method": "US CPI-U all items, U.S. city average, annual mean (NSA); reference 2025. 2025 BLS annual average omits October due to the federal funding lapse.",
       "source": "https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm",
       "index": {
+        "1991": 136.2,
+        "2003": 184,
+        "2005": 195.3,
         "2016": 240.007,
         "2017": 245.12,
         "2018": 251.107,
         "2024": 313.689,
         "2025": 321.943
-      }
+      },
+      "source_historical": "https://www.minneapolisfed.org/about-us/monetary-policy/inflation-calculator/consumer-price-index-1913-"
     },
     "BRL": {
       "method": "IBGE IPCA calendar-year Dec/Dec rates compounded after nominal base year through December 2025. The 2021 agreement was signed in February; December-2021 convention is only a standardized comparator, not a contractual indexation calculation.",
@@ -61,7 +65,8 @@
           "name": "Minnesota Attorney General — settlement and order",
           "url": "https://www.ag.state.mn.us/Office/Cases/3M/"
         }
-      ]
+      ],
+      "indexed_entities": []
     },
     {
       "id": "dupont-chemours-c8-2017",
@@ -97,8 +102,13 @@
         {
           "name": "Chemours SEC-filed 2017 Q2 report (terms and allocation)",
           "url": "https://www.sec.gov/Archives/edgar/data/1627223/000156459017015399/cc-10q_20170630.htm"
+        },
+        {
+          "name": "Chemours — 2017 settlement payment reflected in full-year cash flow",
+          "url": "https://www.chemours.com/en/news-media-center/all-news/press-releases/2018/the-chemours-company-reports-fourth-quarter-and-full-year-2017-results-robust-performance-across-all"
         }
-      ]
+      ],
+      "indexed_entities": []
     },
     {
       "id": "vw-criminal-diesel-2017",
@@ -134,7 +144,8 @@
           "name": "U.S. DOJ — later explicit confirmation fine was paid",
           "url": "https://www.justice.gov/archives/opa/pr/iav-gmbh-pay-35-million-criminal-fine-guilty-plea-its-role-volkswagen-ag-emissions-fraud"
         }
-      ]
+      ],
+      "indexed_entities": []
     },
     {
       "id": "vale-brumadinho-2021",
@@ -177,8 +188,13 @@
         {
           "name": "Vale — Brumadinho investor disclosures, second quarter 2026 (broader total outlays; separate accounting scope)",
           "url": "https://www.vale.com/pt/esg/brumadinho"
+        },
+        {
+          "name": "Vale 2Q26 ESG — broader Brumadinho payments scope, not cash under one agreement",
+          "url": "https://vale.com/in/esg/brumadinho"
         }
-      ]
+      ],
+      "indexed_entities": []
     },
     {
       "id": "bp-deepwater-2016",
@@ -214,7 +230,8 @@
           "name": "U.S. EPA — event timeline, consent decree and separate matters",
           "url": "https://www.epa.gov/enforcement/deepwater-horizon-bp-gulf-america-oil-spill"
         }
-      ]
+      ],
+      "indexed_entities": []
     },
     {
       "id": "vw-diesel-civil-2016",
@@ -250,7 +267,8 @@
           "name": "U.S. EPA — civil consent decree scope",
           "url": "https://www.epa.gov/enforcement/volkswagen-clean-air-act-civil-settlement"
         }
-      ]
+      ],
+      "indexed_entities": []
     },
     {
       "id": "3m-pws-pfas-2024",
@@ -285,6 +303,160 @@
         {
           "name": "3M final approval announcement",
           "url": "https://news.3m.com/2024-04-01-3M-Settlement-with-Public-Water-Suppliers-to-Address-PFAS-in-Drinking-Water-Receives-Final-Court-Approval"
+        }
+      ],
+      "indexed_entities": []
+    },
+    {
+      "id": "exxon-valdez-civil-1991",
+      "entities": [
+        "Exxon Corporation",
+        "Exxon Shipping Company"
+      ],
+      "indexed_entities": [
+        "ExxonMobil"
+      ],
+      "jurisdiction": "Alaska, United States",
+      "matter": "Exxon Valdez natural-resource restoration civil settlement",
+      "hazard": "1989 crude-oil spill / marine ecosystems",
+      "outcome_type": "civil natural-resource damages settlement",
+      "disposition": "1991 court-approved civil settlement; historic Exxon Corporation predecessor, not a present-day ExxonMobil operating record",
+      "obligation": {
+        "currency": "USD",
+        "year": 1991,
+        "min": 900000000,
+        "max": 900000000,
+        "kind": "1991 settlement promise across ten-year installments, distinct from criminal fine and restitution"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 900000000,
+        "as_of": "2001-09",
+        "value_year": null,
+        "detail": "Official Exxon Valdez Oil Spill Trustee Council records the final civil settlement payment was received in September 2001 (exact day not reported). Funds were disbursed over ten years; no single inflation year can be assigned to the actual payments."
+      },
+      "notes": "The separate $100m criminal restitution and $25m after-remission criminal fine are not included in the $900m civil figure. Historical Exxon successor identity is not evidence about current operations.",
+      "sources": [
+        {
+          "name": "Exxon Valdez Oil Spill Trustee Council — settlement and final payment received in September 2001",
+          "url": "https://evostc.state.ak.us/oil-spill-facts/settlement"
+        },
+        {
+          "name": "NOAA — 1991 Exxon Valdez civil and criminal dispositions",
+          "url": "https://darrp.noaa.gov/oil-spills/exxon-valdez"
+        }
+      ]
+    },
+    {
+      "id": "chevron-refinery-air-2003",
+      "entities": [
+        "Chevron U.S.A. Inc."
+      ],
+      "indexed_entities": [
+        "Chevron"
+      ],
+      "jurisdiction": "United States — five refineries",
+      "matter": "Chevron U.S.A. multistate Clean Air Act refinery settlement",
+      "hazard": "Air emissions, flaring, hazardous-substance release reporting",
+      "outcome_type": "civil air-quality penalty",
+      "disposition": "Clean Air Act negotiated consent decree; parent Chevron Corporation identified in EPA corporate description",
+      "obligation": {
+        "currency": "USD",
+        "year": 2003,
+        "min": 3500000,
+        "max": 3500000,
+        "kind": "Civil penalty only; excludes separately estimated pollution-control and community-project costs"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 3500000,
+        "as_of": "2007-09-30",
+        "value_year": null,
+        "detail": "EPA FY2007 enforcement retrospective explicitly says Chevron U.S.A. paid a $3.5m civil penalty. The exact disbursement date within the intervening period is not independently established."
+      },
+      "notes": "2003 is the announcement year used for the CPI comparator; it is not the date each penalty dollar was paid. Separate safety and pollution-control commitments must not be silently added.",
+      "sources": [
+        {
+          "name": "US EPA — Chevron U.S.A. Clean Air Act settlement",
+          "url": "https://www.epa.gov/enforcement/chevron-usa-clean-air-act-settlement"
+        },
+        {
+          "name": "US EPA — FY2007 enforcement results, p.86 PDF (explicitly states paid)",
+          "url": "https://archive.epa.gov/enforcement/annual-results/web/pdf/eoy2007.pdf"
+        }
+      ]
+    },
+    {
+      "id": "conoco-refinery-2005",
+      "entities": [
+        "ConocoPhillips"
+      ],
+      "indexed_entities": [
+        "ConocoPhillips"
+      ],
+      "jurisdiction": "United States — nine refineries",
+      "matter": "ConocoPhillips global refinery Clean Air Act settlement",
+      "hazard": "Refinery NOx, SO2, VOC and benzene emissions",
+      "outcome_type": "civil air-quality penalty",
+      "disposition": "Refinery Clean Air Act consent decree settlement",
+      "obligation": {
+        "currency": "USD",
+        "year": 2005,
+        "min": 4525000,
+        "max": 4525000,
+        "kind": "Civil penalty only; separate pollution controls estimated over $525m"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "EPA documents a $4.525m penalty and future pollution-control work, but the reviewed public case summary does not establish disbursement dates or independently reconciled cash paid."
+      },
+      "notes": "More than $525m in estimated equipment investment is not a confirmed cash damages payment and is excluded from the nominal penalty. Ownership of the Denver refinery later transferred to Suncor, so obligations cannot be attached to a single entity without effective dates.",
+      "sources": [
+        {
+          "name": "US EPA — ConocoPhillips Global Refinery Settlement",
+          "url": "https://www.epa.gov/enforcement/conocophillips-global-refinery-settlement"
+        }
+      ]
+    },
+    {
+      "id": "occidental-passaic-2016",
+      "entities": [
+        "Occidental Chemical Corporation"
+      ],
+      "indexed_entities": [
+        "Occidental Petroleum"
+      ],
+      "jurisdiction": "New Jersey, United States",
+      "matter": "Passaic River cleanup engineering and design",
+      "hazard": "Contaminated river sediments / Superfund cleanup",
+      "outcome_type": "CERCLA settlement remediation work",
+      "disposition": "2016 work-design agreement of Occidental Chemical; a former Occidental Petroleum subsidiary subsequently sold as part of OxyChem to Berkshire Hathaway in January 2026",
+      "obligation": {
+        "currency": "USD",
+        "year": 2016,
+        "min": 165000000,
+        "max": 165000000,
+        "kind": "Estimated cost of work to be performed, NOT damages paid to claimants"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "EPA describes estimated work value and future oversight costs; this source does not verify a cumulative cash disbursement under the design work commitment."
+      },
+      "notes": "This estimate is a work commitment, not a cash fine or proof of quantified ecological damage. Do not equate the Occidental Chemical legal entity with every operation of Occidental Petroleum. Occidental sold OxyChem in January 2026; seller disclosed retention of certain legacy environmental liabilities through another entity, but allocation for this specific Passaic settlement is not established here. The historical index join is NOT a current ownership assertion.",
+      "sources": [
+        {
+          "name": "US EPA — $165m Lower Passaic engineering/design agreement",
+          "url": "https://www.epa.gov/enforcement/case-summary-165-million-settlement-start-cleanup-work-passaic-river-new-jersey"
+        },
+        {
+          "name": "Occidental SEC 8-K — January 2026 OxyChem sale and historical environmental-liability carve-out",
+          "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026000153/exhibit991pressrelease1-2x.htm"
         }
       ]
     }
