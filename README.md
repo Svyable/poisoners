@@ -2,11 +2,12 @@
 
 **Make the damage visible.** An open environmental evidence observatory and a proposed multidimensional framework for building defensible scientific and legal dossiers.
 
-> **Research platform v4, November 7, 2026.** The site contains 50 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
+> **Research platform v5 chemical-first addition, November 7, 2026.** The site contains 50 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
 
 ## The website
 
 - [Interactive observatory](docs/index.html): searchable company ledger, temporal views, ten-country atlas, 6 × 8 exposure-research matrix, company source drawers, supporting sources.
+- [Chemical hazards and stank matrix](docs/chemistry.html): 14 compound or pollutant-class profiles (SO₂, NOₓ, Hg, arsenic, lead, cadmium, chromium(VI), selenium, sulfuric acid mist, PM₂.₅, HCl, HF, H₂S and formaldehyde). Shows **2025 EIA U.S. power/CHP SO₂ (902,000 metric tonnes) and NOₓ (1,144,000 metric tonnes)** and **EPA 2024 regulated-power Hg (2.2 US short tons)** with visibly different boundaries. [Source-bound JSON](docs/chemical-hazards.json). Odor sorting is never toxicity scoring.
 - [Official environmental records directory](docs/public-records.html): 12 public government and WHO tools covering six geographic groups, with coverage, source dates, and careful interpretation guidance.
 - [Public awareness desk](docs/awareness.html): ten source-linked briefs covering pollution exposure, local information, and limits on interpreting risk.
 - [Start here: research guide](docs/guide.html): orientation, interpretation, data boundaries, evidence ladder and frequently asked questions.
@@ -58,6 +59,14 @@ The ten largest sovereign-country **2025 territorial GHG emitters** in EDGAR 202
 | Canada | 764.52 | 5 |
 
 **50 company records total.** Navigation associates a company with its home country, not the location of its emissions. Corporate and national emissions **use different accounting boundaries** and cannot be added as equivalent totals. Unscored countries and missing historical data are **not** zero harm.
+
+## Chemical-first hazard evidence
+
+**CO₂ is not used as a direct-toxicity or “poison” rank.** It is essential to photosynthesis and has an independent climate-forcing role. A greenhouse-gas throughput figure has no place in a chemical acute-hazard ranking. This does not dismiss climate impacts or confined-space risks of elevated CO₂. The primary observatory now foregrounds measured SO₂ and NOₓ from EIA 2025 (US power + CHP, **metric tonnes**) and separately EPA's 2024 covered-unit mercury (Hg, **US short tons**). These two inventories have different years, units, and populations: never calculate trends or company scores by comparing them as if identical.
+
+**The chemical matrix is not a company leaderboard.** Profile entries distinguish emissions, chemical species, acid and particle formation, uptake, persistence, neurotoxicity, carcinogenic potential, ecology, and sensory odor. NOₓ is not synonymous with NO₂; gaseous SO₂ is not directly emitted sulfuric acid mass; elemental Hg emissions are not methylmercury fish concentration; and total chromium is not hexavalent chromium. Strong rotten-egg odor from H₂S is an unreliable safety signal at high concentrations; metals may be odorless. Missing chemical-specific corporate/facility data remain **unmeasured**, not zero.
+
+A defensible facility or company chemical rank requires same-year EPA CAMD/CAMPD or EIA stack observations, EPA TRI / CCR or similar national PRTR records, regulated-scope coverage, legal-entity mapping with effective dates, distinct release media, fate and exposure modeling and appropriate chemical-specific weights. EPA RSEI supports **screening-level** relative comparisons only for eligible TRI records; it is not a mortality or guilt model. The new tests run with `node --test scripts/chemistry.test.cjs`. The next stage is an authorized, source-matched facility ingestion pipeline—not fabricated metal-tonnage entries for the 50 current Carbon Majors producers.
 
 ## Historic monetary outcomes and cohort joins
 The ledger distinguishes **legally agreed sums**, **confirmed completed cash payments**, **dated partial payments**, and **unverified disbursement totals**. Four historical legal matters are explicitly linked to company names in the 50-record Carbon Majors cohort: ExxonMobil (historic Exxon Corporation / Exxon Valdez), Chevron (Chevron U.S.A.), ConocoPhillips and Occidental Petroleum (former chemical subsidiary). These are historical identity aids, not present-day ownership or company-wide liability findings. OxyChem was divested in January 2026; the Passaic case remains attributed to the legal defendant Occidental Chemical Corporation, not automatically to any current parent.
