@@ -5511,7 +5511,7 @@ window.POISON_FOUNDATION = {
       "limitations": "published model; producer attribution, global boundaries; noncommercial reuse conditions",
       "license_status": "noncommercial-check-terms",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "EDGAR26",
@@ -5523,7 +5523,7 @@ window.POISON_FOUNDATION = {
       "limitations": "territorial country inventory without LULUCF for displayed values",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "EPA_TRI",
@@ -5535,7 +5535,7 @@ window.POISON_FOUNDATION = {
       "limitations": "reporting thresholds, reported releases and transfers; not exposures",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "EPA_ECHO",
@@ -5547,7 +5547,7 @@ window.POISON_FOUNDATION = {
       "limitations": "enforcement and compliance history, not itself causation",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "EPA_IRIS",
@@ -5559,7 +5559,7 @@ window.POISON_FOUNDATION = {
       "limitations": "chemical hazard evaluations; requires chemical-specific use",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "EEA_IEP",
@@ -5571,7 +5571,7 @@ window.POISON_FOUNDATION = {
       "limitations": "selected European regulated facilities and thresholds",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "CLIMATE_TRACE",
@@ -5583,7 +5583,7 @@ window.POISON_FOUNDATION = {
       "limitations": "remote and model-derived source emission estimates; verify vintage",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "OPENAQ",
@@ -5595,7 +5595,7 @@ window.POISON_FOUNDATION = {
       "limitations": "ambient monitors with uneven spatial and temporal coverage",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "WHO_AIR",
@@ -5607,7 +5607,7 @@ window.POISON_FOUNDATION = {
       "limitations": "population burden, not industrial facility attribution",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "LANCET",
@@ -5619,7 +5619,7 @@ window.POISON_FOUNDATION = {
       "limitations": "GBD-based 2019 burden estimates; cannot assign to producer firms",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "CAN_NPRI",
@@ -5631,7 +5631,7 @@ window.POISON_FOUNDATION = {
       "limitations": "facility-level reports; 2025 currently preliminary",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "JPN_PRTR",
@@ -5643,7 +5643,7 @@ window.POISON_FOUNDATION = {
       "limitations": "chemical substance coverage and reporting thresholds",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "CHN_PERMITS",
@@ -5655,7 +5655,7 @@ window.POISON_FOUNDATION = {
       "limitations": "permit and disclosed discharge values; language/access constraints",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "RUS_NVOS",
@@ -5667,7 +5667,7 @@ window.POISON_FOUNDATION = {
       "limitations": "registered facilities; not a comprehensive measured-release time series",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "BRA_IBAMA",
@@ -5679,7 +5679,7 @@ window.POISON_FOUNDATION = {
       "limitations": "infraction notices do not always imply final, upheld wrongdoing",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "ID_PROPER",
@@ -5691,7 +5691,7 @@ window.POISON_FOUNDATION = {
       "limitations": "compliance grades require interpretation and original record checking",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "IND_NGT",
@@ -5703,7 +5703,7 @@ window.POISON_FOUNDATION = {
       "limitations": "case search has CAPTCHA; judgments not facility emissions",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "STATE_AIR",
@@ -5715,7 +5715,7 @@ window.POISON_FOUNDATION = {
       "limitations": "population exposure and health burden modeled; not company attribution",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "UNECE_PRTR",
@@ -5727,7 +5727,7 @@ window.POISON_FOUNDATION = {
       "limitations": "register discovery; not a single harmonized global facility dataset",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "FAOSTAT",
@@ -5739,7 +5739,7 @@ window.POISON_FOUNDATION = {
       "limitations": "agricultural and land metrics, national aggregates",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "IUCN",
@@ -5751,7 +5751,7 @@ window.POISON_FOUNDATION = {
       "limitations": "species conservation status; not company-linked impact",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     },
     {
       "id": "IPBES",
@@ -5763,7 +5763,7 @@ window.POISON_FOUNDATION = {
       "limitations": "ecosystem assessment context; not an industrial release record",
       "license_status": "review-before-automated-reuse",
       "ingestion_status": "research-link-only",
-      "last_checked": "2026-11-06"
+      "catalogued_on": "2026-11-06"
     }
   ],
   "countries": [
