@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.5.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -18,6 +18,7 @@
         "2016": 240.007,
         "2017": 245.12,
         "2018": 251.107,
+        "2020": 258.811,
         "2024": 313.689,
         "2025": 321.943
       },
@@ -639,6 +640,246 @@
         {
           "name": "U.S. DOJ — Transocean guilty plea and $400m criminal sentence",
           "url": "https://www.justice.gov/criminal/criminal-vns/case/united-states-v-transocean-deepwater-inc"
+        }
+      ]
+    },
+    {
+      "id": "exxon-valdez-criminal-1991",
+      "entities": [
+        "Exxon Corporation",
+        "Exxon Shipping Company"
+      ],
+      "indexed_entities": [
+        "ExxonMobil"
+      ],
+      "jurisdiction": "Alaska, United States",
+      "matter": "Exxon Valdez criminal fine and restitution",
+      "hazard": "1989 oil spill / coastal and marine ecosystems",
+      "outcome_type": "criminal fine and restitution",
+      "disposition": "1991 guilty plea and criminal disposition of historic Exxon entities",
+      "obligation": {
+        "currency": "USD",
+        "year": 1991,
+        "min": 125000000,
+        "max": 125000000,
+        "kind": "Criminal fine and restitution actually paid under 1991 plea; separate from $900m civil natural-resource damages"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 125000000,
+        "as_of": "2015-10-15",
+        "value_year": null,
+        "detail": "U.S. DOJ 2015 retrospective explicitly states Exxon paid $125m in criminal fine and restitution. The source does not date the individual transfers; 1991 is the criminal disposition year, not a verified cash-payment year."
+      },
+      "notes": "Different legal remedy from the separately paid $900m Exxon Valdez civil settlement; do not double-count the criminal amount or treat either as complete monetized environmental harm. Corporate predecessor attribution, not present-day operational fault.",
+      "sources": [
+        {
+          "name": "U.S. DOJ — 2015 Exxon Valdez court-case closure, confirms $125m paid",
+          "url": "https://www.justice.gov/archives/opa/pr/united-states-and-state-alaska-opt-not-recover-additional-damages-exxon-mobil-under-reopener"
+        }
+      ]
+    },
+    {
+      "id": "exxon-mayflower-2015",
+      "entities": [
+        "ExxonMobil Pipeline Company",
+        "Mobil Pipe Line Company"
+      ],
+      "indexed_entities": [
+        "ExxonMobil"
+      ],
+      "jurisdiction": "Arkansas, United States",
+      "matter": "Mayflower Pegasus pipeline oil-spill government penalties and costs",
+      "hazard": "2013 crude oil spill / residential areas, creek, wetlands and lake",
+      "outcome_type": "civil water-quality penalties and costs",
+      "disposition": "Federal/state Clean Water Act and state environmental settlement for alleged violations",
+      "obligation": {
+        "currency": "USD",
+        "year": 2015,
+        "min": 4470000,
+        "max": 4470000,
+        "kind": "$3.19m federal penalty + $1m state penalty + $280k state litigation costs; excludes a $600k environmental-project commitment"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 4470000,
+        "as_of": "2016-03-31",
+        "value_year": null,
+        "detail": "A U.S. DOJ official's March 2016 retrospective says ExxonMobil paid $3.19m to the United States, $1m to Arkansas, and $280k in state litigation costs. Exact payment dates are not given. The $600k project is a separate performance obligation, not proved paid in cash here."
+      },
+      "notes": "This is the sum of three distinct paid components within the Mayflower settlement, not the originally advertised nearly $5m total. Reimbursement of spill response and remediation expenditures are separate and not included. The 2015 agreement-year inflation comparator is not a cash transfer chronology.",
+      "sources": [
+        {
+          "name": "U.S. DOJ — March 31, 2016 official remarks explicitly stating three amounts paid",
+          "url": "https://www.justice.gov/archives/opa/speech/assistant-attorney-general-john-c-cruden-speaks-american-bar-association-section"
+        },
+        {
+          "name": "U.S. DOJ — original Mayflower settlement and excluded $600k project",
+          "url": "https://www.justice.gov/archives/opa/pr/exxonmobil-pay-5-million-settle-us-and-arkansas-claims-2013-mayflower-oil-spill"
+        }
+      ]
+    },
+    {
+      "id": "duck-otter-creeks-2024",
+      "entities": [
+        "Ohio Refining Company LLC",
+        "Chevron U.S.A. Inc.",
+        "Energy Transfer (R&M) LLC",
+        "Pilkington North America Inc.",
+        "Chemtrade Logistics Inc."
+      ],
+      "indexed_entities": [
+        "Chevron"
+      ],
+      "jurisdiction": "Ohio, United States",
+      "matter": "Duck and Otter Creeks industrial-discharge natural-resource settlement",
+      "hazard": "Historic releases of oil and hazardous substances / freshwater and habitat",
+      "outcome_type": "joint natural-resource damages settlement",
+      "disposition": "Five-party negotiated resolution of federal natural-resource claims",
+      "obligation": {
+        "currency": "USD",
+        "year": 2024,
+        "min": 7282518.92,
+        "max": 7282518.92,
+        "kind": "Five-party settlement collections; includes $6,322,670 documented restoration-funding allocations plus other settlement components"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 7282518.92,
+        "as_of": "2024-09-30",
+        "value_year": null,
+        "detail": "U.S. Attorney's Office reports the combined $7,282,518.92 amount paid in full among five named parties during fiscal year 2024 (Oct 2023–Sep 2024). The report does not allocate the full collected amount among them or specify individual transfer dates. FWS separately itemizes $6,322,670 in required restoration funding; that allocation is a subset, NOT an additional payout."
+      },
+      "allocation_scope": "The FWS figures allocate ONLY the $6,322,670 restoration-funding component; they do not allocate the remaining $959,848.92 in the reported $7,282,518.92 collection. DOJ confirms payment for the five-party total, not individual cash transfer dates or shares.",
+      "party_allocations": [
+        {
+          "entity": "Ohio Refining Company LLC",
+          "indexed_entity": null,
+          "obligation_amount": 1750000,
+          "paid_amount": null,
+          "paid_value_year": null,
+          "payment_evidence": "group_payment_only"
+        },
+        {
+          "entity": "Chevron U.S.A. Inc.",
+          "indexed_entity": "Chevron",
+          "obligation_amount": 2056250,
+          "paid_amount": null,
+          "paid_value_year": null,
+          "payment_evidence": "group_payment_only"
+        },
+        {
+          "entity": "Energy Transfer (R&M) LLC",
+          "indexed_entity": null,
+          "obligation_amount": 1750000,
+          "paid_amount": null,
+          "paid_value_year": null,
+          "payment_evidence": "group_payment_only"
+        },
+        {
+          "entity": "Pilkington North America Inc.",
+          "indexed_entity": null,
+          "obligation_amount": 678920,
+          "paid_amount": null,
+          "paid_value_year": null,
+          "payment_evidence": "group_payment_only"
+        },
+        {
+          "entity": "Chemtrade Logistics Inc.",
+          "indexed_entity": null,
+          "obligation_amount": 87500,
+          "paid_amount": null,
+          "paid_value_year": null,
+          "payment_evidence": "group_payment_only"
+        }
+      ],
+      "notes": "Never attribute the whole $7.28m to Chevron. Chevron's $2,056,250 figure is its documented restoration obligation, not a separately verified receipt. The 2024 comparator uses the 2024 agreement year; reported FY2024 collections span parts of two calendar years. Joint settlement does not isolate damage amounts per company.",
+      "sources": [
+        {
+          "name": "U.S. DOJ — FY2024 collections: five-party amount paid in full",
+          "url": "https://www.justice.gov/usao-ndoh/pr/usao-collects-nearly-28m-civil-and-criminal-actions-fy-2024"
+        },
+        {
+          "name": "U.S. Fish and Wildlife Service — final restoration plan, page 11 (party allocations)",
+          "url": "https://www.fws.gov/sites/default/files/documents/2024-04/d-o-final-rpea-4.17.2024.pdf"
+        }
+      ]
+    },
+    {
+      "id": "suncor-commerce-city-2020",
+      "entities": [
+        "Suncor Energy (U.S.A.) Inc."
+      ],
+      "indexed_entities": [
+        "Suncor Energy"
+      ],
+      "jurisdiction": "Colorado, United States",
+      "matter": "Commerce City refinery 2017–2019 air-compliance penalties",
+      "hazard": "Refinery air emissions and air-compliance requirements",
+      "outcome_type": "civil air-quality penalty",
+      "disposition": "2020 settlement with Colorado Department of Public Health and Environment Air Pollution Control Division",
+      "obligation": {
+        "currency": "USD",
+        "year": 2020,
+        "min": 1400000,
+        "max": 1400000,
+        "kind": "Approximately $1.4m civil penalties (rounded company-reported figure); excludes $2.6m supplemental environmental projects and up to $5m in improvement work"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 1400000,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "Suncor's own public Commerce City settlement page expressly states that approximately $1.4m penalties 'have been paid'. It does not establish the calendar year(s) of cash transfer, so only the 2020 agreement-year purchasing-power comparison is shown. Figure is approximate, not a receipt-exact amount."
+      },
+      "notes": "The separate approximately $2.6m supplemental environmental projects and up-to-$5m refinery improvements are NOT additional proved cash penalties. Also distinct from 2024 Commerce City enforcement for later compliance periods. Payment is a regulatory outcome, not a monetized measure of pollution harm.",
+      "sources": [
+        {
+          "name": "Suncor — Listening to the community (2020 settlement, penalties explicitly paid)",
+          "url": "https://www.suncor.com/en-ca/what-we-do/refining/commerce-city-refinery/listening-to-the-community"
+        },
+        {
+          "name": "U.S. EPA — 2024 notice identifies 2020 CDPHE order as separate from 2024 order",
+          "url": "https://www.epa.gov/system/files/documents/2024-07/redacted-7-2-2024-suncor-notice-of-violation.pdf"
+        }
+      ]
+    },
+    {
+      "id": "suncor-sand-creek-nrd-2014",
+      "entities": [
+        "Suncor Energy (USA) Inc."
+      ],
+      "indexed_entities": [
+        "Suncor Energy"
+      ],
+      "jurisdiction": "Colorado, United States",
+      "matter": "Sand Creek 2011 oil-spill natural-resource damages and restoration settlement",
+      "hazard": "Oil-release impacts to Sand Creek, South Platte River, wetlands, groundwater and waterfowl",
+      "outcome_type": "civil natural-resource damages settlement",
+      "disposition": "2014 court-approved natural-resource damages consent decree, documented paid by federal/state trustees in 2019",
+      "obligation": {
+        "currency": "USD",
+        "year": 2014,
+        "min": 1887000,
+        "max": 1887000,
+        "kind": "Natural-resource damages and trustee assessment/oversight settlement: $691,268 federal plus $1,195,732 Colorado. Assessment and oversight funds are within these sums."
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 1887000,
+        "as_of": "2019-11-08",
+        "value_year": null,
+        "detail": "The final 2019 trustee restoration plan expressly says Suncor paid $691,268 to the United States and $1,195,732 to Colorado under the 2014 consent decree. It does not establish the actual transfer year or years. Approximately $1.23m remained available for restoration after assessment and oversight allocations; that subset is not an additional payment."
+      },
+      "notes": "This 2011 oil-release settlement is distinct from 2020 Commerce City air-compliance penalties. Restoration and trustee cost recovery are parts of the same $1.887m and must not be added again. Settlement cash is not necessarily the total economic harm.",
+      "sources": [
+        {
+          "name": "USFWS and Colorado trustees 2019 Final Restoration Plan, section 1.2 page 9",
+          "url": "https://www.cerc.usgs.gov/orda_docs/DocHandler.ashx?ID=6788&task=get"
+        },
+        {
+          "name": "USFWS 2019 announcement regarding natural resource damages settlement",
+          "url": "https://www.fws.gov/press-release/2019-10/draft-restoration-plan-available-suncor-energy-oil-spill"
         }
       ]
     }

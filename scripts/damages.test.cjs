@@ -14,7 +14,7 @@ function factor(currency,year){
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.ok(d.cases.length>=15);
+ assert.equal(d.cases.length,20);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
@@ -32,6 +32,20 @@ test("legal outcomes are documented events rather than an aggregate harm index",
    assert.ok(Number.isFinite(c.payment.amount)&&c.payment.amount>0);
    assert.ok(c.payment.amount<=c.obligation.max,"paid total exceeds legal amount: "+c.id);
    if(c.payment.value_year!==null)assert.ok(c.payment.value_year<=d.reference_year);
+  }
+  if(c.party_allocations!==undefined){
+   assert.ok(Array.isArray(c.party_allocations)&&c.party_allocations.length>0);
+   assert.ok(c.allocation_scope);
+   const names=new Set(),sum=c.party_allocations.reduce((acc,a)=>{
+    assert.ok(c.entities.includes(a.entity));
+    assert.ok(!names.has(a.entity));names.add(a.entity);
+    assert.ok(Number.isFinite(a.obligation_amount)&&a.obligation_amount>=0);
+    assert.ok(a.paid_amount===null||Number.isFinite(a.paid_amount)&&a.paid_amount>=0);
+    assert.ok(["confirmed_paid","group_payment_only"].includes(a.payment_evidence));
+    if(a.payment_evidence==="group_payment_only"){assert.equal(a.paid_amount,null);assert.equal(a.paid_value_year,null)}
+    return acc+a.obligation_amount;
+   },0);
+   assert.ok(sum<=c.obligation.max,"Allocations exceed group settlement");
   }
   assert.ok(Number.isFinite(factor(c.obligation.currency,c.obligation.year)));
   assert.ok(!JSON.stringify(c).toLowerCase().includes("mortality estimate"));
@@ -84,7 +98,7 @@ test("cohort joins are explicit and historical defendants stay distinguishable",
    links.add(n);
   }
  }
- assert.deepEqual([...links].sort(),["Chevron","ConocoPhillips","ExxonMobil","Occidental Petroleum"].sort());
+ assert.deepEqual([...links].sort(),["Chevron","ConocoPhillips","ExxonMobil","Occidental Petroleum","Suncor Energy"].sort());
  const ex=d.cases.find(c=>c.id==="exxon-valdez-civil-1991");
  assert.equal(ex.payment.status,"confirmed_paid");assert.equal(ex.payment.amount,900000000);
  assert.equal(ex.payment.value_year,null);assert.equal(ex.payment.as_of,"2001-09");
@@ -139,4 +153,36 @@ test("polished monetary page meets global navigation and findability standard",(
  assert.equal((html.match(/<main\b/g)||[]).length,1);
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
  assert.ok(!html.includes("\\n@media"));
+});
+
+test("independently verified Exxon, Suncor and Ohio joint amounts retain payment boundaries",()=>{
+ const get=id=>d.cases.find(x=>x.id===id);
+ assert.equal(d.inflation.USD.index["2020"],258.811);
+ const criminal=get("exxon-valdez-criminal-1991");
+ assert.equal(criminal.payment.amount,125000000);
+ assert.equal(criminal.payment.value_year,null);
+ const mayflower=get("exxon-mayflower-2015");
+ assert.equal(mayflower.payment.amount,4470000);
+ assert.match(mayflower.payment.detail,/600k/);
+ assert.ok(Math.abs(mayflower.obligation.max*factor("USD",2015)-6070200)<25000);
+ const creek=get("duck-otter-creeks-2024");
+ assert.equal(creek.payment.amount,7282518.92);
+ assert.equal(creek.payment.value_year,null);
+ assert.equal(creek.party_allocations.reduce((sum,a)=>sum+a.obligation_amount,0),6322670);
+ const chevron=creek.party_allocations.find(a=>a.indexed_entity==="Chevron");
+ assert.equal(chevron.obligation_amount,2056250);
+ assert.equal(chevron.paid_amount,null);
+ assert.match(creek.notes,/Never attribute the whole/);
+ const sand=get("suncor-sand-creek-nrd-2014");
+ assert.equal(sand.payment.amount,1887000);
+ assert.equal(sand.payment.value_year,null);
+ assert.equal(d.inflation.USD.index["2014"],236.736);
+ assert.ok(Math.abs(sand.obligation.max*factor("USD",2014)-2566000)<25000);
+ const refinery=get("suncor-commerce-city-2020");
+ assert.equal(refinery.payment.amount,1400000);
+ assert.equal(refinery.payment.value_year,null);
+ assert.match(refinery.payment.detail,/approximate/i);
+ assert.ok(html.includes("PARTY RESTORATION OBLIGATIONS"));
+ const dossier=fs.readFileSync(path.join(root,"docs/dossier-lab.js"),"utf8");
+ assert.match(dossier,/INDIVIDUAL PAID TOTAL NOT VERIFIED/);
 });
