@@ -68,7 +68,7 @@ function scenarioSeries({base,baseYear=2024,startYear=2027,endYear=2036,annualRa
  for(let year=startYear;year<=endYear;year++)annual.push({year,emissions:base*Math.pow(1+annualRate,year-baseYear)});
  return {annual,cumulative:annual.reduce((s,y)=>s+y.emissions,0),kind:"conditional_emissions_only"};
 }
-function sumComparable(records){
+function sumComparable(records,{nonOverlapAttested=false,attestationSourceUrl=null}={}){
  if(!Array.isArray(records)||!records.length)throw Error("At least one record is required");
  const first=records[0];
  if(validateEvidence(first).length)throw Error("Invalid first record");
@@ -86,7 +86,7 @@ function sumComparable(records){
  }
  // Even matching declared boundaries may overlap through corporate ownership, use of products or supply chains.
  // Require explicit expert-authored non-overlap attestation to prevent silent double counting.
- if(!records.every(r=>r.non_overlap_attested===true))throw Error("Aggregation blocked without independent non-overlap attestation");
+ if(!nonOverlapAttested || !/^https:\/\//.test(attestationSourceUrl||""))throw Error("Aggregation blocked without independently documented non-overlap attestation");
  return {value:records.reduce((s,r)=>s+r.measure.value,0),unit:first.measure.unit,boundary:first.measure.system_boundary,record_ids:[...unique]};
 }
 function readiness(r){
