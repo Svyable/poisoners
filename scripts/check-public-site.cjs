@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,"../docs");
 const names=fs.readdirSync(root).filter(name=>name.endsWith(".html"));
 const pages=new Map(names.map(name=>[name,fs.readFileSync(path.join(root,name),"utf8")]));
 const ids=new Map([...pages].map(([name,html])=>[name,new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]))]));
-assert(names.length>=14,"Expected all editorial, People Atlas, glossary and fallback pages");
+assert(names.length>=15,"Expected all editorial, People Atlas, glossary and fallback pages");
 for(const [name,html] of pages){
  const count=re=>(html.match(re)||[]).length;
  assert(html.toLowerCase().includes("<!doctype html>"),name+": doctype missing");

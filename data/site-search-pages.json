@@ -313,5 +313,138 @@
     "href": "awareness.html#silica-dust",
     "description": "CDC/NIOSH warns that breathing respirable crystalline silica during certain jobs can lead to silicosis and other serious diseases.",
     "keywords": "home-work Respirable silica at work Cutting, drilling, grinding and polishing some stone and other materials can produce fine respirable silica dust."
+  },
+  {
+    "type": "page",
+    "title": "Find official environmental records",
+    "href": "public-records.html",
+    "description": "Twelve official air, water and industrial environmental information tools across six geographic groups, with source limitations.",
+    "keywords": "local air quality water official records emissions government"
+  },
+  {
+    "type": "section",
+    "title": "Global reference official environmental data",
+    "href": "public-records.html#global",
+    "description": "Comparative datasets, not personal or real-time measurements.",
+    "keywords": "regional environmental records Global reference"
+  },
+  {
+    "type": "section",
+    "title": "United States official environmental data",
+    "href": "public-records.html#united-states",
+    "description": "Air conditions, reported releases, compliance and drinking-water reports.",
+    "keywords": "regional environmental records United States"
+  },
+  {
+    "type": "section",
+    "title": "Europe official environmental data",
+    "href": "public-records.html#europe",
+    "description": "Near-real-time air indicators and declared major industrial releases.",
+    "keywords": "regional environmental records Europe"
+  },
+  {
+    "type": "section",
+    "title": "Canada official environmental data",
+    "href": "public-records.html#canada",
+    "description": "Air-health forecasts and a national industrial emissions inventory.",
+    "keywords": "regional environmental records Canada"
+  },
+  {
+    "type": "section",
+    "title": "United Kingdom official environmental data",
+    "href": "public-records.html#united-kingdom",
+    "description": "Postcode-based air information and industrial emissions records.",
+    "keywords": "regional environmental records United Kingdom"
+  },
+  {
+    "type": "section",
+    "title": "Australia official environmental data",
+    "href": "public-records.html#australia",
+    "description": "Facility and diffuse-source pollutant reports.",
+    "keywords": "regional environmental records Australia"
+  },
+  {
+    "type": "section",
+    "title": "WHO ambient air quality database",
+    "href": "public-records.html#who-cities",
+    "description": "Annual average PM2.5, PM10 and nitrogen dioxide concentrations for selected settlements. A historical city-wide annual mean is not today's local AQI or a personal exposure measurement.",
+    "keywords": "World Health Organization City and town measurements from 127 WHO members, associate members or territories; not every settlement. June 2026 version, observations from 2010–2024"
+  },
+  {
+    "type": "section",
+    "title": "AirNow air-quality information",
+    "href": "public-records.html#us-airnow",
+    "description": "AQI levels, smoke information and health-oriented air-quality categories. A monitor or sensor does not identify all local exposures, individual doses or a responsible facility.",
+    "keywords": "U.S. EPA and partner agencies U.S. location-level monitors and forecasts; availability varies by place and pollutant. Current/forecast AQI with real-time data caveats"
+  },
+  {
+    "type": "section",
+    "title": "EPA ECHO facility compliance",
+    "href": "public-records.html#us-echo",
+    "description": "Facility permit details, inspection records, reported violations and enforcement actions. A listed violation can be alleged rather than finally adjudicated; missing records do not prove a facility is safe.",
+    "keywords": "U.S. Environmental Protection Agency Facilities recorded in applicable EPA and state/tribal environmental reporting systems. Mixed enforcement, permit and reporting windows"
+  },
+  {
+    "type": "section",
+    "title": "EPA Toxics Release Inventory",
+    "href": "public-records.html#us-tri",
+    "description": "Reported chemical releases, waste transfers and pollution-prevention information. Pounds released are not a measured population dose or toxicity ranking, and some tools may be offline.",
+    "keywords": "U.S. Environmental Protection Agency Facilities and chemicals meeting TRI reporting rules, not every source of pollution. Annual self-reported releases; the EPA toolbox lists current tool status"
+  },
+  {
+    "type": "section",
+    "title": "Annual drinking-water quality reports",
+    "href": "public-records.html#us-ccr",
+    "description": "Water sources, reported regulated contaminants, violations and supplier contacts. A supplier-wide report cannot substitute for a qualified lead or other contaminant test at one tap.",
+    "keywords": "U.S. EPA and local public water systems Community public-water suppliers; not a private well or a household's individual tap. Annual reports from water suppliers"
+  },
+  {
+    "type": "section",
+    "title": "European Air Quality Index",
+    "href": "public-records.html#eu-air",
+    "description": "Short-term air quality estimates for PM2.5, PM10, NO2, ozone and SO2. The Index is not a legal compliance determination or a long-term annual air-quality assessment.",
+    "keywords": "European Environment Agency European monitoring stations and modeled air-quality areas; data availability varies. Near-real-time station information and model forecasts"
+  },
+  {
+    "type": "section",
+    "title": "European Industrial Emissions Portal",
+    "href": "public-records.html#eu-industrial",
+    "description": "Reported industrial releases to air, water and land, transfers of waste and facility details. An annual reported mass does not show local exposure or prove legal responsibility.",
+    "keywords": "European Environment Agency Major industrial complexes under covered European reporting requirements, not all businesses. Annual facility and pollutant reports; check reporting year"
+  },
+  {
+    "type": "section",
+    "title": "Canadian Air Quality Health Index",
+    "href": "public-records.html#ca-aqhi",
+    "description": "A health-oriented indicator based on air pollutant measurements and forecast conditions. A community AQHI is not an individual exposure estimate and local conditions can vary.",
+    "keywords": "Environment and Climate Change Canada Canadian AQHI reporting communities; station and location coverage varies. Current conditions and forecasts"
+  },
+  {
+    "type": "section",
+    "title": "National Pollutant Release Inventory",
+    "href": "public-records.html#ca-npri",
+    "description": "Facility-reported air, water, and land releases, disposals and transfers. Preliminary data can contain reporting errors; facility releases are not individual dose measurements.",
+    "keywords": "Government of Canada Reporting facilities and substances under NPRI thresholds across Canada. 2025 records are labeled preliminary in the current search tool"
+  },
+  {
+    "type": "section",
+    "title": "Check air quality in the UK",
+    "href": "public-records.html#uk-air",
+    "description": "Air quality by locality or postcode, alerts and exposure guidance. A local forecast is an indicator, not a personal diagnosis or source-attribution model.",
+    "keywords": "UK Department for Environment, Food & Rural Affairs Area-level air forecasts and available monitors in the UK. Current monitoring and forecasts where provided"
+  },
+  {
+    "type": "section",
+    "title": "Environment Agency Pollution Inventory",
+    "href": "public-records.html#uk-pollution",
+    "description": "Reported annual releases to air and water and waste movements from qualifying sites. Large sites are covered selectively; reported annual masses do not describe personal exposure.",
+    "keywords": "Environment Agency / UK National Data Library Regulated major industrial sites in England within the inventory's reporting scope. Downloadable annual data for 2013–2024 at the time of review"
+  },
+  {
+    "type": "section",
+    "title": "Australian National Pollutant Inventory",
+    "href": "public-records.html#au-npi",
+    "description": "Annual releases and waste transfers of listed NPI pollutants, including facility mapping. Different chemicals cannot be summed into a meaningful total-harm ranking; reported release is not confirmed exposure.",
+    "keywords": "Australian Government DCCEEW Australian facilities and diffuse sources within NPI reporting rules. 2024–25 reporting period, updates/corrections possible"
   }
 ]

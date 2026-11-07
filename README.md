@@ -7,6 +7,7 @@
 ## The website
 
 - [Interactive observatory](docs/index.html): searchable company ledger, temporal views, ten-country atlas, 6 × 8 exposure-research matrix, company source drawers, supporting sources.
+- [Official environmental records directory](docs/public-records.html): 12 public government and WHO tools covering six geographic groups, with coverage, source dates, and careful interpretation guidance.
 - [Public awareness desk](docs/awareness.html): ten source-linked briefs covering pollution exposure, local information, and limits on interpreting risk.
 - [Start here: research guide](docs/guide.html): orientation, interpretation, data boundaries, evidence ladder and frequently asked questions.
 - [Open data and sources](docs/data-access.html): downloadable public JSON snapshots, primary-source boundaries and reproducible build steps.
@@ -173,3 +174,9 @@ The People Atlas and its evidence-methodology page now use the same site header,
 The [public awareness desk](docs/awareness.html) presents ten carefully scoped, independently linked WHO, EPA, CDC, NIH and FDA briefings on fine-particle air pollution, polluting cooking fuels, lead, PFAS, arsenic, mercury in fish, e-waste, radon, heat and occupational silica. The [source registry](docs/awareness-briefs.json) holds publication labels, primary references, context, non-inference boundaries and actionable official resources. These are educational briefs, not outputs of the corporate emissions index or any personal diagnosis, and no global burden estimate is assigned to an individual company.
 
 To revise these materials, review original sources, update `docs/awareness-briefs.json`, then run `node scripts/build-awareness.cjs`. Before merging, run `node scripts/build-awareness.cjs --check`, `node scripts/build-search-index.cjs --check` and `node scripts/check-site-links.cjs`. Website CI verifies the source-linked generated HTML, and a contribution must never publish private health records or unverified blame.
+
+## Finding local records from official sources
+
+The [official environmental records directory](docs/public-records.html) links to twelve publicly accessible services in six geographic groups. These include monitoring, supplier disclosures, facility-release reports, and compliance systems. The [machine-readable portal catalog](docs/public-record-portals.json) preserves the source owner, area and time coverage, official link, and limitation of every tool. The site does not fetch, mirror, or store queries submitted to those external services.
+
+Run `node scripts/check-public-records.cjs` to check source hostnames and portal metadata; CI includes this offline check. A missing or reported pollution record alone does not establish personal exposure, environmental injury, individual misconduct or legal responsibility.
