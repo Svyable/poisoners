@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07100f"><meta name="description" content="Source-auditable environmental settlements, fines and payments, with 2025 inflation-adjusted comparisons and explicit payment status.">
+<title>Damages & Payments Ledger — POISONERS</title><link rel="stylesheet" href="styles.css">
+<style>
+.damage-hero{padding:83px 0 66px;border-bottom:1px solid #3b5948;background:radial-gradient(ellipse at 83% 30%,#b6f15a14,transparent 55%),#0a1712}
+.damage-hero .kicker{margin-bottom:24px}.damage-hero h1{font-size:clamp(48px,6.2vw,94px);letter-spacing:-.075em;line-height:1.01;margin:0 0 24px;max-width:1000px}.damage-hero h1 em{color:var(--acid);font-style:normal}
+.damage-hero p{color:#b3c4b7;max-width:870px;line-height:1.9}.damage-meta{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}.damage-meta span{border:1px solid #516a51;padding:9px 13px;color:#c7d4c5;font:500 10px var(--mono)}
+.damage-shell{padding:66px 0 100px}.damage-toolbar{display:grid;grid-template-columns:minmax(200px,2fr) repeat(2,minmax(140px,1fr));gap:12px;margin:26px 0 10px}
+.damage-toolbar label{display:flex;flex-direction:column;gap:9px;color:#a4bea7;font:500 10px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.damage-toolbar input,.damage-toolbar select{min-height:45px;background:#13231a;color:#ecf6e8;border:1px solid #4e684d;border-radius:0;padding:12px;font:500 13px var(--sans);width:100%}
+.damage-toolbar input::placeholder{color:#7c9786}.damage-count{font:500 11px var(--mono);color:var(--acid);margin:22px 0}
+.damage-list{display:grid;gap:17px}.damage-card{border:1px solid #38523d;background:#101f18;padding:25px 28px}
+.damage-top{display:flex;align-items:start;justify-content:space-between;gap:18px}.damage-top span{color:#9ab29a;font:500 10px var(--mono);letter-spacing:.06em}
+.damage-top strong{padding:7px 10px;border:1px solid #647952;font:600 10px var(--mono);white-space:nowrap;color:#d6e8bc}
+.damage-top strong.is-paid{border-color:#aad96a;color:var(--acid)}.damage-card h2{font-size:clamp(20px,2.4vw,30px);letter-spacing:-.045em;margin:18px 0 7px;line-height:1.25}.damage-card h3{font-size:13px;line-height:1.6;font-weight:500;color:#b2c9b4;margin:0 0 21px}
+.damage-money{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #304a35}.damage-money>div{padding:18px;min-width:0}.damage-money>div+div{border-left:1px solid #304a35}.damage-money small{display:block;color:#94aa9a;font:500 10px/1.6 var(--mono);letter-spacing:.04em;margin-bottom:9px}.damage-money strong{display:block;font-size:clamp(19px,2vw,28px);line-height:1.25;letter-spacing:-.04em;overflow-wrap:anywhere}.damage-money strong.paid{color:var(--acid)}
+.damage-money .damage-year{color:#a6b5a7;font:400 10px/1.6 var(--mono);display:block;margin-top:7px}.damage-detail{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:22px 0}
+.damage-detail dt{font:500 10px var(--mono);letter-spacing:.07em;color:#8eab92;margin-bottom:6px}.damage-detail dd{font-size:12px;line-height:1.75;color:#c6d3c4;margin:0}
+.damage-sources{display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid #35513b;padding-top:18px}.damage-sources a{font:500 10px/1.5 var(--mono);color:var(--acid);text-decoration:underline;text-underline-offset:4px}
+.damage-explain{margin-top:55px;display:grid;grid-template-columns:1fr 1fr;gap:28px}.damage-explain>section{border-top:1px solid #55704f;padding-top:22px}.damage-explain h2{font-size:22px;letter-spacing:-.04em}.damage-explain p,.damage-explain li{font-size:13px;line-height:1.85;color:#acc0af}.damage-explain a{color:var(--acid);text-decoration:underline}
+.damage-empty{padding:40px;border:1px solid #55704f;color:#d9e4d4}.damage-footer{padding-bottom:35px;color:#9daea0;font:400 11px/1.8 var(--mono)}
+@media(max-width:950px){.damage-toolbar{grid-template-columns:1fr 1fr}.damage-toolbar label:first-child{grid-column:1/-1}.damage-money strong{font-size:21px}}
+@media(max-width:680px){.damage-hero{padding:55px 0 50px}.damage-shell{padding:45px 0 65px}.damage-toolbar,.damage-detail,.damage-explain{grid-template-columns:1fr}.damage-toolbar label:first-child{grid-column:auto}.damage-card{padding:19px}.damage-money{grid-template-columns:1fr}.damage-money>div+div{border-left:0;border-top:1px solid #304a35}.damage-top{flex-direction:column}.damage-explain{gap:15px}}
+</style></head><body>
+<a class="skip" href="#damageMain">Skip to ledger</a>
+<header class="site-header"><a href="index.html" class="brand"><span class="brand-glyph" aria-hidden="true"><i></i><i></i><i></i></span><span>POISONERS<span class="brand-period">.</span><small>THE PUBLIC EVIDENCE ENGINE</small></span></a>
+<nav class="top-nav"><a href="index.html" class="nav-link">Observatory</a><a href="dossiers.html" class="nav-link">Dossier Lab</a><a href="case-studies.html" class="nav-link">Case studies</a><a href="damages.html" class="nav-link active">Payments</a></nav>
+<a href="https://github.com/Svyable/poisoners/blob/main/docs/damages-data.json" class="header-action" target="_blank" rel="noopener noreferrer">AUDIT DATA ↗</a></header>
+<main id="damageMain">
+<section class="damage-hero"><div class="shell"><span class="kicker">THE HISTORICAL MONETARY OUTCOMES LEDGER / NOV 2026</span><h1>WHAT WAS <em>PAID?</em><br>WHAT WAS ONLY PROMISED?</h1>
+<p>Documented civil settlements, compensation and penalties associated with environmental events or exposure claims. The nominal figure, comparable 2025 purchasing-power value and payment evidence are separate. These amounts are <strong>legal and financial outcomes</strong>—not scientific measurements of harm, attributable deaths or a corporate guilt score.</p>
+<div class="damage-meta"><span>US CPI-U / 2025 reference year</span><span>BRAZIL IPCA / 2025 reference year</span><span>NO CURRENCY CONVERSION</span><span>NO CROSS-CASE SUMMATION</span></div></div></section>
+<div class="shell damage-shell"><span class="kicker">FILTER THE PUBLIC EVIDENCE</span>
+<div class="damage-toolbar"><label>Company or case<input id="paymentSearch" type="search" placeholder="3M, BP, Vale, PFAS…" autocomplete="off"></label>
+<label>Payment evidence<select id="paymentStatus"><option value="ALL">All statuses</option><option value="confirmed_paid">Confirmed paid</option><option value="partially_paid">Partially paid (dated)</option><option value="payment_total_unverified">Total paid not established</option></select></label>
+<label>Original currency<select id="paymentCurrency"><option value="ALL">All currencies</option><option value="USD">US dollars (USD)</option><option value="BRL">Brazilian reais (BRL)</option></select></label></div>
+<p class="damage-count" id="paymentCount" role="status">Loading verified documentary examples…</p>
+<div class="damage-list" id="paymentList" aria-live="polite"></div>
+<div class="damage-explain"><section><h2>How the inflation comparison works</h2><p>For dollar amounts: nominal amount × U.S. CPI-U annual average in 2025 ÷ CPI-U annual average in the disposition year. For Brazilian reais: nominal 2021 amount multiplied by each calendar-year IPCA factor for 2022–2025. These are <strong>purchasing-power comparators, not new legal liabilities or a present-value calculation</strong>. The 2025 CPI-U annual average omits October 2025, when no CPI survey was collected.</p><p>Cash paid over multiple years is deliberately not given one synthetic inflation-adjusted value. Local inflation stays in the original currency; FX conversion is not performed.</p><p><a href="https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm" target="_blank" rel="noopener noreferrer">BLS CPI annual averages ↗</a> · <a href="https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidoramplo.html?edicao=20932&amp;t=series-historicas" target="_blank" rel="noopener noreferrer">IBGE IPCA historical series ↗</a></p></section>
+<section><h2>What can and cannot be inferred</h2><p><strong>Paid</strong> means a source explicitly documents a completed payment. <strong>Partially paid</strong> means a dated source reports completed disbursements, without establishing the current final balance. <strong>Total unverified</strong> means a settlement or order is documented but actual paid-to-date totals have not been independently reconciled.</p><p>Penalties, cleanup commitments, personal-injury compensation, natural-resource damages and buybacks address different remedies. A settlement may disclaim liability; a guilty plea is different. Overlapping agreements, multiple defendant entities, different years and future installments must not be added together. Missing paid figures are unknown, not zero.</p><p>Read <a href="case-studies.html">documented event pathways</a>, the <a href="methodology.html">scientific methodology</a> and the <a href="dossiers.html">company evidence explorer</a> before comparing entities.</p></section></div></div></main>
+<footer class="footer"><div class="shell damage-footer">POISONERS · DOCUMENTARY MONETARY OUTCOMES / NOT LEGAL ADVICE · <a href="https://github.com/Svyable/poisoners">SOURCE REPOSITORY</a></div></footer>
+<script>
+(()=>{"use strict";
+const $=id=>document.getElementById(id), e=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let dataset=null;
+const symbol=c=>c==="BRL"?"R$":"$";
+function fmt(n,c){if(n==null)return "UNKNOWN"; const a=Math.abs(n);const div=a>=1e9?1e9:a>=1e6?1e6:1;const suffix=div===1e9?"B":div===1e6?"M":"";return symbol(c)+(n/div).toLocaleString("en-US",{maximumFractionDigits:2})+suffix}
+function range(x){if(x.min===0&&x.max>0)return "UP TO "+fmt(x.max,x.currency);return x.min===x.max?fmt(x.min,x.currency):fmt(x.min,x.currency)+"–"+fmt(x.max,x.currency)}
+function factor(currency,year){if(!Number.isInteger(year)||!dataset)return null;
+if(currency==="USD"){const x=dataset.inflation.USD.index;return x[year]&&x[dataset.reference_year]?x[dataset.reference_year]/x[year]:null}
+if(currency==="BRL"){if(year>dataset.reference_year||year<2021)return null;let f=1;for(let i=year+1;i<=dataset.reference_year;i++){const p=dataset.inflation.BRL.annual_rates_percent[i];if(!Number.isFinite(p))return null;f*=1+p/100}return f}return null}
+function adjusted(x){const f=factor(x.currency,x.year);return f==null?"NOT COMPUTED":range({currency:x.currency,min:x.min*f,max:x.max*f})}
+const statuses={confirmed_paid:"CONFIRMED PAID",partially_paid:"PARTIALLY PAID · DATED",payment_total_unverified:"PAID TOTAL UNVERIFIED"};
+function card(c){const p=c.payment,ob=c.obligation,paid=p.amount==null?"NOT VERIFIED":fmt(p.amount,ob.currency);
+const realPaid=p.amount!=null&&Number.isInteger(p.value_year)?fmt(p.amount*factor(ob.currency,p.value_year),ob.currency):"NOT COMPUTED";
+return '<article class="damage-card"><div class="damage-top"><span>'+e(c.jurisdiction.toUpperCase())+' · '+e(c.outcome_type.toUpperCase())+'</span><strong class="'+(p.status==="confirmed_paid"?"is-paid":"")+'">'+e(statuses[p.status])+'</strong></div>'+
+'<h2>'+e(c.entities.join(" / "))+'</h2><h3>'+e(c.matter)+'</h3>'+
+'<div class="damage-money"><div><small>DOCUMENTED LEGAL AMOUNT · '+ob.year+'</small><strong>'+e(range(ob))+'</strong><span class="damage-year">'+e(ob.kind)+'</span></div>'+
+'<div><small>2025 PURCHASING-POWER COMPARATOR</small><strong>'+e(adjusted(ob))+'</strong><span class="damage-year">Same currency · not an amount owed today</span></div>'+
+'<div><small>ACTUAL PAYMENT EVIDENCE</small><strong class="'+(p.status==="confirmed_paid"?"paid":"")+'">'+e(paid)+'</strong><span class="damage-year">Reported through '+e(p.as_of)+(p.amount!=null?'; 2025 comparable: '+e(realPaid):"")+'</span></div></div>'+
+'<dl class="damage-detail"><div><dt>DISPOSITION / HAZARD</dt><dd>'+e(c.disposition)+' · '+e(c.hazard)+'</dd></div><div><dt>PAYMENT BOUNDARY</dt><dd>'+e(p.detail)+'</dd></div><div><dt>NON-ADDITIVITY / LIMITATION</dt><dd>'+e(c.notes)+'</dd></div><div><dt>PRIMARY DOCUMENTS</dt><dd>'+e(c.sources.length)+' cited sources; check underlying terms and dates</dd></div></dl>'+
+'<div class="damage-sources">'+c.sources.map(s=>'<a href="'+e(s.url)+'" target="_blank" rel="noopener noreferrer">'+e(s.name)+' ↗</a>').join("")+'</div></article>'}
+function render(){if(!dataset)return;const q=$("paymentSearch").value.trim().toLocaleLowerCase(),st=$("paymentStatus").value,cur=$("paymentCurrency").value;
+const rows=dataset.cases.filter(c=>(st==="ALL"||c.payment.status===st)&&(cur==="ALL"||c.obligation.currency===cur)&&(!q||(c.entities.join(" ")+" "+c.matter+" "+c.hazard+" "+c.jurisdiction).toLocaleLowerCase().includes(q)));
+$("paymentCount").textContent=rows.length+" / "+dataset.cases.length+" DOCUMENTED FINANCIAL RECORDS · NO ADDITIVE TOTAL";
+$("paymentList").innerHTML=rows.length?rows.map(card).join(""):'<div class="damage-empty">No matching documented records. Absence from this small comparator ledger is not evidence of no payment or no harm.</div>'}
+for(const id of ["paymentSearch","paymentStatus","paymentCurrency"])$(id).addEventListener(id==="paymentSearch"?"input":"change",render);
+fetch("damages-data.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{if(!Array.isArray(d.cases))throw Error("Invalid schema");dataset=d;const q=new URLSearchParams(location.search).get("company");if(q)$("paymentSearch").value=q;render()}).catch(()=>{$("paymentCount").textContent="SOURCE FILE COULD NOT BE LOADED";$("paymentList").innerHTML='<div class="damage-empty">The interactive ledger is unavailable. <a href="damages-data.json">Open the source JSON directly</a> or serve the site with the documented local HTTP server.</div>'});
+})();
+</script></body></html>
