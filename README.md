@@ -7,6 +7,7 @@
 ## The website
 
 - [Interactive observatory](docs/index.html): searchable company ledger, temporal views, ten-country atlas, 6 × 8 exposure-research matrix, company source drawers, supporting sources.
+- [Public awareness desk](docs/awareness.html): ten source-linked briefs covering pollution exposure, local information, and limits on interpreting risk.
 - [Start here: research guide](docs/guide.html): orientation, interpretation, data boundaries, evidence ladder and frequently asked questions.
 - [Open data and sources](docs/data-access.html): downloadable public JSON snapshots, primary-source boundaries and reproducible build steps.
 - [About and corrections](docs/about.html): project status, research principles, roadmap and a documented public correction route.
@@ -166,3 +167,9 @@ GitHub Pages includes a source-aware custom `docs/404.html` page and a `docs/sit
 ## Consistent research page shell
 
 The People Atlas and its evidence-methodology page now use the same site header, mobile navigation, breadcrumb trail, research-limit disclosure and multi-column footer as the rest of the website. Existing People Atlas DOM IDs and browser research functions are preserved. Header menu behaviors continue to work in their original applications, with shared Escape and outside-click dismissal. The offline site check enforces consistent landmarks across all public pages.
+
+## Public environmental-health awareness
+
+The [public awareness desk](docs/awareness.html) presents ten carefully scoped, independently linked WHO, EPA, CDC, NIH and FDA briefings on fine-particle air pollution, polluting cooking fuels, lead, PFAS, arsenic, mercury in fish, e-waste, radon, heat and occupational silica. The [source registry](docs/awareness-briefs.json) holds publication labels, primary references, context, non-inference boundaries and actionable official resources. These are educational briefs, not outputs of the corporate emissions index or any personal diagnosis, and no global burden estimate is assigned to an individual company.
+
+To revise these materials, review original sources, update `docs/awareness-briefs.json`, then run `node scripts/build-awareness.cjs`. Before merging, run `node scripts/build-awareness.cjs --check`, `node scripts/build-search-index.cjs --check` and `node scripts/check-site-links.cjs`. Website CI verifies the source-linked generated HTML, and a contribution must never publish private health records or unverified blame.
