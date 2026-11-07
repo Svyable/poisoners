@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -8,9 +8,13 @@
       "method": "US CPI-U all items, U.S. city average, annual mean (NSA); reference 2025. 2025 BLS annual average omits October due to the federal funding lapse.",
       "source": "https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm",
       "index": {
+        "1989": 124,
         "1991": 136.2,
         "2003": 184,
         "2005": 195.3,
+        "2013": 232.957,
+        "2014": 236.736,
+        "2015": 237.017,
         "2016": 240.007,
         "2017": 245.12,
         "2018": 251.107,
@@ -457,6 +461,156 @@
         {
           "name": "Occidental SEC 8-K — January 2026 OxyChem sale and historical environmental-liability carve-out",
           "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026000153/exhibit991pressrelease1-2x.htm"
+        }
+      ]
+    },
+    {
+      "id": "union-carbide-bhopal-1989",
+      "entities": [
+        "Union Carbide Corporation",
+        "Union Carbide India Ltd."
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "Bhopal, Madhya Pradesh, India",
+      "matter": "Bhopal gas disaster compensation settlement",
+      "hazard": "1984 methyl isocyanate release / fatal and nonfatal exposure",
+      "outcome_type": "court-directed civil compensation settlement",
+      "disposition": "1989 Supreme Court of India settlement order, distinct from any scientific accounting of the disaster",
+      "obligation": {
+        "currency": "USD",
+        "year": 1989,
+        "min": 470000000,
+        "max": 470000000,
+        "kind": "Combined U.S.-dollar equivalent settlement for victims; $425m allocated to UCC and $45m to Indian affiliate (the latter paid in rupees)"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 470000000,
+        "as_of": "1989-02",
+        "value_year": null,
+        "detail": "India's Department of Chemicals and Petrochemicals says $470m in compensation was deposited in February 1989. The Supreme Court's payment mechanics split the settlement between Union Carbide Corporation ($425m, including a $5m U.S. interim payment from 1985) and Union Carbide India Ltd. (rupee equivalent of $45m). Do not attribute $470m to each company, assume all cash was transferred in 1989, or treat the USD total as a single-currency bank transfer."
+      },
+      "notes": "The $470m is a collective legal settlement, not a valuation of the lives lost, lifetime medical injuries, continuing contamination, or remediation needs. The official victim-disbursement program extended long after the companies' settlement deposit. Later corporate changes must not be confused with which historical entities made the 1989 settlement.",
+      "sources": [
+        {
+          "name": "Government of India, Department of Chemicals and Petrochemicals — deposit and claimant disbursements",
+          "url": "https://chemicals.gov.in/index.php/bhopal-gas-leak-disaster"
+        },
+        {
+          "name": "Supreme Court of India — February 1989 order and $425m/$45m allocation",
+          "url": "https://indiankanoon.org/doc/654007/"
+        }
+      ]
+    },
+    {
+      "id": "anadarko-tronox-2015",
+      "entities": [
+        "Anadarko Petroleum Corporation",
+        "Kerr-McGee Corporation (related defendant)"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "United States — Tronox bankruptcy and nationwide sites",
+      "matter": "Tronox / Kerr-McGee fraudulent-transfer environmental and tort trust recovery",
+      "hazard": "Legacy chemical, mining, industrial contamination and associated tort claims",
+      "outcome_type": "bankruptcy environmental and tort settlement",
+      "disposition": "Court-approved 2014 settlement effective January 2015; confirmed payment to litigation trust",
+      "obligation": {
+        "currency": "USD",
+        "year": 2014,
+        "min": 5150000000,
+        "max": 5150000000,
+        "kind": "Fixed settlement principal; interest on top was also owed and paid but is excluded here because precise interest dollars are not established"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 5150000000,
+        "as_of": "2015-01-23",
+        "value_year": 2015,
+        "detail": "U.S. DOJ and EPA both expressly record that the defendants paid $5.15bn PLUS interest to the Anadarko Litigation Trust on January 23, 2015. This ledger indexes the verified $5.15bn principal only; it does not imply the principal was paid separately by each named defendant or that trust beneficiaries had received all downstream distributions that day."
+      },
+      "notes": "The trust's estimated allocations of >$4.4bn for environmental cleanup and >$600m for tort claims are uses of this same recovery, not additional company payments. The 2014 legal obligation comparator and 2015 cash-payment comparator use different CPI years. Anadarko's subsequent ownership history does not mean a future acquirer made the 2015 payment.",
+      "sources": [
+        {
+          "name": "U.S. DOJ — Jan. 23, 2015 paid $5.15bn plus interest",
+          "url": "https://www.justice.gov/archives/opa/pr/historic-515-billion-environmental-and-tort-settlement-anadarko-petroleum-corp-goes-effect-0"
+        },
+        {
+          "name": "U.S. EPA — settlement, precise payment date and environmental scope",
+          "url": "https://www.epa.gov/enforcement/case-summary-settlement-agreement-anadarko-fraud-case-results-billions-environmental"
+        }
+      ]
+    },
+    {
+      "id": "bp-gulf-nfwf-criminal-2013",
+      "entities": [
+        "BP Exploration & Production Inc."
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "Gulf of Mexico / United States",
+      "matter": "Deepwater Horizon Gulf Environmental Benefit Fund — BP criminal plea allocation",
+      "hazard": "2010 Deepwater Horizon oil spill / Gulf natural resources",
+      "outcome_type": "criminal plea restoration-fund payment component",
+      "disposition": "Court-approved 2013 criminal plea; this is the NFWF portion of the criminal resolution, not the entire plea",
+      "obligation": {
+        "currency": "USD",
+        "year": 2013,
+        "min": 2394000000,
+        "max": 2394000000,
+        "kind": "Allocation to National Fish and Wildlife Foundation from the separate $4bn criminal resolution"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 2394000000,
+        "as_of": "2018-01",
+        "value_year": null,
+        "detail": "The independent National Fish and Wildlife Foundation confirms its $2.394bn BP allocation was paid in installments over five years, completed January 2018. Individual-year cash amounts have not been independently reconstructed here, so no single 2025 cash-payment price-year adjustment is shown."
+      },
+      "notes": "This $2.394bn is INCLUDED in BP's $4bn 2013 criminal plea total, which is separate from its $20.8bn 2016 civil settlement elsewhere in this ledger. Do not sum this with the $4bn criminal headline or treat NFWF's eventual project expenditures as additional BP payments.",
+      "sources": [
+        {
+          "name": "National Fish and Wildlife Foundation — completed BP installments, Jan. 2018",
+          "url": "https://www.nfwf.org/gulf-environmental-benefit-fund/plea-agreements"
+        },
+        {
+          "name": "U.S. DOJ — BP $4bn criminal plea and allocation context",
+          "url": "https://www.justice.gov/archives/opa/pr/bp-exploration-and-production-inc-pleads-guilty-sentencedto-pay-record-4-billion-crimes"
+        }
+      ]
+    },
+    {
+      "id": "transocean-gulf-nfwf-criminal-2013",
+      "entities": [
+        "Transocean Deepwater Inc."
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "Gulf of Mexico / United States",
+      "matter": "Deepwater Horizon Gulf Environmental Benefit Fund — Transocean criminal plea allocation",
+      "hazard": "2010 Deepwater Horizon oil spill / Gulf natural resources",
+      "outcome_type": "criminal plea restoration-fund payment component",
+      "disposition": "Court-approved 2013 criminal plea; distinct from Transocean's $1bn civil penalty",
+      "obligation": {
+        "currency": "USD",
+        "year": 2013,
+        "min": 150000000,
+        "max": 150000000,
+        "kind": "NFWF allocation within Transocean's $400m criminal fine/penalty resolution"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 150000000,
+        "as_of": "2015-01",
+        "value_year": null,
+        "detail": "National Fish and Wildlife Foundation confirms receipt of Transocean's $150m allocation in installments completed January 2015. Exact year-by-year disbursements are not listed in this ledger, so cash is not repriced as if it were one payment."
+      },
+      "notes": "This is a subset of the $400m criminal resolution, not another $150m on top of that amount. It is also not Transocean's separately agreed $1bn Clean Water Act civil penalty. Do not conflate BP's and Transocean's contributions to the same NFWF fund.",
+      "sources": [
+        {
+          "name": "National Fish and Wildlife Foundation — completed Transocean installments, Jan. 2015",
+          "url": "https://www.nfwf.org/gulf-environmental-benefit-fund/plea-agreements"
+        },
+        {
+          "name": "U.S. DOJ — Transocean guilty plea and $400m criminal sentence",
+          "url": "https://www.justice.gov/criminal/criminal-vns/case/united-states-v-transocean-deepwater-inc"
         }
       ]
     }
