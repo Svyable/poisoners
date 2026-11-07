@@ -35,6 +35,8 @@ jobs:
           node --check src/people-model.cjs
       - name: Verify public health source briefs and static HTML
         run: node scripts/build-awareness.cjs --check
+      - name: Audit official environmental data portals
+        run: node scripts/check-public-records.cjs
       - name: Validate local site links and document anchors
         run: node scripts/check-site-links.cjs
       - name: Verify deterministic site search
