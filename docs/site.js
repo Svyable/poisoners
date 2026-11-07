@@ -33,3 +33,15 @@
     });
   }
 })();
+
+/* Existing observatory, dossier and People interactive menus own their click behavior.
+   Keep Escape/outside-click dismissal consistent without a duplicate click toggle. */
+(() => {
+ for(const [buttonId,panelId] of [["mobileMenu","mobileNav"],["labMenu","labMobileNav"],["peopleMenu","peopleMobileNav"]]){
+  const button=document.getElementById(buttonId),panel=document.getElementById(panelId);
+  if(!button||!panel)continue;
+  const close=()=>{panel.hidden=true;button.setAttribute("aria-expanded","false");button.setAttribute("aria-label","Open navigation");};
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!panel.hidden){close();button.focus();}});
+  document.addEventListener("click",e=>{if(!panel.hidden&&!panel.contains(e.target)&&!button.contains(e.target))close();});
+ }
+})();
