@@ -1,0 +1,58 @@
+name: Suggest a public officer / director source
+description: Public filings only. No claims of guilt, private contact information or claimant details.
+title: "[Public officer source] "
+labels: ["research", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A name in a company leadership disclosure is not evidence that the individual caused environmental harm or could personally be sued. This form collects primary published document references ONLY. Never include home addresses, private contacts, family details, private records, or allegations about a person's behavior.
+  - type: input
+    id: company
+    attributes:
+      label: Exact company from the POISONERS 50-company cohort
+      placeholder: Name as shown in the existing research registry
+    validations:
+      required: true
+  - type: input
+    id: public_person_name
+    attributes:
+      label: Public officer or director name, exactly as the source states
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Exact disclosed professional role
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Primary published filing or regulator URL
+      placeholder: https://www.sec.gov/Archives/edgar/...
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Citation location / report page / effective date
+      placeholder: FY2025 proxy, summary compensation table, page 67
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_scope
+    attributes:
+      label: What does the source actually establish?
+      description: State exactly which name, public role, dates, compensation accounting or governance facts are supported. Explain any ambiguity.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safeguards
+    attributes:
+      label: Public-source integrity
+      options:
+        - label: I included no private addresses, personal contact information, protected health data or confidential materials.
+          required: true
+        - label: I understand this is a research-source suggestion, not an accusation or request to sue the person.
+          required: true
