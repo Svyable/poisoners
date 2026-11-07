@@ -1,0 +1,84 @@
+/* Research Workbench: purpose-built source discovery and local-only evidence worksheet. */
+.wb-main{background:#081210;color:#e4efe9;padding-bottom:90px}
+.wb-main .shell{max-width:1320px}
+.wb-main a{color:inherit}
+.wb-hero{padding:105px 0 75px;border-bottom:1px solid rgba(188,239,206,.12);overflow:hidden;background:radial-gradient(ellipse 70% 60% at 96% 15%,rgba(181,248,111,.11),transparent),linear-gradient(125deg,#10211d,#07110f 68%)}
+.wb-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(290px,.75fr);gap:70px;align-items:center}
+.wb-kicker,.wb-eyebrow{font:500 11px/1.5 "DM Mono",monospace;letter-spacing:.16em;color:#b9ec82}
+.wb-hero h1{font-size:clamp(52px,7.8vw,112px);letter-spacing:-.085em;line-height:.99;max-width:900px;margin:21px 0 26px;font-weight:800}
+.wb-hero h1 em,.wb-section h2 em{font-weight:500;font-family:Georgia,serif;color:#c2eb91}
+.wb-hero p{max-width:640px;color:#aabdb3;font-size:17px;line-height:1.78}
+.wb-hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin:35px 0 22px}
+.wb-hero-actions a{display:inline-flex;align-items:center;min-height:48px;text-decoration:none;font:700 12px/1 "DM Mono",monospace;letter-spacing:.04em}
+.wb-hero-actions a:first-child{background:#c2eb91;color:#10201a;padding:0 25px}
+.wb-hero-actions a:last-child{border:1px solid #587165;padding:0 22px}
+.wb-privacy{font:11px/1.7 "DM Mono",monospace!important;letter-spacing:.025em}
+.wb-diagram{position:relative;min-height:410px;border:1px solid rgba(168,223,184,.17);background:repeating-linear-gradient(0deg,transparent,transparent 34px,rgba(198,244,202,.038) 35px),repeating-linear-gradient(90deg,transparent,transparent 34px,rgba(198,244,202,.038) 35px);display:grid;place-content:center;text-align:center;isolation:isolate}
+.wb-diagram:before,.wb-diagram:after{content:"";position:absolute;width:270px;height:270px;border:1px dashed rgba(194,235,145,.37);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);z-index:-1}
+.wb-diagram:after{width:195px;height:195px;border-style:solid;border-color:rgba(194,235,145,.22)}
+.wb-diagram strong{font:bold 100px/.9 Georgia,serif;color:#c2eb91}
+.wb-diagram span{font:11px/1.9 "DM Mono",monospace;letter-spacing:.13em;color:#a1b9a9}
+.wb-diagram b{position:absolute;padding:8px 12px;background:#101e19;border:1px solid #3c5546;color:#b9ec82;font:10px "DM Mono",monospace;letter-spacing:.06em}
+.wb-diagram b:nth-of-type(1){top:28px;left:24px}
+.wb-diagram b:nth-of-type(2){top:40%;right:15px}
+.wb-diagram b:nth-of-type(3){bottom:24px;left:24px}
+.wb-section{padding-top:70px}
+.wb-heading{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+.wb-section h2{font-size:clamp(35px,4vw,62px);letter-spacing:-.065em;line-height:1.08;margin:14px 0}
+.wb-heading p{max-width:530px;font-size:14px;line-height:1.7;color:#9eaea6}
+.wb-number{font:500 11px "DM Mono",monospace;color:#b9ec82;letter-spacing:.17em}
+.wb-filters{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:28px;background:#15241f;border:1px solid #344c3f}
+.wb-filters label{display:grid;gap:12px;color:#a9c5b4;font:11px/1.5 "DM Mono",monospace;letter-spacing:.12em}
+.wb-filters select{width:100%;height:55px;background:#081410;color:#f0f8f0;border:1px solid #4c6755;border-radius:0;padding:0 18px;font:600 16px Manrope,sans-serif;cursor:pointer}
+.wb-filters select:focus-visible,.wb-action button:focus-visible,.wb-step textarea:focus-visible,.wb-step input:focus-visible,.wb-main a:focus-visible{outline:3px solid #c2eb91;outline-offset:3px}
+.wb-context{display:grid;grid-template-columns:1.5fr .7fr .7fr;align-items:center;gap:20px;border:1px solid #2e4438;border-top:none;padding:25px 28px;background:#0e1b16}
+.wb-context span{display:block;font:10px "DM Mono",monospace;letter-spacing:.12em;color:#86a694;margin-bottom:8px}
+.wb-context strong{font-size:18px;color:#eef8ed}
+.wb-context .wb-count{font:700 33px/1 "DM Mono",monospace;color:#c2eb91}
+.wb-source-summary{margin:19px 0;color:#a6c1ae;font:12px "DM Mono",monospace}
+.wb-sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.wb-source{display:flex;flex-direction:column;min-width:0;border:1px solid #3a5142;background:#15251e;padding:28px;gap:17px}
+.wb-source-top{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#b9ec82;font:10px/1.6 "DM Mono",monospace;letter-spacing:.06em}
+.wb-source-top span:last-child{color:#95b4a3}
+.wb-source h3{font-size:25px;line-height:1.2;letter-spacing:-.04em;margin:0}
+.wb-source>p{color:#b5c7bc;line-height:1.7;margin:0}
+.wb-source-warning{border-left:2px solid #9ab976;padding:4px 0 4px 16px;display:grid;gap:5px;line-height:1.6;color:#a9b7ad}
+.wb-source-warning strong{font:10px "DM Mono",monospace;letter-spacing:.1em;color:#c2eb91;text-transform:uppercase}
+.wb-source-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.wb-source-actions a,.wb-source-empty a{font:600 11px/1.4 "DM Mono",monospace;text-decoration:none;padding:13px 15px;border:1px solid #68846b;color:#e4f2d1}
+.wb-source-actions a:first-child{background:#c2eb91;border-color:#c2eb91;color:#102019}
+.wb-source-empty{grid-column:1/-1;padding:30px;border:1px dashed #6b836b;background:#15261f}
+.wb-source-empty strong{font-size:23px;color:#cceab9}
+.wb-source-empty p{color:#b9c8bd;line-height:1.75;max-width:800px;margin-bottom:25px}
+.wb-boundary{padding:21px 24px;margin-top:18px;border:1px solid #56644b;background:#19271c;color:#bfceb9;line-height:1.7}
+.wb-boundary strong{color:#e8f2c0}
+.wb-checkline{display:flex;justify-content:space-between;gap:25px;align-items:end;flex-wrap:wrap}
+.wb-checkline p{color:#a5b9ae;max-width:630px;line-height:1.7;margin:0}
+.wb-progress{display:flex;align-items:center;gap:15px;min-width:240px}
+.wb-progress strong{color:#c2eb91;font:600 25px "DM Mono",monospace}
+.wb-track{height:5px;flex:1;background:#284135}
+.wb-track i{display:block;background:#c2eb91;height:100%;width:0;transition:width .2s}
+.wb-steps{display:grid;gap:12px;margin-top:24px}
+.wb-step{padding:22px 25px;border:1px solid #31483c;background:#12221c}
+.wb-step-top{display:grid;grid-template-columns:48px 1fr auto;gap:20px;align-items:start}
+.wb-step-no{color:#c2eb91;font:22px Georgia,serif}
+.wb-step h3{font-size:20px;line-height:1.3;margin:0 0 7px}
+.wb-step p{color:#b6c6b9;line-height:1.65;font-size:14px;margin:0}
+.wb-step-check{display:flex;align-items:center;gap:11px;cursor:pointer;font:10px "DM Mono",monospace;letter-spacing:.09em;color:#c2eb91}
+.wb-step-check input{width:19px;height:19px;accent-color:#b9ec82}
+.wb-step-caution{margin:18px 0 17px!important;padding-left:18px;border-left:2px solid #607258;color:#b8ba9f!important}
+.wb-step-notes{display:grid;gap:10px;color:#9aafa1;font:10px "DM Mono",monospace;letter-spacing:.1em}
+.wb-step textarea{resize:vertical;width:100%;min-height:64px;padding:15px;background:#081410;color:#e2efdf;border:1px solid #3e5747;border-radius:0;line-height:1.6;font:14px Manrope,sans-serif}
+.wb-action{margin-top:28px;display:flex;gap:11px;flex-wrap:wrap;align-items:center}
+.wb-action button{min-height:49px;padding:0 18px;border:1px solid #739573;background:transparent;color:#d5f3c2;font:600 11px "DM Mono",monospace;letter-spacing:.045em;cursor:pointer}
+.wb-action button:first-child{background:#c2eb91;color:#112019;border-color:#c2eb91}
+.wb-action button:hover{filter:brightness(1.12)}
+.wb-feedback{margin:14px 0 0;min-height:24px;color:#bdd8b1;font:12px/1.6 "DM Mono",monospace}
+.wb-footer-note{padding:35px;margin-top:60px;border-top:1px solid #3a5040;background:#0d1b16}
+.wb-footer-note h2{font-size:30px;margin:0 0 13px}
+.wb-footer-note p{max-width:920px;line-height:1.7;color:#aabcaf}
+.wb-footer-note a{color:#c2eb91}
+@media(max-width:950px){.wb-hero-grid{grid-template-columns:1fr}.wb-diagram{min-height:280px}.wb-hero{padding:65px 0}.wb-sources{grid-template-columns:1fr}.wb-context{grid-template-columns:1fr 1fr}.wb-context>div:first-child{grid-column:1/-1}}
+@media(max-width:600px){.wb-filters{grid-template-columns:1fr;padding:18px}.wb-hero h1{font-size:clamp(50px,14vw,78px)}.wb-section{padding-top:46px}.wb-heading{display:block}.wb-hero-actions a{width:100%;justify-content:center}.wb-step-top{grid-template-columns:38px 1fr}.wb-step-check{grid-column:2}.wb-step{padding:19px}.wb-context{padding:18px}.wb-source{padding:20px}.wb-diagram{display:none}}
+@media(prefers-reduced-motion:reduce){.wb-track i{transition:none}}
+@media print{.site-header,.site-breadcrumb,.site-search-dialog,.site-disclosure,.site-footer,.wb-hero-actions,.wb-filters,.wb-action,.wb-step-check,.wb-step-notes textarea{display:none!important}.wb-main{background:white!important;color:black!important}.wb-hero,.wb-section{padding:20px 0}.wb-hero h1,.wb-section h2,.wb-step h3{color:black!important}.wb-main p,.wb-main span{color:#222!important}.wb-source,.wb-step,.wb-boundary{background:white!important;color:black!important;border-color:#bbb!important;break-inside:avoid}.wb-step-notes{min-height:24px}}

@@ -25,6 +25,7 @@ for(const [name,html] of pages){
  assert(html.includes('src="site-search.js"'),name+": search script missing");
  assert(html.includes('href="site.css"'),name+": shared design stylesheet missing");
  assert(html.includes('href="glossary.html"'),name+": glossary link missing");
+ assert(html.includes('href="workbench.html"'),name+": research workbench link missing");
  assert(html.includes('class="site-header polished-header"'),name+": inconsistent shared header");
  assert(html.includes('class="site-footer"'),name+": inconsistent site-wide footer");
  assert(html.includes('class="site-disclosure"'),name+": evidence caveat missing");
@@ -61,4 +62,5 @@ for(const item of index.entries){
  }
 }
 assert.equal(seen.size,companyIds.size,"Not all published company records are searchable");
+assert(index.entries.some(e=>e.type==="page"&&e.href==="workbench.html"),"Research workbench is missing from site search");
 console.log("OK — "+names.length+" public pages and "+index.entries.length+" local search entries; "+seen.size+" unique climate-only company profiles.");

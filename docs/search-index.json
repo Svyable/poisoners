@@ -11,6 +11,13 @@
       "keywords": "home overview"
     },
     {
+      "type": "page",
+      "title": "Research Workbench",
+      "href": "workbench.html",
+      "description": "Guided official environmental record lookup and six-stage browser-only evidence worksheet; region and hazard selector",
+      "keywords": "research investigation builder workbench source evidence pathway air drinking water industrial releases facility compliance government records download worksheet"
+    },
+    {
       "type": "section",
       "title": "Company climate ledger",
       "href": "index.html#ledger",
