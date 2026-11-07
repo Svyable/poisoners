@@ -27,6 +27,14 @@ The Basic CSV reports facility location (TRIFID, optional FRS), Form R's chemica
 
 The approved identity links [EPA's TRI ID exhibit](https://downloads.regulations.gov/EPA-HQ-OPPT-2022-0918-0035/attachment_3.pdf), a [2024 TCEQ operational report](https://records.tceq.texas.gov/cs/idcplg?IdcService=TCEQ_EXTERNAL_SEARCH_GET_FILE&Rendition=Web&dID=8337203), and [Exxon's Baytown 2024 company fact sheet](https://corporate.exxonmobil.com/-/media/global/files/locations/united-states-operations/baytown/baytown-complex-2024-fact-sheet.pdf). Each describes a different identity/ownership aspect and none by itself supplies 2024 TRI quantity.
 
+### Real EPA Basic column headers
+
+The [EPA Basic Data Files documentation](https://www.epa.gov/system/files/documents/2025-09/basic_data_files_documentation_august_2024.pdf) defines fields `YEAR`, `TRIFID`, `TRI CHEMICAL /COMPOUND ID`, `CLASSIFICATION`, `FORM TYPE`, `UNIT OF MEASURE`, `5.1 – FUGITIVE AIR`, `5.2 – STACK AIR`, and `5.3 – WATER`. Actual downloadable exports can prefix columns with ordinals (for example `1. YEAR` and `51. 5.1 – FUGITIVE AIR`), so the importer now strips **only the outer field ordinal**, normalizes dash typography, and preserves actual Form R section numbers. The verified 2024 fixture tests numbered headers, DIOXIN classification in grams and TRI compound category IDs independent of elemental metal CAS.
+
+### A separate operator disclosure: AEP System 2024
+
+The [AEP company PDF](https://docs.aep.com/docs/requiredpostings/tri/docs/TRI2024.pdf) is independently transcribed in `docs/coal-operator-2024.json`. This is a self-reported **AEP system-wide** coal-generation summary with mixed ownership, not a TRIFID-specific official EPA CSV, so **do not import it using this Form R tool or join it to the 50 Carbon Majors producers**. The operator explicitly marked its June 2025 submissions pending; off-site disposal transfer is not a direct on-site release. Its genuine published chemistry can nonetheless illustrate sulfuric acid mist, hydrogen fluoride, mercury and ash-metal pathways while official 2024 EPA facility files await reproducible import.
+
 ## 3. Repeatable import
 
 No network access is required after downloading a matching **official EPA Basic CSV**. The script uses Node.js 22 and has no npm dependencies.

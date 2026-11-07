@@ -80,3 +80,21 @@
 .ch-pathway-teaser p{color:#b3c8b3;line-height:1.85;max-width:760px}
 .ch-pathway-teaser a{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:17px 21px;background:#d1ef9f;color:#152719;text-decoration:none;font:700 11px/1.5 var(--mono)}
 @media(max-width:800px){.ch-pathway-teaser .shell{display:block}.ch-pathway-teaser a{margin-top:20px}}
+
+/* Bounded, company-disclosed chemical values; medium-specific mass sorting only. */
+.ch-operator{padding:73px 0 53px;margin-top:60px;border-top:1px solid #47614a}
+.ch-operator-cards{margin:23px 0}.ch-operator-cards .ch-stat strong{font-size:clamp(39px,4.4vw,62px)}
+.ch-operator-highlight{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;align-items:center;gap:28px;background:#17291c;border-top:1px solid #779050;border-bottom:1px solid #779050;padding:21px 25px;margin:18px 0 23px}
+.ch-operator-highlight strong{color:var(--acid);font-size:clamp(21px,2.6vw,34px);letter-spacing:-.065em;line-height:1.15}
+.ch-operator-highlight p{color:#bfd0c1;font-size:12px;line-height:1.85;margin:0}
+.ch-operator-tools{display:grid;grid-template-columns:1fr minmax(180px,310px);gap:13px;margin:25px 0 17px}
+.ch-operator-tools label{display:flex;flex-direction:column;gap:9px;color:#bfd0b7;font:500 10px var(--mono);letter-spacing:.04em}
+.ch-operator-tools input,.ch-operator-tools select{border:1px solid #4a624b;background:#15251c;color:#eff4eb;font:500 12px var(--sans);min-height:47px;padding:12px}
+.ch-operator .ch-table th,.ch-operator .ch-table td{min-width:100px}
+.ch-operator .ch-table th:first-child,.ch-operator .ch-table td:first-child{min-width:195px}
+.ch-operator .ch-table td strong{color:#eff2e2}
+.ch-operator .ch-table td{font:500 12px/1.5 var(--mono)}
+.ch-operator .ch-table td:first-child{font:400 12px/1.6 var(--sans)}
+.ch-operator .op-no-data{color:#9bac9c;font:400 10px/1.4 var(--mono)}
+.ch-operator .ch-source-note{margin-top:24px}
+@media(max-width:760px){.ch-operator-tools,.ch-operator-highlight{grid-template-columns:1fr}.ch-operator{padding-top:53px}}

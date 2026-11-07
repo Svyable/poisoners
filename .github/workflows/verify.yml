@@ -35,6 +35,10 @@ jobs:
           node --test scripts/tri-import.test.cjs
       - name: Verify source-bounded stack rankings and advanced multi-metric filters
         run: node --test scripts/rank.test.cjs
+      - name: Check 2024 AEP original chemical values, media and non-ranking safeguards
+        run: |
+          node --check docs/operator-benchmark.js
+          node --test scripts/operator-benchmark.test.cjs
       - name: Validate people provenance and individual-liability safeguards
         run: node --test scripts/people.test.cjs
       - name: Check research explorer JavaScript syntax
