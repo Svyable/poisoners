@@ -6658,6 +6658,10 @@ window.POISON_DOSSIERS = {
         {
           "title": "3M public water supplier settlement announcement",
           "url": "https://news.3m.com/2024-04-01-3M-Settlement-with-Public-Water-Suppliers-to-Address-PFAS-in-Drinking-Water-Receives-Final-Court-Approval"
+        },
+        {
+          "title": "3M SEC filing · 2024 second-quarter 10-Q: settlement terms and no admission",
+          "url": "https://www.sec.gov/Archives/edgar/data/66740/000006674024000080/mmm-20240630.htm"
         }
       ],
       "chain": [
