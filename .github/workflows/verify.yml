@@ -28,7 +28,12 @@ jobs:
         run: |
           node --check docs/chemistry.js
           node --test scripts/chemistry.test.cjs
-      - name: Test universal metric rankings, cohort comparability and exports
+      - name: Verify EPA TRI Form R facility importer and provenance safeguards
+        run: |
+          node --check scripts/import-tri-basic.cjs
+          node --check docs/tri-facility-ui.js
+          node --test scripts/tri-import.test.cjs
+      - name: Verify source-bounded stack rankings and advanced multi-metric filters
         run: node --test scripts/rank.test.cjs
       - name: Validate people provenance and individual-liability safeguards
         run: node --test scripts/people.test.cjs
@@ -60,6 +65,11 @@ jobs:
           node --check docs/knowledge-app.js
           node scripts/build-knowledge.cjs --check
           node --test scripts/knowledge.test.cjs
+      - name: Verify chemical evidence crosswalk and generated pathway HTML
+        run: |
+          node --check docs/pathways-app.js
+          node scripts/build-pathways.cjs --check
+          node --test scripts/pathways.test.cjs
       - name: Verify deterministic site search
         run: |
           node --check docs/site-search.js

@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-07",
+  "statement": "Editorial crosswalk from existing chemically specific source material to existing evidence-method notes and official-source portals. Not a measurement, risk score, exposure finding, or proof of liability.",
+  "coverage": "Broad U.S. official-record starting points only. Links do not guarantee a chemical, facility, time period or location is covered by a portal.",
+  "routes": [
+    {
+      "chemical_id": "so2",
+      "knowledge_ids": [
+        "release-vs-dose",
+        "measured-modeled",
+        "five-link-pathway"
+      ],
+      "portal_ids": [
+        "us-airnow",
+        "us-echo"
+      ],
+      "next_question": "Find a dated sulfur dioxide observation and distinguish any measured downwind concentration from the emitter's reported mass.",
+      "boundary": "Oxidation to sulfate and local exposure are not quantified here; a sector-wide emission estimate does not describe one neighborhood's dose or identify a cause of illness.",
+      "workbench_concern": "air"
+    },
+    {
+      "chemical_id": "nox",
+      "knowledge_ids": [
+        "release-vs-dose",
+        "measured-modeled",
+        "aqi-vs-average"
+      ],
+      "portal_ids": [
+        "us-airnow",
+        "us-echo"
+      ],
+      "next_question": "Find an ambient nitrogen dioxide measurement and preserve the monitoring interval before relating it to a reported NOₓ total.",
+      "boundary": "Total NOₓ is not the concentration of NO₂, ozone, or nitrate particles at a person's location.",
+      "workbench_concern": "air"
+    },
+    {
+      "chemical_id": "hg",
+      "knowledge_ids": [
+        "food-webs",
+        "five-link-pathway",
+        "completed-not-harm"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-echo"
+      ],
+      "next_question": "Seek species-specific stack, deposition, water, and fish-tissue evidence; identify where inorganic mercury might transform into methylmercury.",
+      "boundary": "Emissions of total mercury do not demonstrate methylmercury in a particular fish or person's diet.",
+      "workbench_concern": "releases"
+    },
+    {
+      "chemical_id": "arsenic",
+      "knowledge_ids": [
+        "groundwater-transport",
+        "clear-well",
+        "hazard-versus-risk"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-ccr",
+        "us-echo"
+      ],
+      "next_question": "Distinguish inorganic arsenic forms and investigate sampled groundwater, soil or ash in a defined location and year.",
+      "boundary": "The element name or presence of ash does not identify a specific exposure or distinguish geogenic background from industrial contribution.",
+      "workbench_concern": "water"
+    },
+    {
+      "chemical_id": "lead",
+      "knowledge_ids": [
+        "lead-life-stages",
+        "water-report-vs-tap",
+        "release-vs-dose"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-ccr",
+        "us-echo"
+      ],
+      "next_question": "Separate soil and ash pathways from drinking-water plumbing; identify sample location, medium, and reporting method.",
+      "boundary": "Reported lead mass does not establish blood-lead levels, individual health effects, or the responsible source.",
+      "workbench_concern": "water"
+    },
+    {
+      "chemical_id": "cadmium",
+      "knowledge_ids": [
+        "groundwater-transport",
+        "hazard-versus-risk",
+        "tri-coverage-gaps"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-ccr"
+      ],
+      "next_question": "Check the compound or species reported, then look for dated local air, water, soil or sediment evidence along a plausible pathway.",
+      "boundary": "An unspecified cadmium mass says nothing about a particular person's dose or a site's local water quality.",
+      "workbench_concern": "water"
+    },
+    {
+      "chemical_id": "chromium6",
+      "knowledge_ids": [
+        "hazard-versus-risk",
+        "measured-modeled",
+        "tri-coverage-gaps"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-ccr"
+      ],
+      "next_question": "Require hexavalent-chromium-specific laboratory results; verify whether any source instead reports total chromium.",
+      "boundary": "Total chromium data cannot be relabeled Cr(VI), and an inventory entry alone cannot establish exposure.",
+      "workbench_concern": "water"
+    },
+    {
+      "chemical_id": "selenium",
+      "knowledge_ids": [
+        "food-webs",
+        "groundwater-transport",
+        "five-link-pathway"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-ccr"
+      ],
+      "next_question": "Find the reported selenium species, receiving water chemistry, and species-specific ecological observations where relevant.",
+      "boundary": "Selenium is an essential nutrient at appropriate levels; its presence alone does not demonstrate poisoning.",
+      "workbench_concern": "water"
+    },
+    {
+      "chemical_id": "h2so4",
+      "knowledge_ids": [
+        "five-link-pathway",
+        "measured-modeled",
+        "release-vs-dose"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-echo"
+      ],
+      "next_question": "Distinguish a directly emitted acid mist from acid particles formed later in air; seek particle size and concentration measurements.",
+      "boundary": "SO₂ mass cannot be reclassified or added as directly emitted H₂SO₄ without a justified formation model.",
+      "workbench_concern": "air"
+    },
+    {
+      "chemical_id": "pm25",
+      "knowledge_ids": [
+        "aqi-vs-average",
+        "duration-and-frequency",
+        "measured-modeled"
+      ],
+      "portal_ids": [
+        "us-airnow",
+        "us-echo"
+      ],
+      "next_question": "Find time-stamped fine-particle measurements, source composition information, and the relevant averaging period.",
+      "boundary": "PM₂.₅ is a mixture; ambient particle readings do not automatically name a facility or quantify a person's lifetime dose.",
+      "workbench_concern": "air"
+    },
+    {
+      "chemical_id": "hcl",
+      "knowledge_ids": [
+        "five-link-pathway",
+        "hazard-versus-risk",
+        "release-vs-dose"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-echo"
+      ],
+      "next_question": "Seek a speciated hydrogen chloride release record and independently measured air concentration or deposition evidence.",
+      "boundary": "An air release of HCl is not the same as measured acidity in a local waterbody or individual inhalation dose.",
+      "workbench_concern": "air"
+    },
+    {
+      "chemical_id": "hf",
+      "knowledge_ids": [
+        "five-link-pathway",
+        "measured-modeled",
+        "hazard-versus-risk"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-echo"
+      ],
+      "next_question": "Verify fluoride species, release timing, monitored air concentrations and any local deposition or receptor evidence.",
+      "boundary": "A facility category cannot establish an HF concentration, tissue injury or ecological outcome at a nearby location.",
+      "workbench_concern": "air"
+    },
+    {
+      "chemical_id": "h2s",
+      "knowledge_ids": [
+        "screening-is-not-verdict",
+        "duration-and-frequency",
+        "five-link-pathway"
+      ],
+      "portal_ids": [
+        "us-echo"
+      ],
+      "next_question": "Use appropriate monitored hydrogen sulfide concentrations, sampling times and professional safety guidance; never treat smell as a reliable instrument.",
+      "boundary": "Odor perception can fade at dangerous exposures; no site-specific concentration or personal dose is supplied.",
+      "workbench_concern": "air"
+    },
+    {
+      "chemical_id": "formaldehyde",
+      "knowledge_ids": [
+        "hazard-versus-risk",
+        "duration-and-frequency",
+        "release-vs-dose"
+      ],
+      "portal_ids": [
+        "us-tri",
+        "us-echo"
+      ],
+      "next_question": "Determine whether the question concerns an indoor, occupational or outdoor source and obtain relevant concentration measurements over time.",
+      "boundary": "A generic chemical listing cannot quantify a person's inhalation dose or assign a particular source.",
+      "workbench_concern": "air"
+    }
+  ]
+}

@@ -37,3 +37,46 @@
 .ch-empty{padding:27px;color:#b9c7b7}.ch-note{margin-top:13px;font:400 11px/1.8 var(--mono);color:#9fb39e}
 @media(max-width:900px){.ch-grid{grid-template-columns:1fr 1fr}.ch-controls{grid-template-columns:1fr 1fr}.ch-controls label:first-child{grid-column:1/-1}.ch-stat strong{font-size:48px}}
 @media(max-width:650px){.ch-hero{padding:57px 0 53px}.ch-headline-section{padding:50px 0}.ch-grid,.ch-legacy-row,.ch-foot,.ch-controls{grid-template-columns:1fr}.ch-controls label:first-child{grid-column:auto}.ch-stat strong{font-size:46px}.ch-matrix{padding:55px 0}.ch-leadrow{display:block}}
+
+/* Reviewed facility crosswalk — records are optional, never a fake zero. */
+.ch-facility{margin-top:72px;padding-top:54px;border-top:1px solid #52684f}
+.ch-facility-status{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid #3c563e;border-bottom:1px solid #3c563e;background:#14251c;padding:16px 20px;font:500 10px/1.7 var(--mono);letter-spacing:.04em}
+.ch-facility-status span:first-child{color:var(--acid)}
+.ch-facility-status span:last-child{color:#b3c4b2;max-width:750px}
+.ch-facility-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 26px}
+.ch-facility-cards article{border:1px solid #455c47;padding:25px;background:#101e17}
+.ch-facility-cards h3{font-size:20px;margin:14px 0 10px;letter-spacing:-.04em;color:#f1f5df}
+.ch-facility-cards p{font-size:12px;line-height:1.85;color:#b4c3b4}
+.ch-facility-cards code{color:var(--acid);font:500 11px var(--mono);overflow-wrap:anywhere}
+.ch-facility-links{display:flex;flex-wrap:wrap;gap:8px}
+.ch-facility-links a{color:var(--acid);font:500 10px var(--mono);text-decoration:underline;text-underline-offset:3px}
+.ch-facility-data{background:#0d1b13;border:1px solid #3c533f;padding:19px;margin:10px 0 23px}
+.ch-facility-data label{display:block;color:#d3e3c2;font:500 11px var(--mono)}
+.ch-facility-data input{display:block;margin:10px 0 0;border:1px solid #4c664a;color:#eef3eb;background:#16261e;width:min(450px,100%);padding:12px;font:500 12px var(--sans)}
+.ch-facility-data .ch-empty{padding:22px 0 5px}
+@media(max-width:780px){.ch-facility-cards{grid-template-columns:1fr}}
+
+/* Coal research paths — three distinct stages, not one corporate accusation. */
+.ch-coal{padding:70px 0 42px;border-top:1px solid #4f624f;margin-top:62px}
+.ch-coal-kpis{display:grid;grid-template-columns:180px 180px minmax(0,1fr);align-items:center;gap:20px;padding:22px;border:1px solid #455f4c;background:#112019}
+.ch-coal-kpis div{border-right:1px solid #39513c}.ch-coal-kpis strong{display:block;font-size:48px;font-weight:750;letter-spacing:-.07em;color:var(--acid);line-height:1.1}
+.ch-coal-kpis span{display:block;font:400 11px/1.7 var(--mono);color:#b9cdb8}
+.ch-coal-kpis p{font-size:12px;color:#b5c5b5;line-height:1.75;margin:0}
+.ch-coal-kpis a{color:var(--acid);text-decoration:underline;text-underline-offset:3px}
+.ch-coal-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 0}
+.ch-coal-paths article{padding:23px;border:1px solid #3d583f;background:#0e1d16}
+.ch-coal-paths h3{font-size:20px;letter-spacing:-.04em;line-height:1.25;margin:16px 0 12px;color:#e5eed9}
+.ch-coal-paths p{font-size:12px;line-height:1.9;color:#b3c3b4;min-height:120px}
+.ch-coal-paths a{color:var(--acid);font:500 10px/1.7 var(--mono);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.ch-coal-kpis{grid-template-columns:1fr 1fr}.ch-coal-kpis p{grid-column:1/-1}.ch-coal-paths{grid-template-columns:1fr}.ch-coal-paths p{min-height:0}}
+@media(max-width:600px){.ch-coal-kpis{grid-template-columns:1fr}.ch-coal-kpis p{grid-column:auto}.ch-coal-kpis div{border-right:none;border-bottom:1px solid #39513c;padding-bottom:13px}}
+
+.ch-pathway-link{display:inline-block;margin-top:14px;padding:11px 13px;background:#d1ef9f;color:#14231b!important;font:700 10px/1.5 var(--mono);text-decoration:none!important;letter-spacing:.02em}
+.ch-pathway-link:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ch-pathway-teaser{padding:55px 0;border-top:1px solid #4b6751;background:radial-gradient(ellipse at 94% 55%,#b4ec8710,transparent 65%),#12251a}
+.ch-pathway-teaser .shell{display:flex;justify-content:space-between;align-items:center;gap:50px}
+.ch-pathway-teaser h2{font-size:clamp(31px,4vw,55px);letter-spacing:-.06em;line-height:1.1;margin:13px 0 17px;color:#f1f6e8}
+.ch-pathway-teaser h2 em{font:400 italic 1em Georgia,serif;color:#d1ef9f}
+.ch-pathway-teaser p{color:#b3c8b3;line-height:1.85;max-width:760px}
+.ch-pathway-teaser a{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:17px 21px;background:#d1ef9f;color:#152719;text-decoration:none;font:700 11px/1.5 var(--mono)}
+@media(max-width:800px){.ch-pathway-teaser .shell{display:block}.ch-pathway-teaser a{margin-top:20px}}

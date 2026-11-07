@@ -24,7 +24,7 @@ function row(c){
  '<td>'+hazardTags(c)+'<small>'+esc(c.health)+'</small></td>'+
  '<td>'+esc(c.environment)+'<small>Media: '+esc(c.media.join(" / "))+'</small></td>'+
  '<td><strong>'+esc(c.odor)+'</strong><small>'+esc(c.odor_note)+'</small></td>'+
- '<td>'+measured+'<small>'+esc(c.measurement)+'</small>'+sources+'</td></tr>';
+ '<td>'+measured+'<small>'+esc(c.measurement)+'</small>'+sources+'<a class="ch-pathway-link" href="pathways.html#route-'+esc(c.id)+'">TRACE THE EVIDENCE ROUTE ↗</a></td></tr>';
 }
 function rank(c){
  const a=db.headline_sets.find(x=>x.id==="epa-2024-covered-power").figures.find(f=>f.chemical_id===c.id);

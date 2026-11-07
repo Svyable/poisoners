@@ -4,7 +4,7 @@
  if(!dialog||!opener||!input||!results||!status)return;
  let records=[],promise=null,previousFocus=null;
  const normalize=s=>String(s??"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
- const types={page:"PAGE",section:"RESEARCH SECTION",company:"CLIMATE-ONLY COMPANY RECORD",knowledge:"EVIDENCE FIELD NOTE"};
+ const types={page:"PAGE",section:"RESEARCH SECTION",company:"CLIMATE-ONLY COMPANY RECORD",knowledge:"EVIDENCE FIELD NOTE",pathway:"CHEMICAL EVIDENCE ROUTE"};
  function load(){
   if(!promise)promise=fetch("search-index.json").then(r=>{if(!r.ok)throw Error("Index unavailable");return r.json();}).then(d=>{
    if(!Array.isArray(d.entries))throw Error("Invalid index");
