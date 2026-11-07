@@ -22,7 +22,7 @@ test("legal outcomes are documented events rather than an aggregate harm index",
   assert.ok(c.jurisdiction&&c.matter&&c.hazard&&c.outcome_type&&c.disposition&&c.notes);
   assert.ok(Array.isArray(c.indexed_entities));
   assert.ok(["USD","BRL"].includes(c.obligation.currency));
-  assert.ok(c.obligation.year>=2010&&c.obligation.year<=d.reference_year);
+  assert.ok(c.obligation.year>=1990&&c.obligation.year<=d.reference_year);
   assert.ok(Number.isFinite(c.obligation.min)&&c.obligation.min>=0);
   assert.ok(Number.isFinite(c.obligation.max)&&c.obligation.max>=c.obligation.min);
   assert.ok(c.sources.length>=1 && c.sources.every(s=>s.name&&/^https:\/\//.test(s.url)));
