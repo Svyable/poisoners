@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-07",
+  "editorial_standard": "Curated official tools only; no copied datasets, inferred contamination, personal information or legal conclusions.",
+  "groups": [
+    {
+      "id": "global",
+      "name": "Global reference",
+      "description": "Comparative datasets, not personal or real-time measurements."
+    },
+    {
+      "id": "united-states",
+      "name": "United States",
+      "description": "Air conditions, reported releases, compliance and drinking-water reports."
+    },
+    {
+      "id": "europe",
+      "name": "Europe",
+      "description": "Near-real-time air indicators and declared major industrial releases."
+    },
+    {
+      "id": "canada",
+      "name": "Canada",
+      "description": "Air-health forecasts and a national industrial emissions inventory."
+    },
+    {
+      "id": "united-kingdom",
+      "name": "United Kingdom",
+      "description": "Postcode-based air information and industrial emissions records."
+    },
+    {
+      "id": "australia",
+      "name": "Australia",
+      "description": "Facility and diffuse-source pollutant reports."
+    }
+  ],
+  "portals": [
+    {
+      "id": "who-cities",
+      "group": "global",
+      "name": "WHO ambient air quality database",
+      "authority": "World Health Organization",
+      "coverage": "City and town measurements from 127 WHO members, associate members or territories; not every settlement.",
+      "vintage": "June 2026 version, observations from 2010–2024",
+      "finds": "Annual average PM2.5, PM10 and nitrogen dioxide concentrations for selected settlements.",
+      "how": "Find your city, confirm its reporting year and measurement coverage, and compare cautiously.",
+      "limit": "A historical city-wide annual mean is not today's local AQI or a personal exposure measurement.",
+      "url": "https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database"
+    },
+    {
+      "id": "us-airnow",
+      "group": "united-states",
+      "name": "AirNow air-quality information",
+      "authority": "U.S. EPA and partner agencies",
+      "coverage": "U.S. location-level monitors and forecasts; availability varies by place and pollutant.",
+      "vintage": "Current/forecast AQI with real-time data caveats",
+      "finds": "AQI levels, smoke information and health-oriented air-quality categories.",
+      "how": "Enter a location and check monitor coverage, forecast time and any advisories.",
+      "limit": "A monitor or sensor does not identify all local exposures, individual doses or a responsible facility.",
+      "url": "https://www.airnow.gov/"
+    },
+    {
+      "id": "us-echo",
+      "group": "united-states",
+      "name": "EPA ECHO facility compliance",
+      "authority": "U.S. Environmental Protection Agency",
+      "coverage": "Facilities recorded in applicable EPA and state/tribal environmental reporting systems.",
+      "vintage": "Mixed enforcement, permit and reporting windows",
+      "finds": "Facility permit details, inspection records, reported violations and enforcement actions.",
+      "how": "Search a location or facility ID; read the agency's data definitions and status dates.",
+      "limit": "A listed violation can be alleged rather than finally adjudicated; missing records do not prove a facility is safe.",
+      "url": "https://echo.epa.gov/"
+    },
+    {
+      "id": "us-tri",
+      "group": "united-states",
+      "name": "EPA Toxics Release Inventory",
+      "authority": "U.S. Environmental Protection Agency",
+      "coverage": "Facilities and chemicals meeting TRI reporting rules, not every source of pollution.",
+      "vintage": "Annual self-reported releases; the EPA toolbox lists current tool status",
+      "finds": "Reported chemical releases, waste transfers and pollution-prevention information.",
+      "how": "Use EPA's TRI Toolbox to select a current search or download tool; confirm substance, year and reporting thresholds.",
+      "limit": "Pounds released are not a measured population dose or toxicity ranking, and some tools may be offline.",
+      "url": "https://www.epa.gov/toxics-release-inventory-tri-program/tri-toolbox"
+    },
+    {
+      "id": "us-ccr",
+      "group": "united-states",
+      "name": "Annual drinking-water quality reports",
+      "authority": "U.S. EPA and local public water systems",
+      "coverage": "Community public-water suppliers; not a private well or a household's individual tap.",
+      "vintage": "Annual reports from water suppliers",
+      "finds": "Water sources, reported regulated contaminants, violations and supplier contacts.",
+      "how": "Find your supplier's Consumer Confidence Report, then ask about the location and timing of relevant sampling.",
+      "limit": "A supplier-wide report cannot substitute for a qualified lead or other contaminant test at one tap.",
+      "url": "https://www.epa.gov/ccr/ccr-information-consumers"
+    },
+    {
+      "id": "eu-air",
+      "group": "europe",
+      "name": "European Air Quality Index",
+      "authority": "European Environment Agency",
+      "coverage": "European monitoring stations and modeled air-quality areas; data availability varies.",
+      "vintage": "Near-real-time station information and model forecasts",
+      "finds": "Short-term air quality estimates for PM2.5, PM10, NO2, ozone and SO2.",
+      "how": "Choose a place, distinguish actual stations from modeled areas, and check the timestamp.",
+      "limit": "The Index is not a legal compliance determination or a long-term annual air-quality assessment.",
+      "url": "https://airindex.eea.europa.eu/AQI/?webgl=0"
+    },
+    {
+      "id": "eu-industrial",
+      "group": "europe",
+      "name": "European Industrial Emissions Portal",
+      "authority": "European Environment Agency",
+      "coverage": "Major industrial complexes under covered European reporting requirements, not all businesses.",
+      "vintage": "Annual facility and pollutant reports; check reporting year",
+      "finds": "Reported industrial releases to air, water and land, transfers of waste and facility details.",
+      "how": "Find a facility on the map, select a pollutant and reporting year, and read the methodology.",
+      "limit": "An annual reported mass does not show local exposure or prove legal responsibility.",
+      "url": "https://industry.eea.europa.eu/industrial-emissions"
+    },
+    {
+      "id": "ca-aqhi",
+      "group": "canada",
+      "name": "Canadian Air Quality Health Index",
+      "authority": "Environment and Climate Change Canada",
+      "coverage": "Canadian AQHI reporting communities; station and location coverage varies.",
+      "vintage": "Current conditions and forecasts",
+      "finds": "A health-oriented indicator based on air pollutant measurements and forecast conditions.",
+      "how": "Select a community and review the advice for its risk category and the current timestamp.",
+      "limit": "A community AQHI is not an individual exposure estimate and local conditions can vary.",
+      "url": "https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index.html"
+    },
+    {
+      "id": "ca-npri",
+      "group": "canada",
+      "name": "National Pollutant Release Inventory",
+      "authority": "Government of Canada",
+      "coverage": "Reporting facilities and substances under NPRI thresholds across Canada.",
+      "vintage": "2025 records are labeled preliminary in the current search tool",
+      "finds": "Facility-reported air, water, and land releases, disposals and transfers.",
+      "how": "Filter by location, facility or substance and verify whether the year is reviewed or preliminary.",
+      "limit": "Preliminary data can contain reporting errors; facility releases are not individual dose measurements.",
+      "url": "https://pollution-waste.canada.ca/national-release-inventory/"
+    },
+    {
+      "id": "uk-air",
+      "group": "united-kingdom",
+      "name": "Check air quality in the UK",
+      "authority": "UK Department for Environment, Food & Rural Affairs",
+      "coverage": "Area-level air forecasts and available monitors in the UK.",
+      "vintage": "Current monitoring and forecasts where provided",
+      "finds": "Air quality by locality or postcode, alerts and exposure guidance.",
+      "how": "Search a postcode or place and check the forecast, station data and health message.",
+      "limit": "A local forecast is an indicator, not a personal diagnosis or source-attribution model.",
+      "url": "https://check-air-quality.service.gov.uk/"
+    },
+    {
+      "id": "uk-pollution",
+      "group": "united-kingdom",
+      "name": "Environment Agency Pollution Inventory",
+      "authority": "Environment Agency / UK National Data Library",
+      "coverage": "Regulated major industrial sites in England within the inventory's reporting scope.",
+      "vintage": "Downloadable annual data for 2013–2024 at the time of review",
+      "finds": "Reported annual releases to air and water and waste movements from qualifying sites.",
+      "how": "Download a reporting year and verify facility permit boundaries and substance units.",
+      "limit": "Large sites are covered selectively; reported annual masses do not describe personal exposure.",
+      "url": "https://www.data.gov.uk/dataset/cfd94301-a2f2-48a2-9915-e477ca6d8b7e/pollution-inventory"
+    },
+    {
+      "id": "au-npi",
+      "group": "australia",
+      "name": "Australian National Pollutant Inventory",
+      "authority": "Australian Government DCCEEW",
+      "coverage": "Australian facilities and diffuse sources within NPI reporting rules.",
+      "vintage": "2024–25 reporting period, updates/corrections possible",
+      "finds": "Annual releases and waste transfers of listed NPI pollutants, including facility mapping.",
+      "how": "Select the facilities map or database, then check substance, year and calculation method.",
+      "limit": "Different chemicals cannot be summed into a meaningful total-harm ranking; reported release is not confirmed exposure.",
+      "url": "https://www.dcceew.gov.au/environment/protection/npi/data"
+    }
+  ]
+}
