@@ -7,8 +7,11 @@
 ## The website
 
 - [Interactive observatory](docs/index.html): searchable company ledger, temporal views, ten-country atlas, 6 × 8 exposure-research matrix, company source drawers, supporting sources.
-- [People & Accountability Atlas](docs/people.html): 50-company × 10-function people research matrix (500 slots), 34 verified public executive disclosures from 7 SEC filers, fiscal-2025 total compensation filters, bookmarks, share links, and public-source review packets. No accusations, personal-harm ranks, or individual lawsuit recommendations.
-- [People research methodology](docs/people-methodology.html): pay-reporting comparability, evidence required to consider individual legal responsibility, privacy controls, U.S. CERCLA/Bestfoods legal overview, and jurisdiction-specific counsel gates.
+- [Start here: research guide](docs/guide.html): orientation, interpretation, data boundaries, evidence ladder and frequently asked questions.
+- [Open data and sources](docs/data-access.html): downloadable public JSON snapshots, primary-source boundaries and reproducible build steps.
+- [About and corrections](docs/about.html): project status, research principles, roadmap and a documented public correction route.
+- [People & Accountability Atlas](docs/people.html): 500 research roles across 50 companies, 34 sourced officers in seven SEC issuers, reported FY2025 compensation filters, bookmarks, source packets and jurisdiction-specific evidence questions. No personal guilt ranks or automated lawsuits.
+- [People research methodology](docs/people-methodology.html): public compensation definitions, actual decision authority, causation and independent-counsel review criteria.
 - [Dossier Lab](docs/dossiers.html): 50 source-bound company research profiles, visible seven-stage evidence gates, precise citation and public JSON export, like-for-like climate comparisons and primary-source historical comparator cases. No composite toxicity/guilt ranking.
 - [Methodology](docs/methodology.html): historical / annual / future harm design, pollutant/receptor matrix, causal models, uncertainty, grades, proposed data ingestion.
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
@@ -18,7 +21,7 @@
 
 **Preview locally:** run 'python3 -m http.server 8000 --directory docs' then open http://localhost:8000. **Verify:** run 'node scripts/verify.cjs'. No npm dependencies.
 
-**Publish with GitHub Pages:** Repository Settings → Pages → Build and deployment → Deploy from branch → select main and /docs. Save. Committing the site does not automatically enable GitHub Pages.
+**Publish with GitHub Pages:** Repository Settings → Pages → Build and deployment → Deploy from branch → select `main` and `/docs`. Save. The published project URL is normally https://svyable.github.io/poisoners/ unless a custom domain is configured.
 
 ## Data sources and boundaries
 
@@ -130,6 +133,12 @@ Use the [public evidence issue template](https://github.com/Svyable/poisoners/is
 **Standard:** No invented numbers. No hidden weights. No conflated boundaries. No automated accusations or legal filings. Do not use the global Lancet mortality estimate to attribute deaths to listed companies.
 
 See the original [LICENSE](LICENSE) for the repository's terms.
+## Website editorial system
+
+The public Pages site uses a consistent accessible header and mobile navigation, source-boundary disclosure, unified footer and three editorial reference pages. Shared styles and behavior are in `docs/site.css` and `docs/site.js` with no framework or runtime dependencies. The research tools (`app.js`, `dossier-lab.js`, source datasets) remain independent.
+
+When changing the site, run `node scripts/check-site-links.cjs` and `node scripts/verify.cjs`. Keep navigation, disclosure text and source vintages consistent across all pages. New claims about health, ecological effects or legal liability require the project's evidence gates rather than copy changes alone.
+
 ## People Atlas public-source release
 
 The latest data contains **34 named people from publicly filed FY2025 executive-compensation records at seven U.S. issuers**, not 500 named or ranked alleged wrongdoers. The **500 slots** identify ten distinct *research functions* in each of the 50 company workstreams. **466 are not yet source-verified.** These slots are not people, defendants, unlawful actors or evidence of personal benefit from damage. Every disclosed compensation figure uses the U.S. SEC Summary Compensation Table convention for FY2025 in USD: this does not establish realized cash, wealth, gain from environmental injury, or legal liability. The underlying documents, filing dates and uncertainties are preserved in [public officer data](data/people/verified-officers.json).

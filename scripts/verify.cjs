@@ -47,4 +47,21 @@ for(const id of ["companySearch","countryFilter","rateSlider","ledgerBody","coun
 }
 cp.execFileSync(process.execPath,["--check",path.join(root,"docs/app.js")],{stdio:"pipe"});
 cp.execFileSync(process.execPath,["--check",path.join(root,"docs/data.js")],{stdio:"pipe"});
+
+// Editorial website baseline: every public page exposes consistent navigation,
+// source-boundary information and accessible local help without script execution.
+for (const filename of ["index.html","dossiers.html","case-studies.html","methodology.html","legal.html","operating-protocol.html","guide.html","data-access.html","about.html"]) {
+ const html=read("docs/"+filename);
+ assert.match(html,/<header class="site-header polished-header">/,"Missing unified header: "+filename);
+ assert.match(html,/<footer class="site-footer"/,"Missing unified footer: "+filename);
+ assert.match(html,/class="site-disclosure"/,"Missing research disclosure: "+filename);
+ assert.match(html,/href="guide.html"/,"Missing research guide navigation: "+filename);
+ assert.match(html,/href="data-access.html"/,"Missing public data navigation: "+filename);
+ assert.match(html,/href="site.css"/,"Missing shared editorial stylesheet: "+filename);
+ assert.match(html,/src="site.js"/,"Missing shared navigation script: "+filename);
+ assert.match(html,/rel="icon"/,"Missing favicon: "+filename);
+ assert.match(html,/aria-label="Primary navigation"/,"Missing labeled navigation: "+filename);
+ assert.match(html,/aria-expanded="false"/,"Missing mobile menu toggle: "+filename);
+}
+cp.execFileSync(process.execPath,["--check",path.join(root,"docs/site.js")],{stdio:"pipe"});
 console.log("OK — ten-country cohort, "+d.companies.length+" source-linked entities, dimensions, provenance, assets, DOM hooks and JS syntax.");
