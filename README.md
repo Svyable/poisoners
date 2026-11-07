@@ -56,7 +56,7 @@ The ten largest sovereign-country **2025 territorial GHG emitters** in EDGAR 202
 
 Each is also broken down by **air / water / soil / plants / animals / humans** and **climate gases / combustion pollutants / metals / persistent organics / agrochemicals / pharmaceutical residues / biological hazards / plastics and particles**, plus spatial extent, toxicity, persistence, vulnerability, reversibility, evidence quality and jurisdiction.
 
-The site's current H/A/F display is a **climate-throughput proxy only**: Carbon Majors' 2024 emissions, published historical values when available, and an adjustable emissions-only 2025–2034 scenario. No actual multi-hazard scores or corporate death tolls are asserted.
+The site's current H/A/F display is a **climate-throughput proxy only**: Carbon Majors' 2024 emissions, published historical values when available, and an adjustable emissions-only 2027–2036 scenario. No actual multi-hazard scores or corporate death tolls are asserted.
 
 ## Build the evidence — then let lawyers evaluate the case
 
