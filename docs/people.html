@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="people.css">
 <script src="people-register-data.js" defer></script><script src="people-app.js" defer></script>
-</head>
+<link rel="stylesheet" href="site.css"><script defer src="site-search.js"></script><link rel="canonical" href="https://svyable.github.io/poisoners/people.html"><meta property="og:url" content="https://svyable.github.io/poisoners/people.html"></head>
 <body class="people-body">
 <a class="skip" href="#peopleMain">Skip to people research</a>
 <header class="site-header">
@@ -21,12 +21,21 @@
 <a class="nav-link" href="index.html#foundation">Metric framework</a>
 <a class="nav-link" href="people-methodology.html">Legal standards</a>
 </nav>
+<button class="site-search-trigger" type="button" data-site-search-open aria-label="Search POISONERS research" aria-keyshortcuts="/" aria-haspopup="dialog" aria-controls="siteSearchDialog"><span aria-hidden="true">⌕</span><span class="site-search-label">Search</span><kbd>/</kbd></button>
 <a class="header-action" href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">OPEN RESEARCH ↗</a>
 <button class="mobile-menu" id="peopleMenu" aria-expanded="false" aria-controls="peopleMobileNav" aria-label="Open navigation">☰</button>
 </header>
 <nav class="mobile-nav" id="peopleMobileNav" aria-label="Mobile navigation" hidden>
 <a href="index.html">Observatory</a><a href="dossiers.html">Dossier Lab</a><a href="people.html">People Atlas</a><a href="index.html#foundation">Metric framework</a><a href="people-methodology.html">Legal standards</a>
 </nav>
+<dialog class="site-search-dialog" id="siteSearchDialog" aria-labelledby="siteSearchHeading" aria-describedby="siteSearchExplainer">
+ <div class="site-search-panel"><div class="site-search-top"><div><span class="site-search-overline">POISONERS / RESEARCH FINDER</span><h2 id="siteSearchHeading">Search the research</h2></div><button type="button" class="site-search-close" data-site-search-close aria-label="Close search">×</button></div>
+ <p id="siteSearchExplainer">Search public pages, case studies and sourced company profiles. Results are navigation aids, not rankings of harm.</p>
+ <label class="site-search-field" for="siteSearchInput"><span aria-hidden="true">⌕</span><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Company, source, pollutant or research term…" aria-controls="siteSearchResults"><kbd>ESC</kbd></label>
+ <div class="site-search-chips"><span>TRY:</span><button type="button" data-site-query="Carbon Majors">Carbon Majors</button><button type="button" data-site-query="Minamata">Minamata</button><button type="button" data-site-query="exposure">Exposure</button><button type="button" data-site-query="legal">Legal</button></div>
+ <div class="site-search-meta"><span id="siteSearchStatus" role="status" aria-live="polite">Choose a topic to begin.</span><span>LOCAL PUBLIC INDEX</span></div><div class="site-search-results" id="siteSearchResults" aria-label="Research search results"></div>
+ <p class="site-search-caveat"><strong>Evidence boundary:</strong> the company records concern 2024 production-linked climate estimates, not measured toxic harm or liability. <a href="guide.html#boundaries">Read the guide ↗</a></p></div>
+</dialog>
 <main id="peopleMain">
 <section class="people-hero"><div class="shell people-hero-layout">
 <div class="people-hero-copy"><span class="kicker"><span class="people-pulse"></span> RESEARCH PLATFORM / HUMAN DECISION GRAPH</span>
@@ -86,5 +95,5 @@
 
 <section class="people-bottom-call"><div class="shell people-bottom-inner"><div><span class="kicker">THE NEXT STANDARD OF PUBLIC ACCOUNTABILITY</span><h2>Know the person.<br><em>Prove the act.</em><br>Establish the harm.</h2></div><div><p>Research must connect an identifiable person, a specific decision or omission, an actual facility and release, a dated exposure pathway, a supported outcome, and an applicable cause of action. Those links are investigated—not presumed.</p><div><a class="button-primary" href="dossiers.html">EXPLORE COMPANY DOSSIERS ↗</a><a class="button-quiet" href="https://github.com/Svyable/poisoners/issues/new/choose" target="_blank" rel="noopener noreferrer">SUBMIT PUBLIC EVIDENCE ↗</a></div></div></div></section>
 </main>
-<footer class="footer"><div class="shell"><div class="footer-top"><div class="footer-brand">POISONERS<span>.</span><small>PUBLIC EVIDENCE · SCIENTIFIC REVIEW · DUE PROCESS</small></div><div class="footer-message">A person is not<br><em>a data point to accuse.</em></div></div><div class="footer-bottom"><span>© 2026 POISONERS · PUBLIC RESEARCH PROTOTYPE</span><span>NO AUTO-RANKED PERSONAL HARM OR LAW SUITS</span><div><a href="index.html">OBSERVATORY</a><a href="dossiers.html">DOSSIERS</a><a href="people-methodology.html">PERSON METHODS</a></div></div></div></footer>
+<footer class="footer"><div class="shell"><div class="footer-top"><div class="footer-brand">POISONERS<span>.</span><small>PUBLIC EVIDENCE · SCIENTIFIC REVIEW · DUE PROCESS</small></div><div class="footer-message">A person is not<br><em>a data point to accuse.</em></div></div><div class="footer-bottom"><span>© 2026 POISONERS · PUBLIC RESEARCH PROTOTYPE</span><span>NO AUTO-RANKED PERSONAL HARM OR LAW SUITS</span><div><a href="index.html">OBSERVATORY</a><a href="dossiers.html">DOSSIERS</a><a href="people-methodology.html">PERSON METHODS</a><a href="glossary.html">RESEARCH GLOSSARY</a></div></div></div></footer>
 </body></html>

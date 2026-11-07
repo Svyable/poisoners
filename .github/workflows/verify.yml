@@ -35,5 +35,11 @@ jobs:
           node --check src/people-model.cjs
       - name: Validate local site links and document anchors
         run: node scripts/check-site-links.cjs
+      - name: Verify deterministic site search
+        run: |
+          node --check docs/site-search.js
+          node scripts/build-search-index.cjs --check
+      - name: Audit public HTML accessibility and local research navigation
+        run: node scripts/check-public-site.cjs
       - name: Audit source catalog structure offline
         run: node scripts/audit-sources.cjs --report /tmp/poison-source-catalog.json

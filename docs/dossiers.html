@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="dossier-lab.css">
 <script defer src="dossier-register-data.js"></script><script defer src="dossier-lab.js"></script>
-<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://svyable.github.io/poisoners/dossiers.html"><meta property="og:type" content="website"><meta property="og:url" content="https://svyable.github.io/poisoners/dossiers.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="site.css"><script defer src="site.js"></script></head>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://svyable.github.io/poisoners/dossiers.html"><meta property="og:type" content="website"><meta property="og:url" content="https://svyable.github.io/poisoners/dossiers.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="site.css"><script defer src="site.js"></script><script defer src="site-search.js"></script></head>
 <body class="lab-body"><div id="top"></div>
 <a class="skip" href="#labMain">Skip to research</a>
 <header class="site-header polished-header">
@@ -22,11 +22,20 @@
 <a class="nav-link" href="case-studies.html">Case studies</a>
 <a class="nav-link" href="methodology.html">Methodology</a>
 <a class="nav-link" href="guide.html">Start here</a></nav>
+  <button class="site-search-trigger" type="button" data-site-search-open aria-label="Search POISONERS research" aria-keyshortcuts="/" aria-haspopup="dialog" aria-controls="siteSearchDialog"><span aria-hidden="true">⌕</span><span class="site-search-label">Search</span><kbd>/</kbd></button>
   <a class="header-action site-header-action" href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">VIEW THE RESEARCH <span aria-hidden="true">↗</span></a>
   <button class="mobile-menu site-menu-button" type="button" id="labMenu" aria-label="Open navigation" aria-controls="labMobileNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
  </div>
 </header>
-<nav id="labMobileNav" class="mobile-nav polished-mobile-nav" aria-label="Mobile navigation" hidden><a href="index.html">Observatory</a><a href="dossiers.html" aria-current="page">Dossier Lab</a><a href="people.html">People Atlas</a><a href="data-access.html">Open data</a><a href="case-studies.html">Case studies</a><a href="methodology.html">Methodology</a><a href="guide.html">Start here</a><a href="operating-protocol.html">Research protocol</a><a href="legal.html">Legal safeguards</a><a href="about.html">About the project</a><a href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></nav><div class="site-breadcrumb"><div class="shell"><a href="index.html">Observatory</a><span class="divider-slash" aria-hidden="true">/</span><span>Dossier Lab</span></div></div>
+<nav id="labMobileNav" class="mobile-nav polished-mobile-nav" aria-label="Mobile navigation" hidden><a href="index.html">Observatory</a><a href="dossiers.html" aria-current="page">Dossier Lab</a><a href="people.html">People Atlas</a><a href="data-access.html">Open data</a><a href="case-studies.html">Case studies</a><a href="methodology.html">Methodology</a><a href="guide.html">Start here</a><a href="operating-protocol.html">Research protocol</a><a href="legal.html">Legal safeguards</a><a href="about.html">About the project</a><a href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></nav>
+<dialog class="site-search-dialog" id="siteSearchDialog" aria-labelledby="siteSearchHeading" aria-describedby="siteSearchExplainer">
+ <div class="site-search-panel"><div class="site-search-top"><div><span class="site-search-overline">POISONERS / RESEARCH FINDER</span><h2 id="siteSearchHeading">Search the research</h2></div><button type="button" class="site-search-close" data-site-search-close aria-label="Close search">×</button></div>
+ <p id="siteSearchExplainer">Search public pages, case studies and sourced company profiles. Results are navigation aids, not rankings of harm.</p>
+ <label class="site-search-field" for="siteSearchInput"><span aria-hidden="true">⌕</span><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Company, source, pollutant or research term…" aria-controls="siteSearchResults"><kbd>ESC</kbd></label>
+ <div class="site-search-chips"><span>TRY:</span><button type="button" data-site-query="Carbon Majors">Carbon Majors</button><button type="button" data-site-query="Minamata">Minamata</button><button type="button" data-site-query="exposure">Exposure</button><button type="button" data-site-query="legal">Legal</button></div>
+ <div class="site-search-meta"><span id="siteSearchStatus" role="status" aria-live="polite">Choose a topic to begin.</span><span>LOCAL PUBLIC INDEX</span></div><div class="site-search-results" id="siteSearchResults" aria-label="Research search results"></div>
+ <p class="site-search-caveat"><strong>Evidence boundary:</strong> the company records concern 2024 production-linked climate estimates, not measured toxic harm or liability. <a href="guide.html#boundaries">Read the guide ↗</a></p></div>
+</dialog><div class="site-breadcrumb"><div class="shell"><a href="index.html">Observatory</a><span class="divider-slash" aria-hidden="true">/</span><span>Dossier Lab</span></div></div>
 <main id="labMain">
 <section class="lab-hero"><div class="shell lab-hero-inner">
 <div class="lab-hero-left">
@@ -94,7 +103,7 @@
   <div class="site-footer-grid">
    <div class="site-footer-about"><a class="site-footer-wordmark" href="index.html">POISONERS<span>.</span></a><p>Make the damage visible. Make the claims verifiable.</p><span class="site-footer-state"><span aria-hidden="true"></span> Open research prototype · November 2026</span></div>
    <nav class="site-footer-column" aria-label="Explore the research"><strong>Explore</strong><a href="index.html">The observatory</a><a href="dossiers.html">Dossier Lab</a><a href="case-studies.html">Documented case studies</a><a href="data-access.html">Open data & sources</a></nav>
-   <nav class="site-footer-column" aria-label="Understand the methods"><strong>Understand</strong><a href="guide.html">Start here / FAQ</a><a href="methodology.html">Methodology</a><a href="operating-protocol.html">Operating protocol</a><a href="legal.html">Legal safeguards</a></nav>
+   <nav class="site-footer-column" aria-label="Understand the methods"><strong>Understand</strong><a href="guide.html">Start here / FAQ</a><a href="glossary.html">Research glossary</a><a href="methodology.html">Methodology</a><a href="operating-protocol.html">Operating protocol</a><a href="legal.html">Legal safeguards</a></nav>
    <nav class="site-footer-column" aria-label="Participate and review"><strong>Participate</strong><a href="about.html">About & corrections</a><a href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">Code & audit trail ↗</a><a href="https://github.com/Svyable/poisoners/issues/new/choose" target="_blank" rel="noopener noreferrer">Submit public evidence ↗</a><a href="https://github.com/Svyable/poisoners/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributor guide ↗</a></nav>
   </div>
   <div class="site-footer-bottom"><span>© 2026 POISONERS · SOURCE-LINKED, CORRECTABLE, AUDITABLE</span><span>Independent research prototype. Not medical, scientific certification or legal advice; no finding of wrongdoing.</span><a href="#top" class="site-footer-top">Back to top ↑</a></div>
