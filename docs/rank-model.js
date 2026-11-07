@@ -165,20 +165,47 @@
   return {
    metric:known.has(config.metric)?config.metric:fields[0].id,
    secondary:known.has(config.secondary)&&config.secondary!==config.metric?config.secondary:null,
+   tertiary:known.has(config.tertiary)&&config.tertiary!==config.metric&&config.tertiary!==config.secondary?config.tertiary:null,
    direction:config.direction==="asc"?"asc":"desc",
    secondaryDirection:config.secondaryDirection==="desc"?"desc":"asc",
+   tertiaryDirection:config.tertiaryDirection==="desc"?"desc":"asc",
    query:String(config.query??"").trim().toLocaleLowerCase().slice(0,150),
    facets,min:config.min==null||config.min===""?null:Number(config.min),
    max:config.max==null||config.max===""?null:Number(config.max),
-   onlyKnown:config.onlyKnown===true,
+   onlyKnown:config.onlyKnown===true&&!config.missingOnly,
+   missingOnly:config.missingOnly===true,
+   rules:(Array.isArray(config.rules)?config.rules:[]).slice(0,4).flatMap(rule=>{
+     if(!rule||!known.has(rule.field))return [];
+     const type=fields.find(f=>f.id===rule.field).type;
+     if(["missing","present"].includes(rule.operator))return [{field:rule.field,operator:rule.operator,value:null}];
+     if(type!=="number"||!["gte","lte","gt","lt","eq"].includes(rule.operator))return [];
+     if(rule.value===null||rule.value===undefined||String(rule.value).trim()==="")return [];
+     const v=Number(rule.value);return Number.isFinite(v)?[{field:rule.field,operator:rule.operator,value:v}]:[];
+   }),
    limit:[10,25,50,100,"all"].includes(config.limit)?config.limit:"all"
   };
  }
  function rank(dataset,rows,input={}){
   const cfg=safeConfig(dataset,input),schema=datasets[dataset],fieldDef=schema.fields.find(x=>x.id===cfg.metric),
-   warning=cohortGuard(dataset,cfg,rows,cfg.metric)|| (cfg.secondary?cohortGuard(dataset,cfg,rows,cfg.secondary):"");
+   guarded=[cfg.metric,cfg.secondary,cfg.tertiary,...cfg.rules.filter(r=>!["missing","present"].includes(r.operator)).map(r=>r.field)].filter(Boolean),
+   warning=guarded.map(f=>cohortGuard(dataset,cfg,rows,f)).find(Boolean)||"";
   const safeMin=Number.isFinite(cfg.min)?cfg.min:null,safeMax=Number.isFinite(cfg.max)?cfg.max:null;
   function value(row,key){return row[key]==null||row[key]===""?null:row[key]}
+  function ruleMatches(row,rule){
+    const raw=value(row,rule.field);
+    if(rule.operator==="missing")return raw===null;
+    if(rule.operator==="present")return raw!==null;
+    const n=asNumber(raw);
+    if(n===null)return false;
+    switch(rule.operator){
+      case "gte":return n>=rule.value;
+      case "lte":return n<=rule.value;
+      case "gt":return n>rule.value;
+      case "lt":return n<rule.value;
+      case "eq":return n===rule.value;
+      default:return false;
+    }
+  }
   let filtered=rows.filter(row=>{
    if(cfg.query){
     const content=Object.values(row).filter(v=>typeof v==="string").join(" ").toLocaleLowerCase();
@@ -189,6 +216,8 @@
    }
    const n=asNumber(row[cfg.metric]);
    if(cfg.onlyKnown&&n===null)return false;
+   if(cfg.missingOnly&&n!==null)return false;
+   if(!cfg.rules.every(rule=>warning&&!["missing","present"].includes(rule.operator)?true:ruleMatches(row,rule)))return false;
    if((safeMin!==null||safeMax!==null)&&n===null)return false;
    if(safeMin!==null&&n<safeMin)return false;
    if(safeMax!==null&&n>safeMax)return false;
@@ -205,6 +234,7 @@
   }
   if(!warning)sorted.sort((a,b)=>compareValue(a,b,cfg.metric,cfg.direction)||
     (cfg.secondary?compareValue(a,b,cfg.secondary,cfg.secondaryDirection):0)||
+    (cfg.tertiary?compareValue(a,b,cfg.tertiary,cfg.tertiaryDirection):0)||
     String(a.id).localeCompare(String(b.id)));
   const total=sorted.length;
   const shown=cfg.limit==="all"?sorted:sorted.slice(0,cfg.limit);
@@ -220,8 +250,12 @@
    }
    return {...row,rank:position};
   });
+  const values=!warning&&numerical?filtered.map(r=>asNumber(r[cfg.metric])).filter(v=>v!==null).sort((a,b)=>a-b):[];
+  const quantile=(p)=>{if(!values.length)return null;const pos=(values.length-1)*p,lo=Math.floor(pos),hi=Math.ceil(pos);return values[lo]+(values[hi]-values[lo])*(pos-lo)};
+  const summary=!warning&&numerical?{known:values.length,missing:total-values.length,min:values[0]??null,
+    p25:quantile(.25),median:quantile(.5),p75:quantile(.75),max:values.at(-1)??null}:null;
   return {config:cfg,warning,field:fieldDef,rows:ranked,total,available:filtered.filter(r=>asNumber(r[cfg.metric])!==null).length,
-   skipped:total-shown.length,appliedMetric:numerical&&!warning};
+   skipped:total-shown.length,appliedMetric:numerical&&!warning,summary};
  }
  function facetsFor(dataset,rows){
   if(!datasets[dataset])throw Error("Unknown cohort");
