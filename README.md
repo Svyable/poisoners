@@ -70,6 +70,9 @@ The site's current H/A/F display is a **climate-throughput proxy only**: Carbon 
 - [Country workstreams](data/country-workstreams.json) — research leads and major gaps for each of the ten countries.
 - [Public 2024 evidence records](data/evidence/carbon-majors-2024.jsonl) — 50 structured emissions observations, with source, vintage, boundary, method classification and explicit uncertainty limitations.
 - [Research kernel](src/index-kernel.cjs) — strict record checking, modeled climate scenarios, source-to-exposure readiness, privacy-key checks and unit/boundary-safe aggregation that requires independent non-overlap attestation.
+- [Ownership graph](src/entity-graph.cjs) — effective-date legal-entity parent relationships, conflicts and cycle checks without name-based liability inference.
+- [Offline facility CSV converter](scripts/normalize-facility-csv.cjs) — explicit header mapping and pound/gram/kg conversions for authorized EPA TRI, Canada NPRI or PRTR exports, restricted to review-stage output. See [mapping guide](data/mappings/README.md).
+- [Source-link audit](scripts/audit-sources.cjs) — rate-limited metadata-only link monitoring; a [weekly GitHub Action](.github/workflows/source-monitor.yml) reports availability but never scrapes, modifies company figures or files claims.
 - [Generated public foundation dataset](docs/foundation.json) — a deterministic GitHub Pages snapshot. The browser reads the matching foundation-data.js file.
 - [Case schema](schema/case-dossier.schema.json) and [evidence schema](schema/evidence-record.schema.json) — formal envelopes for different research objects.
 
@@ -113,7 +116,7 @@ Use the [public evidence issue template](https://github.com/Svyable/poisoners/is
 - [x] Sourced emissions seed; EDGAR 2025 ten-country coverage; **50 climate-only records**, **49 of 100 source-coverage slots** (China has 11 records, capped at 10 for target coverage)
 - [x] Interactive site, three temporal lenses, 6 × 8 research matrix, dossier drawers
 - [x] Research methods, country-by-country preliminary legal framework, schema and CI checks
-- [ ] Import and verify the complete licensed Carbon Majors and PRTR datasets
+- [ ] Import and verify the complete **authorized** Carbon Majors and PRTR datasets
 - [ ] Fill ten **verified** company dossiers in each cohort country; record why each qualifies
 - [ ] Establish pollutant/facility/receptor/outcome attribution and epistemic uncertainty
 - [ ] Build a private, access-controlled evidence room and counsel-managed intake only after review
