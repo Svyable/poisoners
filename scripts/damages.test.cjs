@@ -14,19 +14,19 @@ function factor(currency,year){
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.ok(d.cases.length>=11);
+ assert.ok(d.cases.length>=15);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
   assert.ok(Array.isArray(c.entities)&&c.entities.length&&c.entities.every(Boolean));
   assert.ok(c.jurisdiction&&c.matter&&c.hazard&&c.outcome_type&&c.disposition&&c.notes);
   assert.ok(["USD","BRL"].includes(c.obligation.currency));
-  assert.ok(c.obligation.year>=1990&&c.obligation.year<=d.reference_year);
+  assert.ok(c.obligation.year>=1989&&c.obligation.year<=d.reference_year);
   assert.ok(Number.isFinite(c.obligation.min)&&c.obligation.min>=0);
   assert.ok(Number.isFinite(c.obligation.max)&&c.obligation.max>=c.obligation.min);
   assert.ok(c.sources.length>=1 && c.sources.every(s=>s.name&&/^https:\/\//.test(s.url)));
   assert.ok(["confirmed_paid","partially_paid","payment_total_unverified"].includes(c.payment.status));
-  assert.match(c.payment.as_of,/^20\d\d-\d\d(?:-\d\d)?$/);
+  assert.match(c.payment.as_of,/^(?:19|20)\d\d-\d\d(?:-\d\d)?$/);
   if(c.payment.status==="payment_total_unverified"){assert.equal(c.payment.amount,null);assert.equal(c.payment.value_year,null)}
   else {
    assert.ok(Number.isFinite(c.payment.amount)&&c.payment.amount>0);
@@ -93,6 +93,42 @@ test("cohort joins are explicit and historical defendants stay distinguishable",
  const c=d.cases.find(c=>c.id==="chevron-refinery-air-2003");
  assert.equal(c.payment.status,"confirmed_paid");assert.equal(c.payment.value_year,null);
  assert.match(d.cases.find(c=>c.id==="occidental-passaic-2016").notes,/2026/);
+});
+test("historical confirmed payments use actual cash years and explicit overlap boundaries",()=>{
+ const byId=id=>d.cases.find(c=>c.id===id);
+ const bhopal=byId("union-carbide-bhopal-1989");
+ assert.equal(d.inflation.USD.index["1989"],124);
+ assert.equal(bhopal.payment.amount,470000000);
+ assert.equal(bhopal.payment.status,"confirmed_paid");
+ assert.equal(bhopal.payment.value_year,null,"Early interim and affiliate-currency transfers must not be put in one payment year");
+ assert.match(bhopal.payment.detail,/425m.*45m/);
+ assert.ok(bhopal.notes.includes("not a valuation"));
+ const anadarko=byId("anadarko-tronox-2015");
+ assert.equal(anadarko.obligation.year,2014);
+ assert.equal(anadarko.payment.value_year,2015);
+ assert.equal(anadarko.payment.as_of,"2015-01-23");
+ assert.equal(anadarko.payment.amount,5150000000);
+ assert.match(anadarko.notes,/not additional/);
+ assert.ok(Math.abs(anadarko.payment.amount*factor("USD",2015)-6.994e9)<0.015e9);
+ for(const id of ["bp-gulf-nfwf-criminal-2013","transocean-gulf-nfwf-criminal-2013"]){
+  const c=byId(id);
+  assert.equal(c.payment.status,"confirmed_paid");
+  assert.equal(c.payment.value_year,null,"Multi-year cash flows must not be repriced at the plea year");
+  assert.match(c.notes,/subset|INCLUDED/);
+  assert.equal(c.obligation.year,2013);
+ }
+ assert.equal(byId("bp-gulf-nfwf-criminal-2013").payment.amount,2394000000);
+ assert.equal(byId("transocean-gulf-nfwf-criminal-2013").payment.amount,150000000);
+});
+test("company splits are explicit, source-identified and never doubled",()=>{
+ for(const id of ["dupont-chemours-c8-2017","union-carbide-bhopal-1989"]){
+  const c=d.cases.find(x=>x.id===id);
+  assert.ok(Array.isArray(c.payment.allocations)&&c.payment.allocations.length===2);
+  assert.deepEqual(c.payment.allocations.map(a=>a.entity),c.entities);
+  assert.equal(c.payment.allocations.reduce((s,a)=>s+a.amount,0),c.payment.amount);
+  assert.ok(c.payment.allocations.every(a=>a.currency==="USD"&&a.basis));
+ }
+ assert.match(html,/DOCUMENTED PAYER SPLIT/);
 });
 test("polished monetary page meets global navigation and findability standard",()=>{
  assert.ok(html.includes('class="site-header polished-header"'));
