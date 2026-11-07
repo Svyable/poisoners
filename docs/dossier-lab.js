@@ -9,6 +9,8 @@
   const els=["dossierSearch","dossierCountry","dossierSector","dossierSort","dossierCount","dossierList","dossierPanel","compareA","compareB","comparisonPanel","labCaseGrid","labCaseDetail","labMenu","labMobileNav"];
   if(els.some(id=>!$(id)))return;
   const byId=new Map(db.dossiers.map(d=>[d.id,d]));
+  let paymentCases=[];
+  const paymentMoney=(n,c)=>(c==="BRL"?"R$":"$")+Number(n).toLocaleString("en-US",{maximumFractionDigits:2});
   const validId=new URLSearchParams(location.search).get("entity");
   const first=[...db.dossiers].sort((a,b)=>a.company.localeCompare(b.company))[0].id;
   const state={query:"",country:"ALL",sector:"ALL",sort:"alpha",selected:byId.has(validId)?validId:first,
@@ -57,6 +59,17 @@
     const d=byId.get(state.selected);
     if(!d)return;
     const e=d.evidence;
+    const linkedPayments=paymentCases.filter(c=>Array.isArray(c.indexed_entities)&&c.indexed_entities.includes(d.company));
+    const paymentRows=linkedPayments.map(c=>{
+      const p=c.payment;
+      const status=p.status==="confirmed_paid"?"PAID":p.status==="partially_paid"?"PARTIAL · DATED":"TOTAL PAID NOT VERIFIED";
+      const amount=p.amount==null?"AMOUNT NOT RECONCILED":paymentMoney(p.amount,c.obligation.currency);
+      return '<li><strong>'+esc(c.matter)+'</strong> · '+esc(status)+' · '+esc(amount)+' <small>('+esc(p.as_of)+')</small></li>';
+    }).join("");
+    const paymentBlock='<div class="lab-profile-section"><div class="lab-profile-section-label"><span>HISTORICAL FINANCIAL OUTCOMES / SEPARATE EVIDENCE</span><small>'+linkedPayments.length+' LINKED CASE(S)</small></div>'+
+      (paymentRows?'<ul class="lab-limitations">'+paymentRows+'</ul>':'<p class="lab-profile-p">No researched monetary-outcome record matched this company in the limited ledger. Missing records do not mean zero payments or zero harm.</p>')+
+      '<a class="lab-source-main" href="damages.html?company='+encodeURIComponent(d.company)+'">EXAMINE SETTLEMENTS, PAYMENTS AND INFLATION ↗</a>'+
+      '<p class="lab-profile-p lab-warning">Case-level settlement dollars do not measure company-wide pollution damage. Historic predecessor or subsidiary links are contextual, not automatic transfers of legal fault.</p></div>';
     const gates=d.gates.map((g,i)=>
       '<div class="lab-gate '+(g.status==="linked"?"lab-gate-linked":"")+'"><span class="lab-gate-no">'+String(i+1).padStart(2,"0")+'</span><span class="lab-gate-txt"><strong>'+esc(g.label)+'</strong><small>'+esc(g.description)+'</small></span>'+
       '<span class="lab-gate-status">'+(g.status==="linked"?"SOURCE ONLY":"NOT VERIFIED")+'</span></div>'
@@ -74,6 +87,7 @@
       '<div class="lab-profile-meta-grid"><div><span>HISTORICAL CUMULATIVE</span><strong>'+(d.metric.historical_cumulative==null?"NOT TRANSCRIBED":fmt(d.metric.historical_cumulative)+" MtCO₂e")+'</strong></div>'+
       '<div><span>EVIDENCE METHOD</span><strong>'+esc(e.model_class.toUpperCase())+' / '+esc(e.grade)+'</strong></div><div><span>REPORTING PERIOD</span><strong>'+esc(e.period.start)+' → '+esc(e.period.end)+'</strong></div>'+
       '<div><span>SOURCE REVIEW</span><strong>'+esc(e.source.retrieved_at)+'</strong></div></div>'+
+      paymentBlock+
       '<div class="lab-profile-section"><div class="lab-profile-section-label"><span>SEVEN EVIDENCE GATES</span><small>1 DOCUMENT LINKED · 6 REQUIRE RESEARCH</small></div><div class="lab-gates">'+gates+'</div></div>'+
       '<div class="lab-profile-section"><div class="lab-profile-section-label"><span>BOUNDARY AND LIMITATIONS</span></div>'+
       '<p class="lab-profile-p">'+esc(d.metric.boundary)+'</p>'+
@@ -94,7 +108,7 @@
     $("dossierList").querySelectorAll(".lab-list-item").forEach(b=>b.classList.toggle("is-selected",b.dataset.entity===d.id));
   }
   function downloadPack(d){
-    const pack={generated_at:new Date().toISOString(),type:"public-research-evidence-packet",statement:"Not a scientific causality determination, legal allegation, or proof of injury",dossier:d};
+    const pack={generated_at:new Date().toISOString(),type:"public-research-evidence-packet",statement:"Not a scientific causality determination, legal allegation, or proof of injury",dossier:d,historical_monetary_outcomes:paymentCases.filter(c=>(c.indexed_entities||[]).includes(d.company))};
     const blob=new Blob([JSON.stringify(pack,null,2)+"\n"],{type:"application/json"});
     const url=URL.createObjectURL(blob);
     const a=document.createElement("a");a.href=url;a.download="poisoners-public-"+d.id+".json";document.body.appendChild(a);a.click();a.remove();
@@ -190,4 +204,9 @@
     renderList();renderCompare();renderCases();
   }
   setup();
+  fetch("damages-data.json").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{
+    if(!Array.isArray(d.cases))return;
+    paymentCases=d.cases;
+    renderPanel();
+  }).catch(()=>{ /* Static evidence export remains usable even without ledger fetch. */ });
 })();
