@@ -41,6 +41,7 @@
   }
   function renderList(){
     const data=matches();
+    if(data.length && !data.some(d=>d.id===state.selected))state.selected=data[0].id;
     $("dossierCount").textContent=data.length+" SOURCE RECORD"+(data.length===1?"":"S")+" / "+db.dossiers.length+" INDEXED";
     $("dossierList").innerHTML=data.map((d,i)=>{
       const selected=d.id===state.selected,metric=fmt(d.metric.value);
@@ -49,6 +50,8 @@
         '<strong>'+esc(d.company)+'</strong><span class="lab-item-metric">'+metric+' <small>MtCO₂e · 2024</small></span>'+
         '<span class="lab-item-foot"><i></i>SOURCE-LINKED <span aria-hidden="true">↗</span></span></button>';
     }).join("")||'<p class="lab-no-results">No matching company records. The 10×10 investigation remains incomplete.</p>';
+    if(data.length)renderPanel();
+    else $("dossierPanel").innerHTML='<span class="kicker">NO MATCHING SOURCE RECORDS</span><h3>Try another filter.</h3><p>Absence from the selected subset does not mean absence of emissions or harm.</p>';
   }
   function renderPanel(){
     const d=byId.get(state.selected);
@@ -173,7 +176,7 @@
       state.selected=b.dataset.entity;
       const url=new URL(location.href);url.searchParams.set("entity",state.selected);
       history.replaceState(null,"",url);
-      renderList();renderPanel();
+      renderList();
     });
     $("compareA").addEventListener("change",e=>{state.compareA=e.target.value;renderCompare()});
     $("compareB").addEventListener("change",e=>{state.compareB=e.target.value;renderCompare()});
@@ -184,7 +187,7 @@
       }
       renderCases();
     });
-    renderList();renderPanel();renderCompare();renderCases();
+    renderList();renderCompare();renderCases();
   }
   setup();
 })();
