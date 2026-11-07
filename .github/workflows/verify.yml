@@ -24,6 +24,8 @@ jobs:
         run: node --test scripts/foundation.test.cjs
       - name: Validate people provenance and individual-liability safeguards
         run: node --test scripts/people.test.cjs
+      - name: Test historical payments, alias joins and inflation arithmetic
+        run: node --test scripts/damages.test.cjs
       - name: Check research explorer JavaScript syntax
         run: |
           node --check docs/foundation-app.js
