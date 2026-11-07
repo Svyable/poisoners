@@ -150,7 +150,7 @@ function parseArgs(argv){
 async function main(){
  const args=parseArgs(process.argv.slice(2));
  if(!args.input||!args.retrieved)throw Error("Usage: node scripts/import-tri-basic.cjs --input /path/2024_TRI.csv --retrieved YYYY-MM-DD [--output docs/tri-facility-releases.json] [--expected-sha256 HEX] [--dry-run]");
- if(!args["dry-run"]&&!args.output)throw Error("--output required for writes; use --dry-run for source audit");
+ if(!args.dryRun&&!args.output)throw Error("--output required for writes; use --dry-run for source audit");
  const manifest=JSON.parse(fs.readFileSync(manifestPath,"utf8"));
  const result=await importBasic({input:path.resolve(args.input),year:2024,retrieved:args.retrieved,manifest,expectedSha256:args["expected-sha256"]});
  if(!args.dryRun){
