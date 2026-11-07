@@ -8,7 +8,7 @@
  function load(){
   if(!promise)promise=fetch("search-index.json").then(r=>{if(!r.ok)throw Error("Index unavailable");return r.json();}).then(d=>{
    if(!Array.isArray(d.entries))throw Error("Invalid index");
-   records=d.entries.filter(e=>e&&/^[a-z0-9-]+\.html(?:\?[^#]*)?(?:#[a-z0-9-]+)?$/.test(e.href));
+   records=d.entries.filter(e=>e&&/^[a-z0-9-]+\.html(?:\?[^#]*)?(?:#[A-Za-z0-9-]+)?$/.test(e.href));
   }).catch(e=>{promise=null;throw e});
   return promise;
  }

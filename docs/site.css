@@ -280,3 +280,8 @@ body{overflow-x:clip}
 .px-home-link a{color:#d4f5a3;text-decoration:underline;text-underline-offset:4px}
 .ka-pathway-bridge{padding:19px 22px;background:#182e21;border:1px solid #4d7150;color:#d4e4d0;line-height:1.8;font-size:13px}
 .ka-pathway-bridge a{color:#d4f5a3!important;text-underline-offset:4px}
+
+/* Direct contextual access to the source-bounded Rank Lab. */
+.rk-inline-route{padding:18px 0 10px}
+.rk-inline-route a{display:inline-flex;max-width:100%;border:1px solid #749258;background:#1c2d1c;padding:13px 17px;color:var(--acid);font:500 10px/1.6 var(--mono);letter-spacing:.035em}
+.rk-inline-route a:hover{background:#d2ff621c;border-color:var(--acid)}

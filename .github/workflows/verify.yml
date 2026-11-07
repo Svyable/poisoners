@@ -33,12 +33,16 @@ jobs:
           node --check scripts/import-tri-basic.cjs
           node --check docs/tri-facility-ui.js
           node --test scripts/tri-import.test.cjs
+      - name: Verify source-bounded stack rankings and advanced multi-metric filters
+        run: node --test scripts/rank.test.cjs
       - name: Validate people provenance and individual-liability safeguards
         run: node --test scripts/people.test.cjs
       - name: Check research explorer JavaScript syntax
         run: |
           node --check docs/foundation-app.js
           node --check docs/dossier-lab.js
+          node --check docs/rank-model.js
+          node --check docs/rank-app.js
           node --check docs/dossier-register-data.js
           node --check src/dossier-model.cjs
           node --check docs/people-app.js

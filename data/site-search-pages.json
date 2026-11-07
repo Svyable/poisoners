@@ -8,6 +8,55 @@
   },
   {
     "type": "page",
+    "title": "Universal Rank & Filter Lab",
+    "href": "rankings.html#rankWorkspace",
+    "description": "Filter and stack-rank compatible public environmental data with source provenance and explicit comparison rules.",
+    "keywords": "rank sort compare all metrics filters company emissions chemical money people"
+  },
+  {
+    "type": "section",
+    "title": "2024 source-ranked corporate greenhouse gases",
+    "href": "rankings.html?dataset=companies&metric=annual#rankWorkspace",
+    "description": "Sort Carbon Majors production-linked GHG, with country and sector controls and sources.",
+    "keywords": "company ghg producer emissions ranking source"
+  },
+  {
+    "type": "section",
+    "title": "2025 reported executive compensation ranking",
+    "href": "rankings.html?dataset=people&metric=pay#rankWorkspace",
+    "description": "Sort SEC-reported officer pay; no environmental-harm or legal-guilt inference.",
+    "keywords": "executive officer pay SEC rank people salary compensation"
+  },
+  {
+    "type": "section",
+    "title": "Monetary payments, obligations and inflation comparisons",
+    "href": "rankings.html?dataset=payments&metric=paid&currency=USD#rankWorkspace",
+    "description": "Filter documented payments separately from legal obligations, caps and currencies.",
+    "keywords": "damage paid fines settlements legal payments inflation"
+  },
+  {
+    "type": "section",
+    "title": "142 environmental metric definitions",
+    "href": "rankings.html?dataset=metrics&metric=sources#rankWorkspace",
+    "description": "Sort catalog source leads and filter domain, media, receptor, unit, vintage and status; no measured harm implied.",
+    "keywords": "metric catalog definitions water air soil agriculture governance"
+  },
+  {
+    "type": "section",
+    "title": "Chemically specific source-compatible emissions",
+    "href": "rankings.html?dataset=observations&metric=mass#rankWorkspace",
+    "description": "Sort published national chemical masses only within identical EIA or EPA year, unit and population.",
+    "keywords": "chemical sulfur oxide mercury NOx EIA EPA emissions units"
+  },
+  {
+    "type": "section",
+    "title": "Ranking methodology and comparison safeguards",
+    "href": "rankings.html#rankRules",
+    "description": "Different currencies, source populations, unknown values and unmeasured metric definitions cannot share a universal harm score.",
+    "keywords": "ranking comparable uncertainty hazard score methodology"
+  },
+  {
+    "type": "page",
     "title": "Chemical Hazards and Stank Matrix",
     "href": "chemistry.html",
     "description": "Fourteen chemically specific sulfur, NOx, mercury, arsenic, lead, cadmium, acid mist and particulate profiles with EPA and EIA source-backed mass figures; odor is not toxicity.",
