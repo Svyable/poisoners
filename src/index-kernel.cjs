@@ -6,6 +6,7 @@
  */
 const CLAIM_TYPES=new Set(["emission","release","exposure","health_impact","ecological_impact","enforcement_action","legal_finding","scenario","ownership","other"]);
 const GRADES=new Set(["A","B","C","D"]);
+const OBSERVATION_CLASSES=new Set(["measurement","reported","modeled","derived","allegation","legal_finding"]);
 const STATES=new Set(["lead","corroborated","reviewed","disputed","corrected","withdrawn"]);
 const MISSING="not-estimated";
 const privateKeys=new Set(["name_of_claimant","patient_name","phone","phone_number","email","email_address","home_address","residential_address","medical_record","diagnosis","date_of_birth","social_security_number","ssn","passport","attorney_client_message","ip_address"]);
@@ -28,6 +29,7 @@ function validateEvidence(r){
  if(typeof r.entity_id!=="string"||!r.entity_id.trim())errors.push("Missing entity_id");
  if(!CLAIM_TYPES.has(r.claim_type))errors.push("Unsupported claim_type");
  if(!GRADES.has(r.evidence_grade))errors.push("Unsupported evidence grade");
+ if(!OBSERVATION_CLASSES.has(r.observed_or_modeled))errors.push("Unsupported observation classification");
  if(!STATES.has(r.status))errors.push("Unsupported review status");
  if(typeof r.description!=="string"||r.description.length<20)errors.push("Description requires 20+ chars");
  if(!isPlain(r.reporting_period)||!validDate(r.reporting_period.start)||!validDate(r.reporting_period.end)||r.reporting_period.end<r.reporting_period.start)errors.push("Invalid reporting period");
@@ -47,7 +49,8 @@ function validateEvidence(r){
   if(!r.endpoint || r.endpoint==="Emissions throughput only")errors.push("Impact claims need a specific outcome");
   if(!r.measure?.counterfactual)errors.push("Impact claims require counterfactual assumptions");
   if(!r.measure?.methodology_url)errors.push("Impact claims require an auditable methodology URL");
-  if(!Array.isArray(r.reviewers)||r.reviewers.length<2)errors.push("Impact claims require two independent expert reviewers");
+  if(!Array.isArray(r.reviewers)||new Set(r.reviewers).size<2)errors.push("Impact claims require two distinct expert reviewers");
+  if(!Number.isFinite(r.measure?.lower_bound)||!Number.isFinite(r.measure?.upper_bound))errors.push("Impact claims require numerical uncertainty bounds");
   if(r.status!=="reviewed")errors.push("Impact claims cannot be published without review");
  }
  const privacy=privateFieldPaths(r);
@@ -56,7 +59,7 @@ function validateEvidence(r){
 }
 function scientificReleaseEligible(r){
  return validateEvidence(r).length===0 && r.status==="reviewed" && ["A","B"].includes(r.evidence_grade) &&
-   Array.isArray(r.reviewers) && r.reviewers.length>=2 &&
+   Array.isArray(r.reviewers) && new Set(r.reviewers).size>=2 &&
    typeof r.source?.snapshot_hash_sha256==="string" &&
    /^[a-f0-9]{64}$/i.test(r.source.snapshot_hash_sha256);
 }
@@ -81,7 +84,9 @@ function sumComparable(records,{nonOverlapAttested=false,attestationSourceUrl=nu
   if(r.claim_type!==first.claim_type||r.reporting_period.start!==first.reporting_period.start||
      r.reporting_period.end!==first.reporting_period.end||r.measure?.unit!==first.measure.unit||
      r.measure?.system_boundary!==first.measure.system_boundary||
-     r.source.url!==first.source.url||r.observed_or_modeled!==first.observed_or_modeled)
+     r.source.url!==first.source.url||r.observed_or_modeled!==first.observed_or_modeled||
+     r.endpoint!==first.endpoint||
+     JSON.stringify(r.chemical_identifiers||[])!==JSON.stringify(first.chemical_identifiers||[]))
     throw Error("Incompatible claim boundary, year, unit, source or observation model; do not add");
  }
  // Even matching declared boundaries may overlap through corporate ownership, use of products or supply chains.
