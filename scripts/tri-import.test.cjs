@@ -90,6 +90,11 @@ test("site displays the non-imported source status, and browser code cannot fabr
  assert.ok(html.includes('id="facilityRows"'));
  assert.ok(html.includes('src="tri-facility-ui.js"'));
  assert.ok(html.includes("No 2024 chemical mass is imported yet"));
+ assert.ok(html.includes("~300"),"EPA coal ash facility count");
+ assert.ok(html.includes("~775"),"EPA coal ash units count");
+ assert.ok(html.includes('id="coal-pathways"'));
+ assert.ok(html.includes("As, Cd, Cr, Pb, Se, Hg"));
+ assert.ok(html.includes("Mining &amp; Processing")||html.includes("MINING &amp; PROCESSING"));
  const js=fs.readFileSync(path.join(root,"docs/tri-facility-ui.js"),"utf8");
  assert.doesNotThrow(()=>new vm.Script(js));
  assert.ok(js.includes("NOT zero emissions"));
