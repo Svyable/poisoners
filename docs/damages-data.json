@@ -327,9 +327,9 @@
       "payment": {
         "status": "confirmed_paid",
         "amount": 900000000,
-        "as_of": "2001-09-30",
+        "as_of": "2001-09",
         "value_year": null,
-        "detail": "Official Exxon Valdez Oil Spill Trustee Council records the final civil settlement payment was received in September 2001. Funds were disbursed over ten years; no single inflation year can be assigned to the actual payments."
+        "detail": "Official Exxon Valdez Oil Spill Trustee Council records the final civil settlement payment was received in September 2001 (exact day not reported). Funds were disbursed over ten years; no single inflation year can be assigned to the actual payments."
       },
       "notes": "The separate $100m criminal restitution and $25m after-remission criminal fine are not included in the $900m civil figure. Historical Exxon successor identity is not evidence about current operations.",
       "sources": [
@@ -429,7 +429,7 @@
       "matter": "Passaic River cleanup engineering and design",
       "hazard": "Contaminated river sediments / Superfund cleanup",
       "outcome_type": "CERCLA settlement remediation work",
-      "disposition": "EPA consent agreement for engineering and design; corporate subsidiary, not a corporate-wide tort judgment",
+      "disposition": "2016 work-design agreement of Occidental Chemical; a former Occidental Petroleum subsidiary subsequently sold as part of OxyChem to Berkshire Hathaway in January 2026",
       "obligation": {
         "currency": "USD",
         "year": 2016,
@@ -444,11 +444,15 @@
         "value_year": null,
         "detail": "EPA describes estimated work value and future oversight costs; this source does not verify a cumulative cash disbursement under the design work commitment."
       },
-      "notes": "This estimate is a work commitment, not a cash fine or proof of quantified ecological damage. Do not equate the Occidental Chemical legal entity with every operation of Occidental Petroleum.",
+      "notes": "This estimate is a work commitment, not a cash fine or proof of quantified ecological damage. Do not equate the Occidental Chemical legal entity with every operation of Occidental Petroleum. Occidental sold OxyChem in January 2026; seller disclosed retention of certain legacy environmental liabilities through another entity, but allocation for this specific Passaic settlement is not established here. The historical index join is NOT a current ownership assertion.",
       "sources": [
         {
           "name": "US EPA — $165m Lower Passaic engineering/design agreement",
           "url": "https://www.epa.gov/enforcement/case-summary-165-million-settlement-start-cleanup-work-passaic-river-new-jersey"
+        },
+        {
+          "name": "Occidental SEC 8-K — January 2026 OxyChem sale and historical environmental-liability carve-out",
+          "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026000153/exhibit991pressrelease1-2x.htm"
         }
       ]
     }
