@@ -1,0 +1,489 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-11-07",
+  "purpose": "Chemical-first, compound-specific exposure research. No CO2-derived toxicity ranks, no inferred company releases.",
+  "boundaries": {
+    "climate": "CO2 is used by plants in photosynthesis and is tracked under climate forcing; it is excluded from this direct chemical-toxicity and odor explorer. Elevated CO2 can pose occupational asphyxiation risks; this distinction is not a claim that climate effects are harmless.",
+    "missing": "Missing compound mass is unknown, never zero. No company hazard rank without like-for-like facility, year, speciation, receptor, and source evidence.",
+    "rankings": "Only rank masses within identical source/year/coverage/unit boundaries, not chemical toxicity. Odor is a qualitative sensory description, never a proxy for safety.",
+    "exposure": "Emission mass is not ambient concentration, absorbed dose, health outcome, injury compensation, or culpability. Pollutants formed in the atmosphere must not be double-counted as direct stack releases."
+  },
+  "headline_sets": [
+    {
+      "id": "eia-2025-power-chp",
+      "year": 2025,
+      "scope": "US conventional power plants and combined-heat-and-power plants; energy-use emissions for electricity and useful thermal output",
+      "unit": "metric tonnes",
+      "source_title": "U.S. EIA Electric Power Annual 2025 · Table 9.1 (released Oct 21, 2026)",
+      "source_url": "https://www.eia.gov/electricity/annual/table.php?t=epa_09_01.html",
+      "figures": [
+        {
+          "chemical_id": "so2",
+          "value": 902000,
+          "label": "SO₂"
+        },
+        {
+          "chemical_id": "nox",
+          "value": 1144000,
+          "label": "NOₓ"
+        }
+      ],
+      "note": "EIA estimates in metric tonnes; not a coal-only or company-specific inventory."
+    },
+    {
+      "id": "epa-2024-covered-power",
+      "year": 2024,
+      "scope": "US power plants subject to ARP, CSAPR and/or MATS reporting; EPA Power Plant Data Highlights",
+      "unit": "US short tons",
+      "source_title": "US EPA · Power Plant Data Highlights 2024 (February 2025)",
+      "source_url": "https://www.epa.gov/system/files/documents/2024-02/2023-emissions-data-fact-sheet.pdf",
+      "figures": [
+        {
+          "chemical_id": "nox",
+          "value": 650000,
+          "label": "NOₓ",
+          "percent_change_2010": -69
+        },
+        {
+          "chemical_id": "so2",
+          "value": 600000,
+          "label": "SO₂",
+          "percent_change_2010": -88
+        },
+        {
+          "chemical_id": "hg",
+          "value": 2.2,
+          "label": "Hg",
+          "percent_change_2010": -92
+        }
+      ],
+      "note": "Values are rounded as in EPA fact sheet. US short tons (2,000 lb) are not metric tonnes. This population differs from EIA 2025 coverage. NOₓ is a group total; Hg is mercury emissions, not methylmercury exposure."
+    }
+  ],
+  "compounds": [
+    {
+      "id": "so2",
+      "symbol": "SO₂",
+      "name": "Sulfur dioxide",
+      "cas": "7446-09-5",
+      "family": "sulfur",
+      "media": [
+        "air"
+      ],
+      "coal_role": "Coal and other sulfur-containing fuel combustion; also industrial smelting",
+      "chemistry": "Gas-phase SO₂; oxidizes to sulfate aerosol and contributes to sulfuric acid deposition. Do not label every SO₂ ton as sulfuric acid.",
+      "harm": [
+        "respiratory",
+        "acidification",
+        "secondary-pm"
+      ],
+      "health": "Airway irritation and asthma exacerbation with short-term exposure; indirect fine-particle burden.",
+      "environment": "Sulfate PM, acid deposition, sensitive lakes, forests and crops.",
+      "odor": "sharp/pungent",
+      "odor_note": "Pungent irritating gas; odor alone is not an exposure metric.",
+      "measurement": "National power-sector emissions are available, but not comparable to metal toxicity per ton.",
+      "sources": [
+        {
+          "title": "EPA · Sulfur Dioxide Basics",
+          "url": "https://www.epa.gov/so2-pollution/sulfur-dioxide-basics"
+        },
+        {
+          "title": "ATSDR · Sulfur trioxide and sulfuric acid",
+          "url": "https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=255&toxid=47"
+        }
+      ]
+    },
+    {
+      "id": "nox",
+      "symbol": "NOₓ",
+      "name": "Nitrogen oxides (NO + NO₂)",
+      "cas": null,
+      "family": "nitrogen",
+      "media": [
+        "air"
+      ],
+      "coal_role": "High-temperature combustion of coal and other fuels",
+      "chemistry": "NOₓ is an aggregated reporting class dominated by nitric oxide and nitrogen dioxide—not a single chemical or NO₂ concentration.",
+      "harm": [
+        "respiratory",
+        "secondary-pm",
+        "ozone",
+        "acidification"
+      ],
+      "health": "NO₂ irritates airways and can aggravate asthma; NOₓ contributes to secondary PM₂.₅ and ozone.",
+      "environment": "Nitrate particles, acid deposition and nitrogen enrichment.",
+      "odor": "mixed / not a reliable warning",
+      "odor_note": "NO₂ can be acrid; the measured NOₓ mixture must not be presented as a single odorant.",
+      "measurement": "Report aggregate NOₓ mass separately from ambient NO₂ and ozone concentrations.",
+      "sources": [
+        {
+          "title": "EPA · Basic Information about NO₂",
+          "url": "https://www.epa.gov/no2-pollution/basic-information-about-no2"
+        }
+      ]
+    },
+    {
+      "id": "hg",
+      "symbol": "Hg",
+      "name": "Mercury (reported total)",
+      "cas": "7439-97-6",
+      "family": "metal",
+      "media": [
+        "air",
+        "water",
+        "food web"
+      ],
+      "coal_role": "Trace constituent of coal; may escape stacks or partition into ash and controls",
+      "chemistry": "Emitted elemental, oxidized and particle-bound species have different fates. Aquatic microbes can produce methylmercury; total Hg emissions are not methylmercury releases.",
+      "harm": [
+        "neurodevelopment",
+        "persistent",
+        "bioaccumulation"
+      ],
+      "health": "Species and route matter: methylmercury is a developmental neurotoxin; fish consumption is a key pathway.",
+      "environment": "Deposition into water and food-web bioaccumulation.",
+      "odor": "no reliable odor",
+      "odor_note": "Mercury vapor is odorless; absence of smell does not imply absence of hazard.",
+      "measurement": "EPA 2024 power data report total mercury emissions in short tons. No company-by-company total is imported.",
+      "sources": [
+        {
+          "title": "EPA · How People Are Exposed to Mercury",
+          "url": "https://www.epa.gov/mercury/how-people-are-exposed-mercury"
+        },
+        {
+          "title": "EPA · Health Effects of Mercury",
+          "url": "https://www.epa.gov/mercury/health-effects-exposures-mercury"
+        }
+      ]
+    },
+    {
+      "id": "arsenic",
+      "symbol": "As",
+      "name": "Arsenic and inorganic compounds",
+      "cas": "7440-38-2",
+      "family": "metal",
+      "media": [
+        "air",
+        "ash",
+        "water",
+        "soil"
+      ],
+      "coal_role": "Coal ash/particulates; ash-pond or groundwater pathways",
+      "chemistry": "Elemental arsenic CAS is an identifier anchor, not a substitute for arsenite, arsenate or individual inorganic arsenic compounds.",
+      "harm": [
+        "cancer",
+        "chronic",
+        "groundwater"
+      ],
+      "health": "Inorganic arsenic exposure can cause cancers and non-cancer effects; dose and speciation matter.",
+      "environment": "Leaching from unmanaged ash into groundwater and waterways.",
+      "odor": "no reliable odor",
+      "odor_note": "Do not use smell to screen for arsenic.",
+      "measurement": "No nationwide arsenic mass in this matched headline set. TRI/CCR facility measurements need explicit speciation.",
+      "sources": [
+        {
+          "title": "EPA · Coal Ash FAQ",
+          "url": "https://www.epa.gov/coal-combustion-residuals/frequent-questions-about-2015-coal-ash-disposal-rule"
+        }
+      ]
+    },
+    {
+      "id": "lead",
+      "symbol": "Pb",
+      "name": "Lead and compounds",
+      "cas": "7439-92-1",
+      "family": "metal",
+      "media": [
+        "ash",
+        "air",
+        "soil",
+        "water"
+      ],
+      "coal_role": "Trace metal in combustion residues and potentially particulate releases",
+      "chemistry": "Total lead and lead compounds vary in solubility, particle size, and bioaccessibility; mass is not a blood-lead dose.",
+      "harm": [
+        "neurodevelopment",
+        "persistent",
+        "chronic"
+      ],
+      "health": "Neurodevelopmental risks, especially to children; no identified safe blood-lead level in children.",
+      "environment": "Persistent contamination in soils and sediments.",
+      "odor": "no reliable odor",
+      "odor_note": "Lead contamination is generally not detected by smell.",
+      "measurement": "Needs EPA TRI/CCR source records and medium-specific exposures.",
+      "sources": [
+        {
+          "title": "EPA · Childhood lead exposure",
+          "url": "https://www.epa.gov/americaschildrenenvironment/biomonitoring-lead"
+        },
+        {
+          "title": "EPA · Coal Ash Rule",
+          "url": "https://www.epa.gov/coal-combustion-residuals/frequent-questions-about-2015-coal-ash-disposal-rule"
+        }
+      ]
+    },
+    {
+      "id": "cadmium",
+      "symbol": "Cd",
+      "name": "Cadmium and compounds",
+      "cas": "7440-43-9",
+      "family": "metal",
+      "media": [
+        "ash",
+        "soil",
+        "water",
+        "air"
+      ],
+      "coal_role": "Trace coal-ash contaminant and potential airborne particulate constituent",
+      "chemistry": "Element/compound form and leachability determine exposure; ash content is not a direct discharge.",
+      "harm": [
+        "chronic",
+        "kidney",
+        "cancer"
+      ],
+      "health": "Chronic cadmium exposure raises concern for kidney damage; some compounds are carcinogenic.",
+      "environment": "Contamination of sediment, soil and water from releases.",
+      "odor": "no reliable odor",
+      "odor_note": "Do not rely on odor as a signal.",
+      "measurement": "No verified matched nationwide annual mass in this dataset.",
+      "sources": [
+        {
+          "title": "EPA · Coal Ash FAQ",
+          "url": "https://www.epa.gov/coal-combustion-residuals/frequent-questions-about-2015-coal-ash-disposal-rule"
+        }
+      ]
+    },
+    {
+      "id": "chromium6",
+      "symbol": "Cr(VI)",
+      "name": "Hexavalent chromium compounds",
+      "cas": "18540-29-9",
+      "family": "metal",
+      "media": [
+        "air",
+        "ash",
+        "water"
+      ],
+      "coal_role": "Some coal/industrial metal emissions; measured chromium must be speciated before calling it Cr(VI)",
+      "chemistry": "Chromium(VI) and chromium(III) are chemically and toxicologically distinct. Total chromium release cannot be relabeled as Cr(VI).",
+      "harm": [
+        "cancer",
+        "respiratory",
+        "chronic"
+      ],
+      "health": "Specific hexavalent compounds can cause cancer and respiratory damage through relevant exposures.",
+      "environment": "Mobility depends on oxidation state and water chemistry.",
+      "odor": "no reliable odor",
+      "odor_note": "Chromium species are not reliably detectable by smell.",
+      "measurement": "Require Cr(VI)-specific measurements; no automatic conversions from total Cr.",
+      "sources": [
+        {
+          "title": "EPA · Hazardous air pollutants from power plants",
+          "url": "https://www.epa.gov/power-sector/progress-report-emissions-reductions"
+        }
+      ]
+    },
+    {
+      "id": "selenium",
+      "symbol": "Se",
+      "name": "Selenium compounds",
+      "cas": "7782-49-2",
+      "family": "metal",
+      "media": [
+        "ash",
+        "water",
+        "food web"
+      ],
+      "coal_role": "Coal-combustion wastewater and ash leachate may contain selenium",
+      "chemistry": "Essential trace nutrient at low intake, toxic at elevated exposure; species including selenate/selenite differ.",
+      "harm": [
+        "aquatic",
+        "bioaccumulation"
+      ],
+      "health": "Exposure context is essential; not all selenium presence is poisoning.",
+      "environment": "May bioaccumulate and cause fish and bird reproductive effects in affected ecosystems.",
+      "odor": "no reliable odor",
+      "odor_note": "Dissolved selenium is not detected by smell.",
+      "measurement": "Requires effluent concentrations, species, receiving waters and ecological context.",
+      "sources": [
+        {
+          "title": "EPA · Coal Combustion Residuals",
+          "url": "https://www.epa.gov/coal-combustion-residuals"
+        }
+      ]
+    },
+    {
+      "id": "h2so4",
+      "symbol": "H₂SO₄",
+      "name": "Sulfuric acid aerosol / mist",
+      "cas": "7664-93-9",
+      "family": "sulfur",
+      "media": [
+        "air",
+        "water"
+      ],
+      "coal_role": "Can be generated from SO₃ and oxidation of SO₂; some industrial processes emit acid mist directly",
+      "chemistry": "Sulfuric acid aerosol is not equivalent to emitted SO₂ mass; avoid summing derived sulfate with precursor SO₂ without atmospheric modeling.",
+      "harm": [
+        "corrosive",
+        "respiratory",
+        "acidification"
+      ],
+      "health": "Acid mist can irritate and injure respiratory tissue; route and particle size matter.",
+      "environment": "Acid deposition and surface corrosion.",
+      "odor": "irritant / not a dependable marker",
+      "odor_note": "Acid mist irritation does not provide a quantitative odor exposure measure.",
+      "measurement": "Need actual mist sampling or defensible secondary aerosol model.",
+      "sources": [
+        {
+          "title": "ATSDR · Sulfur Trioxide & Sulfuric Acid",
+          "url": "https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=255&toxid=47"
+        }
+      ]
+    },
+    {
+      "id": "pm25",
+      "symbol": "PM₂.₅",
+      "name": "Fine particulate matter",
+      "cas": null,
+      "family": "particle",
+      "media": [
+        "air"
+      ],
+      "coal_role": "Direct fly ash and secondary sulfate/nitrate aerosol from SO₂ and NOₓ",
+      "chemistry": "Size class ≤2.5 μm, NOT a specific chemical formula; composition, metal content, dose and source vary.",
+      "harm": [
+        "respiratory",
+        "cardiovascular",
+        "secondary-pm"
+      ],
+      "health": "Associated with cardiovascular and respiratory disease; fine particles penetrate lungs.",
+      "environment": "Haze and deposition; mixtures can contain acidic or metallic species.",
+      "odor": "not intrinsic",
+      "odor_note": "Particles do not have a universal odor; smoke smell is not a particle-mass measurement.",
+      "measurement": "Use ambient μg/m³ or direct stack emissions under specified boundaries; do not present as a single compound.",
+      "sources": [
+        {
+          "title": "EPA · PM Health and Environmental Effects",
+          "url": "https://www.epa.gov/pm-pollution/health-and-environmental-effects-particulate-matter-pm"
+        }
+      ]
+    },
+    {
+      "id": "hcl",
+      "symbol": "HCl",
+      "name": "Hydrogen chloride / hydrochloric acid gas",
+      "cas": "7647-01-0",
+      "family": "acid-gas",
+      "media": [
+        "air",
+        "water"
+      ],
+      "coal_role": "Acid gas in coal-fired electric generation and certain industrial combustion",
+      "chemistry": "Gas dissolves readily in water to form acidic solution; distinguish emissions from hydrochloric acid liquid handling.",
+      "harm": [
+        "corrosive",
+        "respiratory"
+      ],
+      "health": "Strong respiratory irritant at sufficient concentrations.",
+      "environment": "Acidic deposition and local damage depending on concentration.",
+      "odor": "pungent",
+      "odor_note": "Pungent odor possible, but not a substitute for monitoring.",
+      "measurement": "EPA MATS regulates acid gas hazards; no headline mass here.",
+      "sources": [
+        {
+          "title": "EPA · Power-sector hazardous air pollutants",
+          "url": "https://www.epa.gov/power-sector/progress-report-emissions-reductions"
+        }
+      ]
+    },
+    {
+      "id": "hf",
+      "symbol": "HF",
+      "name": "Hydrogen fluoride / hydrofluoric acid",
+      "cas": "7664-39-3",
+      "family": "acid-gas",
+      "media": [
+        "air",
+        "water"
+      ],
+      "coal_role": "A hazardous acid-gas constituent of some coal and industrial combustion streams",
+      "chemistry": "Gas vs aqueous acid differs; fluoride dose, speciation and exposure route matter.",
+      "harm": [
+        "corrosive",
+        "respiratory"
+      ],
+      "health": "Can injure airways and tissues with sufficient exposure; severe occupational releases pose distinct risk.",
+      "environment": "Local plant and ecosystem injury can depend on deposited fluoride.",
+      "odor": "not a reliable warning",
+      "odor_note": "Do not assume safe air from an absent odor.",
+      "measurement": "Requires acid-gas monitoring; no compatible annual figure in this selection.",
+      "sources": [
+        {
+          "title": "EPA · Power-sector hazardous air pollutants",
+          "url": "https://www.epa.gov/power-sector/progress-report-emissions-reductions"
+        }
+      ]
+    },
+    {
+      "id": "h2s",
+      "symbol": "H₂S",
+      "name": "Hydrogen sulfide",
+      "cas": "7783-06-4",
+      "family": "odorous",
+      "media": [
+        "air"
+      ],
+      "coal_role": "Important in sour gas, refineries, mines and industrial operations; not automatically a coal stack emission",
+      "chemistry": "Reduced sulfur gas, chemically distinct from SO₂ and sulfuric acid.",
+      "harm": [
+        "acute",
+        "respiratory",
+        "neuro"
+      ],
+      "health": "High concentrations may rapidly cause collapse, poisoning or death; odor fatigue makes smell unsafe for warning.",
+      "environment": "Can affect air quality near industrial and waste sources.",
+      "odor": "rotten egg",
+      "odor_note": "Strong rotten-egg smell at low concentrations, but olfactory fatigue/paralysis can remove warning at dangerous levels.",
+      "measurement": "No emissions value assigned to coal firms without facility-level reporting.",
+      "sources": [
+        {
+          "title": "ATSDR · Hydrogen Sulfide Medical Management",
+          "url": "https://wwwn.cdc.gov/TSP/MMG/MMGDetails.aspx?mmgid=385&toxid=67"
+        },
+        {
+          "title": "OSHA · H₂S hazards and smell warning",
+          "url": "https://www.osha.gov/hydrogen-sulfide"
+        }
+      ]
+    },
+    {
+      "id": "formaldehyde",
+      "symbol": "CH₂O",
+      "name": "Formaldehyde",
+      "cas": "50-00-0",
+      "family": "organic",
+      "media": [
+        "air"
+      ],
+      "coal_role": "An organic hazardous air pollutant in some combustion and industrial operations; not a unique coal signature",
+      "chemistry": "Reactive aldehyde; gas-phase ambient chemistry and direct releases need differentiated sources.",
+      "harm": [
+        "respiratory",
+        "cancer",
+        "chronic"
+      ],
+      "health": "Irritation and carcinogenic concerns in relevant chronic inhalation exposures.",
+      "environment": "Reacts in the atmosphere; exposure context matters.",
+      "odor": "sharp/pungent",
+      "odor_note": "Distinct odor possible but it is not a reliable concentration measure.",
+      "measurement": "No national matched value imported in this selection.",
+      "sources": [
+        {
+          "title": "EPA · Power-sector hazardous air pollutants",
+          "url": "https://www.epa.gov/power-sector/progress-report-emissions-reductions"
+        }
+      ]
+    }
+  ]
+}
