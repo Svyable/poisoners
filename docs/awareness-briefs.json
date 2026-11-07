@@ -1,0 +1,275 @@
+{
+  "schema": 1,
+  "reviewed_on": "2026-11-07",
+  "note": "Public education and source discovery. No personalized risk, health diagnosis, company attribution or legal finding.",
+  "groups": [
+    {
+      "id": "air",
+      "name": "Air & breathing",
+      "desc": "Outdoor air and smoke generated in homes."
+    },
+    {
+      "id": "water",
+      "name": "Drinking water",
+      "desc": "Risks requiring supplier reports or properly collected samples."
+    },
+    {
+      "id": "food-waste",
+      "name": "Food & discarded materials",
+      "desc": "Exposure through aquatic food webs and unsafe recycling."
+    },
+    {
+      "id": "home-work",
+      "name": "Homes, heat & work",
+      "desc": "Conditions that depend on buildings, temperature and work practices."
+    }
+  ],
+  "signals": [
+    {
+      "value": "4.2M",
+      "label": "WHO estimate of annual premature deaths from outdoor air pollution, based on 2019 data",
+      "date": "WHO / 2019 estimate",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/ambient-%28outdoor%29-air-quality-and-health"
+    },
+    {
+      "value": "2.1B",
+      "label": "People worldwide relying on polluting cooking fuels and technologies",
+      "date": "WHO / Dec 2025",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health"
+    },
+    {
+      "value": "22.3%",
+      "label": "Of e-waste documented as formally collected and recycled worldwide in 2022",
+      "date": "WHO / 2022 figures",
+      "url": "https://www.who.int/news-room/questions-and-answers/item/children-and-digital-dumpsites-e-waste-and-health"
+    }
+  ],
+  "briefs": [
+    {
+      "id": "fine-particles",
+      "group": "air",
+      "title": "Fine particles outdoors",
+      "fact": "WHO estimated 4.2 million premature deaths worldwide from outdoor air pollution in 2019; this is a modeled population burden.",
+      "pathway": "Fine airborne particles are inhaled from varied sources such as fires, transport, industry and combustion.",
+      "check": "Use air-quality monitoring, daily advisories and wildfire-smoke alerts where available. U.S. readers can consult AirNow.",
+      "action": "Check current U.S. air conditions",
+      "actionUrl": "https://www.airnow.gov/",
+      "boundary": "A global burden estimate or local monitor does not identify the responsible source of an individual's illness.",
+      "sources": [
+        [
+          "WHO",
+          "Ambient (outdoor) air pollution",
+          "24 Oct 2024; 2019 estimate",
+          "https://www.who.int/news-room/fact-sheets/detail/ambient-%28outdoor%29-air-quality-and-health"
+        ],
+        [
+          "EPA / partners",
+          "AirNow air-quality information",
+          "Live U.S. monitoring service",
+          "https://www.airnow.gov/"
+        ]
+      ]
+    },
+    {
+      "id": "cooking-smoke",
+      "group": "air",
+      "title": "Polluting household cooking fuels",
+      "fact": "WHO reported about 2.1 billion people worldwide cook using polluting fuels or technologies in its December 2025 fact sheet.",
+      "pathway": "Burning wood, coal, kerosene or other polluting fuels indoors can create harmful airborne particles.",
+      "check": "Look for public programs supporting cleaner cooking fuels and technologies; ventilation alone may not eliminate the exposure.",
+      "action": "Read WHO household air guidance",
+      "actionUrl": "https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health",
+      "boundary": "This global household-energy estimate does not assess the air quality or choices available in any particular home.",
+      "sources": [
+        [
+          "WHO",
+          "Household air pollution",
+          "16 Dec 2025",
+          "https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health"
+        ]
+      ]
+    },
+    {
+      "id": "lead",
+      "group": "water",
+      "title": "Lead in drinking water",
+      "fact": "WHO states that no level of lead exposure is known to be without harmful effects; young children are especially vulnerable.",
+      "pathway": "Lead can leach from service lines, solder and plumbing; exposure also occurs through dust, paint and industrial sources.",
+      "check": "Ask your water provider for its annual quality report, learn about the service line, and arrange appropriate tap testing when concerned. Boiling does not remove lead.",
+      "action": "Find U.S. water quality reports",
+      "actionUrl": "https://www.epa.gov/ccr/ccr-information-consumers",
+      "boundary": "A utility report or a home's age does not tell you the lead concentration at a particular tap.",
+      "sources": [
+        [
+          "WHO",
+          "Lead poisoning",
+          "10 Jun 2026",
+          "https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health"
+        ],
+        [
+          "EPA",
+          "Sources of lead in drinking water",
+          "Consumer guidance",
+          "https://www.epa.gov/ground-water-and-drinking-water/sources-lead-drinking-water-text-only"
+        ]
+      ]
+    },
+    {
+      "id": "pfas",
+      "group": "water",
+      "title": "PFAS in water and food",
+      "fact": "NIH reviews associations between exposure to certain PFAS and immune, cholesterol, reproductive and other effects; evidence differs among chemicals.",
+      "pathway": "Some PFAS can reach people through drinking water, food and occupational or product-related routes.",
+      "check": "Ask which specific PFAS were tested in your water, seek a qualified laboratory for private wells, and consult local guidance on appropriate treatment.",
+      "action": "Explore official PFAS tools",
+      "actionUrl": "https://www.epa.gov/pfas",
+      "boundary": "A positive test does not itself establish a health effect or identify a legally responsible company. PFAS chemicals are not interchangeable.",
+      "sources": [
+        [
+          "NIH",
+          "Per- and Polyfluoroalkyl Substances (PFAS)",
+          "Current health reference",
+          "https://health.nih.gov/health-topics-a-z/pfas"
+        ],
+        [
+          "EPA",
+          "PFAS resources, data and tools",
+          "Updated 26 Oct 2026",
+          "https://www.epa.gov/pfas"
+        ]
+      ]
+    },
+    {
+      "id": "arsenic",
+      "group": "water",
+      "title": "Arsenic in groundwater",
+      "fact": "WHO identifies long-term inorganic arsenic exposure through drinking water as a cause of cancer and other harmful outcomes.",
+      "pathway": "Natural geology can introduce arsenic into aquifers used for drinking, cooking and irrigation.",
+      "check": "For private wells, ask local public-health or groundwater authorities whether arsenic testing is indicated, and use a qualified laboratory.",
+      "action": "Read WHO arsenic evidence",
+      "actionUrl": "https://www.who.int/news-room/fact-sheets/detail/arsenic",
+      "boundary": "A regional groundwater map cannot establish the quality of an individual well. Water can look normal while containing contaminants.",
+      "sources": [
+        [
+          "WHO",
+          "Arsenic",
+          "7 Dec 2022",
+          "https://www.who.int/news-room/fact-sheets/detail/arsenic"
+        ],
+        [
+          "EPA",
+          "Protect your home's well water",
+          "Private-well guidance",
+          "https://www.epa.gov/privatewells/protect-your-homes-water"
+        ]
+      ]
+    },
+    {
+      "id": "mercury",
+      "group": "food-waste",
+      "title": "Methylmercury in fish",
+      "fact": "WHO identifies methylmercury as a concern for fetal and early-childhood neurological development; some fish accumulate more than others.",
+      "pathway": "Mercury can transform in aquatic ecosystems, build up in fish and reach people through seafood.",
+      "check": "Consult local fish-consumption advisories for local catches. FDA/EPA guidance helps people who are pregnant and children choose lower-mercury fish.",
+      "action": "Use FDA/EPA fish-choice advice",
+      "actionUrl": "https://www.fda.gov/food/consumers/advice-about-eating-fish",
+      "boundary": "Risk depends on species, location and consumption. This is not a reason to reject all nutritious fish or accuse one producer.",
+      "sources": [
+        [
+          "WHO",
+          "Mercury and health",
+          "24 Oct 2024",
+          "https://www.who.int/news-room/fact-sheets/detail/mercury-and-health"
+        ],
+        [
+          "FDA / EPA",
+          "Advice about eating fish",
+          "Advice revised Oct 2021",
+          "https://www.fda.gov/food/consumers/advice-about-eating-fish"
+        ]
+      ]
+    },
+    {
+      "id": "electronic-waste",
+      "group": "food-waste",
+      "title": "Electronic waste and unsafe recycling",
+      "fact": "WHO reports 62 million tonnes of e-waste generated globally in 2022; just 22.3% was documented as formally collected and recycled.",
+      "pathway": "Unsafe burning, dismantling and dumping can expose workers and communities to hazardous air, dust, soil and water mixtures.",
+      "check": "Use authorized electronics recycling and take-back programs where available. Support safer collection and protections for informal workers.",
+      "action": "Read WHO e-waste health evidence",
+      "actionUrl": "https://www.who.int/news-room/questions-and-answers/item/children-and-digital-dumpsites-e-waste-and-health",
+      "boundary": "The global waste figure does not prove contamination or illness in any particular neighborhood.",
+      "sources": [
+        [
+          "WHO",
+          "Electronic waste: digital dumpsites and children",
+          "2 Oct 2024; 2022 figures",
+          "https://www.who.int/news-room/questions-and-answers/item/children-and-digital-dumpsites-e-waste-and-health"
+        ]
+      ]
+    },
+    {
+      "id": "radon",
+      "group": "home-work",
+      "title": "Radon inside buildings",
+      "fact": "U.S. EPA identifies radon as a naturally occurring radioactive gas that can cause lung cancer; it cannot be seen or smelled.",
+      "pathway": "Radon can enter buildings from soil and accumulate indoors; actual concentration differs by building.",
+      "check": "Test indoor radon with an appropriate kit or qualified professional and follow local agency advice about mitigation if levels are elevated.",
+      "action": "Learn about EPA radon testing",
+      "actionUrl": "https://www.epa.gov/radon",
+      "boundary": "A regional risk map does not tell you the radon level in a specific home. Testing does not attribute an individual cancer case.",
+      "sources": [
+        [
+          "EPA",
+          "Radon: risk and testing",
+          "Current U.S. guidance",
+          "https://www.epa.gov/radon"
+        ]
+      ]
+    },
+    {
+      "id": "extreme-heat",
+      "group": "home-work",
+      "title": "Heat and preventable illness",
+      "fact": "CDC describes heat exhaustion, heat stroke and other heat-related illness risks, with greater danger in certain health and working conditions.",
+      "pathway": "Indoor or outdoor heat, physical activity and barriers to cooling can overwhelm the body's temperature control.",
+      "check": "Follow local heat alerts; identify accessible cooling, water and rest. Suspected heat stroke requires emergency help.",
+      "action": "Read CDC heat health guidance",
+      "actionUrl": "https://www.cdc.gov/extreme-heat/signs-symptoms/index.html",
+      "boundary": "A regional forecast is not an individual medical assessment. Cooling access and working conditions change exposure.",
+      "sources": [
+        [
+          "CDC",
+          "About heat and your health",
+          "20 Jul 2026",
+          "https://www.cdc.gov/extreme-heat/signs-symptoms/index.html"
+        ],
+        [
+          "CDC / NIOSH",
+          "Heat-related illnesses",
+          "3 Mar 2026",
+          "https://www.cdc.gov/niosh/heat-stress/about/illnesses.html"
+        ]
+      ]
+    },
+    {
+      "id": "silica-dust",
+      "group": "home-work",
+      "title": "Respirable silica at work",
+      "fact": "CDC/NIOSH warns that breathing respirable crystalline silica during certain jobs can lead to silicosis and other serious diseases.",
+      "pathway": "Cutting, drilling, grinding and polishing some stone and other materials can produce fine respirable silica dust.",
+      "check": "Workers and employers should assess task-specific exposure, use effective engineering controls and follow applicable occupational-health requirements.",
+      "action": "Read NIOSH silica guidance",
+      "actionUrl": "https://www.cdc.gov/niosh/silica/about/index.html",
+      "boundary": "A job title or material alone does not measure dose. Occupational exposure needs appropriate assessment.",
+      "sources": [
+        [
+          "CDC / NIOSH",
+          "Silica and worker health",
+          "7 Jul 2026",
+          "https://www.cdc.gov/niosh/silica/about/index.html"
+        ]
+      ]
+    }
+  ]
+}

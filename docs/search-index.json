@@ -1,0 +1,812 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-07",
+  "disclaimer": "Search is a navigation index, not an impact or legal ranking.",
+  "entries": [
+    {
+      "type": "page",
+      "title": "Observatory",
+      "href": "index.html",
+      "description": "Global climate observatory, public source ledger and research matrix",
+      "keywords": "home overview"
+    },
+    {
+      "type": "section",
+      "title": "Company climate ledger",
+      "href": "index.html#ledger",
+      "description": "2024 production-linked company GHG records and temporal horizons",
+      "keywords": "carbon majors climate emissions"
+    },
+    {
+      "type": "section",
+      "title": "Ten-country atlas",
+      "href": "index.html#atlas",
+      "description": "2025 territorial emissions from JRC EDGAR",
+      "keywords": "china usa india russia indonesia brazil iran japan saudi arabia canada"
+    },
+    {
+      "type": "section",
+      "title": "Pollutant and receptor matrix",
+      "href": "index.html#matrix",
+      "description": "Research design covering pollutant families and affected receptors",
+      "keywords": "air water soil humans animals plants pfas metals"
+    },
+    {
+      "type": "section",
+      "title": "Research metric framework",
+      "href": "index.html#foundation",
+      "description": "Proposed metric taxonomy and source catalog",
+      "keywords": "metrics methods domains"
+    },
+    {
+      "type": "page",
+      "title": "Dossier Lab",
+      "href": "dossiers.html#investigate",
+      "description": "Explore 50 source-linked corporate climate records and missing evidence",
+      "keywords": "companies profiles"
+    },
+    {
+      "type": "section",
+      "title": "Comparable company observations",
+      "href": "dossiers.html#compare",
+      "description": "Compare like-for-like 2024 producer-linked emissions estimates",
+      "keywords": "company compare climate"
+    },
+    {
+      "type": "page",
+      "title": "Open data and sources",
+      "href": "data-access.html#downloads",
+      "description": "Public JSON data downloads and source references",
+      "keywords": "json data source"
+    },
+    {
+      "type": "section",
+      "title": "Original research sources",
+      "href": "data-access.html#sources",
+      "description": "Carbon Majors, EDGAR, EPA and other primary-source references",
+      "keywords": "carbon majors edgar lancet epa"
+    },
+    {
+      "type": "page",
+      "title": "Start here research guide",
+      "href": "guide.html#steps",
+      "description": "How to explore the site and read evidence carefully",
+      "keywords": "help FAQ"
+    },
+    {
+      "type": "section",
+      "title": "Accounting boundaries explained",
+      "href": "guide.html#boundaries",
+      "description": "Distinguish company production attribution from country inventories",
+      "keywords": "CO2e producer climate"
+    },
+    {
+      "type": "section",
+      "title": "Research evidence chain",
+      "href": "guide.html#chain",
+      "description": "Sources, facilities, exposure pathways, outcomes and legal screening",
+      "keywords": "causation proof"
+    },
+    {
+      "type": "page",
+      "title": "Damages & payments ledger",
+      "href": "damages.html",
+      "description": "Seven sourced environmental settlements, criminal penalties and payment statuses with original-currency 2025 purchasing-power comparisons. Not an additive liability or injury ranking.",
+      "keywords": "settlement payments paid fines damages PFAS Volkswagen BP Brumadinho inflation CPI IPCA 3M DuPont Chemours Vale"
+    },
+    {
+      "type": "page",
+      "title": "Documented environmental cases",
+      "href": "case-studies.html",
+      "description": "Historical case studies with different scientific and legal outcomes",
+      "keywords": "case studies"
+    },
+    {
+      "type": "section",
+      "title": "Minamata mercury case",
+      "href": "case-studies.html#minamata",
+      "description": "Japan mercury-related historical environmental case",
+      "keywords": "chisso mercury"
+    },
+    {
+      "type": "section",
+      "title": "Deepwater Horizon oil spill",
+      "href": "case-studies.html#deepwater",
+      "description": "BP Gulf of Mexico oil spill and legal records",
+      "keywords": "bp oil"
+    },
+    {
+      "type": "section",
+      "title": "Brumadinho tailings dam failure",
+      "href": "case-studies.html#brumadinho",
+      "description": "Vale Brazil environmental disaster",
+      "keywords": "mining dam"
+    },
+    {
+      "type": "section",
+      "title": "PFAS public water settlement",
+      "href": "case-studies.html#pfas",
+      "description": "3M drinking-water supplier PFAS settlement",
+      "keywords": "forever chemicals"
+    },
+    {
+      "type": "page",
+      "title": "Methodology",
+      "href": "methodology.html",
+      "description": "Environmental measurement methods and model limits",
+      "keywords": "science methodology"
+    },
+    {
+      "type": "section",
+      "title": "Research limitations",
+      "href": "methodology.html#limitations",
+      "description": "Explicit caveats on toxic harm, health and liability",
+      "keywords": "caveat uncertainty"
+    },
+    {
+      "type": "page",
+      "title": "Operating protocol",
+      "href": "operating-protocol.html",
+      "description": "Seven-stage research release gates",
+      "keywords": "rules standard"
+    },
+    {
+      "type": "page",
+      "title": "Legal safeguards",
+      "href": "legal.html",
+      "description": "Counsel-gated legal processes and privacy boundaries",
+      "keywords": "jurisdictions liability"
+    },
+    {
+      "type": "page",
+      "title": "About and corrections",
+      "href": "about.html#mission",
+      "description": "Project mission, status, safeguards and public correction process",
+      "keywords": "who"
+    },
+    {
+      "type": "section",
+      "title": "Submit documented corrections",
+      "href": "about.html#corrections",
+      "description": "Report specific sourced corrections through the public issue tracker",
+      "keywords": "contribute issue"
+    },
+    {
+      "type": "page",
+      "title": "Research glossary",
+      "href": "glossary.html#accounting",
+      "description": "Definitions of emissions accounting, pollutant exposure, scientific evidence and legal terminology",
+      "keywords": "dictionary definitions co2e climate law"
+    },
+    {
+      "type": "section",
+      "title": "Exposure terminology",
+      "href": "glossary.html#science",
+      "description": "What hazard, release, exposure, dose, receptor and attributable burden mean",
+      "keywords": "health toxic exposure dose"
+    },
+    {
+      "type": "section",
+      "title": "Scientific and legal evidence terms",
+      "href": "glossary.html#evidence",
+      "description": "Definitions of counterfactual, uncertainty, provenance and liability",
+      "keywords": "causation burden evidence legal"
+    },
+    {
+      "type": "section",
+      "title": "Producer-linked emissions definition",
+      "href": "glossary.html#production-linked",
+      "description": "How published producer attribution differs from territorial inventories",
+      "keywords": "carbon majors corporate climate"
+    },
+    {
+      "type": "section",
+      "title": "Greenhouse-gas unit CO2e",
+      "href": "glossary.html#co2e",
+      "description": "CO₂e is a climate comparison unit, not toxicity or dose",
+      "keywords": "mtco2e mass gases"
+    },
+    {
+      "type": "page",
+      "title": "People & Accountability Atlas",
+      "href": "people.html",
+      "description": "Public officer records and a 500-role research matrix. Compensation is not proof of environmental harm or individual fault.",
+      "keywords": "people SEC filings compensation 34 officers company accountability legal evidence"
+    },
+    {
+      "type": "page",
+      "title": "People Atlas evidence methodology",
+      "href": "people-methodology.html",
+      "description": "Explain SEC compensation definitions, role verification, causation gates and individual due process.",
+      "keywords": "executive pay legal standards SEC officer causation jurisdiction"
+    },
+    {
+      "type": "page",
+      "title": "Public awareness and environmental exposure",
+      "href": "awareness.html",
+      "description": "Ten independently sourced guides to environmental exposure with official local information and clear limits.",
+      "keywords": "public health exposure awareness WHO CDC EPA NIH FDA air water"
+    },
+    {
+      "type": "section",
+      "title": "Air and breathing: particles and smoke",
+      "href": "awareness.html#air",
+      "description": "Air pollution, outdoor particle monitoring and polluting household cooking fuels.",
+      "keywords": "pm2.5 air smoke clean cooking"
+    },
+    {
+      "type": "section",
+      "title": "Water: lead, PFAS and arsenic",
+      "href": "awareness.html#water",
+      "description": "Check official local water reports and understand appropriate testing.",
+      "keywords": "water lead pfas arsenic wells testing"
+    },
+    {
+      "type": "section",
+      "title": "Food and waste: mercury and e-waste",
+      "href": "awareness.html#food-waste",
+      "description": "Fish-mercury advisories and risks from informal electronic-waste recycling.",
+      "keywords": "mercury fish seafood electronics recycling"
+    },
+    {
+      "type": "section",
+      "title": "Homes, heat and workplaces",
+      "href": "awareness.html#home-work",
+      "description": "Radon testing, heat health and respirable silica dust risks.",
+      "keywords": "radon heat silica homes workplaces"
+    },
+    {
+      "type": "section",
+      "title": "Fine particles outdoors",
+      "href": "awareness.html#fine-particles",
+      "description": "WHO estimated 4.2 million premature deaths worldwide from outdoor air pollution in 2019; this is a modeled population burden.",
+      "keywords": "air Fine particles outdoors Fine airborne particles are inhaled from varied sources such as fires, transport, industry and combustion."
+    },
+    {
+      "type": "section",
+      "title": "Polluting household cooking fuels",
+      "href": "awareness.html#cooking-smoke",
+      "description": "WHO reported about 2.1 billion people worldwide cook using polluting fuels or technologies in its December 2025 fact sheet.",
+      "keywords": "air Polluting household cooking fuels Burning wood, coal, kerosene or other polluting fuels indoors can create harmful airborne particles."
+    },
+    {
+      "type": "section",
+      "title": "Lead in drinking water",
+      "href": "awareness.html#lead",
+      "description": "WHO states that no level of lead exposure is known to be without harmful effects; young children are especially vulnerable.",
+      "keywords": "water Lead in drinking water Lead can leach from service lines, solder and plumbing; exposure also occurs through dust, paint and industrial sources."
+    },
+    {
+      "type": "section",
+      "title": "PFAS in water and food",
+      "href": "awareness.html#pfas",
+      "description": "NIH reviews associations between exposure to certain PFAS and immune, cholesterol, reproductive and other effects; evidence differs among chemicals.",
+      "keywords": "water PFAS in water and food Some PFAS can reach people through drinking water, food and occupational or product-related routes."
+    },
+    {
+      "type": "section",
+      "title": "Arsenic in groundwater",
+      "href": "awareness.html#arsenic",
+      "description": "WHO identifies long-term inorganic arsenic exposure through drinking water as a cause of cancer and other harmful outcomes.",
+      "keywords": "water Arsenic in groundwater Natural geology can introduce arsenic into aquifers used for drinking, cooking and irrigation."
+    },
+    {
+      "type": "section",
+      "title": "Methylmercury in fish",
+      "href": "awareness.html#mercury",
+      "description": "WHO identifies methylmercury as a concern for fetal and early-childhood neurological development; some fish accumulate more than others.",
+      "keywords": "food-waste Methylmercury in fish Mercury can transform in aquatic ecosystems, build up in fish and reach people through seafood."
+    },
+    {
+      "type": "section",
+      "title": "Electronic waste and unsafe recycling",
+      "href": "awareness.html#electronic-waste",
+      "description": "WHO reports 62 million tonnes of e-waste generated globally in 2022; just 22.3% was documented as formally collected and recycled.",
+      "keywords": "food-waste Electronic waste and unsafe recycling Unsafe burning, dismantling and dumping can expose workers and communities to hazardous air, dust, soil and water mixtures."
+    },
+    {
+      "type": "section",
+      "title": "Radon inside buildings",
+      "href": "awareness.html#radon",
+      "description": "U.S. EPA identifies radon as a naturally occurring radioactive gas that can cause lung cancer; it cannot be seen or smelled.",
+      "keywords": "home-work Radon inside buildings Radon can enter buildings from soil and accumulate indoors; actual concentration differs by building."
+    },
+    {
+      "type": "section",
+      "title": "Heat and preventable illness",
+      "href": "awareness.html#extreme-heat",
+      "description": "CDC describes heat exhaustion, heat stroke and other heat-related illness risks, with greater danger in certain health and working conditions.",
+      "keywords": "home-work Heat and preventable illness Indoor or outdoor heat, physical activity and barriers to cooling can overwhelm the body's temperature control."
+    },
+    {
+      "type": "section",
+      "title": "Respirable silica at work",
+      "href": "awareness.html#silica-dust",
+      "description": "CDC/NIOSH warns that breathing respirable crystalline silica during certain jobs can lead to silicosis and other serious diseases.",
+      "keywords": "home-work Respirable silica at work Cutting, drilling, grinding and polishing some stone and other materials can produce fine respirable silica dust."
+    },
+    {
+      "type": "page",
+      "title": "Find official environmental records",
+      "href": "public-records.html",
+      "description": "Twelve official air, water and industrial environmental information tools across six geographic groups, with source limitations.",
+      "keywords": "local air quality water official records emissions government"
+    },
+    {
+      "type": "section",
+      "title": "Global reference official environmental data",
+      "href": "public-records.html#global",
+      "description": "Comparative datasets, not personal or real-time measurements.",
+      "keywords": "regional environmental records Global reference"
+    },
+    {
+      "type": "section",
+      "title": "United States official environmental data",
+      "href": "public-records.html#united-states",
+      "description": "Air conditions, reported releases, compliance and drinking-water reports.",
+      "keywords": "regional environmental records United States"
+    },
+    {
+      "type": "section",
+      "title": "Europe official environmental data",
+      "href": "public-records.html#europe",
+      "description": "Near-real-time air indicators and declared major industrial releases.",
+      "keywords": "regional environmental records Europe"
+    },
+    {
+      "type": "section",
+      "title": "Canada official environmental data",
+      "href": "public-records.html#canada",
+      "description": "Air-health forecasts and a national industrial emissions inventory.",
+      "keywords": "regional environmental records Canada"
+    },
+    {
+      "type": "section",
+      "title": "United Kingdom official environmental data",
+      "href": "public-records.html#united-kingdom",
+      "description": "Postcode-based air information and industrial emissions records.",
+      "keywords": "regional environmental records United Kingdom"
+    },
+    {
+      "type": "section",
+      "title": "Australia official environmental data",
+      "href": "public-records.html#australia",
+      "description": "Facility and diffuse-source pollutant reports.",
+      "keywords": "regional environmental records Australia"
+    },
+    {
+      "type": "section",
+      "title": "WHO ambient air quality database",
+      "href": "public-records.html#who-cities",
+      "description": "Annual average PM2.5, PM10 and nitrogen dioxide concentrations for selected settlements. A historical city-wide annual mean is not today's local AQI or a personal exposure measurement.",
+      "keywords": "World Health Organization City and town measurements from 127 WHO members, associate members or territories; not every settlement. June 2026 version, observations from 2010–2024"
+    },
+    {
+      "type": "section",
+      "title": "AirNow air-quality information",
+      "href": "public-records.html#us-airnow",
+      "description": "AQI levels, smoke information and health-oriented air-quality categories. A monitor or sensor does not identify all local exposures, individual doses or a responsible facility.",
+      "keywords": "U.S. EPA and partner agencies U.S. location-level monitors and forecasts; availability varies by place and pollutant. Current/forecast AQI with real-time data caveats"
+    },
+    {
+      "type": "section",
+      "title": "EPA ECHO facility compliance",
+      "href": "public-records.html#us-echo",
+      "description": "Facility permit details, inspection records, reported violations and enforcement actions. A listed violation can be alleged rather than finally adjudicated; missing records do not prove a facility is safe.",
+      "keywords": "U.S. Environmental Protection Agency Facilities recorded in applicable EPA and state/tribal environmental reporting systems. Mixed enforcement, permit and reporting windows"
+    },
+    {
+      "type": "section",
+      "title": "EPA Toxics Release Inventory",
+      "href": "public-records.html#us-tri",
+      "description": "Reported chemical releases, waste transfers and pollution-prevention information. Pounds released are not a measured population dose or toxicity ranking, and some tools may be offline.",
+      "keywords": "U.S. Environmental Protection Agency Facilities and chemicals meeting TRI reporting rules, not every source of pollution. Annual self-reported releases; the EPA toolbox lists current tool status"
+    },
+    {
+      "type": "section",
+      "title": "Annual drinking-water quality reports",
+      "href": "public-records.html#us-ccr",
+      "description": "Water sources, reported regulated contaminants, violations and supplier contacts. A supplier-wide report cannot substitute for a qualified lead or other contaminant test at one tap.",
+      "keywords": "U.S. EPA and local public water systems Community public-water suppliers; not a private well or a household's individual tap. Annual reports from water suppliers"
+    },
+    {
+      "type": "section",
+      "title": "European Air Quality Index",
+      "href": "public-records.html#eu-air",
+      "description": "Short-term air quality estimates for PM2.5, PM10, NO2, ozone and SO2. The Index is not a legal compliance determination or a long-term annual air-quality assessment.",
+      "keywords": "European Environment Agency European monitoring stations and modeled air-quality areas; data availability varies. Near-real-time station information and model forecasts"
+    },
+    {
+      "type": "section",
+      "title": "European Industrial Emissions Portal",
+      "href": "public-records.html#eu-industrial",
+      "description": "Reported industrial releases to air, water and land, transfers of waste and facility details. An annual reported mass does not show local exposure or prove legal responsibility.",
+      "keywords": "European Environment Agency Major industrial complexes under covered European reporting requirements, not all businesses. Annual facility and pollutant reports; check reporting year"
+    },
+    {
+      "type": "section",
+      "title": "Canadian Air Quality Health Index",
+      "href": "public-records.html#ca-aqhi",
+      "description": "A health-oriented indicator based on air pollutant measurements and forecast conditions. A community AQHI is not an individual exposure estimate and local conditions can vary.",
+      "keywords": "Environment and Climate Change Canada Canadian AQHI reporting communities; station and location coverage varies. Current conditions and forecasts"
+    },
+    {
+      "type": "section",
+      "title": "National Pollutant Release Inventory",
+      "href": "public-records.html#ca-npri",
+      "description": "Facility-reported air, water, and land releases, disposals and transfers. Preliminary data can contain reporting errors; facility releases are not individual dose measurements.",
+      "keywords": "Government of Canada Reporting facilities and substances under NPRI thresholds across Canada. 2025 records are labeled preliminary in the current search tool"
+    },
+    {
+      "type": "section",
+      "title": "Check air quality in the UK",
+      "href": "public-records.html#uk-air",
+      "description": "Air quality by locality or postcode, alerts and exposure guidance. A local forecast is an indicator, not a personal diagnosis or source-attribution model.",
+      "keywords": "UK Department for Environment, Food & Rural Affairs Area-level air forecasts and available monitors in the UK. Current monitoring and forecasts where provided"
+    },
+    {
+      "type": "section",
+      "title": "Environment Agency Pollution Inventory",
+      "href": "public-records.html#uk-pollution",
+      "description": "Reported annual releases to air and water and waste movements from qualifying sites. Large sites are covered selectively; reported annual masses do not describe personal exposure.",
+      "keywords": "Environment Agency / UK National Data Library Regulated major industrial sites in England within the inventory's reporting scope. Downloadable annual data for 2013–2024 at the time of review"
+    },
+    {
+      "type": "section",
+      "title": "Australian National Pollutant Inventory",
+      "href": "public-records.html#au-npi",
+      "description": "Annual releases and waste transfers of listed NPI pollutants, including facility mapping. Different chemicals cannot be summed into a meaningful total-harm ranking; reported release is not confirmed exposure.",
+      "keywords": "Australian Government DCCEEW Australian facilities and diffuse sources within NPI reporting rules. 2024–25 reporting period, updates/corrections possible"
+    },
+    {
+      "type": "company",
+      "title": "Saudi Aramco",
+      "href": "dossiers.html?entity=saudi-aramco#investigate",
+      "description": "Saudi Arabia · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Saudi Aramco Saudi Arabia Oil & gas Carbon Majors greenhouse gas producer SA"
+    },
+    {
+      "type": "company",
+      "title": "Coal India",
+      "href": "dossiers.html?entity=coal-india#investigate",
+      "description": "India · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Coal India India Coal Carbon Majors greenhouse gas producer IN"
+    },
+    {
+      "type": "company",
+      "title": "CHN Energy",
+      "href": "dossiers.html?entity=chn-energy#investigate",
+      "description": "China · Coal & power · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "CHN Energy China Coal & power Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "National Iranian Oil Company",
+      "href": "dossiers.html?entity=national-iranian-oil-company#investigate",
+      "description": "Iran · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "National Iranian Oil Company Iran Oil & gas Carbon Majors greenhouse gas producer IR"
+    },
+    {
+      "type": "company",
+      "title": "Gazprom",
+      "href": "dossiers.html?entity=gazprom#investigate",
+      "description": "Russia · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Gazprom Russia Oil & gas Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "Jinneng Group",
+      "href": "dossiers.html?entity=jinneng-group#investigate",
+      "description": "China · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Jinneng Group China Coal Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "Rosneft",
+      "href": "dossiers.html?entity=rosneft#investigate",
+      "description": "Russia · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Rosneft Russia Oil & gas Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "CNPC",
+      "href": "dossiers.html?entity=cnpc#investigate",
+      "description": "China · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "CNPC China Oil & gas Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "Shandong Energy",
+      "href": "dossiers.html?entity=shandong-energy#investigate",
+      "description": "China · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Shandong Energy China Coal Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "China National Coal Group",
+      "href": "dossiers.html?entity=china-national-coal-group#investigate",
+      "description": "China · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "China National Coal Group China Coal Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "Shaanxi Coal and Chemical Industry Group",
+      "href": "dossiers.html?entity=shaanxi-coal-and-chemical-industry-group#investigate",
+      "description": "China · Coal & chemicals · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Shaanxi Coal and Chemical Industry Group China Coal & chemicals Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "ExxonMobil",
+      "href": "dossiers.html?entity=exxonmobil#investigate",
+      "description": "United States · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "ExxonMobil United States Oil & gas Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "Chevron",
+      "href": "dossiers.html?entity=chevron#investigate",
+      "description": "United States · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Chevron United States Oil & gas Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "Shanxi Coking Coal Group",
+      "href": "dossiers.html?entity=shanxi-coking-coal-group#investigate",
+      "description": "China · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Shanxi Coking Coal Group China Coal Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "Petrobras",
+      "href": "dossiers.html?entity=petrobras#investigate",
+      "description": "Brazil · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Petrobras Brazil Oil & gas Carbon Majors greenhouse gas producer BR"
+    },
+    {
+      "type": "company",
+      "title": "ConocoPhillips",
+      "href": "dossiers.html?entity=conocophillips#investigate",
+      "description": "United States · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "ConocoPhillips United States Oil & gas Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "Lukoil",
+      "href": "dossiers.html?entity=lukoil#investigate",
+      "description": "Russia · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Lukoil Russia Oil & gas Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "China Huaneng Group",
+      "href": "dossiers.html?entity=china-huaneng-group#investigate",
+      "description": "China · Power · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "China Huaneng Group China Power Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "CNOOC",
+      "href": "dossiers.html?entity=cnooc#investigate",
+      "description": "China · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "CNOOC China Oil & gas Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "Peabody Energy",
+      "href": "dossiers.html?entity=peabody-energy#investigate",
+      "description": "United States · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Peabody Energy United States Coal Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "Luan Chemical Group",
+      "href": "dossiers.html?entity=luan-chemical-group#investigate",
+      "description": "China · Coal & chemicals · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Luan Chemical Group China Coal & chemicals Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "Novatek",
+      "href": "dossiers.html?entity=novatek#investigate",
+      "description": "Russia · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Novatek Russia Oil & gas Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "SUEK",
+      "href": "dossiers.html?entity=suek#investigate",
+      "description": "Russia · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "SUEK Russia Coal Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "Sinopec",
+      "href": "dossiers.html?entity=sinopec#investigate",
+      "description": "China · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Sinopec China Oil & gas Carbon Majors greenhouse gas producer CN"
+    },
+    {
+      "type": "company",
+      "title": "Occidental Petroleum",
+      "href": "dossiers.html?entity=occidental-petroleum#investigate",
+      "description": "United States · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Occidental Petroleum United States Oil & gas Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "Core Natural Resources",
+      "href": "dossiers.html?entity=core-natural-resources#investigate",
+      "description": "United States · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Core Natural Resources United States Coal Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "Expand Energy",
+      "href": "dossiers.html?entity=expand-energy#investigate",
+      "description": "United States · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Expand Energy United States Oil & gas Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "EQT Corporation",
+      "href": "dossiers.html?entity=eqt-corporation#investigate",
+      "description": "United States · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "EQT Corporation United States Oil & gas Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "EOG Resources",
+      "href": "dossiers.html?entity=eog-resources#investigate",
+      "description": "United States · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "EOG Resources United States Oil & gas Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "Devon Energy",
+      "href": "dossiers.html?entity=devon-energy#investigate",
+      "description": "United States · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Devon Energy United States Oil & gas Carbon Majors greenhouse gas producer US"
+    },
+    {
+      "type": "company",
+      "title": "Adani Group",
+      "href": "dossiers.html?entity=adani-group#investigate",
+      "description": "India · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Adani Group India Coal Carbon Majors greenhouse gas producer IN"
+    },
+    {
+      "type": "company",
+      "title": "Singareni Collieries",
+      "href": "dossiers.html?entity=singareni-collieries#investigate",
+      "description": "India · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Singareni Collieries India Coal Carbon Majors greenhouse gas producer IN"
+    },
+    {
+      "type": "company",
+      "title": "ONGC",
+      "href": "dossiers.html?entity=ongc#investigate",
+      "description": "India · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "ONGC India Oil & gas Carbon Majors greenhouse gas producer IN"
+    },
+    {
+      "type": "company",
+      "title": "NTPC",
+      "href": "dossiers.html?entity=ntpc#investigate",
+      "description": "India · Power · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "NTPC India Power Carbon Majors greenhouse gas producer IN"
+    },
+    {
+      "type": "company",
+      "title": "UltraTech Cement",
+      "href": "dossiers.html?entity=ultratech-cement#investigate",
+      "description": "India · Cement · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "UltraTech Cement India Cement Carbon Majors greenhouse gas producer IN"
+    },
+    {
+      "type": "company",
+      "title": "Surgutneftegas",
+      "href": "dossiers.html?entity=surgutneftegas#investigate",
+      "description": "Russia · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Surgutneftegas Russia Oil & gas Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "Kuzbassrazrezugol",
+      "href": "dossiers.html?entity=kuzbassrazrezugol#investigate",
+      "description": "Russia · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Kuzbassrazrezugol Russia Coal Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "Elgaugol",
+      "href": "dossiers.html?entity=elgaugol#investigate",
+      "description": "Russia · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Elgaugol Russia Coal Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "Tatneft",
+      "href": "dossiers.html?entity=tatneft#investigate",
+      "description": "Russia · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Tatneft Russia Oil & gas Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "Sibanthracite Group",
+      "href": "dossiers.html?entity=sibanthracite-group#investigate",
+      "description": "Russia · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Sibanthracite Group Russia Coal Carbon Majors greenhouse gas producer RU"
+    },
+    {
+      "type": "company",
+      "title": "Bumi Resources",
+      "href": "dossiers.html?entity=bumi-resources#investigate",
+      "description": "Indonesia · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Bumi Resources Indonesia Coal Carbon Majors greenhouse gas producer ID"
+    },
+    {
+      "type": "company",
+      "title": "Pertamina",
+      "href": "dossiers.html?entity=pertamina#investigate",
+      "description": "Indonesia · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Pertamina Indonesia Oil & gas Carbon Majors greenhouse gas producer ID"
+    },
+    {
+      "type": "company",
+      "title": "AlamTri Resources",
+      "href": "dossiers.html?entity=alamtri-resources#investigate",
+      "description": "Indonesia · Coal · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "AlamTri Resources Indonesia Coal Carbon Majors greenhouse gas producer ID"
+    },
+    {
+      "type": "company",
+      "title": "Mitsubishi Corporation",
+      "href": "dossiers.html?entity=mitsubishi-corporation#investigate",
+      "description": "Japan · Coal & energy · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Mitsubishi Corporation Japan Coal & energy Carbon Majors greenhouse gas producer JP"
+    },
+    {
+      "type": "company",
+      "title": "INPEX",
+      "href": "dossiers.html?entity=inpex#investigate",
+      "description": "Japan · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "INPEX Japan Oil & gas Carbon Majors greenhouse gas producer JP"
+    },
+    {
+      "type": "company",
+      "title": "Canadian Natural Resources",
+      "href": "dossiers.html?entity=canadian-natural-resources#investigate",
+      "description": "Canada · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Canadian Natural Resources Canada Oil & gas Carbon Majors greenhouse gas producer CA"
+    },
+    {
+      "type": "company",
+      "title": "Suncor Energy",
+      "href": "dossiers.html?entity=suncor-energy#investigate",
+      "description": "Canada · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Suncor Energy Canada Oil & gas Carbon Majors greenhouse gas producer CA"
+    },
+    {
+      "type": "company",
+      "title": "Cenovus Energy",
+      "href": "dossiers.html?entity=cenovus-energy#investigate",
+      "description": "Canada · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Cenovus Energy Canada Oil & gas Carbon Majors greenhouse gas producer CA"
+    },
+    {
+      "type": "company",
+      "title": "Tourmaline Oil",
+      "href": "dossiers.html?entity=tourmaline-oil#investigate",
+      "description": "Canada · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "Tourmaline Oil Canada Oil & gas Carbon Majors greenhouse gas producer CA"
+    },
+    {
+      "type": "company",
+      "title": "ARC Resources",
+      "href": "dossiers.html?entity=arc-resources#investigate",
+      "description": "Canada · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
+      "keywords": "ARC Resources Canada Oil & gas Carbon Majors greenhouse gas producer CA"
+    }
+  ]
+}

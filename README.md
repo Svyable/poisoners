@@ -2,22 +2,29 @@
 
 **Make the damage visible.** An open environmental evidence observatory and a proposed multidimensional framework for building defensible scientific and legal dossiers.
 
-> **Research platform v2, November 6, 2026.** The site contains 50 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
+> **Research platform v4, November 7, 2026.** The site contains 50 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
 
 ## The website
 
 - [Interactive observatory](docs/index.html): searchable company ledger, temporal views, ten-country atlas, 6 × 8 exposure-research matrix, company source drawers, supporting sources.
+- [Official environmental records directory](docs/public-records.html): 12 public government and WHO tools covering six geographic groups, with coverage, source dates, and careful interpretation guidance.
+- [Public awareness desk](docs/awareness.html): ten source-linked briefs covering pollution exposure, local information, and limits on interpreting risk.
+- [Start here: research guide](docs/guide.html): orientation, interpretation, data boundaries, evidence ladder and frequently asked questions.
+- [Open data and sources](docs/data-access.html): downloadable public JSON snapshots, primary-source boundaries and reproducible build steps.
+- [About and corrections](docs/about.html): project status, research principles, roadmap and a documented public correction route.
+- [People & Accountability Atlas](docs/people.html): 500 research roles across 50 companies, 34 sourced officers in seven SEC issuers, reported FY2025 compensation filters, bookmarks, source packets and jurisdiction-specific evidence questions. No personal guilt ranks or automated lawsuits.
+- [People research methodology](docs/people-methodology.html): public compensation definitions, actual decision authority, causation and independent-counsel review criteria.
 - [Dossier Lab](docs/dossiers.html): 50 source-bound company research profiles, visible seven-stage evidence gates, precise citation and public JSON export, like-for-like climate comparisons and primary-source historical comparator cases. No composite toxicity/guilt ranking.
 - [Methodology](docs/methodology.html): historical / annual / future harm design, pollutant/receptor matrix, causal models, uncertainty, grades, proposed data ingestion.
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
 - [Case engine](docs/legal.html): ten-country preliminary legal-route map and a counsel-gated, privacy-protecting workflow.
+- [Damages & Payments Ledger](docs/damages.html): seven publicly sourced monetary outcomes, status of cash paid versus settlements or caps, exact document links, and same-currency 2025 purchasing-power comparisons; not an additive environmental injury score.
 - [Documented case studies](docs/case-studies.html): Japan's Minamata disease, BP Deepwater Horizon, Vale Brumadinho and 3M's PFAS drinking-water settlement, with official sources and distinctions between court findings, settlements and claims.
-- [Damages & Payments Ledger](docs/damages.html): **seven sourced monetary outcomes** covering 3M, DuPont/Chemours, Volkswagen, Vale and BP, separating actual documented cash paid from scheduled or capped settlements, with same-currency 2025 purchasing-power comparisons. [Machine-readable records](docs/damages-data.json).
 - [Evidence record schema](schema/evidence-record.schema.json): source metadata, legal-entity and date boundaries, measurement and confidence fields.
 
 **Preview locally:** run 'python3 -m http.server 8000 --directory docs' then open http://localhost:8000. **Verify:** run 'node scripts/verify.cjs'. No npm dependencies.
 
-**Publish with GitHub Pages:** Repository Settings → Pages → Build and deployment → Deploy from branch → select main and /docs. Save. Committing the site does not automatically enable GitHub Pages.
+**Publish with GitHub Pages:** Repository Settings → Pages → Build and deployment → Deploy from branch → select `main` and `/docs`. Save. The published project URL is normally https://svyable.github.io/poisoners/ unless a custom domain is configured.
 
 ## Data sources and boundaries
 
@@ -52,12 +59,6 @@ The ten largest sovereign-country **2025 territorial GHG emitters** in EDGAR 202
 
 **50 company records total.** Navigation associates a company with its home country, not the location of its emissions. Corporate and national emissions **use different accounting boundaries** and cannot be added as equivalent totals. Unscored countries and missing historical data are **not** zero harm.
 
-## Interpreting monetary outcomes
-
-The legal-payment ledger is **not** an environmental-harm or criminality ranking. It records the recipient, case and kind of remedy, nominal settlement/judgment, disposition year, the portion the documentary sources actually establish as paid, source date and known overlaps. A committed settlement is **not** labelled 'paid'; a missing paid-to-date total is **unknown**, not zero. Joint payments such as the 2017 DuPont/Chemours C8 settlement are entered **once**, not for each company; overlapping Vale and Volkswagen case components must never be summed.
-
-For USD, historical amounts are compared in **2025 U.S. dollars** using the BLS CPI-U annual average, 2025 / disposition-year index. BLS's 2025 annual average omits October 2025. For BRL, a **2025 reais** comparator uses the IBGE IPCA year-end factors after the base year, in the same currency; it is a standardization convention, not a judicially indexed payment or present value. Multi-year cash payments have **no single valid inflation year** and are not rebased without a disbursement schedule. Currency values are never silently converted or added. Sources and numbers reside in `docs/damages-data.json` and are checked by `scripts/damages.test.cjs`.
-
 ## The proposed Poison Index
 
 - **H — Historical:** scientifically attributable past burden by year, pollutant, pathway and endpoint, accounting for persistent and delayed effects.
@@ -90,7 +91,7 @@ No external package manager or network access is needed for the checks. Requires
 
 1. Run 'node scripts/build-foundation.cjs' to regenerate the site JSON and JS from the source registry.
 2. Run 'node scripts/build-foundation.cjs --check' to confirm those generated files are up to date.
-3. Run 'node scripts/verify.cjs', 'node --test scripts/foundation.test.cjs' and 'node --test scripts/damages.test.cjs' before contributing.
+3. Run 'node scripts/verify.cjs' and 'node --test scripts/foundation.test.cjs' before contributing.
 4. To evaluate a public evidence batch (JSON array or JSONL), run 'node scripts/ingest-evidence.cjs --input /path/to/public-records.jsonl'. This defaults to dry-run validation.
 5. To place validated public records in a **non-published review queue**, run 'node scripts/ingest-evidence.cjs --input /path/to/public-records.jsonl --write --batch public-2026-11'. The file is staged under data/evidence/staging/, never automatically published and never sent to a court.
 
@@ -135,3 +136,56 @@ Use the [public evidence issue template](https://github.com/Svyable/poisoners/is
 **Standard:** No invented numbers. No hidden weights. No conflated boundaries. No automated accusations or legal filings. Do not use the global Lancet mortality estimate to attribute deaths to listed companies.
 
 See the original [LICENSE](LICENSE) for the repository's terms.
+## Website editorial system
+
+The public Pages site uses a consistent accessible header and mobile navigation, source-boundary disclosure, unified footer and three editorial reference pages. Shared styles and behavior are in `docs/site.css` and `docs/site.js` with no framework or runtime dependencies. The research tools (`app.js`, `dossier-lab.js`, source datasets) remain independent.
+
+When changing the site, run `node scripts/check-site-links.cjs` and `node scripts/verify.cjs`. Keep navigation, disclosure text and source vintages consistent across all pages. New claims about health, ecological effects or legal liability require the project's evidence gates rather than copy changes alone.
+
+## People Atlas public-source release
+
+The latest data contains **34 named people from publicly filed FY2025 executive-compensation records at seven U.S. issuers**, not 500 named or ranked alleged wrongdoers. The **500 slots** identify ten distinct *research functions* in each of the 50 company workstreams. **466 are not yet source-verified.** These slots are not people, defendants, unlawful actors or evidence of personal benefit from damage. Every disclosed compensation figure uses the U.S. SEC Summary Compensation Table convention for FY2025 in USD: this does not establish realized cash, wealth, gain from environmental injury, or legal liability. The underlying documents, filing dates and uncertainties are preserved in [public officer data](data/people/verified-officers.json).
+
+The public [People Atlas](docs/people.html) supports sortable and searchable disclosures, ten-function company matrices, shareable person links, device-local saved public records, source hyperlinks, filtered CSV export, and JSON public-source fact packets for independent review. The [People methodology](docs/people-methodology.html) explains why named officers cannot be equated with harmful actions and why a viable individual claim requires event-specific legal and factual proof.
+
+The publication pipeline is **strictly no-fault by default**: it blocks private contact or medical data, unknown salary amounts mislabeled as SEC totals, unverified dates, duplicate officers, and populated fields for unsupported personal environmental harm, purported illicit profits or liability. No website action contacts a person, builds a personal defendant list, solicits claimants or files a case. The original emissions data is producer-linked GHG, not proof of a named executive's toxic release or illness.
+
+Add a primary filing via the [public officer source template](.github/ISSUE_TEMPLATE/person-source.yml) following the [research verification guide](data/people/README.md). Run `node scripts/build-foundation.cjs`, `node scripts/build-foundation.cjs --check`, `node --test scripts/people.test.cjs`, and `node scripts/check-site-links.cjs` before reviewing changes. **No automatic publication of unverified claims.**
+
+## Website research search and glossary
+
+The header search scans a static, privacy-preserving index of public site sections, 50 company climate records and the separately caveated People Atlas. Searches are processed in the browser and are not submitted to an external service. The [research glossary](docs/glossary.html) explains climate accounting, exposure science, uncertainty and legal terminology. Search references are navigation, not evidence of harm or wrongdoing.
+
+Site-wide search assets live at `docs/site-search.js` and `docs/search-index.json`. Validate navigation with `node scripts/check-site-links.cjs`; keep named-person searches distinct from the research-only compensation and legal methodology.
+
+## Maintaining the public research search
+
+Search is a static, browser-local navigation aid. The reviewed route entries live in `data/site-search-pages.json`; the 50 climate-only company labels are built from the public dossier register. Run `node scripts/build-search-index.cjs` after changing either source, then verify with `node scripts/build-search-index.cjs --check`. Do not edit `docs/search-index.json` manually, and do not use search placement as a harm or liability ranking.
+
+## Site accessibility and public discovery
+
+GitHub Pages includes a source-aware custom `docs/404.html` page and a `docs/sitemap.xml` of 12 research pages. `node scripts/check-public-site.cjs` verifies page landmarks, skip links, metadata, search dialog integration, route anchors and a one-to-one match between public climate company profiles and search entries. CI runs this check alongside the deterministic index audit. All checks are offline.
+
+## Consistent research page shell
+
+The People Atlas and its evidence-methodology page now use the same site header, mobile navigation, breadcrumb trail, research-limit disclosure and multi-column footer as the rest of the website. Existing People Atlas DOM IDs and browser research functions are preserved. Header menu behaviors continue to work in their original applications, with shared Escape and outside-click dismissal. The offline site check enforces consistent landmarks across all public pages.
+
+## Public environmental-health awareness
+
+The [public awareness desk](docs/awareness.html) presents ten carefully scoped, independently linked WHO, EPA, CDC, NIH and FDA briefings on fine-particle air pollution, polluting cooking fuels, lead, PFAS, arsenic, mercury in fish, e-waste, radon, heat and occupational silica. The [source registry](docs/awareness-briefs.json) holds publication labels, primary references, context, non-inference boundaries and actionable official resources. These are educational briefs, not outputs of the corporate emissions index or any personal diagnosis, and no global burden estimate is assigned to an individual company.
+
+To revise these materials, review original sources, update `docs/awareness-briefs.json`, then run `node scripts/build-awareness.cjs`. Before merging, run `node scripts/build-awareness.cjs --check`, `node scripts/build-search-index.cjs --check` and `node scripts/check-site-links.cjs`. Website CI verifies the source-linked generated HTML, and a contribution must never publish private health records or unverified blame.
+
+## Finding local records from official sources
+
+The [official environmental records directory](docs/public-records.html) links to twelve publicly accessible services in six geographic groups. These include monitoring, supplier disclosures, facility-release reports, and compliance systems. The [machine-readable portal catalog](docs/public-record-portals.json) preserves the source owner, area and time coverage, official link, and limitation of every tool. The site does not fetch, mirror, or store queries submitted to those external services.
+
+Run `node scripts/check-public-records.cjs` to check source hostnames and portal metadata; CI includes this offline check. A missing or reported pollution record alone does not establish personal exposure, environmental injury, individual misconduct or legal responsibility.
+
+## Historical monetary outcomes and 2025 inflation comparisons
+
+The [Payments Ledger](docs/damages.html) publishes seven event-specific records with [machine-readable evidence](docs/damages-data.json). The historical examples include Minnesota PFAS, the DuPont/Chemours C8 MDL resolution, Volkswagen civil and criminal agreements, Brumadinho collective reparation, Deepwater Horizon and 3M's national public-water-supplier PFAS settlement. **These records are not a complete company payment database or quantified environmental-harm dataset.**
+
+Every observation distinguishes a legally ordered or contracted nominal amount, whether actual cash was independently confirmed paid, the **date of the supporting source** and the difference between a fixed award, a ceiling and installments. A cash-paid amount with an unknown payment year does **not** get an invented inflation-adjusted cash value. Up-to ceilings are **not** payments. An historical 2022 Brazil payment figure is **not** presented as a 2026 settlement total. Multi-party and overlapping matters cannot be added as one company's total.
+
+Dollar purchasing-power comparisons use BLS 2025 annual-average CPI-U to the **obligation year**; Brazil uses sequential 2022–25 IPCA Dec/Dec rates against a 2021 notional base. No FX translation, actuarial discounting, legal interest or court-defined indexation is asserted. See the original government and SEC links within each record. Run `node --test scripts/damages.test.cjs`, the deterministic site-search build and the full CI pipeline to validate publication.

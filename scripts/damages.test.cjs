@@ -62,7 +62,25 @@ test("ledger page is discoverable, script parses, source and method labels visib
   assert.ok(html.includes('id="'+id+'"'),id);
  for(const phrase of ["NOT COMPUTED","NOT VERIFIED","NO CROSS-CASE SUMMATION","damages-data.json","2025 PURCHASING-POWER"])
   assert.ok(html.includes(phrase),phrase);
- const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)];
+ const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].filter(s=>s[1].trim().length>0);
  assert.equal(scripts.length,1);
  assert.doesNotThrow(()=>new vm.Script(scripts[0][1],{filename:"damages-inline.js"}));
+});
+
+test("source-stated payment dates are not guessed from nominal settlement years",()=>{
+ for(const id of ["3m-minnesota-pfas-2018","vw-criminal-diesel-2017"]){
+  const p=d.cases.find(x=>x.id===id).payment;
+  assert.equal(p.status,"confirmed_paid");
+  assert.equal(p.value_year,null,"No unsupported cash-payment inflation base");
+ }
+});
+test("polished monetary page meets global navigation and findability standard",()=>{
+ assert.ok(html.includes('class="site-header polished-header"'));
+ assert.ok(html.includes('id="siteSearchDialog"'));
+ assert.ok(html.includes('href="glossary.html"'));
+ assert.ok(html.includes('href="site.css"'));
+ assert.ok(html.includes('href="https://svyable.github.io/poisoners/damages.html"'));
+ assert.equal((html.match(/<main\\b/g)||[]).length,1);
+ assert.equal((html.match(/<h1\\b/g)||[]).length,1);
+ assert.ok(!html.includes("\\\\n@media"));
 });

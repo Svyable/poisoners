@@ -22,15 +22,30 @@ jobs:
         run: node scripts/build-foundation.cjs --check
       - name: Run evidence-integrity, metric-model and privacy tests
         run: node --test scripts/foundation.test.cjs
-      - name: Check documented payment, inflation and site presentation integrity
+      - name: Check paid-versus-obligated monetary outcomes and inflation methodology
         run: node --test scripts/damages.test.cjs
+      - name: Validate people provenance and individual-liability safeguards
+        run: node --test scripts/people.test.cjs
       - name: Check research explorer JavaScript syntax
         run: |
           node --check docs/foundation-app.js
           node --check docs/dossier-lab.js
           node --check docs/dossier-register-data.js
           node --check src/dossier-model.cjs
+          node --check docs/people-app.js
+          node --check docs/people-register-data.js
+          node --check src/people-model.cjs
+      - name: Verify public health source briefs and static HTML
+        run: node scripts/build-awareness.cjs --check
+      - name: Audit official environmental data portals
+        run: node scripts/check-public-records.cjs
       - name: Validate local site links and document anchors
         run: node scripts/check-site-links.cjs
+      - name: Verify deterministic site search
+        run: |
+          node --check docs/site-search.js
+          node scripts/build-search-index.cjs --check
+      - name: Audit public HTML accessibility and local research navigation
+        run: node scripts/check-public-site.cjs
       - name: Audit source catalog structure offline
         run: node scripts/audit-sources.cjs --report /tmp/poison-source-catalog.json

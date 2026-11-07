@@ -48,8 +48,8 @@
         "status": "confirmed_paid",
         "amount": 850000000,
         "as_of": "2026-11-07",
-        "value_year": 2018,
-        "detail": "Minnesota Pollution Control Agency expressly reports 3M paid $850 million to settle. About $720 million was available for projects after expenses; $720 million is not a second payment."
+        "value_year": null,
+        "detail": "Minnesota Pollution Control Agency expressly reports 3M paid $850 million to settle. About $720 million was available for projects after expenses; $720 million is not a second payment. The authority confirms the $850 million was paid but does not establish the exact cash-transfer year, so no single paid-cash inflation base is assumed."
       },
       "notes": "Payment to the state is not a quantification of individual illness or total ecological loss.",
       "sources": [
@@ -121,8 +121,8 @@
         "status": "confirmed_paid",
         "amount": 2800000000,
         "as_of": "2018-12-18",
-        "value_year": 2017,
-        "detail": "U.S. Department of Justice subsequently described the $2.8 billion criminal fine as paid."
+        "value_year": null,
+        "detail": "U.S. Department of Justice subsequently described the $2.8 billion criminal fine as paid. DOJ confirms payment by December 2018 but does not state the exact payment date in this source; the sentence-year comparator is not treated as the cash-payment year."
       },
       "notes": "Separate from the up-to-$14.7bn 2016 vehicle buyback/mitigation settlement; do not combine as a single harm estimate.",
       "sources": [
