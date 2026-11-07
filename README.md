@@ -19,6 +19,7 @@
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
 - [Case engine](docs/legal.html): ten-country preliminary legal-route map and a counsel-gated, privacy-protecting workflow.
 - [Documented case studies](docs/case-studies.html): Japan's Minamata disease, BP Deepwater Horizon, Vale Brumadinho and 3M's PFAS drinking-water settlement, with official sources and distinctions between court findings, settlements and claims.
+- [Historical damages and payments](docs/damages.html): 11 source-backed monetary outcomes, including five named entities in the 50-company index (ExxonMobil, Chevron, ConocoPhillips, Occidental Petroleum; not inferred for others). Evidence shows **confirmed paid**, **partially paid as of a dated report**, and **not independently reconciled** amounts separately. 2025 same-currency CPI-U/IPCA purchasing-power comparators are not cash-outflow histories or injury estimates. [Raw ledger](docs/damages-data.json).
 - [Evidence record schema](schema/evidence-record.schema.json): source metadata, legal-entity and date boundaries, measurement and confidence fields.
 
 **Preview locally:** run 'python3 -m http.server 8000 --directory docs' then open http://localhost:8000. **Verify:** run 'node scripts/verify.cjs'. No npm dependencies.
@@ -57,6 +58,13 @@ The ten largest sovereign-country **2025 territorial GHG emitters** in EDGAR 202
 | Canada | 764.52 | 5 |
 
 **50 company records total.** Navigation associates a company with its home country, not the location of its emissions. Corporate and national emissions **use different accounting boundaries** and cannot be added as equivalent totals. Unscored countries and missing historical data are **not** zero harm.
+
+## Historical legal-payment evidence
+The monetary-outcome ledger is a **legal and financial history**, not a toxicity or guilt ranking. Its joined company aliases are deliberately separate from the legal defendant identities. For example, the Exxon Valdez civil agreement was made with predecessor Exxon entities; the Chevron 2003/2005 refinery settlement and Occidental Chemical cleanup are not measurements of their global 2024 GHG impact.
+
+Cash amounts with explicit post-settlement payment confirmation are labeled **confirmed paid**. A dated partial report means **paid by that date**, never a current total. Announced settlement values, future work investments, capped consumer remedies and court orders are **not** automatically treated as disbursements. Overlapping legal scopes are never added. The 2017 DuPont/Chemours agreement is **$670.7m total**, not $670.7m per defendant; the 1991 Exxon civil settlement excludes the separate criminal restitution/fine.
+
+Inflation method: 2025 purchasing-power USD comparator = original nominal figure × BLS CPI-U 2025 annual mean / settlement-year annual mean. Brazil BRL uses IBGE IPCA factors compounded to December 2025. This preserves currencies; no FX exchange assumptions. The nominal agreement-year CPI comparison is **not** an inflation adjustment of every future installment, and multi-year actual payments with unknown cashflow timing are explicitly **not** rebased. For all published records and tests, run `node --test scripts/damages.test.cjs`.
 
 ## The proposed Poison Index
 
