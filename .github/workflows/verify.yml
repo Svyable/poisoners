@@ -61,6 +61,11 @@ jobs:
           node --check docs/knowledge-app.js
           node scripts/build-knowledge.cjs --check
           node --test scripts/knowledge.test.cjs
+      - name: Verify chemical evidence crosswalk and generated pathway HTML
+        run: |
+          node --check docs/pathways-app.js
+          node scripts/build-pathways.cjs --check
+          node --test scripts/pathways.test.cjs
       - name: Verify deterministic site search
         run: |
           node --check docs/site-search.js

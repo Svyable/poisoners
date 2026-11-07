@@ -32,6 +32,13 @@
       "keywords": "knowledge library field notes source agency environmental exposure pathway measurement public health risk scientific evidence"
     },
     {
+      "type": "page",
+      "title": "Chemical Exposure Pathways",
+      "href": "pathways.html#browse",
+      "description": "Fourteen chemical-specific evidence routes connecting original sources, exposure methods, public records and explicit research gaps",
+      "keywords": "chemical pathways exposure route investigator source compound arsenic mercury lead nitrogen oxides sulfur dioxide fine particles chromium selenium cadmium hcl hydrogen sulfide formaldehyde method evidence"
+    },
+    {
       "type": "section",
       "title": "Company climate ledger",
       "href": "index.html#ledger",
@@ -646,6 +653,104 @@
       "href": "knowledge.html#note-legal-proof-boundary",
       "description": "An emissions inventory, monitoring result and enforcement entry are different classes of evidence and do not by themselves answer every legal causation question.",
       "keywords": "A public record is not a liability finding records Do not infer wrongdoing, fault or individual culpability solely from appearance in a dataset or job title. Which jurisdiction, legally established elements and adjudicated findings are actually documented? Public records & accountability"
+    },
+    {
+      "type": "pathway",
+      "title": "Sulfur dioxide · evidence route",
+      "href": "pathways.html#route-so2",
+      "description": "Research route for SO₂ across air; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Sulfur dioxide SO₂ sulfur air Find a dated sulfur dioxide observation and distinguish any measured downwind concentration from the emitter's reported mass. Oxidation to sulfate and local exposure are not quantified here; a sector-wide emission estimate does not describe one neighborhood's dose or identify a cause of illness."
+    },
+    {
+      "type": "pathway",
+      "title": "Nitrogen oxides (NO + NO₂) · evidence route",
+      "href": "pathways.html#route-nox",
+      "description": "Research route for NOₓ across air; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Nitrogen oxides (NO + NO₂) NOₓ nitrogen air Find an ambient nitrogen dioxide measurement and preserve the monitoring interval before relating it to a reported NOₓ total. Total NOₓ is not the concentration of NO₂, ozone, or nitrate particles at a person's location."
+    },
+    {
+      "type": "pathway",
+      "title": "Mercury (reported total) · evidence route",
+      "href": "pathways.html#route-hg",
+      "description": "Research route for Hg across air, water, food web; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Mercury (reported total) Hg metal air water food web Seek species-specific stack, deposition, water, and fish-tissue evidence; identify where inorganic mercury might transform into methylmercury. Emissions of total mercury do not demonstrate methylmercury in a particular fish or person's diet."
+    },
+    {
+      "type": "pathway",
+      "title": "Arsenic and inorganic compounds · evidence route",
+      "href": "pathways.html#route-arsenic",
+      "description": "Research route for As across air, ash, water, soil; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Arsenic and inorganic compounds As metal air ash water soil Distinguish inorganic arsenic forms and investigate sampled groundwater, soil or ash in a defined location and year. The element name or presence of ash does not identify a specific exposure or distinguish geogenic background from industrial contribution."
+    },
+    {
+      "type": "pathway",
+      "title": "Lead and compounds · evidence route",
+      "href": "pathways.html#route-lead",
+      "description": "Research route for Pb across ash, air, soil, water; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Lead and compounds Pb metal ash air soil water Separate soil and ash pathways from drinking-water plumbing; identify sample location, medium, and reporting method. Reported lead mass does not establish blood-lead levels, individual health effects, or the responsible source."
+    },
+    {
+      "type": "pathway",
+      "title": "Cadmium and compounds · evidence route",
+      "href": "pathways.html#route-cadmium",
+      "description": "Research route for Cd across ash, soil, water, air; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Cadmium and compounds Cd metal ash soil water air Check the compound or species reported, then look for dated local air, water, soil or sediment evidence along a plausible pathway. An unspecified cadmium mass says nothing about a particular person's dose or a site's local water quality."
+    },
+    {
+      "type": "pathway",
+      "title": "Hexavalent chromium compounds · evidence route",
+      "href": "pathways.html#route-chromium6",
+      "description": "Research route for Cr(VI) across air, ash, water; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Hexavalent chromium compounds Cr(VI) metal air ash water Require hexavalent-chromium-specific laboratory results; verify whether any source instead reports total chromium. Total chromium data cannot be relabeled Cr(VI), and an inventory entry alone cannot establish exposure."
+    },
+    {
+      "type": "pathway",
+      "title": "Selenium compounds · evidence route",
+      "href": "pathways.html#route-selenium",
+      "description": "Research route for Se across ash, water, food web; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Selenium compounds Se metal ash water food web Find the reported selenium species, receiving water chemistry, and species-specific ecological observations where relevant. Selenium is an essential nutrient at appropriate levels; its presence alone does not demonstrate poisoning."
+    },
+    {
+      "type": "pathway",
+      "title": "Sulfuric acid aerosol / mist · evidence route",
+      "href": "pathways.html#route-h2so4",
+      "description": "Research route for H₂SO₄ across air, water; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Sulfuric acid aerosol / mist H₂SO₄ sulfur air water Distinguish a directly emitted acid mist from acid particles formed later in air; seek particle size and concentration measurements. SO₂ mass cannot be reclassified or added as directly emitted H₂SO₄ without a justified formation model."
+    },
+    {
+      "type": "pathway",
+      "title": "Fine particulate matter · evidence route",
+      "href": "pathways.html#route-pm25",
+      "description": "Research route for PM₂.₅ across air; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Fine particulate matter PM₂.₅ particle air Find time-stamped fine-particle measurements, source composition information, and the relevant averaging period. PM₂.₅ is a mixture; ambient particle readings do not automatically name a facility or quantify a person's lifetime dose."
+    },
+    {
+      "type": "pathway",
+      "title": "Hydrogen chloride / hydrochloric acid gas · evidence route",
+      "href": "pathways.html#route-hcl",
+      "description": "Research route for HCl across air, water; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Hydrogen chloride / hydrochloric acid gas HCl acid-gas air water Seek a speciated hydrogen chloride release record and independently measured air concentration or deposition evidence. An air release of HCl is not the same as measured acidity in a local waterbody or individual inhalation dose."
+    },
+    {
+      "type": "pathway",
+      "title": "Hydrogen fluoride / hydrofluoric acid · evidence route",
+      "href": "pathways.html#route-hf",
+      "description": "Research route for HF across air, water; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Hydrogen fluoride / hydrofluoric acid HF acid-gas air water Verify fluoride species, release timing, monitored air concentrations and any local deposition or receptor evidence. A facility category cannot establish an HF concentration, tissue injury or ecological outcome at a nearby location."
+    },
+    {
+      "type": "pathway",
+      "title": "Hydrogen sulfide · evidence route",
+      "href": "pathways.html#route-h2s",
+      "description": "Research route for H₂S across air; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Hydrogen sulfide H₂S odorous air Use appropriate monitored hydrogen sulfide concentrations, sampling times and professional safety guidance; never treat smell as a reliable instrument. Odor perception can fade at dangerous exposures; no site-specific concentration or personal dose is supplied."
+    },
+    {
+      "type": "pathway",
+      "title": "Formaldehyde · evidence route",
+      "href": "pathways.html#route-formaldehyde",
+      "description": "Research route for CH₂O across air; source-linked interpretation, not a measured personal exposure or liability finding",
+      "keywords": "Formaldehyde CH₂O organic air Determine whether the question concerns an indoor, occupational or outdoor source and obtain relevant concentration measurements over time. A generic chemical listing cannot quantify a person's inhalation dose or assign a particular source."
     },
     {
       "type": "company",

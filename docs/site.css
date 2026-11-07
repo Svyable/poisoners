@@ -273,3 +273,10 @@ body{overflow-x:clip}
 .records-knowledge-link a{color:#d0f4a0;font:600 11px/1.6 "DM Mono",monospace;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:900px){.ka-home-layout{grid-template-columns:1fr;gap:27px}}
 @media(max-width:600px){.ka-home-feature{padding:46px 0}.ka-home-chapters a{padding:21px}}
+
+
+/* Connect the Knowledge Atlas and chemical evidence routes on the homepage. */
+.px-home-link{margin-top:17px!important;margin-bottom:0!important;font:600 11px/1.65 "DM Mono",monospace!important;letter-spacing:.035em}
+.px-home-link a{color:#d4f5a3;text-decoration:underline;text-underline-offset:4px}
+.ka-pathway-bridge{padding:19px 22px;background:#182e21;border:1px solid #4d7150;color:#d4e4d0;line-height:1.8;font-size:13px}
+.ka-pathway-bridge a{color:#d4f5a3!important;text-underline-offset:4px}

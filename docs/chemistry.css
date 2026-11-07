@@ -70,3 +70,13 @@
 .ch-coal-paths a{color:var(--acid);font:500 10px/1.7 var(--mono);text-decoration:underline;text-underline-offset:3px}
 @media(max-width:900px){.ch-coal-kpis{grid-template-columns:1fr 1fr}.ch-coal-kpis p{grid-column:1/-1}.ch-coal-paths{grid-template-columns:1fr}.ch-coal-paths p{min-height:0}}
 @media(max-width:600px){.ch-coal-kpis{grid-template-columns:1fr}.ch-coal-kpis p{grid-column:auto}.ch-coal-kpis div{border-right:none;border-bottom:1px solid #39513c;padding-bottom:13px}}
+
+.ch-pathway-link{display:inline-block;margin-top:14px;padding:11px 13px;background:#d1ef9f;color:#14231b!important;font:700 10px/1.5 var(--mono);text-decoration:none!important;letter-spacing:.02em}
+.ch-pathway-link:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ch-pathway-teaser{padding:55px 0;border-top:1px solid #4b6751;background:radial-gradient(ellipse at 94% 55%,#b4ec8710,transparent 65%),#12251a}
+.ch-pathway-teaser .shell{display:flex;justify-content:space-between;align-items:center;gap:50px}
+.ch-pathway-teaser h2{font-size:clamp(31px,4vw,55px);letter-spacing:-.06em;line-height:1.1;margin:13px 0 17px;color:#f1f6e8}
+.ch-pathway-teaser h2 em{font:400 italic 1em Georgia,serif;color:#d1ef9f}
+.ch-pathway-teaser p{color:#b3c8b3;line-height:1.85;max-width:760px}
+.ch-pathway-teaser a{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:17px 21px;background:#d1ef9f;color:#152719;text-decoration:none;font:700 11px/1.5 var(--mono)}
+@media(max-width:800px){.ch-pathway-teaser .shell{display:block}.ch-pathway-teaser a{margin-top:20px}}

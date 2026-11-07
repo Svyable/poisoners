@@ -28,6 +28,13 @@
     "keywords": "knowledge library field notes source agency environmental exposure pathway measurement public health risk scientific evidence"
   },
   {
+    "type": "page",
+    "title": "Chemical Exposure Pathways",
+    "href": "pathways.html#browse",
+    "description": "Fourteen chemical-specific evidence routes connecting original sources, exposure methods, public records and explicit research gaps",
+    "keywords": "chemical pathways exposure route investigator source compound arsenic mercury lead nitrogen oxides sulfur dioxide fine particles chromium selenium cadmium hcl hydrogen sulfide formaldehyde method evidence"
+  },
+  {
     "type": "section",
     "title": "Company climate ledger",
     "href": "index.html#ledger",
