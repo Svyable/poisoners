@@ -1,6 +1,6 @@
 "use strict";
 const test=require("node:test"),assert=require("node:assert/strict"),fs=require("node:fs"),os=require("node:os"),path=require("node:path"),vm=require("node:vm");
-const {importBasic,csvRows,parseNonnegative}=require("./import-tri-basic.cjs");
+const {importBasic,csvRows,parseNonnegative,headerKey}=require("./import-tri-basic.cjs");
 const root=path.resolve(__dirname,"..");
 const links=JSON.parse(fs.readFileSync(path.join(root,"data/tri-facility-links.json"),"utf8"));
 const output=JSON.parse(fs.readFileSync(path.join(root,"docs/tri-facility-releases.json"),"utf8"));
@@ -83,6 +83,41 @@ test("invalid data, duplicate chemical forms, grams anomaly and wrong file diges
   await assert.rejects(importBasic({input:good.file,retrieved:"2026-11-07",manifest:links,expectedSha256:"0".repeat(64)}),/SHA-256 mismatch/);
   await assert.rejects(importBasic({input:good.file,retrieved:"2026-11-07",year:2025,manifest:links}),/only the reviewed/);
  }finally{dup.cleanup();neg.cleanup();grams.cleanup();good.cleanup()}
+});
+test("EPA Basic export numbered headers and official 5.1 en-dash fields import without column errors",async()=>{
+ assert.equal(headerKey("1. YEAR"),"YEAR");
+ assert.equal(headerKey("51. 5.1 – FUGITIVE AIR"),"5.1 - FUGITIVE AIR");
+ assert.equal(headerKey("52. 5.2 - STACK AIR"),"5.2 - STACK AIR");
+ assert.equal(headerKey("5.3 – WATER"),"5.3 - WATER");
+ const row=line({chemical:"Dioxin and dioxin-like compounds",cas:"N150",unit:"Grams",fug:"7",stack:"0",water:"0"});
+ const header=HEADER.map((x,i)=>(i+1)+". "+x).concat(["43. CLASSIFICATION","39. TRI CHEMICAL /COMPOUND ID"]);
+ const tmp=fixture([]);
+ try{
+  fs.writeFileSync(tmp.file,[header,row.concat(["DIOXIN","N150"])].map(x=>x.map(quote).join(",")).join("\r\n")+"\r\n");
+  const out=await importBasic({input:tmp.file,retrieved:"2026-11-07",manifest:links});
+  assert.equal(out.records.length,1);
+  const result=out.records[0];
+  assert.equal(result.tri_classification,"DIOXIN");
+  assert.equal(result.tri_chemical_id,"N150");
+  assert.equal(result.unit,"g");
+  assert.equal(result.onsite_air_total,7);
+  assert.equal(result.chemical_reported,"Dioxin and dioxin-like compounds");
+ }finally{tmp.cleanup()}
+});
+test("EPA metal-compound chemical categories retain their own EPA IDs instead of collapsing into elemental species",async()=>{
+ const row=line({chemical:"Lead compounds",cas:"N420",doc:"R240001234"});
+ const header=HEADER.concat(["CLASSIFICATION","TRI CHEMICAL /COMPOUND ID"]);
+ const tmp=fixture([]);
+ try{
+  fs.writeFileSync(tmp.file,[header,row.concat(["PBT","N420"])].map(x=>x.map(quote).join(",")).join("\r\n")+"\r\n");
+  const out=await importBasic({input:tmp.file,retrieved:"2026-11-07",manifest:links});
+  assert.equal(out.records.length,1);
+  const result=out.records[0];
+  assert.equal(result.tri_classification,"PBT");
+  assert.equal(result.tri_chemical_id,"N420");
+  assert.equal(result.cas_number,"N420");
+  assert.equal(result.matched_compound_id,null,"Lead compounds are NOT elemental Pb without chemical review");
+ }finally{tmp.cleanup()}
 });
 test("site displays the non-imported source status, and browser code cannot fabricate a company toxicity score",()=>{
  assert.ok(html.includes('id="facility-records"'));
