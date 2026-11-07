@@ -11,6 +11,8 @@ const load=(p)=>JSON.parse(fs.readFileSync(path.join(root,p),"utf8"));
 const metrics=load("data/metric-catalog.json");
 const sources=load("data/source-catalog.json");
 const work=load("data/country-workstreams.json");
+const examples=load("data/case-examples.json");
+const {compile}=require("../src/dossier-model.cjs");
 const claims=fs.readFileSync(path.join(root,"data/evidence/carbon-majors-2024.jsonl"),"utf8")
  .trim().split(/\r?\n/).filter(Boolean).map((s)=>JSON.parse(s));
 const sandbox={window:{}};
@@ -61,7 +63,11 @@ const payload={
 };
 const json=JSON.stringify(payload,null,2)+"\n";
 const js="/* GENERATED from data/* by scripts/build-foundation.cjs. DO NOT EDIT BY HAND. */\nwindow.POISON_FOUNDATION = "+JSON.stringify(payload,null,2)+";\n";
-const outputs=[["docs/foundation.json",json],["docs/foundation-data.js",js]];
+const dossiers=compile({claims,companies:seed.companies,countries:work.countries,sources:sources.sources,examples});
+const dossierJSON=JSON.stringify(dossiers,null,2)+"\n";
+const dossierJS="/* GENERATED / Dossier evidence subset; no certified injury claims. */\nwindow.POISON_DOSSIERS = "+JSON.stringify(dossiers,null,2)+";\n";
+const outputs=[["docs/foundation.json",json],["docs/foundation-data.js",js],
+ ["docs/dossier-register.json",dossierJSON],["docs/dossier-register-data.js",dossierJS]];
 let changed=false;
 for(const [file,content] of outputs) {
  const full=path.join(root,file);
@@ -73,5 +79,5 @@ for(const [file,content] of outputs) {
 }
 console.log((process.argv.includes("--check")?"Verified":"Built")+" foundation: "+payload.counts.metrics_defined+
  " metric definitions, "+payload.counts.source_entries+" sources, "+payload.counts.seed_emission_records+
- " cited emissions records; "+totalSlots+"/"+payload.counts.target_dossier_slots+" company coverage slots (emissions only)."+
+ " cited emissions records and "+dossiers.case_examples.length+" documented comparator cases; "+totalSlots+"/"+payload.counts.target_dossier_slots+" company coverage slots (emissions only)."+
  (changed?" Assets updated.":""));
