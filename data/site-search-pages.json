@@ -1,0 +1,212 @@
+[
+  {
+    "type": "page",
+    "title": "Observatory",
+    "href": "index.html",
+    "description": "Global climate observatory, public source ledger and research matrix",
+    "keywords": "home overview"
+  },
+  {
+    "type": "section",
+    "title": "Company climate ledger",
+    "href": "index.html#ledger",
+    "description": "2024 production-linked company GHG records and temporal horizons",
+    "keywords": "carbon majors climate emissions"
+  },
+  {
+    "type": "section",
+    "title": "Ten-country atlas",
+    "href": "index.html#atlas",
+    "description": "2025 territorial emissions from JRC EDGAR",
+    "keywords": "china usa india russia indonesia brazil iran japan saudi arabia canada"
+  },
+  {
+    "type": "section",
+    "title": "Pollutant and receptor matrix",
+    "href": "index.html#matrix",
+    "description": "Research design covering pollutant families and affected receptors",
+    "keywords": "air water soil humans animals plants pfas metals"
+  },
+  {
+    "type": "section",
+    "title": "Research metric framework",
+    "href": "index.html#foundation",
+    "description": "Proposed metric taxonomy and source catalog",
+    "keywords": "metrics methods domains"
+  },
+  {
+    "type": "page",
+    "title": "Dossier Lab",
+    "href": "dossiers.html#investigate",
+    "description": "Explore 50 source-linked corporate climate records and missing evidence",
+    "keywords": "companies profiles"
+  },
+  {
+    "type": "section",
+    "title": "Comparable company observations",
+    "href": "dossiers.html#compare",
+    "description": "Compare like-for-like 2024 producer-linked emissions estimates",
+    "keywords": "company compare climate"
+  },
+  {
+    "type": "page",
+    "title": "Open data and sources",
+    "href": "data-access.html#downloads",
+    "description": "Public JSON data downloads and source references",
+    "keywords": "json data source"
+  },
+  {
+    "type": "section",
+    "title": "Original research sources",
+    "href": "data-access.html#sources",
+    "description": "Carbon Majors, EDGAR, EPA and other primary-source references",
+    "keywords": "carbon majors edgar lancet epa"
+  },
+  {
+    "type": "page",
+    "title": "Start here research guide",
+    "href": "guide.html#steps",
+    "description": "How to explore the site and read evidence carefully",
+    "keywords": "help FAQ"
+  },
+  {
+    "type": "section",
+    "title": "Accounting boundaries explained",
+    "href": "guide.html#boundaries",
+    "description": "Distinguish company production attribution from country inventories",
+    "keywords": "CO2e producer climate"
+  },
+  {
+    "type": "section",
+    "title": "Research evidence chain",
+    "href": "guide.html#chain",
+    "description": "Sources, facilities, exposure pathways, outcomes and legal screening",
+    "keywords": "causation proof"
+  },
+  {
+    "type": "page",
+    "title": "Documented environmental cases",
+    "href": "case-studies.html",
+    "description": "Historical case studies with different scientific and legal outcomes",
+    "keywords": "case studies"
+  },
+  {
+    "type": "section",
+    "title": "Minamata mercury case",
+    "href": "case-studies.html#minamata",
+    "description": "Japan mercury-related historical environmental case",
+    "keywords": "chisso mercury"
+  },
+  {
+    "type": "section",
+    "title": "Deepwater Horizon oil spill",
+    "href": "case-studies.html#deepwater",
+    "description": "BP Gulf of Mexico oil spill and legal records",
+    "keywords": "bp oil"
+  },
+  {
+    "type": "section",
+    "title": "Brumadinho tailings dam failure",
+    "href": "case-studies.html#brumadinho",
+    "description": "Vale Brazil environmental disaster",
+    "keywords": "mining dam"
+  },
+  {
+    "type": "section",
+    "title": "PFAS public water settlement",
+    "href": "case-studies.html#pfas",
+    "description": "3M drinking-water supplier PFAS settlement",
+    "keywords": "forever chemicals"
+  },
+  {
+    "type": "page",
+    "title": "Methodology",
+    "href": "methodology.html",
+    "description": "Environmental measurement methods and model limits",
+    "keywords": "science methodology"
+  },
+  {
+    "type": "section",
+    "title": "Research limitations",
+    "href": "methodology.html#limitations",
+    "description": "Explicit caveats on toxic harm, health and liability",
+    "keywords": "caveat uncertainty"
+  },
+  {
+    "type": "page",
+    "title": "Operating protocol",
+    "href": "operating-protocol.html",
+    "description": "Seven-stage research release gates",
+    "keywords": "rules standard"
+  },
+  {
+    "type": "page",
+    "title": "Legal safeguards",
+    "href": "legal.html",
+    "description": "Counsel-gated legal processes and privacy boundaries",
+    "keywords": "jurisdictions liability"
+  },
+  {
+    "type": "page",
+    "title": "About and corrections",
+    "href": "about.html#mission",
+    "description": "Project mission, status, safeguards and public correction process",
+    "keywords": "who"
+  },
+  {
+    "type": "section",
+    "title": "Submit documented corrections",
+    "href": "about.html#corrections",
+    "description": "Report specific sourced corrections through the public issue tracker",
+    "keywords": "contribute issue"
+  },
+  {
+    "type": "page",
+    "title": "Research glossary",
+    "href": "glossary.html#accounting",
+    "description": "Definitions of emissions accounting, pollutant exposure, scientific evidence and legal terminology",
+    "keywords": "dictionary definitions co2e climate law"
+  },
+  {
+    "type": "section",
+    "title": "Exposure terminology",
+    "href": "glossary.html#science",
+    "description": "What hazard, release, exposure, dose, receptor and attributable burden mean",
+    "keywords": "health toxic exposure dose"
+  },
+  {
+    "type": "section",
+    "title": "Scientific and legal evidence terms",
+    "href": "glossary.html#evidence",
+    "description": "Definitions of counterfactual, uncertainty, provenance and liability",
+    "keywords": "causation burden evidence legal"
+  },
+  {
+    "type": "section",
+    "title": "Producer-linked emissions definition",
+    "href": "glossary.html#production-linked",
+    "description": "How published producer attribution differs from territorial inventories",
+    "keywords": "carbon majors corporate climate"
+  },
+  {
+    "type": "section",
+    "title": "Greenhouse-gas unit CO2e",
+    "href": "glossary.html#co2e",
+    "description": "CO₂e is a climate comparison unit, not toxicity or dose",
+    "keywords": "mtco2e mass gases"
+  },
+  {
+    "type": "page",
+    "title": "People & Accountability Atlas",
+    "href": "people.html",
+    "description": "Public officer records and a 500-role research matrix. Compensation is not proof of environmental harm or individual fault.",
+    "keywords": "people SEC filings compensation 34 officers company accountability legal evidence"
+  },
+  {
+    "type": "page",
+    "title": "People Atlas evidence methodology",
+    "href": "people-methodology.html",
+    "description": "Explain SEC compensation definitions, role verification, causation gates and individual due process.",
+    "keywords": "executive pay legal standards SEC officer causation jurisdiction"
+  }
+]

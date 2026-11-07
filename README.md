@@ -154,3 +154,7 @@ Add a primary filing via the [public officer source template](.github/ISSUE_TEMP
 The header search scans a static, privacy-preserving index of public site sections, 50 company climate records and the separately caveated People Atlas. Searches are processed in the browser and are not submitted to an external service. The [research glossary](docs/glossary.html) explains climate accounting, exposure science, uncertainty and legal terminology. Search references are navigation, not evidence of harm or wrongdoing.
 
 Site-wide search assets live at `docs/site-search.js` and `docs/search-index.json`. Validate navigation with `node scripts/check-site-links.cjs`; keep named-person searches distinct from the research-only compensation and legal methodology.
+
+## Maintaining the public research search
+
+Search is a static, browser-local navigation aid. The reviewed route entries live in `data/site-search-pages.json`; the 50 climate-only company labels are built from the public dossier register. Run `node scripts/build-search-index.cjs` after changing either source, then verify with `node scripts/build-search-index.cjs --check`. Do not edit `docs/search-index.json` manually, and do not use search placement as a harm or liability ranking.

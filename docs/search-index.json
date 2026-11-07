@@ -165,6 +165,55 @@
       "keywords": "contribute issue"
     },
     {
+      "type": "page",
+      "title": "Research glossary",
+      "href": "glossary.html#accounting",
+      "description": "Definitions of emissions accounting, pollutant exposure, scientific evidence and legal terminology",
+      "keywords": "dictionary definitions co2e climate law"
+    },
+    {
+      "type": "section",
+      "title": "Exposure terminology",
+      "href": "glossary.html#science",
+      "description": "What hazard, release, exposure, dose, receptor and attributable burden mean",
+      "keywords": "health toxic exposure dose"
+    },
+    {
+      "type": "section",
+      "title": "Scientific and legal evidence terms",
+      "href": "glossary.html#evidence",
+      "description": "Definitions of counterfactual, uncertainty, provenance and liability",
+      "keywords": "causation burden evidence legal"
+    },
+    {
+      "type": "section",
+      "title": "Producer-linked emissions definition",
+      "href": "glossary.html#production-linked",
+      "description": "How published producer attribution differs from territorial inventories",
+      "keywords": "carbon majors corporate climate"
+    },
+    {
+      "type": "section",
+      "title": "Greenhouse-gas unit CO2e",
+      "href": "glossary.html#co2e",
+      "description": "CO₂e is a climate comparison unit, not toxicity or dose",
+      "keywords": "mtco2e mass gases"
+    },
+    {
+      "type": "page",
+      "title": "People & Accountability Atlas",
+      "href": "people.html",
+      "description": "Public officer records and a 500-role research matrix. Compensation is not proof of environmental harm or individual fault.",
+      "keywords": "people SEC filings compensation 34 officers company accountability legal evidence"
+    },
+    {
+      "type": "page",
+      "title": "People Atlas evidence methodology",
+      "href": "people-methodology.html",
+      "description": "Explain SEC compensation definitions, role verification, causation gates and individual due process.",
+      "keywords": "executive pay legal standards SEC officer causation jurisdiction"
+    },
+    {
       "type": "company",
       "title": "Saudi Aramco",
       "href": "dossiers.html?entity=saudi-aramco#investigate",
@@ -513,55 +562,6 @@
       "href": "dossiers.html?entity=arc-resources#investigate",
       "description": "Canada · Oil & gas · 2024 production-linked climate observation; not a toxicity or liability finding",
       "keywords": "ARC Resources Canada Oil & gas Carbon Majors greenhouse gas producer CA"
-    },
-    {
-      "type": "page",
-      "title": "Research glossary",
-      "href": "glossary.html#accounting",
-      "description": "Definitions of emissions accounting, pollutant exposure, scientific evidence and legal terminology",
-      "keywords": "dictionary definitions co2e climate law"
-    },
-    {
-      "type": "section",
-      "title": "Exposure terminology",
-      "href": "glossary.html#science",
-      "description": "What hazard, release, exposure, dose, receptor and attributable burden mean",
-      "keywords": "health toxic exposure dose"
-    },
-    {
-      "type": "section",
-      "title": "Scientific and legal evidence terms",
-      "href": "glossary.html#evidence",
-      "description": "Definitions of counterfactual, uncertainty, provenance and liability",
-      "keywords": "causation burden evidence legal"
-    },
-    {
-      "type": "section",
-      "title": "Producer-linked emissions definition",
-      "href": "glossary.html#production-linked",
-      "description": "How published producer attribution differs from territorial inventories",
-      "keywords": "carbon majors corporate climate"
-    },
-    {
-      "type": "section",
-      "title": "Greenhouse-gas unit CO2e",
-      "href": "glossary.html#co2e",
-      "description": "CO₂e is a climate comparison unit, not toxicity or dose",
-      "keywords": "mtco2e mass gases"
-    },
-    {
-      "type": "page",
-      "title": "People & Accountability Atlas",
-      "href": "people.html",
-      "description": "Public officer records and a 500-role research matrix. Compensation is not proof of environmental harm or individual fault.",
-      "keywords": "people SEC filings compensation 34 officers company accountability legal evidence"
-    },
-    {
-      "type": "page",
-      "title": "People Atlas evidence methodology",
-      "href": "people-methodology.html",
-      "description": "Explain SEC compensation definitions, role verification, causation gates and individual due process.",
-      "keywords": "executive pay legal standards SEC officer causation jurisdiction"
     }
   ]
 }
