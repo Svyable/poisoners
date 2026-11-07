@@ -209,3 +209,28 @@ body{overflow-x:clip}
 .glossary-term dd{margin:0;color:#aec2b0;font-size:12px;line-height:1.9}
 @media(max-width:750px){.glossary-intro{display:block;padding-block:55px 40px}.glossary-sections{margin-top:30px}.glossary-list{grid-template-columns:1fr}.glossary-term{padding:24px}}
 @media print{.glossary-term{break-inside:avoid}}
+
+
+/* Public-health awareness gateway on the homepage. */
+.awareness-home-feature{background:#1b2e20;border-block:1px solid #4d6548;padding:82px 0}
+.awareness-home-feature-inner{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:clamp(40px,6vw,100px)}
+.awareness-home-feature h2{font-size:clamp(39px,4.6vw,66px);letter-spacing:-.066em;line-height:1.1;margin:18px 0 24px}
+.awareness-home-feature h2 em{font-style:normal;color:var(--acid)}
+.awareness-home-feature p{max-width:580px;color:#b5cdb8;font-size:13px;line-height:1.9;margin:0 0 28px}
+.awareness-home-feature-links{display:grid;gap:12px}
+.awareness-home-feature-links a{display:flex;flex-direction:column;gap:9px;padding:22px 26px;background:#0e1e16;border:1px solid #506f4b}
+.awareness-home-feature-links a:hover{background:#1b3423;border-color:var(--acid)}
+.awareness-home-feature-links span,.awareness-home-feature-links small{font:500 10px/1.6 var(--mono);color:var(--acid)}
+.awareness-home-feature-links strong{font-size:20px;color:#e4f0e1;letter-spacing:-.04em}
+.awareness-home-feature-links small{color:#a8bea5}
+@media(max-width:1460px){
+ .polished-header .site-primary-nav,.polished-header .site-header-action{display:none}
+ .polished-header .site-menu-button{display:block;margin-left:0;border:1px solid #638358;background:#14271c;color:var(--site-lime);font-size:24px;padding:5px 13px}
+ .polished-mobile-nav{display:flex;flex-direction:column;position:sticky;z-index:70;top:84px;background:#101d17;border-bottom:1px solid #426044;padding:10px clamp(18px,3.6vw,60px)}
+ .polished-mobile-nav[hidden]{display:none!important}
+ .polished-mobile-nav a{padding:12px;border-bottom:1px solid #2c4734;font-size:13px}
+ .site-search-trigger{margin-left:auto}
+ .site-search-trigger .site-search-label,.site-search-trigger kbd{display:none}
+}
+@media(max-width:800px){.awareness-home-feature-inner{grid-template-columns:1fr;gap:35px}.awareness-home-feature{padding:60px 0}}
+@media print{.awareness-home-feature{display:none!important}}
