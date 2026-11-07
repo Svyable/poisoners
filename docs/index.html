@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="styles.css">
   <script src="data.js" defer></script>
   <script src="app.js" defer></script>
+  <script src="foundation-data.js" defer></script>
+  <script src="foundation-app.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -26,14 +28,15 @@
       <a href="#overview" class="nav-link active">Observatory</a>
       <a href="#ledger" class="nav-link">The index</a>
       <a href="#matrix" class="nav-link">Exposure matrix</a>
-      <a href="#cases" class="nav-link">Case engine</a><a href="case-studies.html" class="nav-link">Case studies</a>
+      <a href="#foundation" class="nav-link">Framework</a>
+      <a href="#cases" class="nav-link">Case engine</a>
       <a href="methodology.html" class="nav-link">Methodology <span aria-hidden="true">↗</span></a>
     </nav>
     <a class="header-action" href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">OPEN SOURCE <span aria-hidden="true">↗</span></a>
     <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation" aria-controls="mobileNav" aria-expanded="false">☰</button>
   </header>
   <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden>
-    <a href="#overview">Observatory</a><a href="#ledger">The index</a><a href="#matrix">Exposure matrix</a><a href="#cases">Case engine</a><a href="case-studies.html">Case studies</a><a href="methodology.html">Methodology</a>
+    <a href="#overview">Observatory</a><a href="#ledger">The index</a><a href="#matrix">Exposure matrix</a><a href="#foundation">Framework</a><a href="#cases">Case engine</a><a href="methodology.html">Methodology</a>
   </nav>
 
   <main id="main">
@@ -55,7 +58,7 @@
           <div class="orb-core"><div class="orb-inner"></div><span>∑</span></div>
           <div class="orb-node node-one"></div><div class="orb-node node-two"></div><div class="orb-node node-three"></div>
         </div>
-        <div class="plot-label plot-top"><span class="dot-lime"></span> SIGNALS ACTIVE<br><strong>25 SOURCE-LINKED ENTITIES</strong></div>
+        <div class="plot-label plot-top"><span class="dot-lime"></span> SIGNALS ACTIVE<br><strong>50 SOURCE-LINKED ENTITIES</strong></div>
         <div class="plot-label plot-left">01 / HISTORY<br><strong>1854—2024</strong></div>
         <div class="plot-label plot-right">02 / REPORTED<br><strong>2024 BASELINE</strong></div>
         <div class="plot-label plot-bottom">03 / FUTURE<br><strong>SCENARIO, NOT VERDICT</strong></div>
@@ -106,7 +109,7 @@
         <div class="filter-ribbon">
           <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search company</span><input type="search" id="companySearch" placeholder="Search company or sector…" autocomplete="off"></label>
           <label class="select-wrap"><span class="sr-only">Filter by country</span><select id="countryFilter"><option value="ALL">All ten countries</option></select></label>
-          <div class="filter-meta"><span class="live-dot"></span> <strong id="resultCount">25</strong> SOURCE-LINKED RECORDS</div>
+          <div class="filter-meta"><span class="live-dot"></span> <strong id="resultCount">50</strong> SOURCE-LINKED RECORDS</div>
         </div>
 
         <div class="table-scroller">
@@ -140,8 +143,43 @@
       </div>
     </section>
 
+
+    <section class="section foundation-section" id="foundation">
+      <div class="shell">
+        <div class="foundation-banner"><span><i></i> POISON INDEX / OPERATING FRAMEWORK</span><span>PUBLIC PROTOTYPE / VERSION 2.0</span></div>
+        <div class="section-title-row foundation-heading">
+          <div><span class="kicker">THE MEASUREMENT SYSTEM / 005</span><h2>One planet.<br><em>Many kinds of damage.</em></h2>
+          <p class="section-sub">Emissions are only the opening observation. The research architecture now defines independently measurable dimensions spanning toxic releases, exposure, clinical outcomes, ecosystems, agriculture, pharmaceuticals, justice and remediation. These are <strong>metric specifications</strong> — not fabricated harm scores.</p></div>
+          <a href="operating-protocol.html" class="outline-link">READ THE OPERATING PROTOCOL ↗</a>
+        </div>
+        <div class="foundation-totals" id="foundationTotals" aria-label="Research-system progress statistics"></div>
+        <div class="foundation-alert"><span>!</span><p><strong>Measured does not mean proven harmful.</strong> The current company-level ledger contains production-linked greenhouse gas emissions only. No chemical-specific facility exposure, human injury, company-attributable deaths or litigation outcome has been calculated from those values. No single composite Poison Score is published.</p></div>
+        <div class="foundation-divider"><span>01 / METRIC ONTOLOGY</span><span>FILTERABLE RESEARCH CATALOGUE</span></div>
+        <div class="foundation-filter-row">
+          <label class="foundation-search"><span class="sr-only">Search index metric definitions</span><input type="search" id="metricSearch" placeholder="Search chemicals, human health, water, DALYs, metals…" autocomplete="off"></label>
+          <label><span class="sr-only">Metric domain</span><select id="metricDomain"><option value="ALL">All metric domains</option></select></label>
+          <label><span class="sr-only">Measure type</span><select id="metricKind"><option value="ALL">All measurement types</option></select></label>
+        </div>
+        <div class="foundation-small-row"><span id="metricCount" role="status">LOADING METRIC DEFINITIONS</span><a href="foundation.json" download>EXPORT MACHINE-READABLE REGISTRY ↓</a></div>
+        <div id="metricGrid" class="metric-grid"></div>
+        <div class="show-more-wrap"><button type="button" id="metricMore" class="outline-link">SHOW MORE METRICS ↓</button></div>
+
+        <div class="foundation-divider country-foundation-divider"><span>02 / COUNTRY WORKSTREAMS</span><span>EMISSIONS RECORDS ≠ MULTI-HAZARD DOSSIERS</span></div>
+        <p class="foundation-inline-lead">Ten investigation lanes, each with country-specific source portals and explicit missing evidence. Target: ten independently researched company dossiers per country. <strong>Current coverage is only a climate-emissions entry point.</strong></p>
+        <div class="country-research-layout">
+          <div class="research-country-grid" id="researchCountryGrid"></div>
+          <aside id="foundationCountryDetail" class="research-country-detail" aria-live="polite"></aside>
+        </div>
+
+        <div class="foundation-divider"><span>03 / GLOBAL SOURCE REGISTER</span><span>PROVENANCE & LICENSING</span></div>
+        <div class="foundation-source-head"><p>Official portals, scientific references and model providers. Source inclusion <strong>does not</strong> mean their contents have been imported, licensed for commercial redistribution or validated for company-specific harm attribution.</p><label class="foundation-search"><span class="sr-only">Search source register</span><input type="search" id="sourceSearch" placeholder="Search by agency, location or data type…" autocomplete="off"></label></div>
+        <div class="foundation-small-row"><span id="sourceCount" role="status">LOADING SOURCES</span><span>RESEARCH LINKS ONLY · NO AUTOMATED SCRAPING</span></div>
+        <div class="research-source-grid" id="sourceGrid"></div>
+      </div>
+    </section>
+
     <section class="section shell case-section" id="cases">
-      <div class="section-title-row"><div><span class="kicker">FROM DATA TO DUE PROCESS / 005</span><h2>Turn evidence<br>into <em>action.</em></h2><p class="section-sub">A reusable investigation workflow designed to help qualified counsel assess pollution-related matters in each jurisdiction. A high emissions number by itself is not a viable lawsuit.</p></div><div class="case-top-links"><a href="case-studies.html" class="outline-link">DOCUMENTED CASES ↗</a><a href="legal.html" class="outline-link">LEGAL FRAMEWORK ↗</a></div></div>
+      <div class="section-title-row"><div><span class="kicker">FROM DATA TO DUE PROCESS / 006</span><h2>Turn evidence<br>into <em>action.</em></h2><p class="section-sub">A reusable investigation workflow designed to help qualified counsel assess pollution-related matters in each jurisdiction. A high emissions number by itself is not a viable lawsuit.</p></div><div class="case-top-links"><a href="case-studies.html" class="outline-link">DOCUMENTED CASES ↗</a><a href="legal.html" class="outline-link">LEGAL FRAMEWORK ↗</a></div></div>
       <div class="case-steps">
         <article><span class="step-no">01 / DISCOVER</span><div class="step-glyph">⌁</div><h3>Detect</h3><p>Collect releases, monitoring, permits, enforcement records and credible scientific leads.</p></article>
         <article><span class="step-no">02 / ATTRIBUTE</span><div class="step-glyph">◎</div><h3>Trace</h3><p>Resolve parent/subsidiary/facility ownership, timing and source-to-receptor pathways.</p></article>
@@ -153,7 +191,7 @@
     </section>
 
     <section class="section sources-section" id="sources">
-      <div class="shell source-layout"><div><span class="kicker">PROVENANCE / 006</span><h2>Receipts.<br><em>Not rhetoric.</em></h2><p>Every published datum needs a source, a date, a denominator, a boundary, a method and an uncertainty statement. A reproducible ledger outranks a sensational number.</p><a class="outline-link" href="methodology.html">EXPLORE THE METHODOLOGY ↗</a> <a class="outline-link" href="case-studies.html" style="margin-top:12px">READ DOCUMENTED CASES ↗</a></div><div class="source-links" id="sourceLinks"></div></div>
+      <div class="shell source-layout"><div><span class="kicker">PROVENANCE / 007</span><h2>Receipts.<br><em>Not rhetoric.</em></h2><p>Every published datum needs a source, a date, a denominator, a boundary, a method and an uncertainty statement. A reproducible ledger outranks a sensational number.</p><a class="outline-link" href="methodology.html">EXPLORE THE METHODOLOGY ↗</a> <a class="outline-link" href="case-studies.html" style="margin-top:12px">READ DOCUMENTED CASES ↗</a></div><div class="source-links" id="sourceLinks"></div></div>
     </section>
   </main>
 
