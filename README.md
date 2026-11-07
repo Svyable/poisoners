@@ -18,7 +18,7 @@
 - [Methodology](docs/methodology.html): historical / annual / future harm design, pollutant/receptor matrix, causal models, uncertainty, grades, proposed data ingestion.
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
 - [Case engine](docs/legal.html): ten-country preliminary legal-route map and a counsel-gated, privacy-protecting workflow.
-- [Damages & Payments Ledger](docs/damages.html): seven publicly sourced monetary outcomes, status of cash paid versus settlements or caps, exact document links, and same-currency 2025 purchasing-power comparisons; not an additive environmental injury score.
+- [Damages & Payments Ledger](docs/damages.html): eleven publicly sourced monetary outcomes, status of cash paid versus settlements or caps, exact document links, and same-currency 2025 purchasing-power comparisons; not an additive environmental injury score.
 - [Documented case studies](docs/case-studies.html): Japan's Minamata disease, BP Deepwater Horizon, Vale Brumadinho and 3M's PFAS drinking-water settlement, with official sources and distinctions between court findings, settlements and claims.
 - [Evidence record schema](schema/evidence-record.schema.json): source metadata, legal-entity and date boundaries, measurement and confidence fields.
 
@@ -58,6 +58,13 @@ The ten largest sovereign-country **2025 territorial GHG emitters** in EDGAR 202
 | Canada | 764.52 | 5 |
 
 **50 company records total.** Navigation associates a company with its home country, not the location of its emissions. Corporate and national emissions **use different accounting boundaries** and cannot be added as equivalent totals. Unscored countries and missing historical data are **not** zero harm.
+
+## Historic monetary outcomes and cohort joins
+The ledger distinguishes **legally agreed sums**, **confirmed completed cash payments**, **dated partial payments**, and **unverified disbursement totals**. Four historical legal matters are explicitly linked to company names in the 50-record Carbon Majors cohort: ExxonMobil (historic Exxon Corporation / Exxon Valdez), Chevron (Chevron U.S.A.), ConocoPhillips and Occidental Petroleum (former chemical subsidiary). These are historical identity aids, not present-day ownership or company-wide liability findings. OxyChem was divested in January 2026; the Passaic case remains attributed to the legal defendant Occidental Chemical Corporation, not automatically to any current parent.
+
+The 1991 Exxon civil settlement was received in installments through September 2001. Its 2025 USD CPI-U **agreement-year purchasing-power comparator** is not a statement that all those installment payments occurred in 1991. Where cash is paid in multiple or unknown years, no single payment-year inflation adjustment is shown. Missing paid totals remain unknown, not zero. No settlement, fine or cleanup-work estimate is an independent measurement of ecological or human health damage. Never sum overlapping obligations.
+
+Run `node --test scripts/damages.test.cjs` alongside the existing repository verification suite.
 
 ## The proposed Poison Index
 
