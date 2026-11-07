@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-07",
+  "report": {
+    "id": "aep-system-tri-disclosure-2024",
+    "reporting_year": 2024,
+    "publisher": "American Electric Power (AEP System)",
+    "kind": "operator_disclosure",
+    "verification_status": "company_submitted_to_EPA_June_2025_not_independently_reconciled",
+    "source_title": "AEP System Total: Inventory for 2024",
+    "source_url": "https://docs.aep.com/docs/requiredpostings/tri/docs/TRI2024.pdf",
+    "source_page": 1,
+    "reporting_scope": "AEP system of primarily coal generation assets listed by the company; not a single plant, not all AEP-owned generators, and not any of the 50 Carbon Majors company records",
+    "coal_burned_lb": 35059234000,
+    "currency": null,
+    "unit": "lb",
+    "dioxin_unit": "g",
+    "scope_notes": [
+      "AEP's report includes 264 MW, 173 MW, and 95 MW at Flint Creek, Turk and Pirkey respectively owned by others.",
+      "Excludes 595 MW at Cardinal operated by Buckeye Power though AEP-owned.",
+      "Off-site transfer is waste sent elsewhere for disposal, not a direct local emission; do not merge it with on-site air, water or land.",
+      "Some columns are not required for airborne acid aerosols. Other markers mean below EPA reporting threshold, not zero.",
+      "AEP reports data submitted to EPA in June 2025 as pending. No official 2024 EPA Basic Form R file has been reconciled against these figures.",
+      "The AEP-wide rows are a single source-bound operator example, not a complete chemical ranking, not a finding of violation, exposure, illness or ecological harm."
+    ],
+    "disclaimer": "Rows preserve the company's own 2024 reported values and notation; derived totals are deliberately not recomputed where a published one-pound difference exists. No aggregation across unlike media or dioxin grams."
+  },
+  "rows": [
+    {
+      "id": "arsenic",
+      "chemical": "Arsenic",
+      "reported_medium": {
+        "air_lb": 333,
+        "water_lb": 172,
+        "onsite_land_lb": 115224,
+        "offsite_transfer_lb": 1048235
+      },
+      "dioxin_air_g": null,
+      "reported_total": 1163964,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "barium",
+      "chemical": "Barium",
+      "reported_medium": {
+        "air_lb": 2870,
+        "water_lb": 423384,
+        "onsite_land_lb": 2498041,
+        "offsite_transfer_lb": 384757
+      },
+      "dioxin_air_g": null,
+      "reported_total": 3309052,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "chromium",
+      "chemical": "Chromium (not specified as Cr(VI))",
+      "reported_medium": {
+        "air_lb": 2039,
+        "water_lb": 1760,
+        "onsite_land_lb": 192575,
+        "offsite_transfer_lb": 73788
+      },
+      "dioxin_air_g": null,
+      "reported_total": 270162,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": "AEP lists chromium, not a measured Cr(VI)-specific quantity.",
+      "rounding_note": null
+    },
+    {
+      "id": "cobalt",
+      "chemical": "Cobalt",
+      "reported_medium": {
+        "air_lb": 627,
+        "water_lb": 53,
+        "onsite_land_lb": 62515,
+        "offsite_transfer_lb": 30000
+      },
+      "dioxin_air_g": null,
+      "reported_total": 93195,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "copper",
+      "chemical": "Copper",
+      "reported_medium": {
+        "air_lb": 982,
+        "water_lb": 15901,
+        "onsite_land_lb": 273515,
+        "offsite_transfer_lb": 91000
+      },
+      "dioxin_air_g": null,
+      "reported_total": 381398,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "lead",
+      "chemical": "Lead",
+      "reported_medium": {
+        "air_lb": 725,
+        "water_lb": 823,
+        "onsite_land_lb": 108233,
+        "offsite_transfer_lb": 40768
+      },
+      "dioxin_air_g": null,
+      "reported_total": 150548,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": "AEP's reported total is 150,548 lb, one pound below the sum of rounded column values. The published total is retained."
+    },
+    {
+      "id": "manganese",
+      "chemical": "Manganese",
+      "reported_medium": {
+        "air_lb": 2479,
+        "water_lb": 103039,
+        "onsite_land_lb": 383140,
+        "offsite_transfer_lb": 95000
+      },
+      "dioxin_air_g": null,
+      "reported_total": 583658,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "mercury",
+      "chemical": "Mercury (not methylmercury)",
+      "reported_medium": {
+        "air_lb": 193,
+        "water_lb": 7,
+        "onsite_land_lb": 1636,
+        "offsite_transfer_lb": 620
+      },
+      "dioxin_air_g": null,
+      "reported_total": 2456,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": "AEP lists mercury, not a methylmercury-specific exposure.",
+      "rounding_note": null
+    },
+    {
+      "id": "nickel",
+      "chemical": "Nickel",
+      "reported_medium": {
+        "air_lb": 1899,
+        "water_lb": 3930,
+        "onsite_land_lb": 176975,
+        "offsite_transfer_lb": 62450
+      },
+      "dioxin_air_g": null,
+      "reported_total": 245254,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "selenium",
+      "chemical": "Selenium",
+      "reported_medium": {
+        "air_lb": 2695,
+        "water_lb": 4,
+        "onsite_land_lb": 14175,
+        "offsite_transfer_lb": 14293
+      },
+      "dioxin_air_g": null,
+      "reported_total": 31167,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "vanadium",
+      "chemical": "Vanadium",
+      "reported_medium": {
+        "air_lb": 886,
+        "water_lb": null,
+        "onsite_land_lb": 424235,
+        "offsite_transfer_lb": 140000
+      },
+      "dioxin_air_g": null,
+      "reported_total": 565121,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "zinc",
+      "chemical": "Zinc",
+      "reported_medium": {
+        "air_lb": 6355,
+        "water_lb": 4563,
+        "onsite_land_lb": 272527,
+        "offsite_transfer_lb": 94000
+      },
+      "dioxin_air_g": null,
+      "reported_total": 377445,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "hcl-aerosol",
+      "chemical": "Hydrochloric acid aerosol",
+      "reported_medium": {
+        "air_lb": 212460,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": 212460,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": "b_only_airborne_forms_reportable",
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "hf",
+      "chemical": "Hydrogen fluoride",
+      "reported_medium": {
+        "air_lb": 274760,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": 274760,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "h2so4-aerosol",
+      "chemical": "Sulfuric acid aerosol",
+      "reported_medium": {
+        "air_lb": 779900,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": 779900,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": "b_only_airborne_forms_reportable",
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "ammonia",
+      "chemical": "Ammonia",
+      "reported_medium": {
+        "air_lb": 36395,
+        "water_lb": 9740,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": 46135,
+      "total_unit": "lb",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "dioxin-group",
+      "chemical": "Dioxins (total mass; not TEQ)",
+      "reported_medium": {
+        "air_lb": null,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": 7,
+      "reported_total": 7,
+      "total_unit": "g",
+      "missing_code": null,
+      "other_media_code": null,
+      "speciation_note": "Reported 7 grams of dioxins. This is NOT 7 grams of toxic equivalents (TEQ).",
+      "rounding_note": null
+    },
+    {
+      "id": "cadmium",
+      "chemical": "Cadmium",
+      "reported_medium": {
+        "air_lb": null,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": null,
+      "total_unit": "lb",
+      "missing_code": "a_below_EPA_reporting_level",
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "antimony",
+      "chemical": "Antimony",
+      "reported_medium": {
+        "air_lb": null,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": null,
+      "total_unit": "lb",
+      "missing_code": "a_below_EPA_reporting_level",
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "beryllium",
+      "chemical": "Beryllium",
+      "reported_medium": {
+        "air_lb": null,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": null,
+      "total_unit": "lb",
+      "missing_code": "a_below_EPA_reporting_level",
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "silver",
+      "chemical": "Silver",
+      "reported_medium": {
+        "air_lb": null,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": null,
+      "total_unit": "lb",
+      "missing_code": "a_below_EPA_reporting_level",
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    },
+    {
+      "id": "thallium",
+      "chemical": "Thallium",
+      "reported_medium": {
+        "air_lb": null,
+        "water_lb": null,
+        "onsite_land_lb": null,
+        "offsite_transfer_lb": null
+      },
+      "dioxin_air_g": null,
+      "reported_total": null,
+      "total_unit": "lb",
+      "missing_code": "a_below_EPA_reporting_level",
+      "other_media_code": null,
+      "speciation_note": null,
+      "rounding_note": null
+    }
+  ]
+}
