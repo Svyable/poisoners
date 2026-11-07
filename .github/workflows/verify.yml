@@ -37,6 +37,11 @@ jobs:
           node --check src/people-model.cjs
       - name: Verify public health source briefs and static HTML
         run: node scripts/build-awareness.cjs --check
+      - name: Test source-bound research workbench and client syntax
+        run: |
+          node --check docs/workbench-model.js
+          node --check docs/workbench-app.js
+          node --test scripts/workbench.test.cjs
       - name: Audit official environmental data portals
         run: node scripts/check-public-records.cjs
       - name: Validate local site links and document anchors
