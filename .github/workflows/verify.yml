@@ -28,6 +28,11 @@ jobs:
         run: |
           node --check docs/chemistry.js
           node --test scripts/chemistry.test.cjs
+      - name: Verify EPA TRI Form R facility importer and provenance safeguards
+        run: |
+          node --check scripts/import-tri-basic.cjs
+          node --check docs/tri-facility-ui.js
+          node --test scripts/tri-import.test.cjs
       - name: Validate people provenance and individual-liability safeguards
         run: node --test scripts/people.test.cjs
       - name: Check research explorer JavaScript syntax
