@@ -183,7 +183,7 @@ test("advance rule validation strips nonnumeric thresholds, injection and beyond
   {field:"annual",operator:"eq",value:42}
  ]});
  assert.deepEqual(config.rules,[{field:"annual",operator:"gte",value:100},
-  {field:"annual",operator:"lt",value:1000},{field:"country",operator:"missing"}]);
+  {field:"annual",operator:"lt",value:1000},{field:"country",operator:"missing",value:null}]);
  const malformed=model.safeConfig("companies",{rules:[{field:"annual",operator:"lte",value:"not-a-number"},
   {field:"__proto__",operator:"present"},{field:"annual",operator:"gte",value:""}]});
  assert.deepEqual(malformed.rules,[]);
