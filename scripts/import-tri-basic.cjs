@@ -9,6 +9,9 @@ const SOURCE_PAGE="https://www.epa.gov/toxics-release-inventory-tri-program/tri-
 const DOC_PAGE="https://www.epa.gov/system/files/documents/2024-08/basic_data_files_documentation_august_2024.pdf";
 const norm=s=>String(s??"").normalize("NFKC").replace(/[–—−]/g,"-").replace(/\s+/g," ").trim().toUpperCase();
 const parentNorm=s=>norm(s).replace(/[^A-Z0-9]+/g,"");
+/* EPA Basic CSV exports can number their headers ("1. YEAR", "51. 5.1 - FUGITIVE AIR").
+   NFKC and dash normalization preserve true 5.1 field codes while removing outer numbering. */
+const headerKey=s=>norm(s).replace(/^\d+\.\s+(?=\S)/,"").replace(/\s*-\s*/g," - ").trim();
 const REQUIRED=["YEAR","TRIFID","FACILITY NAME","PARENT CO NAME","CHEMICAL","CAS NUMBER","FORM TYPE","UNIT OF MEASURE","DOC_CTRL_NUM","5.1 - FUGITIVE AIR","5.2 - STACK AIR","5.3 - WATER"];
 const CHEMICAL_IDS=new Map([
  ["7664-93-9","h2so4"],["7439-97-6","hg"],["7440-38-2","arsenic"],
@@ -80,7 +83,7 @@ async function importBasic({input,year=2024,retrieved,manifest,expectedSha256}){
  const knownIds=new Set(manifest.facilities.map(f=>f.trifid));
  for await(const fields of csvRows(input)){
   if(!header){
-   const names=fields.map((x,i)=>norm(i===0?x.replace(/^\uFEFF/,""):x));
+   const names=fields.map((x,i)=>headerKey(i===0?x.replace(/^\uFEFF/,""):x));
    header=new Map(names.map((x,i)=>[x,i]));
    for(const k of REQUIRED)if(!header.has(k))throw Error("TRI Basic CSV missing mandatory column "+k);
    if(header.size!==names.length)throw Error("Duplicated normalized CSV header");
@@ -100,11 +103,15 @@ async function importBasic({input,year=2024,retrieved,manifest,expectedSha256}){
    continue;
   }
   const doc=get("DOC_CTRL_NUM"),chem=get("CHEMICAL"),cas=get("CAS NUMBER"),unit=norm(get("UNIT OF MEASURE"));
+  const classification=header.has("CLASSIFICATION")?norm(get("CLASSIFICATION")):null;
+  const triId=header.has("TRI CHEMICAL /COMPOUND ID")?get("TRI CHEMICAL /COMPOUND ID"):
+    header.has("TRI CHEMICAL / COMPOUND ID")?get("TRI CHEMICAL / COMPOUND ID"):null;
   if(!doc||!chem)throw Error("Missing Form R document ID or chemical identity for "+trifid);
   if(!["POUNDS","GRAMS"].includes(unit))throw Error("Unrecognized TRI units "+unit+" for "+doc);
-  if((norm(chem).includes("DIOXIN")&&unit!=="GRAMS")||(!norm(chem).includes("DIOXIN")&&unit==="GRAMS"))
+  const dioxin=classification==="DIOXIN"||norm(chem).includes("DIOXIN");
+  if((dioxin&&unit!=="GRAMS")||(!dioxin&&unit==="GRAMS"))
    throw Error("Dioxin / grams anomaly in "+doc+"; manual review required");
-  const key=[year,trifid,cas||norm(chem)].join("|");
+  const key=[year,trifid,triId||cas||norm(chem)].join("|");
   if(seen.has(key))throw Error("Duplicate site/year/chemical Form R record "+key+"; reconcile amendments before publication");
   seen.add(key);
   const fug=parseNonnegative(get("5.1 - FUGITIVE AIR"),"fugitive",doc);
@@ -119,6 +126,7 @@ async function importBasic({input,year=2024,retrieved,manifest,expectedSha256}){
    reported_parent:parent,
    standardized_parent:header.has("STANDARDIZED PARENT COMPANY NAME")?get("STANDARDIZED PARENT COMPANY NAME")||null:null,
    document_control_number:doc,chemical_reported:chem,cas_number:cas||null,
+   tri_chemical_id:triId||null,tri_classification:classification,
    matched_compound_id:chemical_id,
    chemical_identity_note:chemical_id?"CAS-matched substance; inspect EPA form for category and speciation":"Unmatched reported chemical/category; do not relabel or collapse into a toxicological species",
    unit:unit==="POUNDS"?"lb":"g",
@@ -162,4 +170,4 @@ async function main(){
  if(result.issues.length)process.exitCode=2;
 }
 if(require.main===module)main().catch(e=>{console.error("TRI IMPORT REJECTED: "+e.message);process.exitCode=1;});
-module.exports={csvRows,parseNonnegative,importBasic,sha256,norm};
+module.exports={csvRows,parseNonnegative,importBasic,sha256,norm,headerKey};
