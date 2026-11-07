@@ -33,7 +33,7 @@ for (const src of Object.values(d.sources)) {
   assert.ok(/^https:\/\//.test(src.url),"Invalid source URL");
   assert.ok(src.title && src.scope);
 }
-const files=["docs/index.html","docs/methodology.html","docs/legal.html","docs/case-studies.html"];
+const files=["docs/index.html","docs/methodology.html","docs/legal.html","docs/case-studies.html","docs/dossiers.html"];
 files.forEach((f)=>{
   const content=read(f);
   assert.ok(/<!doctype html>/i.test(content),"Missing doctype: "+f);
