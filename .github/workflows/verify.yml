@@ -24,3 +24,5 @@ jobs:
         run: node --test scripts/foundation.test.cjs
       - name: Check research explorer JavaScript syntax
         run: node --check docs/foundation-app.js
+      - name: Audit source catalog structure offline
+        run: node scripts/audit-sources.cjs --report /tmp/poison-source-catalog.json
