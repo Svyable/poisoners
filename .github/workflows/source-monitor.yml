@@ -1,0 +1,43 @@
+name: Source link metadata audit
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check catalog URL structure
+        run: node scripts/audit-sources.cjs --report source-audit-offline.json
+      - name: Check source link HEAD status, without downloading content
+        run: node scripts/audit-sources.cjs --online --report source-audit-online.json
+      - name: Upload evidence provenance link status
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-link-audit
+          path: source-audit-*.json
+          retention-days: 30
+      - name: Add audit summary
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const r=JSON.parse(fs.readFileSync('source-audit-online.json'));
+          const counts={};
+          for(const item of r.results)counts[item.status]=(counts[item.status]||0)+1;
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            '### Source-link audit (metadata only)\n' +
+            'Results: ' + r.count + ' catalogued URLs\n\n' +
+            Object.entries(counts).map(([k,v])=>'- '+k+': '+v).join('\n') +
+            '\n\nAccess denials/timeouts are not evidence of a broken source. No third-party data or personal records are downloaded.\n');
+          NODE
