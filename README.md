@@ -7,6 +7,9 @@
 ## The website
 
 - [Interactive observatory](docs/index.html): searchable company ledger, temporal views, ten-country atlas, 6 × 8 exposure-research matrix, company source drawers, supporting sources.
+- [Start here: research guide](docs/guide.html): orientation, interpretation, data boundaries, evidence ladder and frequently asked questions.
+- [Open data and sources](docs/data-access.html): downloadable public JSON snapshots, primary-source boundaries and reproducible build steps.
+- [About and corrections](docs/about.html): project status, research principles, roadmap and a documented public correction route.
 - [Dossier Lab](docs/dossiers.html): 50 source-bound company research profiles, visible seven-stage evidence gates, precise citation and public JSON export, like-for-like climate comparisons and primary-source historical comparator cases. No composite toxicity/guilt ranking.
 - [Methodology](docs/methodology.html): historical / annual / future harm design, pollutant/receptor matrix, causal models, uncertainty, grades, proposed data ingestion.
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
@@ -16,7 +19,7 @@
 
 **Preview locally:** run 'python3 -m http.server 8000 --directory docs' then open http://localhost:8000. **Verify:** run 'node scripts/verify.cjs'. No npm dependencies.
 
-**Publish with GitHub Pages:** Repository Settings → Pages → Build and deployment → Deploy from branch → select main and /docs. Save. Committing the site does not automatically enable GitHub Pages.
+**Publish with GitHub Pages:** Repository Settings → Pages → Build and deployment → Deploy from branch → select `main` and `/docs`. Save. The published project URL is normally https://svyable.github.io/poisoners/ unless a custom domain is configured.
 
 ## Data sources and boundaries
 
@@ -128,3 +131,8 @@ Use the [public evidence issue template](https://github.com/Svyable/poisoners/is
 **Standard:** No invented numbers. No hidden weights. No conflated boundaries. No automated accusations or legal filings. Do not use the global Lancet mortality estimate to attribute deaths to listed companies.
 
 See the original [LICENSE](LICENSE) for the repository's terms.
+## Website editorial system
+
+The public Pages site uses a consistent accessible header and mobile navigation, source-boundary disclosure, unified footer and three editorial reference pages. Shared styles and behavior are in `docs/site.css` and `docs/site.js` with no framework or runtime dependencies. The research tools (`app.js`, `dossier-lab.js`, source datasets) remain independent.
+
+When changing the site, run `node scripts/check-site-links.cjs` and `node scripts/verify.cjs`. Keep navigation, disclosure text and source vintages consistent across all pages. New claims about health, ecological effects or legal liability require the project's evidence gates rather than copy changes alone.
