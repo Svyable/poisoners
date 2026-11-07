@@ -1,0 +1,33 @@
+{
+  "dataset_id": "SYNTHETIC_FIXTURE_NOT_A_REAL_FACILITY_DATASET",
+  "allow_noncommercial_research": true,
+  "allow_commercial_reuse": false,
+  "dioxin_grams_confirmed": true,
+  "source": {
+    "url": "https://example.org/synthetic-facility-dataset",
+    "title": "Synthetic fixture for parser tests; not a government record",
+    "publisher": "Fixture only",
+    "published_at": "2026-01-01",
+    "retrieved_at": "2026-11-06",
+    "license": "Synthetic sample"
+  },
+  "columns": {
+    "facility_id": "FACILITY ID",
+    "facility_name": "FACILITY NAME",
+    "chemical_name": "CHEMICAL",
+    "cas": "CAS",
+    "year": "YEAR"
+  },
+  "quantities": [
+    {
+      "column": "AIR RELEASE LB",
+      "medium": "air",
+      "unit": "lb"
+    },
+    {
+      "column": "WATER RELEASE LB",
+      "medium": "water",
+      "unit": "lb"
+    }
+  ]
+}

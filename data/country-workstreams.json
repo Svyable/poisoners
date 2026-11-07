@@ -1,0 +1,161 @@
+{
+  "version": "2.0.0",
+  "as_of": "2026-11-06",
+  "selection_method": "Top 10 sovereign-country 2025 territorial GHG emitters in EDGAR 2026; not ranked toxicity or culpability",
+  "target_entity_dossiers_per_country": 10,
+  "countries": [
+    {
+      "code": "CN",
+      "name": "China",
+      "source_ids": [
+        "CHN_PERMITS",
+        "EDGAR26"
+      ],
+      "research_entry_point": "Permits and disclosed pollution categories; construct time-valid corporate ownership graph",
+      "key_gaps": "Scale facility discharges, concentrations, non-climate health pathways, regional access",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "US",
+      "name": "United States",
+      "source_ids": [
+        "EPA_TRI",
+        "EPA_ECHO",
+        "EPA_IRIS",
+        "CLIMATE_TRACE"
+      ],
+      "research_entry_point": "Facility-level TRI reporting and ECHO compliance chronology",
+      "key_gaps": "Resolve hazardous-substance thresholds, downstream transport, injury and jurisdiction",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "IN",
+      "name": "India",
+      "source_ids": [
+        "IND_NGT",
+        "EDGAR26",
+        "CLIMATE_TRACE"
+      ],
+      "research_entry_point": "NGT judgments and agency records as first-stage research leads",
+      "key_gaps": "Need a verified facility-release portal, local unit standards, geocoded sites",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "RU",
+      "name": "Russia",
+      "source_ids": [
+        "RUS_NVOS",
+        "EDGAR26"
+      ],
+      "research_entry_point": "NVOS facility identity and federal registration metadata",
+      "key_gaps": "Public measurable release files, access constraints, source independence",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia",
+      "source_ids": [
+        "ID_PROPER",
+        "EDGAR26"
+      ],
+      "research_entry_point": "PROPER compliance criteria and company-level assessment leads",
+      "key_gaps": "Primary release quantities, parent ownership, site coordinates, appeal status",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "BR",
+      "name": "Brazil",
+      "source_ids": [
+        "BRA_IBAMA",
+        "EDGAR26"
+      ],
+      "research_entry_point": "IBAMA inspection notices, environmental embargoes and official data",
+      "key_gaps": "Notice finality, industrial pollutant quantities, watershed causal chain",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "IR",
+      "name": "Iran",
+      "source_ids": [
+        "EDGAR26",
+        "CLIMATE_TRACE"
+      ],
+      "research_entry_point": "Territorial and asset-estimated climate baselines only",
+      "key_gaps": "Public environmental release register and jurisdiction-specific counsel research unverified",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "source_ids": [
+        "JPN_PRTR",
+        "EDGAR26"
+      ],
+      "research_entry_point": "Japan PRTR chemical-release and transfer disclosures",
+      "key_gaps": "Link company/facility identifiers and outcome-specific human/ecological effects",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "SA",
+      "name": "Saudi Arabia",
+      "source_ids": [
+        "EDGAR26",
+        "CLIMATE_TRACE"
+      ],
+      "research_entry_point": "Country emissions and asset-level climate estimation baseline",
+      "key_gaps": "Verified local industrial release and enforcement records missing from catalogue",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    },
+    {
+      "code": "CA",
+      "name": "Canada",
+      "source_ids": [
+        "CAN_NPRI",
+        "EDGAR26"
+      ],
+      "research_entry_point": "NPRI facility-level air/water/land and cross-program data",
+      "key_gaps": "2025 NPRI preliminary data; use reviewed vintages for comparisons",
+      "workflow": "research_only",
+      "published_individual_harm_estimates": 0,
+      "verified_multi_hazard_dossiers": 0,
+      "legal_clearance": "not_started",
+      "facility_measurements_imported": 0
+    }
+  ]
+}
