@@ -13,6 +13,9 @@ const sources=load("data/source-catalog.json");
 const work=load("data/country-workstreams.json");
 const examples=load("data/case-examples.json");
 const {compile}=require("../src/dossier-model.cjs");
+const {compilePeople}=require("../src/people-model.cjs");
+const officerData=load("data/people/verified-officers.json");
+const roleData=load("data/people/research-roles.json");
 const claims=fs.readFileSync(path.join(root,"data/evidence/carbon-majors-2024.jsonl"),"utf8")
  .trim().split(/\r?\n/).filter(Boolean).map((s)=>JSON.parse(s));
 const sandbox={window:{}};
@@ -66,8 +69,12 @@ const js="/* GENERATED from data/* by scripts/build-foundation.cjs. DO NOT EDIT 
 const dossiers=compile({claims,companies:seed.companies,countries:work.countries,sources:sources.sources,examples});
 const dossierJSON=JSON.stringify(dossiers,null,2)+"\n";
 const dossierJS="/* GENERATED / Dossier evidence subset; no certified injury claims. */\nwindow.POISON_DOSSIERS = "+JSON.stringify(dossiers,null,2)+";\n";
+const people=compilePeople({companies:seed.companies,countries:work.countries,roles:roleData.roles,officers:officerData.people});
+const peopleJSON=JSON.stringify(people,null,2)+"\n";
+const peopleJS="/* GENERATED public people research matrix. Roles are not liability ranks. */\nwindow.POISON_PEOPLE = "+JSON.stringify(people,null,2)+";\n";
 const outputs=[["docs/foundation.json",json],["docs/foundation-data.js",js],
- ["docs/dossier-register.json",dossierJSON],["docs/dossier-register-data.js",dossierJS]];
+ ["docs/dossier-register.json",dossierJSON],["docs/dossier-register-data.js",dossierJS],
+ ["docs/people-register.json",peopleJSON],["docs/people-register-data.js",peopleJS]];
 let changed=false;
 for(const [file,content] of outputs) {
  const full=path.join(root,file);
