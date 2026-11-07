@@ -96,12 +96,13 @@ const statuses={confirmed_paid:"CONFIRMED PAID",partially_paid:"PARTIALLY PAID �
 function card(c){const p=c.payment,ob=c.obligation,paid=p.amount==null?"NOT VERIFIED":fmt(p.amount,ob.currency);
 const cashFactor=p.amount!=null&&Number.isInteger(p.value_year)?factor(ob.currency,p.value_year):null;
 const realPaid=cashFactor!=null?fmt(p.amount*cashFactor,ob.currency):"NOT COMPUTED";
+const allocations=Array.isArray(p.allocations)&&p.allocations.length?'<div><dt>DOCUMENTED PAYER SPLIT</dt><dd>'+p.allocations.map(a=>e(a.entity)+": "+e(fmt(a.amount,a.currency))+" — "+e(a.basis)).join(" · ")+"</dd></div>":"";
 return '<article class="damage-card"><div class="damage-top"><span>'+e(c.jurisdiction.toUpperCase())+' · '+e(c.outcome_type.toUpperCase())+'</span><strong class="'+(p.status==="confirmed_paid"?"is-paid":"")+'">'+e(statuses[p.status])+'</strong></div>'+
 '<h2>'+e(c.entities.join(" / "))+'</h2><h3>'+e(c.matter)+'</h3>'+
 '<div class="damage-money"><div><small>DOCUMENTED LEGAL AMOUNT · '+ob.year+'</small><strong>'+e(range(ob))+'</strong><span class="damage-year">'+e(ob.kind)+'</span></div>'+
 '<div><small>2025 PURCHASING-POWER COMPARATOR</small><strong>'+e(adjusted(ob))+'</strong><span class="damage-year">Same currency · not an amount owed today</span></div>'+
 '<div><small>ACTUAL PAYMENT EVIDENCE</small><strong class="'+(p.status==="confirmed_paid"?"paid":"")+'">'+e(paid)+'</strong><span class="damage-year">Reported through '+e(p.as_of)+(p.amount!=null?'; 2025 paid-year comparator: '+e(realPaid):"")+'</span></div></div>'+
-'<dl class="damage-detail"><div><dt>DISPOSITION / HAZARD</dt><dd>'+e(c.disposition)+' · '+e(c.hazard)+'</dd></div><div><dt>PAYMENT BOUNDARY</dt><dd>'+e(p.detail)+'</dd></div><div><dt>NON-ADDITIVITY / LIMITATION</dt><dd>'+e(c.notes)+'</dd></div><div><dt>PRIMARY DOCUMENTS</dt><dd>'+e(c.sources.length)+' cited sources; check underlying terms and dates</dd></div></dl>'+
+'<dl class="damage-detail"><div><dt>DISPOSITION / HAZARD</dt><dd>'+e(c.disposition)+' · '+e(c.hazard)+'</dd></div><div><dt>PAYMENT BOUNDARY</dt><dd>'+e(p.detail)+'</dd></div>'+allocations+'<div><dt>NON-ADDITIVITY / LIMITATION</dt><dd>'+e(c.notes)+'</dd></div><div><dt>PRIMARY DOCUMENTS</dt><dd>'+e(c.sources.length)+' cited sources; check underlying terms and dates</dd></div></dl>'+
 '<div class="damage-sources">'+c.sources.map(s=>'<a data-source-url="'+e(s.url)+'" target="_blank" rel="noopener noreferrer">'+e(s.name)+' ↗</a>').join("")+'</div></article>'}
 function render(){if(!dataset)return;const q=$("paymentSearch").value.trim().toLocaleLowerCase(),st=$("paymentStatus").value,cur=$("paymentCurrency").value;
 const rows=dataset.cases.filter(c=>(st==="ALL"||c.payment.status===st)&&(cur==="ALL"||c.obligation.currency===cur)&&(!q||(c.entities.join(" ")+" "+(c.indexed_entities||[]).join(" ")+" "+c.matter+" "+c.hazard+" "+c.jurisdiction).toLocaleLowerCase().includes(q)));
