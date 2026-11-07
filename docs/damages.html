@@ -64,8 +64,8 @@ return '<article class="damage-card"><div class="damage-top"><span>'+e(c.jurisdi
 function render(){if(!dataset)return;const q=$("paymentSearch").value.trim().toLocaleLowerCase(),st=$("paymentStatus").value,cur=$("paymentCurrency").value;
 const rows=dataset.cases.filter(c=>(st==="ALL"||c.payment.status===st)&&(cur==="ALL"||c.obligation.currency===cur)&&(!q||(c.entities.join(" ")+" "+c.matter+" "+c.hazard+" "+c.jurisdiction).toLocaleLowerCase().includes(q)));
 $("paymentCount").textContent=rows.length+" / "+dataset.cases.length+" DOCUMENTED FINANCIAL RECORDS · NO ADDITIVE TOTAL";
-$("paymentList").innerHTML=rows.length?rows.map(card).join("");
-$("paymentList").querySelectorAll("a[data-source-url]").forEach(a=>{a.href=a.dataset.sourceUrl}):'<div class="damage-empty">No matching documented records. Absence from this small comparator ledger is not evidence of no payment or no harm.</div>'}
+$("paymentList").innerHTML=rows.length?rows.map(card).join(""):'<div class="damage-empty">No matching documented records. Absence from this small comparator ledger is not evidence of no payment or no harm.</div>';
+$("paymentList").querySelectorAll("a[data-source-url]").forEach(a=>{a.href=a.dataset.sourceUrl})}
 for(const id of ["paymentSearch","paymentStatus","paymentCurrency"])$(id).addEventListener(id==="paymentSearch"?"input":"change",render);
 fetch("damages-data.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{if(!Array.isArray(d.cases))throw Error("Invalid schema");dataset=d;const q=new URLSearchParams(location.search).get("company");if(q)$("paymentSearch").value=q;render()}).catch(()=>{$("paymentCount").textContent="SOURCE FILE COULD NOT BE LOADED";$("paymentList").innerHTML='<div class="damage-empty">The interactive ledger is unavailable. <a href="damages-data.json">Open the source JSON directly</a> or serve the site with the documented local HTTP server.</div>'});
 })();
