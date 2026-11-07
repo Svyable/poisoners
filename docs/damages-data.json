@@ -158,7 +158,7 @@
         "amount": 18200000000,
         "as_of": "2022-02-04",
         "value_year": null,
-        "detail": "Minas Gerais environmental authority reported R$18.2bn already paid toward different agreement obligations after one year; covers multiple payment/implementation periods. This is a dated historical lower bound, not a current 2026 total."
+        "detail": "Minas Gerais environmental authority reported R$18.2bn already paid toward different agreement obligations after one year; covers multiple payment/implementation periods. This is a dated historical lower bound, not a current 2026 total. Separately, Vale's June 2026 investor reporting discloses US$15.172bn of total cumulative Brumadinho-related outlays since 2019 across a broader scope, including dam decommissioning, individual/emergency compensation and other work. That broader figure is not the cash paid under this exact 2021 agreement and must not be substituted for, added to, or currency-converted into this R$18.2bn historical observation."
       },
       "notes": "Agreement contains both duties to perform works and duties to transfer funds. Paid figure and package overlap; they must never be added. Multi-year cash has no single valid inflation base year.",
       "sources": [
@@ -173,6 +173,10 @@
         {
           "name": "Minas Gerais — annexes, transfers and double-counting distinctions",
           "url": "https://www.mg.gov.br/pro-brumadinho/pagina/reparacao-brumadinho-esclarecendo-os-anexos-do-acordo-judicial"
+        },
+        {
+          "name": "Vale — Brumadinho investor disclosures, second quarter 2026 (broader total outlays; separate accounting scope)",
+          "url": "https://www.vale.com/pt/esg/brumadinho"
         }
       ]
     },
