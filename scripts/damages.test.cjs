@@ -120,6 +120,16 @@ test("historical confirmed payments use actual cash years and explicit overlap b
  assert.equal(byId("bp-gulf-nfwf-criminal-2013").payment.amount,2394000000);
  assert.equal(byId("transocean-gulf-nfwf-criminal-2013").payment.amount,150000000);
 });
+test("company splits are explicit, source-identified and never doubled",()=>{
+ for(const id of ["dupont-chemours-c8-2017","union-carbide-bhopal-1989"]){
+  const c=d.cases.find(x=>x.id===id);
+  assert.ok(Array.isArray(c.payment.allocations)&&c.payment.allocations.length===2);
+  assert.deepEqual(c.payment.allocations.map(a=>a.entity),c.entities);
+  assert.equal(c.payment.allocations.reduce((s,a)=>s+a.amount,0),c.payment.amount);
+  assert.ok(c.payment.allocations.every(a=>a.currency==="USD"&&a.basis));
+ }
+ assert.match(html,/DOCUMENTED PAYER SPLIT/);
+});
 test("polished monetary page meets global navigation and findability standard",()=>{
  assert.ok(html.includes('class="site-header polished-header"'));
  assert.ok(html.includes('id="siteSearchDialog"'));
