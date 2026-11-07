@@ -2,12 +2,13 @@
 
 **Make the damage visible.** An open environmental evidence observatory and a proposed multidimensional framework for building defensible scientific and legal dossiers.
 
-> **Research prototype, November 6, 2026.** The initial site contains 25 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
+> **Research platform v2, November 6, 2026.** The site contains 50 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
 
 ## The website
 
 - [Interactive observatory](docs/index.html): searchable company ledger, temporal views, ten-country atlas, 6 × 8 exposure-research matrix, company source drawers, supporting sources.
 - [Methodology](docs/methodology.html): historical / annual / future harm design, pollutant/receptor matrix, causal models, uncertainty, grades, proposed data ingestion.
+- [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
 - [Case engine](docs/legal.html): ten-country preliminary legal-route map and a counsel-gated, privacy-protecting workflow.
 - [Documented case studies](docs/case-studies.html): Japan's Minamata disease, BP Deepwater Horizon, Vale Brumadinho and 3M's PFAS drinking-water settlement, with official sources and distinctions between court findings, settlements and claims.
 - [Evidence record schema](schema/evidence-record.schema.json): source metadata, legal-entity and date boundaries, measurement and confidence fields.
@@ -37,17 +38,17 @@ The ten largest sovereign-country **2025 territorial GHG emitters** in EDGAR 202
 | Country | 2025 GHG (MtCO₂e) | Seeded producer records |
 |---|---:|---:|
 | China | 15,981.00 | 11 |
-| United States | 6,018.30 | 5 |
-| India | 4,508.01 | 1 |
-| Russia | 2,574.39 | 5 |
-| Indonesia | 1,358.91 | 0 |
+| United States | 6,018.30 | 10 |
+| India | 4,508.01 | 6 |
+| Russia | 2,574.39 | 10 |
+| Indonesia | 1,358.91 | 3 |
 | Brazil | 1,306.59 | 1 |
 | Iran | 1,119.32 | 1 |
-| Japan | 1,063.13 | 0 |
+| Japan | 1,063.13 | 2 |
 | Saudi Arabia | 844.96 | 1 |
-| Canada | 764.52 | 0 |
+| Canada | 764.52 | 5 |
 
-**25 company records total.** Navigation associates a company with its home country, not the location of its emissions. Corporate and national emissions **use different accounting boundaries** and cannot be added as equivalent totals. Unscored countries and missing historical data are **not** zero harm.
+**50 company records total.** Navigation associates a company with its home country, not the location of its emissions. Corporate and national emissions **use different accounting boundaries** and cannot be added as equivalent totals. Unscored countries and missing historical data are **not** zero harm.
 
 ## The proposed Poison Index
 
@@ -58,6 +59,39 @@ The ten largest sovereign-country **2025 territorial GHG emitters** in EDGAR 202
 Each is also broken down by **air / water / soil / plants / animals / humans** and **climate gases / combustion pollutants / metals / persistent organics / agrochemicals / pharmaceutical residues / biological hazards / plastics and particles**, plus spatial extent, toxicity, persistence, vulnerability, reversibility, evidence quality and jurisdiction.
 
 The site's current H/A/F display is a **climate-throughput proxy only**: Carbon Majors' 2024 emissions, published historical values when available, and an adjustable emissions-only 2027–2036 scenario. No actual multi-hazard scores or corporate death tolls are asserted.
+
+
+## V2 research infrastructure
+
+**The metric registry is comprehensive; the measured impact dataset is not.** This upgrade adds **142 explicit metric definitions** in **14 independently interpretable domains** with units, receptors, temporal dimensions, potential sources and aggregation guards. The versioned **22-source catalog** is licensing-aware; presence in the catalog does not mean ingestion rights or factual import. The **ten country workstreams** track what is supported and what is missing without treating absent evidence as zero harm.
+
+- [Machine-readable metric taxonomy](data/metric-catalog.json) — proposed measurements, units, hazard domains and candidate data providers.
+- [Source and licensing registry](data/source-catalog.json) — provenance entries, availability caveats and permission checks before automated collection.
+- [Country workstreams](data/country-workstreams.json) — research leads and major gaps for each of the ten countries.
+- [Public 2024 evidence records](data/evidence/carbon-majors-2024.jsonl) — 50 structured emissions observations, with source, vintage, boundary, method classification and explicit uncertainty limitations.
+- [Research kernel](src/index-kernel.cjs) — strict record checking, modeled climate scenarios, source-to-exposure readiness, privacy-key checks and unit/boundary-safe aggregation that requires independent non-overlap attestation.
+- [Generated public foundation dataset](docs/foundation.json) — a deterministic GitHub Pages snapshot. The browser reads the matching foundation-data.js file.
+- [Case schema](schema/case-dossier.schema.json) and [evidence schema](schema/evidence-record.schema.json) — formal envelopes for different research objects.
+
+### Reproducible build, tests and local review
+
+No external package manager or network access is needed for the checks. Requires Node.js 22+.
+
+1. Run 'node scripts/build-foundation.cjs' to regenerate the site JSON and JS from the source registry.
+2. Run 'node scripts/build-foundation.cjs --check' to confirm those generated files are up to date.
+3. Run 'node scripts/verify.cjs' and 'node --test scripts/foundation.test.cjs' before contributing.
+4. To evaluate a public evidence batch (JSON array or JSONL), run 'node scripts/ingest-evidence.cjs --input /path/to/public-records.jsonl'. This defaults to dry-run validation.
+5. To place validated public records in a **non-published review queue**, run 'node scripts/ingest-evidence.cjs --input /path/to/public-records.jsonl --write --batch public-2026-11'. The file is staged under data/evidence/staging/, never automatically published and never sent to a court.
+
+**Do not put private claimant or patient information in any repository file, even under staging.** The staging mechanism only accepts public documentary evidence. Never blindly scrape a provider, import an entire dataset, or reproduce restricted material without satisfying its license, privacy and provenance conditions.
+
+### Non-negotiable release gates
+
+- The public ledger may display accurately dated, source-linked emissions with conspicuous model/boundary labels.
+- Facility-level claims need verified facility identity, time-valid ownership, measured medium and contaminant, an exact source and an uncertainty statement.
+- Health and ecosystem harm estimates require a defined outcome, credible counterfactual, transparent method and independent scientific review.
+- Legal accusation, claimant outreach, filings and settlements require qualified local counsel and separate explicit authorization. The software provides **no automatic lawsuit generation or filing**.
+- No research metric is a valid unit-free company guilt or harm score. A composite score requires a scientifically reviewed and published methodology, with reproducible inputs, weights, sensitivity and ethical limitations.
 
 ## Build the evidence — then let lawyers evaluate the case
 
@@ -76,7 +110,7 @@ Use the [public evidence issue template](https://github.com/Svyable/poisoners/is
 
 ## Roadmap
 
-- [x] Sourced emissions seed; latest EDGAR 2025 ten-country coverage; 25 company records
+- [x] Sourced emissions seed; EDGAR 2025 ten-country coverage; **50 climate-only records**, **49 of 100 source-coverage slots** (China has 11 records, capped at 10 for target coverage)
 - [x] Interactive site, three temporal lenses, 6 × 8 research matrix, dossier drawers
 - [x] Research methods, country-by-country preliminary legal framework, schema and CI checks
 - [ ] Import and verify the complete licensed Carbon Majors and PRTR datasets
