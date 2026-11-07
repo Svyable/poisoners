@@ -170,7 +170,7 @@
      }).join("");
      const pin=state.pins.includes(r.id);
      return '<tr'+(state.selected===r.id?' class="is-selected"':'')+'><td class="rk-rank">'+rank+'</td><td class="rk-name"><button type="button" data-inspect="'+esc(r.id)+'">'+esc(title)+' ↗</button></td>'+
-     cols+'<td><button type="button" class="rk-pin" data-pin="'+esc(r.id)+'" aria-pressed="'+String(pin)+'"'+(result.warning?' disabled title="Choose a comparable cohort first"':'')+'>''+(pin?"PINNED ✓":"PIN +")+'</button></td></tr>';
+     cols+'<td><button type="button" class="rk-pin" data-pin="'+esc(r.id)+'" aria-pressed="'+String(pin)+'"'+(result.warning?' disabled title="Choose a comparable cohort first"':'')+'>'+(pin?"PINNED ✓":"PIN +")+'</button></td></tr>';
    }).join("");
    $("rkTableBody").innerHTML=rows||'<tr><td class="rk-empty" colspan="'+(columns.length+3)+'">No records match these filters. Unknown or omitted records are not evidence of zero harm.</td></tr>';
    $("rkRowsShown").textContent="SHOWING "+result.rows.length+" OF "+result.total+" MATCHES · "+result.skipped+" HIDDEN BY ROW LIMIT";
