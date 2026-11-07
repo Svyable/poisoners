@@ -7,7 +7,7 @@ const seedContext={window:{}};vm.runInNewContext(read("docs/data.js"),seedContex
 const snapshots={dossiers:json("docs/dossier-register.json"),people:json("docs/people-register.json"),payments:json("docs/damages-data.json"),foundation:json("docs/foundation.json"),chemistry:json("docs/chemical-hazards.json"),seed:seedContext.window.POISON_DATA};
 const rows=model.makeRows(snapshots);
 test("all eight source-backed cohorts appear, with expected actual coverage",()=>{
- const counts={companies:50,countries:10,people:34,roles:500,payments:15,metrics:142,chemicals:14,observations:5};
+ const counts={companies:50,countries:10,people:34,roles:500,payments:20,metrics:142,chemicals:14,observations:5};
  assert.deepEqual(Object.fromEntries(Object.entries(rows).map(([k,r])=>[k,r.length])),counts);
  assert.equal(Object.keys(model.datasets).length,8);
  for(const [key,set] of Object.entries(model.datasets)){
@@ -193,7 +193,7 @@ test("advanced monetary and chemical numeric rules fail closed across incompatib
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.match(money.warning,/Select USD or BRL/);
  assert.equal(money.appliedMetric,false);
- assert.equal(money.total,15,"Do not silently compare USD and BRL thresholds");
+ assert.equal(money.total,20,"Do not silently compare USD and BRL thresholds");
  const valid=model.rank("payments",rows.payments,{metric:"entity",facets:{currency:"USD"},
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.equal(valid.warning,"");

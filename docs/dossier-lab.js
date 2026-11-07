@@ -63,8 +63,13 @@
     const paymentRows=linkedPayments.map(c=>{
       const p=c.payment;
       const status=p.status==="confirmed_paid"?"PAID":p.status==="partially_paid"?"PARTIAL · DATED":"TOTAL PAID NOT VERIFIED";
-      const amount=p.amount==null?"AMOUNT NOT RECONCILED":paymentMoney(p.amount,c.obligation.currency);
-      return '<li><strong>'+esc(c.matter)+'</strong> · '+esc(status)+' · '+esc(amount)+' <small>('+esc(p.as_of)+')</small></li>';
+      const allocation=(c.party_allocations||[]).find(a=>a.indexed_entity===d.company);
+      const money=n=>paymentMoney(n,c.obligation.currency);
+      const amount=allocation
+        ? (allocation.paid_amount!=null?money(allocation.paid_amount)+" INDIVIDUAL PAID":"INDIVIDUAL PAID TOTAL NOT VERIFIED; "+money(allocation.obligation_amount)+" DOCUMENTED RESTORATION OBLIGATION")
+        : p.amount==null?"AMOUNT NOT RECONCILED":money(p.amount)+" CASE-LEVEL TOTAL"+(c.entities.length>1?" (MULTIPLE HISTORIC LEGAL PARTIES)":"");
+      const boundary=allocation&&allocation.paid_amount==null?" · five-party collection documented; Chevron cash share not separately certified":"";
+      return '<li><strong>'+esc(c.matter)+'</strong> · '+esc(status)+' · '+esc(amount)+esc(boundary)+' <small>('+esc(p.as_of)+')</small></li>';
     }).join("");
     const paymentBlock='<div class="lab-profile-section"><div class="lab-profile-section-label"><span>HISTORICAL FINANCIAL OUTCOMES / SEPARATE EVIDENCE</span><small>'+linkedPayments.length+' LINKED CASE(S)</small></div>'+
       (paymentRows?'<ul class="lab-limitations">'+paymentRows+'</ul>':'<p class="lab-profile-p">No researched monetary-outcome record matched this company in the limited ledger. Missing records do not mean zero payments or zero harm.</p>')+
