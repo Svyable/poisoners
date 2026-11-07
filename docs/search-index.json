@@ -214,6 +214,111 @@
       "keywords": "executive pay legal standards SEC officer causation jurisdiction"
     },
     {
+      "type": "page",
+      "title": "Public awareness and environmental exposure",
+      "href": "awareness.html",
+      "description": "Ten independently sourced guides to environmental exposure with official local information and clear limits.",
+      "keywords": "public health exposure awareness WHO CDC EPA NIH FDA air water"
+    },
+    {
+      "type": "section",
+      "title": "Air and breathing: particles and smoke",
+      "href": "awareness.html#air",
+      "description": "Air pollution, outdoor particle monitoring and polluting household cooking fuels.",
+      "keywords": "pm2.5 air smoke clean cooking"
+    },
+    {
+      "type": "section",
+      "title": "Water: lead, PFAS and arsenic",
+      "href": "awareness.html#water",
+      "description": "Check official local water reports and understand appropriate testing.",
+      "keywords": "water lead pfas arsenic wells testing"
+    },
+    {
+      "type": "section",
+      "title": "Food and waste: mercury and e-waste",
+      "href": "awareness.html#food-waste",
+      "description": "Fish-mercury advisories and risks from informal electronic-waste recycling.",
+      "keywords": "mercury fish seafood electronics recycling"
+    },
+    {
+      "type": "section",
+      "title": "Homes, heat and workplaces",
+      "href": "awareness.html#home-work",
+      "description": "Radon testing, heat health and respirable silica dust risks.",
+      "keywords": "radon heat silica homes workplaces"
+    },
+    {
+      "type": "section",
+      "title": "Fine particles outdoors",
+      "href": "awareness.html#fine-particles",
+      "description": "WHO estimated 4.2 million premature deaths worldwide from outdoor air pollution in 2019; this is a modeled population burden.",
+      "keywords": "air Fine particles outdoors Fine airborne particles are inhaled from varied sources such as fires, transport, industry and combustion."
+    },
+    {
+      "type": "section",
+      "title": "Polluting household cooking fuels",
+      "href": "awareness.html#cooking-smoke",
+      "description": "WHO reported about 2.1 billion people worldwide cook using polluting fuels or technologies in its December 2025 fact sheet.",
+      "keywords": "air Polluting household cooking fuels Burning wood, coal, kerosene or other polluting fuels indoors can create harmful airborne particles."
+    },
+    {
+      "type": "section",
+      "title": "Lead in drinking water",
+      "href": "awareness.html#lead",
+      "description": "WHO states that no level of lead exposure is known to be without harmful effects; young children are especially vulnerable.",
+      "keywords": "water Lead in drinking water Lead can leach from service lines, solder and plumbing; exposure also occurs through dust, paint and industrial sources."
+    },
+    {
+      "type": "section",
+      "title": "PFAS in water and food",
+      "href": "awareness.html#pfas",
+      "description": "NIH reviews associations between exposure to certain PFAS and immune, cholesterol, reproductive and other effects; evidence differs among chemicals.",
+      "keywords": "water PFAS in water and food Some PFAS can reach people through drinking water, food and occupational or product-related routes."
+    },
+    {
+      "type": "section",
+      "title": "Arsenic in groundwater",
+      "href": "awareness.html#arsenic",
+      "description": "WHO identifies long-term inorganic arsenic exposure through drinking water as a cause of cancer and other harmful outcomes.",
+      "keywords": "water Arsenic in groundwater Natural geology can introduce arsenic into aquifers used for drinking, cooking and irrigation."
+    },
+    {
+      "type": "section",
+      "title": "Methylmercury in fish",
+      "href": "awareness.html#mercury",
+      "description": "WHO identifies methylmercury as a concern for fetal and early-childhood neurological development; some fish accumulate more than others.",
+      "keywords": "food-waste Methylmercury in fish Mercury can transform in aquatic ecosystems, build up in fish and reach people through seafood."
+    },
+    {
+      "type": "section",
+      "title": "Electronic waste and unsafe recycling",
+      "href": "awareness.html#electronic-waste",
+      "description": "WHO reports 62 million tonnes of e-waste generated globally in 2022; just 22.3% was documented as formally collected and recycled.",
+      "keywords": "food-waste Electronic waste and unsafe recycling Unsafe burning, dismantling and dumping can expose workers and communities to hazardous air, dust, soil and water mixtures."
+    },
+    {
+      "type": "section",
+      "title": "Radon inside buildings",
+      "href": "awareness.html#radon",
+      "description": "U.S. EPA identifies radon as a naturally occurring radioactive gas that can cause lung cancer; it cannot be seen or smelled.",
+      "keywords": "home-work Radon inside buildings Radon can enter buildings from soil and accumulate indoors; actual concentration differs by building."
+    },
+    {
+      "type": "section",
+      "title": "Heat and preventable illness",
+      "href": "awareness.html#extreme-heat",
+      "description": "CDC describes heat exhaustion, heat stroke and other heat-related illness risks, with greater danger in certain health and working conditions.",
+      "keywords": "home-work Heat and preventable illness Indoor or outdoor heat, physical activity and barriers to cooling can overwhelm the body's temperature control."
+    },
+    {
+      "type": "section",
+      "title": "Respirable silica at work",
+      "href": "awareness.html#silica-dust",
+      "description": "CDC/NIOSH warns that breathing respirable crystalline silica during certain jobs can lead to silicosis and other serious diseases.",
+      "keywords": "home-work Respirable silica at work Cutting, drilling, grinding and polishing some stone and other materials can produce fine respirable silica dust."
+    },
+    {
       "type": "company",
       "title": "Saudi Aramco",
       "href": "dossiers.html?entity=saudi-aramco#investigate",
