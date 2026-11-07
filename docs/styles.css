@@ -115,3 +115,12 @@
 .chain-caption a{color:var(--acid);text-decoration:underline;text-underline-offset:3px}
 @media(max-width:950px){.evidence-chain{grid-template-columns:repeat(4,minmax(0,1fr))}.chain-cell:nth-child(4){border-right:0}.chain-cell:nth-child(-n+4){border-bottom:1px solid #435f44}.chain-cell{min-height:110px}}
 @media(max-width:650px){.evidence-chain{grid-template-columns:repeat(2,minmax(0,1fr))}.chain-cell{min-height:94px;padding:14px}.chain-cell:nth-child(4){border-right:1px solid #435f44}.chain-cell:nth-child(even){border-right:0}.chain-cell:not(:last-child){border-bottom:1px solid #435f44}.chain-cell strong{font-size:15px;margin-top:12px}.chain-cell:nth-child(2n):after{display:none}.chain-caption{margin-bottom:35px}}
+
+/* Dossier Lab launch gateway */
+.lab-teaser{border-block:1px solid #51663b;background:radial-gradient(circle at 80% 40%,#c8ff5c19,transparent 38%),#172519;padding:66px 0}
+.lab-teaser-inner{display:flex;align-items:center;justify-content:space-between;gap:45px}
+.lab-teaser .kicker{margin-bottom:15px}.lab-teaser h2{font-size:clamp(29px,3.4vw,50px);line-height:1.15;letter-spacing:-.06em;margin:0}
+.lab-teaser h2 em{font-style:normal;color:var(--acid)}
+.lab-teaser p{max-width:650px;color:#a9baa6;font-size:12px;line-height:1.9;margin:16px 0 0}
+.lab-teaser .button-primary{white-space:nowrap}
+@media(max-width:650px){.lab-teaser{padding:48px 0}.lab-teaser-inner{display:block}.lab-teaser .button-primary{margin-top:25px}}

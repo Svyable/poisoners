@@ -144,3 +144,62 @@ test("chemical releases of different substances cannot be combined into a false 
  const base=claims[0],b={...claims[1],chemical_identifiers:[{name:"Mercury",cas:"7439-97-6"}]};
  assert.throws(()=>sumComparable([base,b],{nonOverlapAttested:true,attestationSourceUrl:"https://example.org/assessment"}),/Incompatible/);
 });
+
+const {compile,makeId}=require("../src/dossier-model.cjs");
+const caseExamples=json("data/case-examples.json");
+const register=json("docs/dossier-register.json");
+test("new Dossier Lab exports exactly match deterministic source evidence",()=>{
+ const result=compile({claims,companies:d.companies,countries:work.countries,sources:sources.sources,examples:caseExamples});
+ assert.deepStrictEqual(JSON.parse(JSON.stringify(result)),register);
+ assert.equal(result.totals.company_records,50);
+ assert.equal(result.totals.documented_historical_comparators,4);
+ assert.equal(result.totals.verified_multi_hazard_dossiers,0);
+ assert.equal(result.totals.counsel_authorized_actions,0);
+ const ids=new Set();
+ for(const item of result.dossiers){
+  assert.ok(!ids.has(item.id));ids.add(item.id);
+  assert.equal(item.gates.length,7);
+  assert.equal(item.gates[0].status,"linked");
+  assert.equal(item.gates.filter(g=>g.status==="open").length,6);
+  assert.equal(item.readiness.source_anchored,true);
+  assert.equal(item.readiness.impact_reviewed,false);
+  assert.equal(item.readiness.counsel_cleared,false);
+  assert.ok(item.evidence.source.url.startsWith("https://"));
+  assert.equal(item.metric.kind,"modeled_producer_attribution");
+  assert.equal(item.metric.year,2024);
+  assert.deepEqual(item.metric.not_equivalent_to.length,4);
+  assert.ok(!item.publication_warning.includes("criminal"));
+  assert.ok(item.investigation.source_portals.length>=1);
+ }
+});
+test("full dossier links resolve every producer name",()=>{
+ const ids=new Set(register.dossiers.map(x=>x.id));
+ for(const e of d.companies)assert.ok(ids.has(makeId(e.name)),e.name);
+});
+test("historical comparators have primary sources and distinguish legal dispositions",()=>{
+ for(const c of register.case_examples){
+  assert.ok(c.year>=1950&&c.year<=2026);
+  assert.ok(c.finding_kind && c.caveat && c.chain.length>=5);
+  assert.ok(c.sources.every(s=>/^https:\/\//.test(s.url)));
+  if(c.id==="pfas-water-2024")assert.ok(/does not constitute an admission/.test(c.statement));
+ }
+ assert.ok(register.case_examples.some(c=>c.id==="minamata-1956"));
+ assert.ok(register.case_examples.some(c=>c.id==="brumadinho-2019"));
+ assert.ok(register.case_examples.some(c=>c.id==="deepwater-horizon-2010"));
+});
+test("scientific impact clearance cannot be gained through a reviewed emissions record",()=>{
+ const spoofed={...claims[0],status:"reviewed",reviewers:["expert-A","expert-B"],source:{...claims[0].source,snapshot_hash_sha256:"a".repeat(64)}};
+ assert.equal(scientificReleaseEligible(spoofed),false);
+});
+test("dossier page has filtering, evidence audit, comparison and accessible actions",()=>{
+ const html=read("docs/dossiers.html");
+ for(const id of ["dossierSearch","dossierCountry","dossierSector","dossierSort","dossierCount",
+ "dossierList","dossierPanel","compareA","compareB","comparisonPanel","labCaseGrid","labCaseDetail","labMenu","labMobileNav"])
+  assert.ok(html.includes('id="'+id+'"'),"Missing Dossier Lab hook: "+id);
+ for(const filename of ["dossier-register-data.js","dossier-lab.js","dossier-lab.css"])assert.ok(html.includes(filename));
+ assert.ok(read("docs/index.html").includes('href="dossiers.html"'));
+ const js=read("docs/dossier-register-data.js");
+ assert.ok(js.startsWith("/* GENERATED / Dossier evidence subset; no certified injury claims. */"));
+ assert.ok(js.includes("window.POISON_DOSSIERS"));
+ assert.equal(register.dossiers.length,50);
+});

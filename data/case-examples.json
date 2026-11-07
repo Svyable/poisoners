@@ -1,0 +1,164 @@
+{
+  "version": "3.0.0",
+  "review_scope": "Public historical comparator cases, not a company-ranked harm dataset or precedent for automatic legal claims",
+  "cases": [
+    {
+      "id": "minamata-1956",
+      "title": "Minamata disease",
+      "country": "JP",
+      "subject": "Chisso (historical Minamata facility)",
+      "hazard": "Methylmercury",
+      "year": 1956,
+      "medium": [
+        "water",
+        "biota",
+        "humans"
+      ],
+      "finding_kind": "Government causation assessment and court compensation decision",
+      "statement": "Japan's government concluded in 1968 that methylmercury discharged in industrial effluent accumulated through seafood and caused disease; a March 1973 court decision established Chisso's compensation responsibility for the Kumamoto case.",
+      "key_figure": {
+        "value": 1973,
+        "unit": "year",
+        "label": "court decision",
+        "meaning": "Year of initial Kumamoto damages judgment, not an injury count"
+      },
+      "sources": [
+        {
+          "title": "Japan Ministry of the Environment · 1995 environmental report",
+          "url": "https://www.env.go.jp/en/wpaper/1995/eae240000000065.html"
+        },
+        {
+          "title": "Minamata official chronology",
+          "url": "https://www.env.go.jp/en/chemi/hs/minamata2002/refer.html"
+        }
+      ],
+      "chain": [
+        "plant_effluent",
+        "methylmercury",
+        "water",
+        "fish_and_shellfish",
+        "human_consumption",
+        "documented_neurological_disease",
+        "compensation_judgment"
+      ],
+      "caveat": "Historical, site-specific determination. Does not establish present-day exposure or extrapolate to all current chemical producers."
+    },
+    {
+      "id": "deepwater-horizon-2010",
+      "title": "Deepwater Horizon",
+      "country": "US",
+      "subject": "BP / Macondo well (2010)",
+      "hazard": "Oil spill",
+      "year": 2010,
+      "medium": [
+        "water",
+        "animals",
+        "plants",
+        "humans"
+      ],
+      "finding_kind": "Government-documented spill and court-approved civil settlement",
+      "statement": "The U.S. Department of the Interior records an approximately 134-million-gallon release over 87 days following the April 2010 well blowout; a court approved a $20.8 billion settlement in April 2016 over civil penalties and natural-resource damages.",
+      "key_figure": {
+        "value": 134,
+        "unit": "million gallons",
+        "label": "released oil (approx.)",
+        "meaning": "Event-specific spill magnitude, not a universal toxicity equivalent"
+      },
+      "sources": [
+        {
+          "title": "U.S. Department of the Interior · settlement announcement",
+          "url": "https://www.doi.gov/node/20575"
+        }
+      ],
+      "chain": [
+        "offshore_well",
+        "crude_oil",
+        "gulf_water",
+        "marine_ecosystems",
+        "natural_resource_assessment",
+        "court_supervised_remedies"
+      ],
+      "caveat": "Civil monetary terms include different categories. Settlement value is not a directly measured ecological loss."
+    },
+    {
+      "id": "brumadinho-2019",
+      "title": "Brumadinho dam rupture",
+      "country": "BR",
+      "subject": "Vale / Córrego do Feijão (2019)",
+      "hazard": "Mine tailings and dam failure",
+      "year": 2019,
+      "medium": [
+        "water",
+        "soil",
+        "animals",
+        "plants",
+        "humans"
+      ],
+      "finding_kind": "Government-documented dam failure and judicial repair agreement",
+      "statement": "Minas Gerais records 272 deaths following the January 2019 rupture and a February 2021 judicial agreement with Vale for collective repair, with an estimated value of approximately R$37.69 billion.",
+      "key_figure": {
+        "value": 272,
+        "unit": "reported deaths",
+        "label": "event-specific human toll",
+        "meaning": "Government-documented disaster death count, not a prediction for any other site"
+      },
+      "sources": [
+        {
+          "title": "Minas Gerais government · Brumadinho judicial agreement",
+          "url": "https://www.mg.gov.br/pro-brumadinho/pagina/entenda-o-acordo-judicial-de-reparacao-ao-rompimento-em-brumadinho"
+        },
+        {
+          "title": "Minas Gerais government · financial obligations",
+          "url": "https://www.mg.gov.br/pro-brumadinho/pagina/reparacao-brumadinho-obrigacoes-de-pagar-da-vale-ao-estado"
+        }
+      ],
+      "chain": [
+        "tailings_dam",
+        "structural_failure",
+        "river_and_land",
+        "communities_and_ecosystems",
+        "documented_deaths_and_damage",
+        "judicial_repair_agreement"
+      ],
+      "caveat": "Collective repair agreement, individual actions and criminal proceedings are distinct. Do not equate announced agreement amount with measured total harm."
+    },
+    {
+      "id": "pfas-water-2024",
+      "title": "Public-water-supplier PFAS settlement",
+      "country": "US",
+      "subject": "3M / public water supplier claims",
+      "hazard": "PFAS",
+      "year": 2024,
+      "medium": [
+        "water",
+        "humans"
+      ],
+      "finding_kind": "Court-approved settlement; company denies admission",
+      "statement": "3M reported final court approval of its U.S. public-water-supplier settlement in March 2024. The settlement provides for payments over time and expressly does not constitute an admission of liability or wrongdoing.",
+      "key_figure": {
+        "value": null,
+        "unit": "not comparable",
+        "label": "no injury estimate",
+        "meaning": "Water-supplier settlement scope is not proof of any individual's disease"
+      },
+      "sources": [
+        {
+          "title": "3M public water supplier settlement announcement",
+          "url": "https://news.3m.com/2024-04-01-3M-Settlement-with-Public-Water-Suppliers-to-Address-PFAS-in-Drinking-Water-Receives-Final-Court-Approval"
+        },
+        {
+          "title": "3M SEC filing · 2024 second-quarter 10-Q: settlement terms and no admission",
+          "url": "https://www.sec.gov/Archives/edgar/data/66740/000006674024000080/mmm-20240630.htm"
+        }
+      ],
+      "chain": [
+        "chemical_manufacture_and_use",
+        "pfas_in_drinking_water",
+        "public_water_suppliers",
+        "treatment_and_monitoring",
+        "settlement_not_admission"
+      ],
+      "caveat": "Public-water-supplier remedies are distinct from individualized health allegations; the company expressly denies admission of wrongdoing."
+    }
+  ]
+}

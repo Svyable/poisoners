@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07100f">
+<meta name="description" content="POISONERS Dossier Lab: inspect sourced corporate emissions observations, the limits of each claim, country research leads, and historical evidence-to-remedy examples.">
+<meta property="og:title" content="The Dossier Lab — POISONERS">
+<meta property="og:description" content="Every record has a source. Every missing causal link stays visible.">
+<title>Dossier Lab — POISONERS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="dossier-lab.css">
+<script defer src="dossier-register-data.js"></script><script defer src="dossier-lab.js"></script>
+</head>
+<body class="lab-body">
+<a class="skip" href="#labMain">Skip to research</a>
+<header class="site-header">
+<a class="brand" href="index.html" aria-label="POISONERS observatory"><span class="brand-glyph" aria-hidden="true"><i></i><i></i><i></i></span><span>POISONERS<span class="brand-period">.</span><small>THE PUBLIC EVIDENCE ENGINE</small></span></a>
+<nav class="top-nav" aria-label="Main navigation">
+<a class="nav-link" href="index.html">Observatory</a><a class="nav-link active" href="dossiers.html">Dossier Lab</a><a class="nav-link" href="index.html#foundation">Metric framework</a><a class="nav-link" href="case-studies.html">Documented cases</a><a class="nav-link" href="operating-protocol.html">Protocol</a></nav>
+<a href="https://github.com/Svyable/poisoners" class="header-action" target="_blank" rel="noopener noreferrer">PUBLIC REPOSITORY ↗</a>
+<button type="button" class="mobile-menu" id="labMenu" aria-label="Open navigation" aria-controls="labMobileNav" aria-expanded="false">☰</button>
+</header>
+<nav id="labMobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="index.html">Observatory</a><a href="dossiers.html">Dossier Lab</a><a href="index.html#foundation">Metric framework</a><a href="case-studies.html">Documented cases</a><a href="operating-protocol.html">Protocol</a></nav>
+<main id="labMain">
+<section class="lab-hero"><div class="shell lab-hero-inner">
+<div class="lab-hero-left">
+<span class="kicker"><span class="lab-pulse"></span> POISONERS / RESEARCH INSTRUMENT 03</span>
+<h1>EVERY CLAIM<br>HAS A <em>CHAIN.</em></h1>
+<p>Explore what the evidence actually supports—and the missing links between industrial activity, environmental exposure, attributable harm and potential legal remedies.</p>
+<div class="lab-hero-links"><a class="button-primary" href="#investigate">OPEN INVESTIGATION ↘</a><a class="button-quiet" href="#proofCases">STUDY DOCUMENTED CASES ↗</a></div>
+</div>
+<div class="lab-hero-right" aria-hidden="true">
+<div class="lab-signal-ring"><span class="ring-axis top">SOURCE</span><span class="ring-axis right">EXPOSURE</span><span class="ring-axis bottom">OUTCOME</span><span class="ring-axis left">REMEDY</span><div class="lab-signal-core">?</div></div>
+<span class="lab-grid-caption">NO GUILT BY ALGORITHM<br>NO UNSOURCED DAMAGE COUNTS</span>
+</div>
+</div></section>
+<section class="lab-status"><div class="shell lab-status-grid">
+<div><span>PUBLIC COMPANY RECORDS</span><strong id="labTotalCompanies">50</strong><small>2024 production-linked climate observations</small></div>
+<div><span>EVIDENCE GATES</span><strong>07</strong><small>Separate source, facility, exposure and legal review</small></div>
+<div><span>HISTORICAL CASE EXAMPLES</span><strong id="labCaseCount">04</strong><small>Different hazards, jurisdictions and legal outcomes</small></div>
+<div class="lab-status-guard"><span>VERIFIED COMPANY HEALTH-HARM ESTIMATES</span><strong>0</strong><small>Unestimated is not zero harm</small></div>
+</div></section>
+
+<section class="lab-investigate shell" id="investigate">
+<div class="lab-section-heading"><div><span class="kicker">01 / COMPANY SOURCE EXPLORER</span><h2>Trace the <em>record.</em></h2><p>Select a company to view its published production-attribution metric and seven evidence gates. A company’s home country is a navigation field, <strong>not</strong> the geographic location of its emissions.</p></div>
+<a class="lab-outline-link" href="dossier-register.json" download>EXPORT FULL PUBLIC REGISTER ↓</a></div>
+<div class="lab-filterbar">
+<label class="lab-search-label"><span class="sr-only">Search companies</span><input id="dossierSearch" type="search" placeholder="Search company or sector…" autocomplete="off"></label>
+<label><span class="sr-only">Filter by country</span><select id="dossierCountry"><option value="ALL">All ten countries</option></select></label>
+<label><span class="sr-only">Filter by sector</span><select id="dossierSector"><option value="ALL">All producer sectors</option></select></label>
+<label><span class="sr-only">Sort company records</span><select id="dossierSort"><option value="alpha">Company · A–Z</option><option value="emissions">2024 emissions · High–low</option><option value="country">Country · A–Z</option></select></label>
+</div>
+<div class="lab-countline"><span id="dossierCount" role="status">50 SOURCE RECORDS</span><span>SOURCE-ONLY / NO TOXICITY RANKING</span></div>
+<div class="lab-workspace">
+<div class="lab-list" id="dossierList" role="group" aria-label="Source-linked company records"></div>
+<article class="lab-profile" id="dossierPanel" aria-live="polite">
+<span class="kicker">SELECT A COMPANY</span><h3>Open a dossier.</h3><p>Every record includes source provenance, data boundaries and required independent research steps.</p>
+</article>
+</div>
+</section>
+
+<section class="lab-compare-section" id="compare"><div class="shell">
+<div class="lab-section-heading"><div><span class="kicker">02 / CONTROLLED COMPARISON</span><h2>Compare what is <em>comparable.</em></h2><p>Both observations must share the <strong>2024 global production-linked GHG accounting boundary</strong>. This comparison does not measure toxicity, illness or legal responsibility.</p></div></div>
+<div class="lab-compare-filters"><label><span>ENTITY A</span><select id="compareA" aria-label="Comparison entity A"></select></label><label><span>ENTITY B</span><select id="compareB" aria-label="Comparison entity B"></select></label></div>
+<div id="comparisonPanel" class="lab-comparison-panel" aria-live="polite"></div>
+</div></section>
+
+<section class="lab-cases-section shell" id="proofCases">
+<div class="lab-section-heading"><div><span class="kicker">03 / REAL-WORLD EVIDENCE PATHWAYS</span><h2>When the chain<br><em>was documented.</em></h2><p>Historical cases illustrate different scientific and legal evidentiary chains. A government causation conclusion, a court finding and a settlement without admission are different things.</p></div><a href="case-studies.html" class="lab-outline-link">READ FULL CASE HISTORIES ↗</a></div>
+<div class="lab-case-controls" role="group" aria-label="Filter historical cases">
+<button type="button" class="lab-case-filter is-active" data-case-country="ALL" aria-pressed="true">ALL CASES</button>
+<button type="button" class="lab-case-filter" data-case-country="JP" aria-pressed="false">JAPAN</button>
+<button type="button" class="lab-case-filter" data-case-country="US" aria-pressed="false">UNITED STATES</button>
+<button type="button" class="lab-case-filter" data-case-country="BR" aria-pressed="false">BRAZIL</button>
+</div>
+<div class="lab-case-grid" id="labCaseGrid"></div>
+<div id="labCaseDetail" class="lab-case-detail" aria-live="polite"></div>
+</section>
+
+<section class="lab-ethics"><div class="shell lab-ethics-inner"><span class="kicker">THE OPERATING STANDARD</span><h2>Find the source.<br><em>Follow the pathway.</em><br>Test the claim.</h2><div><p>Evidence is cumulative only when its units, time periods, geographic boundaries, pollutant identities and causal assumptions are compatible. We do not automatically merge overlapping producer emissions, convert emissions to illnesses, or turn a settlement into an admission.</p><div class="lab-ethics-links"><a class="button-primary" href="operating-protocol.html">READ OPERATING PROTOCOL ↗</a><a class="button-quiet" href="https://github.com/Svyable/poisoners/issues/new/choose" target="_blank" rel="noopener noreferrer">SUBMIT A PUBLIC SOURCE ↗</a></div></div></div></section>
+</main>
+<footer class="footer"><div class="shell"><div class="footer-top"><div class="footer-brand">POISONERS<span>.</span><small>THE PUBLIC EVIDENCE ENGINE</small></div><div class="footer-message">Public knowledge deserves<br><em>a public audit trail.</em></div></div><div class="footer-bottom"><span>© 2026 POISONERS · INDEPENDENT RESEARCH PROTOTYPE</span><span>NOT A COMPANY TORT RANKING OR PERSONAL HEALTH REPORT</span><div><a href="index.html">OBSERVATORY</a><a href="methodology.html">METHODOLOGY</a><a href="legal.html">LEGAL</a></div></div></div></footer>
+</body></html>
