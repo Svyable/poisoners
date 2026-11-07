@@ -36,7 +36,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "leadership",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-kathryn-a-mikells",
@@ -71,7 +73,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "finance",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-neil-a-chapman",
@@ -106,7 +110,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "operations",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-jack-p-williams-jr",
@@ -141,7 +147,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "strategy",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-jon-m-gibbs",
@@ -176,7 +184,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "facility",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-michael-k-wirth",
@@ -211,7 +221,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "leadership",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-eimear-p-bonner",
@@ -246,7 +258,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "finance",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-mark-a-nelson",
@@ -281,7 +295,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "operations",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-r-hewitt-pate",
@@ -316,7 +332,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "legal-compliance",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-r-clay-neff",
@@ -351,7 +369,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "facility",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-vicki-hollub",
@@ -386,7 +406,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "leadership",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-sunil-mathew",
@@ -421,7 +443,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "finance",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-richard-a-jackson",
@@ -456,7 +480,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "operations",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-kenneth-dillon",
@@ -491,7 +517,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "facility",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     },
     {
       "id": "person-jeff-f-simmons",
@@ -526,7 +554,9 @@
       "allegation_status": "none_asserted",
       "evidence_review": "source_linked_compensation_only",
       "liability_assessment": "not_estimated",
-      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
+      "research_role_key": "strategy",
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
     }
   ]
 }
