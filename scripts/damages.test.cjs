@@ -80,7 +80,7 @@ test("polished monetary page meets global navigation and findability standard",(
  assert.ok(html.includes('href="glossary.html"'));
  assert.ok(html.includes('href="site.css"'));
  assert.ok(html.includes('href="https://svyable.github.io/poisoners/damages.html"'));
- assert.equal((html.match(/<main\\b/g)||[]).length,1);
- assert.equal((html.match(/<h1\\b/g)||[]).length,1);
- assert.ok(!html.includes("\\\\n@media"));
+ assert.equal((html.match(/<main\b/g)||[]).length,1);
+ assert.equal((html.match(/<h1\b/g)||[]).length,1);
+ assert.ok(!html.includes("\\n@media"));
 });
