@@ -48,7 +48,7 @@ const seen=new Set();
 for(const item of index.entries){
  assert(["page","section","company","knowledge"].includes(item.type),"Invalid result type");
  assert(item.title&&item.description&&item.keywords,"Incomplete search result");
- assert(/^[a-z0-9-]+\.html(?:\?[^#]*)?(?:#[a-z0-9-]+)?$/.test(item.href),"Unsafe search link: "+item.href);
+ assert(/^[a-z0-9-]+\.html(?:\?[^#]*)?(?:#[A-Za-z0-9-]+)?$/.test(item.href),"Unsafe search link: "+item.href);
  const [fileAndQuery,anchor]=item.href.split("#");
  const [filename,query]=fileAndQuery.split("?");
  assert(pages.has(filename),"Missing search target "+item.href);

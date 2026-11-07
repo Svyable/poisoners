@@ -57,6 +57,9 @@ test("payment money sort refuses mixed currency and produces comparable currency
  assert.ok(usd.rows.every(r=>r.currency==="USD"));
  assert.ok(usd.rows.filter(r=>r.paid===null).every(r=>r.rank===null));
  assert.ok(usd.rows.filter(r=>r.paid!==null).every(r=>r.rank!==null));
+ const secondaryMixed=model.rank("payments",rows.payments,{metric:"entity",secondary:"paid",facets:{currency:"ALL"}});
+ assert.match(secondaryMixed.warning,/Select USD or BRL/);
+ assert.ok(secondaryMixed.rows.every(x=>x.rank===null));
  const brl=model.rank("payments",rows.payments,{metric:"obligationMax",facets:{currency:"BRL"}});
  assert.equal(brl.rows.length,1);
  assert.equal(brl.rows[0].currency,"BRL");
@@ -68,6 +71,8 @@ test("source group cohort gate blocks mixing different chemical years, units and
  assert.ok(blocked.rows.every(r=>r.rank===null));
  const grouped=model.facetsFor("observations",rows.observations).cohort.filter(x=>x!=="ALL");
  assert.equal(grouped.length,2);
+ const secondaryBlocked=model.rank("observations",rows.observations,{metric:"chemical",secondary:"mass",facets:{cohort:"ALL"}});
+ assert.match(secondaryBlocked.warning,/Choose one source\/year\/unit/);
  for(const cohort of grouped){
   const result=model.rank("observations",rows.observations,{metric:"mass",facets:{cohort}});
   assert.equal(result.warning,"");

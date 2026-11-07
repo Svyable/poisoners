@@ -176,7 +176,7 @@
  }
  function rank(dataset,rows,input={}){
   const cfg=safeConfig(dataset,input),schema=datasets[dataset],fieldDef=schema.fields.find(x=>x.id===cfg.metric),
-   warning=cohortGuard(dataset,cfg,rows,cfg.metric);
+   warning=cohortGuard(dataset,cfg,rows,cfg.metric)|| (cfg.secondary?cohortGuard(dataset,cfg,rows,cfg.secondary):"");
   const safeMin=Number.isFinite(cfg.min)?cfg.min:null,safeMax=Number.isFinite(cfg.max)?cfg.max:null;
   function value(row,key){return row[key]==null||row[key]===""?null:row[key]}
   let filtered=rows.filter(row=>{
