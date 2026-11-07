@@ -1,0 +1,58 @@
+name: Submit a public environmental evidence source
+description: Suggest a verifiable public source. Do NOT upload personal or medical information.
+title: "[Evidence] "
+labels: ["research", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This public issue is for documentary sources, not claimant intake.
+        **Never include health records, addresses, phone numbers, private identities, or privileged material.**
+        Submission does not establish liability or launch litigation.
+  - type: input
+    id: url
+    attributes:
+      label: Public source URL
+      description: Prefer official records, scientific studies, regulatory filings, or court materials.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: publisher
+    attributes:
+      label: Publisher / agency / journal
+    validations:
+      required: true
+  - type: input
+    id: published
+    attributes:
+      label: Publication or reporting date
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What does the document actually establish?
+      description: Identify exact table, facility, substance, year, unit and page. Separate measurements from allegations.
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Record type
+      options:
+        - Direct measurement / regulatory report
+        - Peer-reviewed model or exposure analysis
+        - Legal finding / enforcement record
+        - Corporate ownership / facility record
+        - Reporting or lead requiring corroboration
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-data confirmation
+      options:
+        - label: I have not included private identities, sensitive health details, addresses or attorney-client communications.
+          required: true
+        - label: I understand this is a research lead and not an accusation or legal filing.
+          required: true

@@ -1,0 +1,79 @@
+/* Source-anchored seed, November 2026. Metric: production-linked 2024 emissions in Mt CO2e.
+   NOT toxic-release measurements, patient harm, liability, or the composite Poison Index.
+   Carbon Majors includes sold-product combustion and certain operational emissions. */
+window.POISON_DATA = Object.freeze({
+  updated: "2026-11-06",
+  countryYear: 2025,
+  companyYear: 2024,
+  sources: {
+    EDGAR26: {title:"European Commission JRC · EDGAR 2026",url:"https://edgar.jrc.ec.europa.eu/report_2026",scope:"Country-wide GHG, 2025, excluding LULUCF"},
+    CM24: {title:"InfluenceMap · Carbon Majors 2024 update (January 2026)",url:"https://www.influencemap.org/briefing/Carbon-Majors-2024-Data-Update-35466",scope:"Production-linked corporate GHG, 2024; cumulative figures when published"},
+    LANCET: {title:"Fuller et al. · Pollution and health: a progress update (2022)",url:"https://pmc.ncbi.nlm.nih.gov/articles/PMC11995256/",scope:"Global mortality estimates based on 2019 GBD"},
+    WHO: {title:"WHO · Ambient air pollution",url:"https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health",scope:"Population health estimates"},
+    TRI: {title:"US EPA · Toxics Release Inventory",url:"https://www.epa.gov/toxics-release-inventory-tri-program/tri-toolbox",scope:"Facility-reported US releases"},
+    EEA: {title:"EEA · European Industrial Emissions Portal",url:"https://industry.eea.europa.eu/industrial-emissions",scope:"European facility releases and transfers"},
+    TRACE: {title:"Climate TRACE · Open emissions data",url:"https://climatetrace.org/data",scope:"Asset- and facility-scale emission estimates"},
+    RULE23: {title:"Federal Rule of Civil Procedure 23",url:"https://www.law.cornell.edu/rules/frcp/rule_23",scope:"US class-action prerequisites"},
+    EUDIR: {title:"European Commission · Representative Actions Directive",url:"https://commission.europa.eu/law/law-topic/consumer-protection-law/representative-actions-directive_en",scope:"EU consumer representative actions"}
+  },
+  countries: [
+    {code:"CN",name:"China",ghg:15981.00},
+    {code:"US",name:"United States",ghg:6018.30},
+    {code:"IN",name:"India",ghg:4508.01},
+    {code:"RU",name:"Russia",ghg:2574.39},
+    {code:"ID",name:"Indonesia",ghg:1358.91},
+    {code:"BR",name:"Brazil",ghg:1306.59},
+    {code:"IR",name:"Iran",ghg:1119.32},
+    {code:"JP",name:"Japan",ghg:1063.13},
+    {code:"SA",name:"Saudi Arabia",ghg:844.96},
+    {code:"CA",name:"Canada",ghg:764.52}
+  ],
+  companies: [
+    {name:"Saudi Aramco",code:"SA",sector:"Oil & gas",annual:1786,historic:72457},
+    {name:"Coal India",code:"IN",sector:"Coal",annual:1684,historic:35221},
+    {name:"CHN Energy",code:"CN",sector:"Coal & power",annual:1679,historic:25231},
+    {name:"National Iranian Oil Company",code:"IR",sector:"Oil & gas",annual:1387,historic:45826},
+    {name:"Gazprom",code:"RU",sector:"Oil & gas",annual:1293,historic:53116},
+    {name:"Jinneng Group",code:"CN",sector:"Coal",annual:1129,historic:null},
+    {name:"Rosneft",code:"RU",sector:"Oil & gas",annual:763,historic:null},
+    {name:"CNPC",code:"CN",sector:"Oil & gas",annual:750,historic:20434},
+    {name:"Shandong Energy",code:"CN",sector:"Coal",annual:750,historic:null},
+    {name:"China National Coal Group",code:"CN",sector:"Coal",annual:732,historic:null},
+    {name:"Shaanxi Coal and Chemical Industry Group",code:"CN",sector:"Coal & chemicals",annual:694,historic:null},
+    {name:"ExxonMobil",code:"US",sector:"Oil & gas",annual:677,historic:57458},
+    {name:"Chevron",code:"US",sector:"Oil & gas",annual:577,historic:62503},
+    {name:"Shanxi Coking Coal Group",code:"CN",sector:"Coal",annual:540,historic:null},
+    {name:"Petrobras",code:"BR",sector:"Oil & gas",annual:400,historic:null},
+    {name:"ConocoPhillips",code:"US",sector:"Oil & gas",annual:352,historic:24713},
+    {name:"Lukoil",code:"RU",sector:"Oil & gas",annual:323,historic:null},
+    {name:"China Huaneng Group",code:"CN",sector:"Power",annual:300,historic:null},
+    {name:"CNOOC",code:"CN",sector:"Oil & gas",annual:293,historic:null},
+    {name:"Peabody Energy",code:"US",sector:"Coal",annual:261,historic:null},
+    {name:"Luan Chemical Group",code:"CN",sector:"Coal & chemicals",annual:259,historic:null},
+    {name:"Novatek",code:"RU",sector:"Oil & gas",annual:257,historic:null},
+    {name:"SUEK",code:"RU",sector:"Coal",annual:256,historic:null},
+    {name:"Sinopec",code:"CN",sector:"Oil & gas",annual:214,historic:null},
+    {name:"Occidental Petroleum",code:"US",sector:"Oil & gas",annual:209,historic:null}
+  ],
+  receptors: ["Air","Water","Soil","Plants","Animals","Humans"],
+  families: [
+    {name:"Climate gases",detail:"CO2, methane, nitrous oxide; warming mechanisms are not the same as local toxic exposure."},
+    {name:"Combustion pollutants",detail:"PM2.5, NOx, SO2, ozone precursors; link stack output to dispersion and exposure."},
+    {name:"Metals",detail:"Lead, mercury, arsenic, cadmium; chemical species and bioavailability matter."},
+    {name:"Persistent organics",detail:"PFAS, PCBs, dioxins and other persistent compounds; persistence and mobility vary."},
+    {name:"Agrochemicals",detail:"Pesticides, herbicides and fertilizer-derived nutrients; evaluate dose, runoff and ecosystems."},
+    {name:"Pharmaceuticals",detail:"Active drug residues, manufacturing effluent and antimicrobial resistance pathways."},
+    {name:"Biological hazards",detail:"Pathogens, toxins, resistant organisms and contaminated waste streams."},
+    {name:"Plastics & particles",detail:"Microplastics, tire particulates and plastic additives; evidence maturity differs by endpoint."}
+  ],
+  // A research DESIGN matrix, not empirical findings. Cell level denotes pathway research maturity priority:
+  // 0 not mapped, 1 proposed research route, 2 identifiable source/monitoring family, NOT measured contamination.
+  pathways: [
+    [2,2,2,2,1,1,1,2],
+    [1,2,2,2,2,2,2,2],
+    [1,1,2,2,2,1,2,2],
+    [2,2,2,2,2,1,1,2],
+    [2,2,2,2,2,2,2,2],
+    [2,2,2,2,2,2,2,2]
+  ]
+});

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07100f">
+  <meta name="description" content="POISONERS: source-backed environmental intelligence. Explore corporate emissions, global pollution pathways, and the evidence required for accountable legal action.">
+  <meta property="og:title" content="POISONERS — Make the damage visible.">
+  <meta property="og:description" content="The global Poison Index research observatory. Evidence before accusation.">
+  <title>POISONERS — Global Poison Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="POISONERS home">
+      <span class="brand-glyph" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>POISONERS<span class="brand-period">.</span><small>THE PUBLIC EVIDENCE ENGINE</small></span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#overview" class="nav-link active">Observatory</a>
+      <a href="#ledger" class="nav-link">The index</a>
+      <a href="#matrix" class="nav-link">Exposure matrix</a>
+      <a href="#cases" class="nav-link">Case engine</a><a href="case-studies.html" class="nav-link">Case studies</a>
+      <a href="methodology.html" class="nav-link">Methodology <span aria-hidden="true">↗</span></a>
+    </nav>
+    <a class="header-action" href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">OPEN SOURCE <span aria-hidden="true">↗</span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation" aria-controls="mobileNav" aria-expanded="false">☰</button>
+  </header>
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="#overview">Observatory</a><a href="#ledger">The index</a><a href="#matrix">Exposure matrix</a><a href="#cases">Case engine</a><a href="case-studies.html">Case studies</a><a href="methodology.html">Methodology</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero shell" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="signal"></span> INDEPENDENT RESEARCH PROTOTYPE <span class="eyebrow-rule"></span> V0.1 / NOV 2026</div>
+        <h1>MAKE THE<br><em>DAMAGE</em><br>VISIBLE<span class="hero-dot">.</span></h1>
+        <p class="hero-lead">Pollution is measured in different places, by different institutions, in different units. Its consequences are experienced together. It's time the evidence was connected.</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#ledger">EXPLORE THE INDEX <span aria-hidden="true">↘</span></a>
+          <a class="button-quiet" href="#cases">HOW ACCOUNTABILITY WORKS <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-disclaimer"><span class="micro-symbol">✳</span> Environmental impact is not a finding of illegal conduct. Every company signal links to the source and its limitations.</div>
+      </div>
+      <div class="hero-visual" aria-label="Abstract analytical graphic showing three temporal evidence horizons">
+        <div class="visual-grid"></div>
+        <div class="orb">
+          <div class="orb-orbit orbit-one"></div><div class="orb-orbit orbit-two"></div><div class="orb-orbit orbit-three"></div>
+          <div class="orb-core"><div class="orb-inner"></div><span>∑</span></div>
+          <div class="orb-node node-one"></div><div class="orb-node node-two"></div><div class="orb-node node-three"></div>
+        </div>
+        <div class="plot-label plot-top"><span class="dot-lime"></span> SIGNALS ACTIVE<br><strong>25 SOURCE-LINKED ENTITIES</strong></div>
+        <div class="plot-label plot-left">01 / HISTORY<br><strong>1854—2024</strong></div>
+        <div class="plot-label plot-right">02 / REPORTED<br><strong>2024 BASELINE</strong></div>
+        <div class="plot-label plot-bottom">03 / FUTURE<br><strong>SCENARIO, NOT VERDICT</strong></div>
+        <div class="plot-coords">51° 30' 26" N<br>THE WORLD / ONE SYSTEM</div>
+      </div>
+      <div class="scroll-indicator">SCROLL TO INVESTIGATE <span aria-hidden="true">↓</span></div>
+    </section>
+
+    <section class="stats-band" id="overview" aria-label="Source-backed global signals">
+      <div class="shell stats-grid">
+        <div class="stat"><div class="stat-eyebrow"><span>01</span> GLOBAL GHG / 2025</div><div class="stat-number">54.1<span>Gt</span></div><p>Annual greenhouse gases, excluding land-use change.</p><a href="https://edgar.jrc.ec.europa.eu/report_2026" target="_blank" rel="noopener noreferrer">EDGAR 2026 ↗</a></div>
+        <div class="stat"><div class="stat-eyebrow"><span>02</span> POLLUTION MORTALITY</div><div class="stat-number">~9<span>M</span></div><p>Premature deaths per year, estimated from 2019 global data.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11995256/" target="_blank" rel="noopener noreferrer">LANCET COMMISSION ↗</a></div>
+        <div class="stat"><div class="stat-eyebrow"><span>03</span> CARBON CONCENTRATION</div><div class="stat-number">32<span>entities</span></div><p>Linked to over half of 2024 fossil-fuel and cement CO₂.</p><a href="https://www.influencemap.org/briefing/Carbon-Majors-2024-Data-Update-35466" target="_blank" rel="noopener noreferrer">CARBON MAJORS ↗</a></div>
+        <div class="stat stat-target"><div class="stat-eyebrow"><span>04</span> RESEARCH MANDATE</div><div class="stat-number">10<span> × 10</span></div><p>Ten countries. Ten company dossiers each. An investigative target, not 100 verified rankings.</p><span class="stat-status">COVERAGE IN PROGRESS</span></div>
+      </div>
+    </section>
+
+    <section class="section shell mission">
+      <div class="section-headline"><span class="kicker">THE PRINCIPLE / 001</span><h2>Not a list of villains.<br><span>A system of proof.</span></h2></div>
+      <div class="mission-aside"><p>One release can move through air, water, soil, ecosystems and bodies. The Poison Index is designed to follow that chain — and clearly mark every link that has not yet been proven.</p><div class="tags"><span>EXPOSURE</span><span>CAUSALITY</span><span>UNCERTAINTY</span><span>ACCOUNTABILITY</span></div></div>
+    </section>
+
+    <section class="section full-section index-section" id="ledger">
+      <div class="shell">
+        <div class="section-title-row">
+          <div><span class="kicker">SOURCE-LINKED LEDGER / 002</span><h2>The <em>Poison</em> Index<span class="acid-dot">.</span></h2><p class="section-sub">An expandable, source-backed research view of industrial emissions. Currently <strong>climate-only</strong>: these are not composite toxicity scores or corporate misconduct findings.</p></div>
+          <div class="edition-stamp"><span>DATA CUT</span><strong>2024 / 2025</strong><small>RESEARCH VERSION 0.1</small></div>
+        </div>
+
+        <div class="time-control">
+          <div class="time-intro"><span class="time-pre">THREE TEMPORAL LENSES</span><strong>Past. Present. Potential.</strong></div>
+          <div class="time-segments" role="group" aria-label="Choose temporal measure">
+            <button data-period="historic" class="period-btn" aria-pressed="false"><small>01 / PAST</small> HISTORICAL</button>
+            <button data-period="annual" class="period-btn active" aria-pressed="true"><small>02 / YEAR</small> ANNUAL</button>
+            <button data-period="future" class="period-btn" aria-pressed="false"><small>03 / NEXT</small> SCENARIO</button>
+          </div>
+        </div>
+        <div class="metric-note" id="metricNote" aria-live="polite">Published attributed 2024 emissions, in million tonnes of CO₂-equivalent. Production-linked emissions include downstream use of sold products.</div>
+
+        <div class="future-controls" id="futureControls" hidden>
+          <div class="scenario-head"><span class="kicker">CONDITIONAL SCENARIO / NOT A FORECAST</span><strong>2027–2036 cumulative emissions under a constant annual change rate</strong></div>
+          <label for="rateSlider">Annual production-linked emissions change <b id="rateValue">0%</b></label>
+          <input id="rateSlider" type="range" min="-15" max="5" value="0" step="1">
+          <div class="range-ends"><span>−15% / YR</span><span>+5% / YR</span></div>
+          <p>This projects activity only from the 2024 baseline. It does not project environmental injury, imply future wrongdoing, or model policy, plant closures, acquisitions or technology.</p>
+        </div>
+
+        <div class="filter-ribbon">
+          <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search company</span><input type="search" id="companySearch" placeholder="Search company or sector…" autocomplete="off"></label>
+          <label class="select-wrap"><span class="sr-only">Filter by country</span><select id="countryFilter"><option value="ALL">All ten countries</option></select></label>
+          <div class="filter-meta"><span class="live-dot"></span> <strong id="resultCount">25</strong> SOURCE-LINKED RECORDS</div>
+        </div>
+
+        <div class="table-scroller">
+          <table class="ledger-table" aria-describedby="metricNote">
+            <thead><tr><th scope="col">#</th><th scope="col">ENTITY / SECTOR</th><th scope="col">HOME COUNTRY*</th><th scope="col" id="metricColumn">2024 ATTRIBUTED EMISSIONS</th><th scope="col">RELATIVE SIGNAL†</th><th scope="col">DOSSIER</th></tr></thead>
+            <tbody id="ledgerBody"></tbody>
+          </table>
+          <p class="empty-note" id="noResults" hidden>No matching source-linked records. Country investigation slots remain open.</p>
+        </div>
+        <div class="table-footer">
+          <p>* Country is a navigation attribute, not the physical location of the emissions. † The graphic is scaled within this subset only. A CO₂e tonne cannot stand in for toxic exposure or legal liability. See <a href="methodology.html">methodology</a>.</p>
+          <a href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">AUDIT THE SOURCE ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell coverage-section" id="atlas">
+      <div class="section-title-row"><div><span class="kicker">THE GLOBAL INVESTIGATION / 003</span><h2>Ten countries.<br><span>One evidence standard.</span></h2><p class="section-sub">First-wave countries are the ten highest sovereign-country emitters in EDGAR's 2025 territorial GHG table. This is a <strong>climate coverage rule</strong>, not a country-level overall pollution or culpability ranking.</p></div><div class="target-indicator"><span>INVESTIGATION TARGET</span><strong>100</strong><small>COMPANY DOSSIER SLOTS</small></div></div>
+      <div class="country-grid" id="countryGrid"></div>
+      <div class="country-foot">Country emissions are territorial inventories. Company figures are production-linked worldwide and must <strong>not</strong> be added to or compared with country totals as equivalent boundaries. <a href="https://edgar.jrc.ec.europa.eu/report_2026" target="_blank" rel="noopener noreferrer">DATA: EDGAR 2026 ↗</a></div>
+    </section>
+
+    <section class="section matrix-section" id="matrix">
+      <div class="shell">
+        <div class="section-title-row"><div><span class="kicker">THE EXPOSURE ARCHITECTURE / 004</span><h2>Every medium.<br><span>Every pathway.</span></h2><p class="section-sub">The proposed index is multidimensional. The matrix below maps <em>research pathways</em>, not evidence that any named company contaminated a receptor.</p></div><div class="matrix-mark">06 <span>RECEPTORS</span><b>×</b> 08 <span>HAZARD FAMILIES</span></div></div>
+        <div class="matrix-layout">
+          <div class="heatmap-wrap"><div class="heatmap" id="heatmap" role="group" aria-label="Interactive research pathway matrix"></div><div class="matrix-legend"><span><i class="legend-strong"></i> INSTRUMENT / DATA PATHWAY</span><span><i class="legend-soft"></i> HYPOTHESIS TO RESEARCH</span><span><i class="legend-empty"></i> NOT MAPPED</span></div></div>
+          <aside class="matrix-detail" id="matrixDetail" aria-live="polite"><span class="kicker">SELECT A CELL ↗</span><div class="detail-icon">✳</div><h3>Follow the pathway.</h3><p>Select a receptor × hazard family to see what needs to be measured, attributed and validated before any company-level impact can be assessed.</p><small>SCIENTIFIC INFERENCE ≠ LEGAL FINDING</small></aside>
+        </div>
+        <div class="dimension-row"><span>FURTHER INDEX DIMENSIONS</span><div><i>Persistence</i><i>Bioaccumulation</i><i>Exposure route</i><i>Geographic reach</i><i>Vulnerability</i><i>Regulatory status</i><i>Confidence</i><i>Remediability</i></div></div>
+      </div>
+    </section>
+
+    <section class="section shell case-section" id="cases">
+      <div class="section-title-row"><div><span class="kicker">FROM DATA TO DUE PROCESS / 005</span><h2>Turn evidence<br>into <em>action.</em></h2><p class="section-sub">A reusable investigation workflow designed to help qualified counsel assess pollution-related matters in each jurisdiction. A high emissions number by itself is not a viable lawsuit.</p></div><div class="case-top-links"><a href="case-studies.html" class="outline-link">DOCUMENTED CASES ↗</a><a href="legal.html" class="outline-link">LEGAL FRAMEWORK ↗</a></div></div>
+      <div class="case-steps">
+        <article><span class="step-no">01 / DISCOVER</span><div class="step-glyph">⌁</div><h3>Detect</h3><p>Collect releases, monitoring, permits, enforcement records and credible scientific leads.</p></article>
+        <article><span class="step-no">02 / ATTRIBUTE</span><div class="step-glyph">◎</div><h3>Trace</h3><p>Resolve parent/subsidiary/facility ownership, timing and source-to-receptor pathways.</p></article>
+        <article><span class="step-no">03 / TEST</span><div class="step-glyph">◇</div><h3>Validate</h3><p>Quantify dose, exposure, uncertainty, injury and alternative causal explanations.</p></article>
+        <article><span class="step-no">04 / QUALIFY</span><div class="step-glyph">≡</div><h3>Screen</h3><p>Evaluate jurisdiction, standing, limitation periods, remedy and collective-action rules.</p></article>
+        <article><span class="step-no">05 / COUNSEL</span><div class="step-glyph">↗</div><h3>Review</h3><p>Independent legal review before allegations, outreach, proposed claims or filing.</p></article>
+      </div>
+      <div class="case-cta"><div><span class="kicker">ACCOUNTABILITY, WITHOUT SHORTCUTS</span><h3>Build the evidence.<br>Protect the people.</h3><p>Public research contributions: sources only. Do not post medical records, claimant identities or private allegations in public GitHub issues.</p></div><div class="case-buttons"><a href="https://github.com/Svyable/poisoners/issues/new/choose" target="_blank" rel="noopener noreferrer" class="button-primary">SUBMIT PUBLIC SOURCE ↗</a><a href="legal.html" class="button-quiet">READ THE SAFEGUARDS ↗</a></div></div>
+    </section>
+
+    <section class="section sources-section" id="sources">
+      <div class="shell source-layout"><div><span class="kicker">PROVENANCE / 006</span><h2>Receipts.<br><em>Not rhetoric.</em></h2><p>Every published datum needs a source, a date, a denominator, a boundary, a method and an uncertainty statement. A reproducible ledger outranks a sensational number.</p><a class="outline-link" href="methodology.html">EXPLORE THE METHODOLOGY ↗</a> <a class="outline-link" href="case-studies.html" style="margin-top:12px">READ DOCUMENTED CASES ↗</a></div><div class="source-links" id="sourceLinks"></div></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="shell"><div class="footer-top"><div class="footer-brand">POISONERS<span>.</span><small>THE GLOBAL POISON INDEX / PROTOTYPE</small></div><div class="footer-message">The right to know is the beginning.<br><em>The burden of proof still matters.</em></div></div><div class="footer-bottom"><span>© 2026 POISONERS · INDEPENDENT RESEARCH PROTOTYPE</span><span>NOT A HEALTH DIAGNOSIS, LIABILITY FINDING OR LEGAL ADVICE</span><div><a href="methodology.html">METHODOLOGY</a><a href="legal.html">LEGAL & SAFETY</a><a href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></div></div></div></footer>
+
+  <dialog id="dossierDialog" class="dossier" aria-labelledby="dossierTitle"><button class="dialog-close" id="closeDialog" aria-label="Close dossier">×</button><div id="dossierContent"></div></dialog>
+</body></html>
