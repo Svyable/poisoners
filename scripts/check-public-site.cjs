@@ -26,6 +26,7 @@ for(const [name,html] of pages){
  assert(html.includes('href="site.css"'),name+": shared design stylesheet missing");
  assert(html.includes('href="glossary.html"'),name+": glossary link missing");
  assert(html.includes('href="workbench.html"'),name+": research workbench link missing");
+ assert(html.includes('href="knowledge.html"'),name+": knowledge atlas link missing");
  assert(html.includes('class="site-header polished-header"'),name+": inconsistent shared header");
  assert(html.includes('class="site-footer"'),name+": inconsistent site-wide footer");
  assert(html.includes('class="site-disclosure"'),name+": evidence caveat missing");
@@ -45,13 +46,17 @@ assert.equal(index.schema_version,1,"Search index version changed unexpectedly")
 const companyIds=new Set(dossiers.dossiers.map(d=>d.id));
 const seen=new Set();
 for(const item of index.entries){
- assert(["page","section","company"].includes(item.type),"Invalid result type");
+ assert(["page","section","company","knowledge"].includes(item.type),"Invalid result type");
  assert(item.title&&item.description&&item.keywords,"Incomplete search result");
  assert(/^[a-z0-9-]+\.html(?:\?[^#]*)?(?:#[a-z0-9-]+)?$/.test(item.href),"Unsafe search link: "+item.href);
  const [fileAndQuery,anchor]=item.href.split("#");
  const [filename,query]=fileAndQuery.split("?");
  assert(pages.has(filename),"Missing search target "+item.href);
  if(anchor)assert(ids.get(filename).has(anchor),"Missing search anchor "+item.href);
+ if(item.type==="knowledge"){
+  assert.equal(filename,"knowledge.html","Knowledge notes must be on the Atlas");
+  assert(anchor&&anchor.startsWith("note-"),"Knowledge note missing anchor");
+ }
  if(item.type==="company"){
   assert.equal(filename,"dossiers.html","Company references must link to Dossier Lab");
   assert(query&&/^entity=/.test(query),"Missing company entity parameter");
@@ -62,5 +67,7 @@ for(const item of index.entries){
  }
 }
 assert.equal(seen.size,companyIds.size,"Not all published company records are searchable");
+const knowledge=JSON.parse(fs.readFileSync(path.join(root,"knowledge-register.json"),"utf8"));
+assert.equal(index.entries.filter(e=>e.type==="knowledge").length,knowledge.topics.length,"Knowledge notes missing from search index");
 assert(index.entries.some(e=>e.type==="page"&&e.href==="workbench.html"),"Research workbench is missing from site search");
 console.log("OK — "+names.length+" public pages and "+index.entries.length+" local search entries; "+seen.size+" unique climate-only company profiles.");

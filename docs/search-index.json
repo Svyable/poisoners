@@ -25,6 +25,13 @@
       "keywords": "research investigation builder workbench source evidence pathway air drinking water industrial releases facility compliance government records download worksheet"
     },
     {
+      "type": "page",
+      "title": "Knowledge Atlas",
+      "href": "knowledge.html#explore",
+      "description": "24 source-bound evidence field notes with original citations, limitations and next research questions",
+      "keywords": "knowledge library field notes source agency environmental exposure pathway measurement public health risk scientific evidence"
+    },
+    {
       "type": "section",
       "title": "Company climate ledger",
       "href": "index.html#ledger",
@@ -471,6 +478,174 @@
       "href": "public-records.html#au-npi",
       "description": "Annual releases and waste transfers of listed NPI pollutants, including facility mapping. Different chemicals cannot be summed into a meaningful total-harm ranking; reported release is not confirmed exposure.",
       "keywords": "Australian Government DCCEEW Australian facilities and diffuse sources within NPI reporting rules. 2024–25 reporting period, updates/corrections possible"
+    },
+    {
+      "type": "knowledge",
+      "title": "An emitted kilogram is not a human dose",
+      "href": "knowledge.html#note-release-vs-dose",
+      "description": "A facility-reported mass tells you a quantity released, not what any person inhaled, swallowed or absorbed.",
+      "keywords": "An emitted kilogram is not a human dose measurement Reported quantities require fate, transport, concentration, exposure-route and toxicity evidence before inferring health risk. Which chemical, release medium and exposure point could connect this inventory to an actual dose? Reading the data"
+    },
+    {
+      "type": "knowledge",
+      "title": "Corporate production attribution is not a facility map",
+      "href": "knowledge.html#note-corporate-production-boundary",
+      "description": "Carbon Majors attributes production-linked greenhouse gases to fossil-fuel and cement producers, including the combustion of sold products outside their home jurisdictions.",
+      "keywords": "Corporate production attribution is not a facility map measurement That methodology does not locate every emission at the producer's headquarters or establish a locally measured toxic release. Does the figure include downstream combustion, and where did the physical activity occur? Reading the data"
+    },
+    {
+      "type": "knowledge",
+      "title": "National inventories and producer totals are different ledgers",
+      "href": "knowledge.html#note-country-vs-company",
+      "description": "A territory-based country inventory assigns emissions to places; Carbon Majors assigns production-linked activity to producer entities.",
+      "keywords": "National inventories and producer totals are different ledgers measurement Adding, ranking or dividing these figures as if they share the same denominator creates misleading comparisons. Do the two datasets use the same year, gases, spatial boundary and scope? Reading the data"
+    },
+    {
+      "type": "knowledge",
+      "title": "A number without its unit and year is not a finding",
+      "href": "knowledge.html#note-unit-and-period",
+      "description": "Environmental sources can report annual tonnes released, concentrations, global CO₂-equivalents or historical totals. Each answers a different question.",
+      "keywords": "A number without its unit and year is not a finding measurement An annual mass cannot be compared directly with a concentration, and a historical estimate is not a live condition. Can the unit, time interval, geographic boundary and version be written beside every figure? Reading the data"
+    },
+    {
+      "type": "knowledge",
+      "title": "Measured and modeled exposure are different evidence",
+      "href": "knowledge.html#note-measured-modeled",
+      "description": "Exposure assessments may rely on direct monitoring, indirect estimation or reconstruction, depending on data and study design.",
+      "keywords": "Measured and modeled exposure are different evidence measurement A modeled estimate is not a personal measurement; a single sensor may not represent other times or locations. What was measured directly, what was inferred, and what uncertainties accompany both? Reading the data"
+    },
+    {
+      "type": "knowledge",
+      "title": "A screening flag is a reason to investigate",
+      "href": "knowledge.html#note-screening-is-not-verdict",
+      "description": "Screening and refined exposure assessments serve different purposes. A preliminary indicator can help decide what requires a closer look.",
+      "keywords": "A screening flag is a reason to investigate measurement A screening-level result is not, by itself, a demonstrated injury, causal link or legal conclusion. What evidence and quality controls would a refined assessment need? Reading the data"
+    },
+    {
+      "type": "knowledge",
+      "title": "The five links of an exposure pathway",
+      "href": "knowledge.html#note-five-link-pathway",
+      "description": "ATSDR evaluates contaminant source, environmental fate and transport, exposure point, exposure route, and potentially exposed population.",
+      "keywords": "The five links of an exposure pathway pathways Knowing an industrial source exists does not establish that contamination reached anyone. Which of the five links is directly documented, and which remains unknown? How pollutants move"
+    },
+    {
+      "type": "knowledge",
+      "title": "Potential and completed pathways are not synonyms",
+      "href": "knowledge.html#note-potential-vs-completed",
+      "description": "ATSDR distinguishes potential pathways, where one or more elements remain uncertain, from completed pathways, where all five elements are present.",
+      "keywords": "Potential and completed pathways are not synonyms pathways Potential is not proof of contact; completed contact is not proof that injury followed. What evidence establishes the pathway at the relevant place and time? How pollutants move"
+    },
+    {
+      "type": "knowledge",
+      "title": "Even completed exposure does not establish harm",
+      "href": "knowledge.html#note-completed-not-harm",
+      "description": "A completed ATSDR pathway describes an exposure opportunity or contact; further scientific evaluation considers dose, toxicity, duration and health effects.",
+      "keywords": "Even completed exposure does not establish harm pathways A pathway classification cannot be converted directly into numbers of illnesses or assigned blame. What independent exposure and effect evidence would be needed next? How pollutants move"
+    },
+    {
+      "type": "knowledge",
+      "title": "Groundwater can move dissolved contamination",
+      "href": "knowledge.html#note-groundwater-transport",
+      "description": "USGS explains that natural and human-generated substances can enter groundwater as water moves through soil and rock; transport depends on site conditions.",
+      "keywords": "Groundwater can move dissolved contamination pathways A nearby industrial operation alone does not establish that contamination reached a particular well. What do local flow direction, well depth, sampling dates and analytes show? How pollutants move"
+    },
+    {
+      "type": "knowledge",
+      "title": "Clear-looking groundwater is not proof of safe chemistry",
+      "href": "knowledge.html#note-clear-well",
+      "description": "Groundwater can appear clear while containing dissolved natural or human-generated constituents.",
+      "keywords": "Clear-looking groundwater is not proof of safe chemistry pathways Appearance cannot substitute for properly collected samples and laboratory analysis of relevant contaminants. Is this a private well or public system, and which substances were actually tested? How pollutants move"
+    },
+    {
+      "type": "knowledge",
+      "title": "Mercury can concentrate up aquatic food webs",
+      "href": "knowledge.html#note-food-webs",
+      "description": "NOAA describes conversion of mercury to methylmercury and its accumulation and magnification through feeding relationships.",
+      "keywords": "Mercury can concentrate up aquatic food webs pathways A fish species name alone does not establish a particular meal's concentration or a specific source of pollution. What species, location, advisory and contaminant-testing evidence apply? How pollutants move"
+    },
+    {
+      "type": "knowledge",
+      "title": "Hazard is not the same as risk",
+      "href": "knowledge.html#note-hazard-versus-risk",
+      "description": "Hazard identification asks whether a substance can cause an adverse effect. Risk characterization also needs relevant dose-response and exposure evidence.",
+      "keywords": "Hazard is not the same as risk health The fact that a chemical can be toxic does not quantify an individual's risk at an unspecified dose. Which exposure conditions make the hazard relevant to this population? Health & risk"
+    },
+    {
+      "type": "knowledge",
+      "title": "Four parts of a defensible health-risk assessment",
+      "href": "knowledge.html#note-four-steps",
+      "description": "EPA describes hazard identification, dose-response assessment, exposure assessment and risk characterization as distinct components.",
+      "keywords": "Four parts of a defensible health-risk assessment health Skipping steps can turn a plausible concern into an unsupported numerical claim. Which component has measured evidence and which still rests on assumptions? Health & risk"
+    },
+    {
+      "type": "knowledge",
+      "title": "Dose depends on more than one reading",
+      "href": "knowledge.html#note-duration-and-frequency",
+      "description": "Exposure assessment considers magnitude, frequency, duration, route and the exposed population, along with data quality and uncertainty.",
+      "keywords": "Dose depends on more than one reading health A single point reading cannot establish a lifetime exposure or diagnose a particular health outcome. What time series, duration, location and exposure-route evidence are available? Health & risk"
+    },
+    {
+      "type": "knowledge",
+      "title": "The vulnerable life stage can change the analysis",
+      "href": "knowledge.html#note-lead-life-stages",
+      "description": "EPA's lead risk research considers how exposure and adverse outcomes can differ across critical life stages and how risk management may reduce harm.",
+      "keywords": "The vulnerable life stage can change the analysis health A community-average value cannot describe a particular child's exposure or medical condition. Which population, medium, sampling method and life stage does the evidence actually cover? Health & risk"
+    },
+    {
+      "type": "knowledge",
+      "title": "PFAS is a family, not a single test result",
+      "href": "knowledge.html#note-pfas-not-one",
+      "description": "NIH reviews different health associations for PFAS exposures; individual compounds, exposure routes and scientific evidence can differ.",
+      "keywords": "PFAS is a family, not a single test result health A label that says only 'PFAS' is insufficient for a compound-specific risk or source attribution. Which named PFAS, units, method, detection limits and reporting date were used? Health & risk"
+    },
+    {
+      "type": "knowledge",
+      "title": "Radon risk depends on the building and measurement",
+      "href": "knowledge.html#note-radon-building",
+      "description": "EPA provides guidance on testing indoor radon and reducing elevated levels; a building-specific result is needed to understand its conditions.",
+      "keywords": "Radon risk depends on the building and measurement health County maps or a neighbor's result cannot establish one room's radon concentration. Was a suitable indoor test performed, and how long did it sample? Health & risk"
+    },
+    {
+      "type": "knowledge",
+      "title": "A daily air index is not an annual exposure profile",
+      "href": "knowledge.html#note-aqi-vs-average",
+      "description": "AirNow provides current and forecast air-quality information; WHO's city database describes historical annual concentrations where available.",
+      "keywords": "A daily air index is not an annual exposure profile health Today's AQI and a historical city annual mean answer different questions and cannot describe individual dose alone. What monitoring site, averaging period, pollutant and date are being compared? Health & risk"
+    },
+    {
+      "type": "knowledge",
+      "title": "A supplier report does not measure every household tap",
+      "href": "knowledge.html#note-water-report-vs-tap",
+      "description": "EPA's Consumer Confidence Reports describe public water system information and reported quality; local plumbing and private wells can require distinct assessment.",
+      "keywords": "A supplier report does not measure every household tap records A system-wide report is not a certified measurement from a particular kitchen faucet or private well. Who supplies the water and where would a valid point-of-use sample be collected? Public records & accountability"
+    },
+    {
+      "type": "knowledge",
+      "title": "A reporting inventory leaves things out",
+      "href": "knowledge.html#note-tri-coverage-gaps",
+      "description": "EPA notes that TRI reporting covers specified chemicals and facilities under reporting requirements, not every source of exposure.",
+      "keywords": "A reporting inventory leaves things out records No entry in the inventory does not prove that an area is pollution-free or that a facility has no emissions. Was this facility or activity within reporting scope for the substance and year? Public records & accountability"
+    },
+    {
+      "type": "knowledge",
+      "title": "An enforcement record needs its procedural status",
+      "href": "knowledge.html#note-echo-status",
+      "description": "EPA ECHO provides inspections, permits, compliance and enforcement records that researchers can use to investigate facilities.",
+      "keywords": "An enforcement record needs its procedural status records An alleged or recorded violation must not automatically be described as a final adjudication or a personal health outcome. What agency action, date, facility identifier and final disposition are documented? Public records & accountability"
+    },
+    {
+      "type": "knowledge",
+      "title": "Money paid, promised and capped are not interchangeable",
+      "href": "knowledge.html#note-payments-distinctions",
+      "description": "Publicly reported remedies can include completed payments, future schedules, settlement obligations and maximum caps. POISONERS separates these in its evidence ledger.",
+      "keywords": "Money paid, promised and capped are not interchangeable records Adding overlapping amounts, changing currencies without method or treating a promise as money already paid misstates the record. Which legal instrument, date, original currency and paid-status disclosure supports the amount? Public records & accountability"
+    },
+    {
+      "type": "knowledge",
+      "title": "A public record is not a liability finding",
+      "href": "knowledge.html#note-legal-proof-boundary",
+      "description": "An emissions inventory, monitoring result and enforcement entry are different classes of evidence and do not by themselves answer every legal causation question.",
+      "keywords": "A public record is not a liability finding records Do not infer wrongdoing, fault or individual culpability solely from appearance in a dataset or job title. Which jurisdiction, legally established elements and adjudicated findings are actually documented? Public records & accountability"
     },
     {
       "type": "company",

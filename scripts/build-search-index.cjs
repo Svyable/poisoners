@@ -6,8 +6,14 @@ const root=path.resolve(__dirname,"..");
 const read=name=>JSON.parse(fs.readFileSync(path.join(root,name),"utf8"));
 const curated=read("data/site-search-pages.json");
 const source=read("docs/dossier-register.json");
+const knowledge=read("docs/knowledge-register.json");
 assert(Array.isArray(curated)&&Array.isArray(source.dossiers));
-const entries=[...curated,...source.dossiers.map(d=>({
+const knowledgeEntries=knowledge.topics.map(t=>({
+ type:"knowledge",title:t.title,href:"knowledge.html#note-"+t.id,
+ description:t.insight,
+ keywords:[t.title,t.category,t.boundary,t.next_question,knowledge.categories.find(c=>c.id===t.category).label].join(" ")
+}));
+const entries=[...curated,...knowledgeEntries,...source.dossiers.map(d=>({
  type:"company",
  title:d.company,
  href:"dossiers.html?entity="+encodeURIComponent(d.id)+"#investigate",

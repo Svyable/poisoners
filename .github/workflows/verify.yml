@@ -50,6 +50,12 @@ jobs:
         run: node scripts/check-public-records.cjs
       - name: Validate local site links and document anchors
         run: node scripts/check-site-links.cjs
+      - name: Verify knowledge field notes, original sources and static HTML
+        run: |
+          node --check scripts/build-knowledge.cjs
+          node --check docs/knowledge-app.js
+          node scripts/build-knowledge.cjs --check
+          node --test scripts/knowledge.test.cjs
       - name: Verify deterministic site search
         run: |
           node --check docs/site-search.js
