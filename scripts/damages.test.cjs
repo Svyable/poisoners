@@ -27,7 +27,7 @@ test("legal outcomes are documented events rather than an aggregate harm index",
   assert.ok(Number.isFinite(c.obligation.max)&&c.obligation.max>=c.obligation.min);
   assert.ok(c.sources.length>=1 && c.sources.every(s=>s.name&&/^https:\/\//.test(s.url)));
   assert.ok(["confirmed_paid","partially_paid","payment_total_unverified"].includes(c.payment.status));
-  assert.match(c.payment.as_of,/^20\d\d-\d\d-\d\d$/);
+  assert.match(c.payment.as_of,/^20\d\d-\d\d(?:-\d\d)?$/);
   if(c.payment.status==="payment_total_unverified"){assert.equal(c.payment.amount,null);assert.equal(c.payment.value_year,null)}
   else {
    assert.ok(Number.isFinite(c.payment.amount)&&c.payment.amount>0);
@@ -52,6 +52,8 @@ test("inflation indexing preserves original currency and calculations",()=>{
  close(get("vw-criminal-diesel-2017").obligation.max*factor("USD",2017),3.6778e9);
  close(get("bp-deepwater-2016").obligation.max*factor("USD",2016),27.9e9);
  close(get("vale-brumadinho-2021").obligation.max*factor("BRL",2021),45.59e9);
+ assert.equal(get("exxon-valdez-civil-1991").payment.as_of,"2001-09");
+ assert.match(get("occidental-passaic-2016").notes,/2026/);
  assert.equal(get("vale-brumadinho-2021").payment.value_year,null,"Do not assign one price year to multi-year transfers");
  assert.equal(get("3m-pws-pfas-2024").payment.amount,null,"Do not mistake scheduled amounts for cash received");
 });
