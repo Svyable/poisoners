@@ -8,6 +8,13 @@
   },
   {
     "type": "page",
+    "title": "Chemical Hazards and Stank Matrix",
+    "href": "chemistry.html",
+    "description": "Fourteen chemically specific sulfur, NOx, mercury, arsenic, lead, cadmium, acid mist and particulate profiles with EPA and EIA source-backed mass figures; odor is not toxicity.",
+    "keywords": "toxic compounds actual poison coal ash sulfur dioxide SO2 nitrogen oxides NOx mercury Hg arsenic cadmium lead heavy metals chromium selenium hydrochloric acid hydrofluoric acid sulfuric acid mist PM2.5 stank hydrogen sulfide chemistry"
+  },
+  {
+    "type": "page",
     "title": "Research Workbench",
     "href": "workbench.html",
     "description": "Guided official environmental record lookup and six-stage browser-only evidence worksheet; region and hazard selector",
