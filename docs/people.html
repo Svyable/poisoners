@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07100f">
+<meta name="description" content="POISONERS People & Accountability Atlas: public officer disclosures, source-linked compensation, ten independent research functions per company, and evidence requirements for legally sound environmental accountability. No personal guilt ranking.">
+<meta property="og:title" content="People & Accountability Atlas — POISONERS"><meta property="og:description" content="Follow the decision trail. Separate documented pay from environmental harm and potential personal legal responsibility.">
+<title>People & Accountability Atlas — POISONERS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="people.css">
+<script src="people-register-data.js" defer></script><script src="people-app.js" defer></script>
+</head>
+<body class="people-body">
+<a class="skip" href="#peopleMain">Skip to people research</a>
+<header class="site-header">
+<a class="brand" href="index.html" aria-label="POISONERS home"><span class="brand-glyph"><i></i><i></i><i></i></span><span>POISONERS<span class="brand-period">.</span><small>THE PUBLIC EVIDENCE ENGINE</small></span></a>
+<nav class="top-nav" aria-label="Main navigation">
+<a class="nav-link" href="index.html">Observatory</a>
+<a class="nav-link" href="dossiers.html">Dossier Lab</a>
+<a class="nav-link active" href="people.html">People Atlas</a>
+<a class="nav-link" href="index.html#foundation">Metric framework</a>
+<a class="nav-link" href="people-methodology.html">Legal standards</a>
+</nav>
+<a class="header-action" href="https://github.com/Svyable/poisoners" target="_blank" rel="noopener noreferrer">OPEN RESEARCH ↗</a>
+<button class="mobile-menu" id="peopleMenu" aria-expanded="false" aria-controls="peopleMobileNav" aria-label="Open navigation">☰</button>
+</header>
+<nav class="mobile-nav" id="peopleMobileNav" aria-label="Mobile navigation" hidden>
+<a href="index.html">Observatory</a><a href="dossiers.html">Dossier Lab</a><a href="people.html">People Atlas</a><a href="index.html#foundation">Metric framework</a><a href="people-methodology.html">Legal standards</a>
+</nav>
+<main id="peopleMain">
+<section class="people-hero"><div class="shell people-hero-layout">
+<div class="people-hero-copy"><span class="kicker"><span class="people-pulse"></span> RESEARCH PLATFORM / HUMAN DECISION GRAPH</span>
+<h1>TRACE THE<br><em>DECISIONS.</em></h1>
+<p>Companies are legal structures. Decisions are made by people. This atlas follows published roles, compensation disclosures, decision authority and the evidence that would actually be needed to examine individual responsibility.</p>
+<div class="people-hero-actions"><a class="button-primary" href="#peopleWorkspace">EXPLORE 50 COMPANIES ↘</a><a class="button-quiet" href="#verifiedPeople">VIEW VERIFIED DISCLOSURES ↗</a></div>
+<p class="people-hero-note"><strong>Not a blacklist.</strong> Employment, share ownership and compensation are not proof of misconduct, toxic exposure, causation or grounds for suit. No personal harm ranking is published without individualized evidence.</p>
+</div>
+<div class="people-hero-art" aria-hidden="true">
+<div class="people-orbit"><span class="orbit-node at-one">AUTHORITY</span><span class="orbit-node at-two">PAY</span><span class="orbit-node at-three">DECISIONS</span><span class="orbit-node at-four">EVIDENCE</span><span class="orbit-center">WHO<br>DECIDED?</span></div>
+<span class="people-orbit-caption">SYSTEM TRACE / VERSION 4.0<br>PUBLIC RECORDS ONLY</span>
+</div></div></section>
+
+<section class="people-stats"><div class="shell people-stat-grid">
+<div><span>COMPANY INVESTIGATIONS</span><strong id="statCompanies">50</strong><small>Ten-country research cohort</small></div>
+<div><span>RESEARCH FUNCTION SLOTS</span><strong id="statSlots">500</strong><small>Ten functions per company, not ten accused people</small></div>
+<div><span>PUBLICLY DOCUMENTED OFFICERS</span><strong id="statPeople">34</strong><small>2025 SEC compensation disclosures, seven issuers</small></div>
+<div class="people-stat-missing"><span>IDENTITY SLOTS UNVERIFIED</span><strong id="statMissing">466</strong><small>Missing names are not evidence of wrongdoing</small></div>
+</div></section>
+
+<section class="people-alert-section"><div class="shell"><div class="people-alert"><span>!</span>
+<div><strong>What is ranked here?</strong><p>Only <em>reported 2025 executive compensation</em> can currently be ordered within a comparable U.S. filing framework. The ten numbered positions for each company are an investigation checklist, <strong>not a ranking of who caused damage</strong>. All personal damage amounts, alleged wrongful profits and personal litigation liability are <strong>not estimated</strong>.</p></div>
+<a href="people-methodology.html">UNDERSTAND THE EVIDENCE STANDARD ↗</a>
+</div></div></section>
+
+<section class="shell people-main-section" id="peopleWorkspace">
+<div class="people-head"><div><span class="kicker">01 / STRUCTURED INVESTIGATION</span><h2>Ten positions.<br><em>One standard of proof.</em></h2><p>Select a company to inspect its ten research functions. A named officer appears only when a specific primary filing supports the identity, position and pay. Missing slots remain unfilled until verified.</p></div><a class="people-light-link" href="people-register.json" download>DOWNLOAD COMPLETE PUBLIC MATRIX ↓</a></div>
+<div class="people-workspace-tools"><label class="people-search"><span class="sr-only">Search companies by name, country, sector</span><input id="companySearchPeople" type="search" placeholder="Search 50 companies…"></label><label><span class="sr-only">Filter by company country</span><select id="companyCountryPeople"><option value="ALL">All countries</option></select></label><label><span class="sr-only">Company sorting</span><select id="companySortPeople"><option value="alpha">Company A–Z</option><option value="verified">Verified officer coverage</option><option value="gaps">Most research gaps</option></select></label><button class="people-reset" id="resetCompanyFilters" type="button">RESET</button></div>
+<div class="people-company-count"><span id="peopleCompanyCount" role="status">50 COMPANIES</span><span>SELECT A COMPANY TO INSPECT TEN ROLES</span></div>
+<div class="people-workspace">
+<aside class="people-company-menu" id="peopleCompanyMenu" aria-label="Company research list"></aside>
+<div class="people-company-profile" id="peopleCompanyProfile" aria-live="polite"><p>Loading public-source research positions…</p></div>
+</div></section>
+
+<section class="people-disclosure-section" id="verifiedPeople"><div class="shell">
+<div class="people-head"><div><span class="kicker">02 / PUBLIC COMPENSATION OBSERVATORY</span><h2>Follow the money.<br><em>Don't invent a motive.</em></h2><p>These are source-linked compensation totals from public 2026 SEC filings covering fiscal 2025. Grant-date equity values and pension accounting may be included. They are <strong>not cash received, net worth or profit from pollution</strong>.</p></div><a class="people-light-link" href="people-methodology.html#compensation">PAY ACCOUNTING GUIDE ↗</a></div>
+<div class="people-filter-row">
+<label class="people-search"><span class="sr-only">Search public officers</span><input id="personSearch" type="search" placeholder="Find a public officer, company or position…"></label>
+<label><span class="sr-only">Country filter</span><select id="personCountry"><option value="ALL">All countries</option></select></label>
+<label><span class="sr-only">Research function filter</span><select id="personRole"><option value="ALL">All functions</option></select></label>
+<label><span class="sr-only">Order public disclosures</span><select id="personSort"><option value="pay-desc">2025 pay · high to low</option><option value="pay-asc">2025 pay · low to high</option><option value="name">Name A–Z</option><option value="company">Company A–Z</option></select></label>
+<button class="people-reset" id="personReset" type="button">CLEAR</button>
+</div>
+<div class="people-toolbar"><span id="personCount" role="status">34 SOURCE-VERIFIED OFFICERS</span><div><label class="people-fav-check"><input id="favoritesOnly" type="checkbox"> SAVED ONLY</label><button id="downloadPeopleCsv" type="button">EXPORT FILTERED CSV ↓</button></div></div>
+<div class="people-table-scroller"><table class="people-data-table"><thead><tr><th scope="col">DISCLOSED PERSON</th><th scope="col">COMPANY</th><th scope="col">REPORTED ROLE</th><th scope="col" class="people-pay-col">2025 TOTAL COMPENSATION</th><th scope="col">SOURCE & ACTIONS</th></tr></thead><tbody id="peopleTableRows"></tbody></table></div>
+<div id="peopleDetail" class="people-detail" aria-live="polite"><div class="people-detail-empty">Select a disclosed officer to examine source, role, financial data and evidence gaps.</div></div>
+</div></section>
+
+<section class="people-legal-section" id="legalRoutes"><div class="shell">
+<div class="people-head"><div><span class="kicker">03 / INDIVIDUAL RESPONSIBILITY · COUNSEL TRIAGE</span><h2>Evidence first.<br><em>Legal theory second.</em></h2><p>A legally viable personal claim requires more than a title or the size of a paycheck. Review the evidence requirements for several legal research paths, then build a public-source briefing—not an automated lawsuit.</p></div><a class="people-light-link" href="people-methodology.html">FULL LEGAL & PUBLICATION STANDARD ↗</a></div>
+<div class="people-route-layout">
+<div id="routeTabs" class="people-route-tabs" role="group" aria-label="Legal research pathways"></div>
+<div id="routePanel" class="people-route-panel" aria-live="polite"></div>
+</div>
+<div class="people-no-file-warning"><strong>NO AUTO-FILING. NO UNFOUNDED DEFENDANTS.</strong> The website neither determines that any listed executive caused environmental damage nor provides an individual accusation or filing strategy. U.S. CERCLA site-operator liability requires evidence of pollution-related operations; other countries' rules require separate local legal analysis.</div>
+</div></section>
+
+<section class="people-bottom-call"><div class="shell people-bottom-inner"><div><span class="kicker">THE NEXT STANDARD OF PUBLIC ACCOUNTABILITY</span><h2>Know the person.<br><em>Prove the act.</em><br>Establish the harm.</h2></div><div><p>Research must connect an identifiable person, a specific decision or omission, an actual facility and release, a dated exposure pathway, a supported outcome, and an applicable cause of action. Those links are investigated—not presumed.</p><div><a class="button-primary" href="dossiers.html">EXPLORE COMPANY DOSSIERS ↗</a><a class="button-quiet" href="https://github.com/Svyable/poisoners/issues/new/choose" target="_blank" rel="noopener noreferrer">SUBMIT PUBLIC EVIDENCE ↗</a></div></div></div></section>
+</main>
+<footer class="footer"><div class="shell"><div class="footer-top"><div class="footer-brand">POISONERS<span>.</span><small>PUBLIC EVIDENCE · SCIENTIFIC REVIEW · DUE PROCESS</small></div><div class="footer-message">A person is not<br><em>a data point to accuse.</em></div></div><div class="footer-bottom"><span>© 2026 POISONERS · PUBLIC RESEARCH PROTOTYPE</span><span>NO AUTO-RANKED PERSONAL HARM OR LAW SUITS</span><div><a href="index.html">OBSERVATORY</a><a href="dossiers.html">DOSSIERS</a><a href="people-methodology.html">PERSON METHODS</a></div></div></div></footer>
+</body></html>

@@ -1,0 +1,78 @@
+{
+  "version": "4.0.0",
+  "as_of": "2026-11-07",
+  "per_company_target_slots": 10,
+  "description": "Investigation roles to verify. These are not ten named or ranked defendants, and not ten accusations.",
+  "roles": [
+    {
+      "key": "leadership",
+      "title": "Board chair / top executive",
+      "question": "Identify board and chief executive decision authority, mandates and tenure",
+      "public_evidence": "Governance charters, corporate annual reports and board minutes when public",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "chief-executive",
+      "title": "Chief executive or chief operating executive",
+      "question": "Confirm who directly approved or delegated material operating decisions",
+      "public_evidence": "Annual reports, public delegated-authority policies, executive announcements",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "finance",
+      "title": "Finance and compensation",
+      "question": "Identify capital-allocation and published compensation relationships; benefits are not illicit gains",
+      "public_evidence": "Annual proxy remuneration, financial statements, authorized benefits",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "operations",
+      "title": "Global/segment operations",
+      "question": "Establish site and process operational authority only through dated records",
+      "public_evidence": "Facility/operator permits, governance disclosures, signed operational records",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "environment",
+      "title": "Environmental, health and safety function",
+      "question": "Verify who had responsibility for compliance processes and affected facilities",
+      "public_evidence": "EHS organization charts, permits, official inspections, documented decisions",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "legal-compliance",
+      "title": "Legal and regulatory compliance",
+      "question": "Document compliance oversight responsibility without assuming knowledge or misconduct",
+      "public_evidence": "Public filings, disclosed policies, regulator correspondence",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "facility",
+      "title": "Specific facility operational lead",
+      "question": "Find a named regulated facility and direct operator during a documented release period",
+      "public_evidence": "Dated facility permit, regulator site record, sworn evidence if public",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "strategy",
+      "title": "Strategy, technical or capital deployment",
+      "question": "Investigate documented project or disposal approvals with precise time periods",
+      "public_evidence": "Board resolutions when public, project approvals, engineering disclosures",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "board-oversight",
+      "title": "Board risk / audit / sustainability oversight",
+      "question": "Establish committee mandates, effective terms and what information was actually received",
+      "public_evidence": "Proxy committee charters, annual board biographies, public board papers",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    },
+    {
+      "key": "predecessor",
+      "title": "Historical predecessor / relevant period",
+      "question": "Avoid excluding people whose authority coincided with a verified historical incident",
+      "public_evidence": "Prior-year annual reports, archived officers, historical filings",
+      "legal_note": "Function or title alone does not establish personal liability, wrongful conduct, pollution causation or jurisdiction."
+    }
+  ]
+}

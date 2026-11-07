@@ -124,3 +124,17 @@
 .lab-teaser p{max-width:650px;color:#a9baa6;font-size:12px;line-height:1.9;margin:16px 0 0}
 .lab-teaser .button-primary{white-space:nowrap}
 @media(max-width:650px){.lab-teaser{padding:48px 0}.lab-teaser-inner{display:block}.lab-teaser .button-primary{margin-top:25px}}
+
+/* People & Accountability Atlas launch block */
+.people-home-teaser{background:radial-gradient(circle at 22% 50%,#d2ff6d14,transparent 40%),#0f1f15;border-block:1px solid #567e47;padding:88px 0}
+.people-home-teaser-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:75px;align-items:center}
+.people-home-figure{border:1px solid #759c57;background:linear-gradient(135deg,#2b4025,#13221a);padding:52px 32px;min-height:320px;display:flex;flex-direction:column;justify-content:center}
+.people-home-figure>span{font:500 10px var(--mono);color:var(--acid);letter-spacing:.04em}
+.people-home-figure strong{font:800 clamp(75px,9vw,145px)/1.18 var(--sans);color:var(--acid);letter-spacing:-.085em}
+.people-home-figure strong em{font:500 13px var(--mono);letter-spacing:-.02em}
+.people-home-figure>small{font:400 11px/1.8 var(--mono);color:#aabd9f}
+.people-home-teaser .kicker{margin-bottom:18px}
+.people-home-teaser h2{font-size:clamp(39px,4.4vw,67px);line-height:1.08;letter-spacing:-.075em;font-weight:800;margin:0}
+.people-home-teaser h2 em{font-style:normal;color:var(--acid)}
+.people-home-teaser p{font:400 13px/1.95 var(--sans);color:#a9bcaa;margin:22px 0 30px}
+@media(max-width:800px){.people-home-teaser{padding:65px 0}.people-home-teaser-inner{grid-template-columns:1fr;gap:34px}.people-home-figure{padding:35px;min-height:240px}.people-home-figure strong{font-size:95px}}

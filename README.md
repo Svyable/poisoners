@@ -2,7 +2,7 @@
 
 **Make the damage visible.** An open environmental evidence observatory and a proposed multidimensional framework for building defensible scientific and legal dossiers.
 
-> **Research platform v2, November 6, 2026.** The site contains 50 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
+> **Research platform v4, November 7, 2026.** The site contains 50 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
 
 ## The website
 
@@ -10,6 +10,8 @@
 - [Start here: research guide](docs/guide.html): orientation, interpretation, data boundaries, evidence ladder and frequently asked questions.
 - [Open data and sources](docs/data-access.html): downloadable public JSON snapshots, primary-source boundaries and reproducible build steps.
 - [About and corrections](docs/about.html): project status, research principles, roadmap and a documented public correction route.
+- [People & Accountability Atlas](docs/people.html): 500 research roles across 50 companies, 34 sourced officers in seven SEC issuers, reported FY2025 compensation filters, bookmarks, source packets and jurisdiction-specific evidence questions. No personal guilt ranks or automated lawsuits.
+- [People research methodology](docs/people-methodology.html): public compensation definitions, actual decision authority, causation and independent-counsel review criteria.
 - [Dossier Lab](docs/dossiers.html): 50 source-bound company research profiles, visible seven-stage evidence gates, precise citation and public JSON export, like-for-like climate comparisons and primary-source historical comparator cases. No composite toxicity/guilt ranking.
 - [Methodology](docs/methodology.html): historical / annual / future harm design, pollutant/receptor matrix, causal models, uncertainty, grades, proposed data ingestion.
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
@@ -136,3 +138,13 @@ See the original [LICENSE](LICENSE) for the repository's terms.
 The public Pages site uses a consistent accessible header and mobile navigation, source-boundary disclosure, unified footer and three editorial reference pages. Shared styles and behavior are in `docs/site.css` and `docs/site.js` with no framework or runtime dependencies. The research tools (`app.js`, `dossier-lab.js`, source datasets) remain independent.
 
 When changing the site, run `node scripts/check-site-links.cjs` and `node scripts/verify.cjs`. Keep navigation, disclosure text and source vintages consistent across all pages. New claims about health, ecological effects or legal liability require the project's evidence gates rather than copy changes alone.
+
+## People Atlas public-source release
+
+The latest data contains **34 named people from publicly filed FY2025 executive-compensation records at seven U.S. issuers**, not 500 named or ranked alleged wrongdoers. The **500 slots** identify ten distinct *research functions* in each of the 50 company workstreams. **466 are not yet source-verified.** These slots are not people, defendants, unlawful actors or evidence of personal benefit from damage. Every disclosed compensation figure uses the U.S. SEC Summary Compensation Table convention for FY2025 in USD: this does not establish realized cash, wealth, gain from environmental injury, or legal liability. The underlying documents, filing dates and uncertainties are preserved in [public officer data](data/people/verified-officers.json).
+
+The public [People Atlas](docs/people.html) supports sortable and searchable disclosures, ten-function company matrices, shareable person links, device-local saved public records, source hyperlinks, filtered CSV export, and JSON public-source fact packets for independent review. The [People methodology](docs/people-methodology.html) explains why named officers cannot be equated with harmful actions and why a viable individual claim requires event-specific legal and factual proof.
+
+The publication pipeline is **strictly no-fault by default**: it blocks private contact or medical data, unknown salary amounts mislabeled as SEC totals, unverified dates, duplicate officers, and populated fields for unsupported personal environmental harm, purported illicit profits or liability. No website action contacts a person, builds a personal defendant list, solicits claimants or files a case. The original emissions data is producer-linked GHG, not proof of a named executive's toxic release or illness.
+
+Add a primary filing via the [public officer source template](.github/ISSUE_TEMPLATE/person-source.yml) following the [research verification guide](data/people/README.md). Run `node scripts/build-foundation.cjs`, `node scripts/build-foundation.cjs --check`, `node --test scripts/people.test.cjs`, and `node scripts/check-site-links.cjs` before reviewing changes. **No automatic publication of unverified claims.**
