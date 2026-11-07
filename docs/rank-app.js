@@ -135,6 +135,10 @@
     '<p>Missing data is not zero. The record does not imply that an identifiable person caused harm, committed misconduct, or owes damages.</p>';
  }
  function compare(){
+   if(state.result?.warning){
+     $("rkCompare").innerHTML='<span class="kicker">03 / COMPARISON ON HOLD</span><p>Choose a single compatible reporting cohort before comparing numerical values. '+esc(state.result.warning)+'</p>';
+     return;
+   }
    const rows=state.pins.map(id=>state.rows[state.cohort].find(x=>x.id===id)).filter(Boolean);
    if(rows.length<2){$("rkCompare").innerHTML='<span class="kicker">03 / SIDE-BY-SIDE</span><p>Pin two records within this same dataset to compare the selected dimension. The comparison does not establish causation or wrongdoing.</p>';return}
    const f=model.datasets[state.cohort].fields.find(x=>x.id===state.config.metric);
@@ -166,7 +170,7 @@
      }).join("");
      const pin=state.pins.includes(r.id);
      return '<tr'+(state.selected===r.id?' class="is-selected"':'')+'><td class="rk-rank">'+rank+'</td><td class="rk-name"><button type="button" data-inspect="'+esc(r.id)+'">'+esc(title)+' ↗</button></td>'+
-     cols+'<td><button type="button" class="rk-pin" data-pin="'+esc(r.id)+'" aria-pressed="'+String(pin)+'">'+(pin?"PINNED ✓":"PIN +")+'</button></td></tr>';
+     cols+'<td><button type="button" class="rk-pin" data-pin="'+esc(r.id)+'" aria-pressed="'+String(pin)+'"'+(result.warning?' disabled title="Choose a comparable cohort first"':'')+'>''+(pin?"PINNED ✓":"PIN +")+'</button></td></tr>';
    }).join("");
    $("rkTableBody").innerHTML=rows||'<tr><td class="rk-empty" colspan="'+(columns.length+3)+'">No records match these filters. Unknown or omitted records are not evidence of zero harm.</td></tr>';
    $("rkRowsShown").textContent="SHOWING "+result.rows.length+" OF "+result.total+" MATCHES · "+result.skipped+" HIDDEN BY ROW LIMIT";
