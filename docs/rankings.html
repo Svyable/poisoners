@@ -15,7 +15,7 @@
 <a class="nav-link" href="data-access.html">Open data</a>
 <a class="nav-link" href="case-studies.html">Case studies</a>
 <a class="nav-link" href="methodology.html">Methodology</a>
-<a class="nav-link active" href="guide.html" aria-current="page">Start here</a><a class="nav-link" href="knowledge.html">Knowledge Atlas</a></nav>
+<a class="nav-link" href="guide.html">Start here</a><a class="nav-link" href="knowledge.html">Knowledge Atlas</a></nav>
   <button class="site-search-trigger" type="button" data-site-search-open aria-label="Search POISONERS research" aria-keyshortcuts="/" aria-haspopup="dialog" aria-controls="siteSearchDialog"><span aria-hidden="true">⌕</span><span class="site-search-label">Search</span><kbd>/</kbd></button>
   <a class="header-action site-header-action" href="workbench.html">OPEN WORKBENCH <span aria-hidden="true">↗</span></a>
   <button class="mobile-menu site-menu-button" type="button" id="siteShellMenu" aria-label="Open navigation" aria-controls="siteShellNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
@@ -50,19 +50,27 @@
 <label class="rk-control"><span>SORT DIRECTION</span><select id="rkDirection"><option value="desc">High → low / Z → A</option><option value="asc">Low → high / A → Z</option></select></label>
 <label class="rk-control"><span>SECONDARY SORT DIMENSION</span><select id="rkSecondary"><option value="">None / stable ID</option></select></label>
 <label class="rk-control"><span>SECONDARY DIRECTION</span><select id="rkSecondaryDirection"><option value="asc">Low → high / A → Z</option><option value="desc">High → low / Z → A</option></select></label>
+<label class="rk-control"><span>THIRD SORT PRIORITY</span><select id="rkTertiary"><option value="">None / stable ID</option></select></label>
+<label class="rk-control"><span>THIRD SORT DIRECTION</span><select id="rkTertiaryDirection"><option value="asc">Low → high / A → Z</option><option value="desc">High → low / Z → A</option></select></label>
 <label class="rk-control"><span>SHOW ROWS</span><select id="rkLimit"><option value="25">Top 25</option><option value="10">Top 10</option><option value="50">Top 50</option><option value="100">Top 100</option><option value="all">All matching records</option></select></label>
 </div>
 <div class="rk-facet-grid" id="rkFacetGrid" aria-label="Additional categorical filters"></div>
 <div class="rk-limits"><label class="rk-control"><span>MINIMUM VALUE (IF NUMERIC)</span><input id="rkMin" type="number" step="any" placeholder="No minimum"></label>
 <label class="rk-control"><span>MAXIMUM VALUE (IF NUMERIC)</span><input id="rkMax" type="number" step="any" placeholder="No maximum"></label>
-<label class="rk-check"><input id="rkOnlyKnown" type="checkbox"><span>EXCLUDE UNKNOWN VALUES</span></label></div>
-<div class="rk-bottom-controls"><span id="rkMeasureDescription">Pick a metric to see its meaning and reporting boundary.</span><div class="rk-buttons"><button id="rkCopyLink" type="button">COPY THIS VIEW ↗</button><button id="rkSaveView" type="button">SAVE VIEW ☆</button><button id="rkCsv" type="button">EXPORT CSV ↓</button><button id="rkJson" type="button">EXPORT JSON ↓</button></div></div>
+<label class="rk-check"><input id="rkOnlyKnown" type="checkbox"><span>EXCLUDE UNKNOWN VALUES</span></label>
+<label class="rk-check"><input id="rkMissingOnly" type="checkbox"><span>SHOW UNKNOWN VALUES ONLY</span></label></div>
+<div class="rk-rule-panel" id="rkAdvanced">
+<div class="rk-rule-header"><div><strong>MULTI-FIELD FILTER RULES</strong><small>Up to four independent conditions; all must match. No combined harm score.</small></div><button type="button" id="rkAddRule">ADD RULE +</button></div>
+<div id="rkRuleList" aria-label="Additional field-level filters"></div>
+</div>
+<div class="rk-bottom-controls"><span id="rkMeasureDescription">Pick a metric to see its meaning and reporting boundary.</span><div class="rk-buttons"><label class="rk-check rk-export-all"><input id="rkExportAll" type="checkbox"><span>EXPORT ALL FILTERED</span></label><button id="rkCopyLink" type="button">COPY THIS VIEW ↗</button><button id="rkSaveView" type="button">SAVE VIEW ☆</button><button id="rkCsv" type="button">EXPORT CSV ↓</button><button id="rkJson" type="button">EXPORT JSON ↓</button></div></div>
 <div class="rk-saved"><label class="rk-control"><span>MY SAVED VIEWS · THIS BROWSER ONLY</span><select id="rkSavedViews"><option value="">Choose saved view…</option></select></label><button id="rkDeleteSaved" type="button">REMOVE SAVED VIEW</button></div>
 <p class="rk-status" id="rkActionStatus" role="status" aria-live="polite"></p>
 </div>
 <div id="rkWarning" class="rk-warning" role="alert" hidden></div>
 <div class="rk-result-header"><div><span class="kicker">LIVE RESULT SET / NO AUTOMATED FAULT FINDING</span><h3 id="rkResultsTitle">Loading public research snapshots…</h3><p id="rkResultsCount" role="status">Checking available evidence…</p></div><div class="rk-result-meta"><span id="rkBoundary">Scope and comparability will appear here.</span><span id="rkAvailable">—</span></div></div>
 <div class="rk-column-panel"><strong>VISIBLE COLUMNS</strong><div id="rkColumns" role="group" aria-label="Choose result table columns"></div></div>
+<div class="rk-summary" id="rkSummary" role="status" aria-live="polite"></div>
 <div class="rk-result-table-wrap"><table class="rk-table"><caption class="sr-only">Filtered research data, ordered by the selected metric</caption><thead id="rkTableHead"></thead><tbody id="rkTableBody"></tbody></table></div>
 <div class="rk-table-foot"><span id="rkRowsShown">—</span><span>— UNKNOWN VALUES ARE NOT ZERO · ORDINAL POSITION ≠ HARM</span></div>
 <div id="rkInspect" class="rk-inspect" aria-live="polite"><span class="kicker">02 / SOURCE INSPECTOR</span><p>Select a record above to inspect its original document and accounting boundary, or pin two records to compare the selected metric side by side.</p></div>

@@ -131,3 +131,104 @@ test("the front end supports every cohort with accessible working controls and s
  assert.ok(html.includes('id="siteSearchDialog"'));
  assert.ok(html.includes('class="site-footer"'));
 });
+
+
+test("third sorting dimension resolves ties lexicographically without manufacturing impact points",()=>{
+ const tiny=[
+  {id:"b",annual:20,sector:"Coal",name:"Zulu"},
+  {id:"a",annual:20,sector:"Coal",name:"Alpha"},
+  {id:"c",annual:20,sector:"Oil & gas",name:"Same"}
+ ];
+ const r=model.rank("companies",tiny,{metric:"annual",secondary:"sector",secondaryDirection:"asc",
+  tertiary:"name",tertiaryDirection:"desc",limit:"all"});
+ assert.deepEqual(r.rows.map(x=>x.id),["b","a","c"]);
+ assert.deepEqual(r.rows.map(x=>x.rank),[1,1,1],"Equal main observations must remain tied");
+ assert.equal(r.config.tertiary,"name");
+ assert.equal(model.safeConfig("companies",{metric:"annual",tertiary:"annual"}).tertiary,null);
+});
+test("advanced independent numeric and categorical rules intersect without cross-metric arithmetic",()=>{
+ const q=model.rank("companies",rows.companies,{metric:"annual",limit:"all",
+  rules:[{field:"annual",operator:"gte",value:100},{field:"annual",operator:"lte",value:400},
+         {field:"cumulative",operator:"present"},{field:"sector",operator:"present"}]});
+ assert.ok(q.total>0);
+ assert.ok(q.rows.every(r=>r.annual>=100&&r.annual<=400&&r.cumulative!==null));
+ assert.ok(q.rows.every(r=>r.rank!==null));
+ assert.ok(q.config.rules.length===4);
+ const exact=model.rank("companies",rows.companies,{metric:"annual",rules:[{field:"annual",operator:"eq",value:1786}],limit:"all"});
+ assert.equal(exact.total,1);
+ assert.equal(exact.rows[0].name,"Saudi Aramco");
+});
+test("unknown-only is distinct from zero, and mutually exclusive with known-only",()=>{
+ const unknown=model.rank("roles",rows.roles,{metric:"pay",missingOnly:true,limit:"all"});
+ const known=model.rank("roles",rows.roles,{metric:"pay",onlyKnown:true,limit:"all"});
+ assert.equal(unknown.total,466);
+ assert.equal(known.total,34);
+ assert.equal(unknown.summary.known,0);
+ assert.ok(unknown.rows.every(x=>x.pay===null&&x.rank===null));
+ assert.ok(known.rows.every(x=>x.pay>0&&x.rank!==null));
+ const overlap=model.safeConfig("roles",{metric:"pay",onlyKnown:true,missingOnly:true});
+ assert.equal(overlap.missingOnly,true);
+ assert.equal(overlap.onlyKnown,false);
+ const zero=model.rank("payments",rows.payments,{metric:"obligationMin",facets:{currency:"USD"},rules:[{field:"obligationMin",operator:"eq",value:0}],limit:"all"});
+ assert.ok(zero.rows.length>0);
+ assert.ok(zero.rows.every(x=>x.obligationMin===0&&x.rank!==null));
+});
+test("advance rule validation strips nonnumeric thresholds, injection and beyond fourth rule",()=>{
+ const config=model.safeConfig("companies",{metric:"annual",rules:[
+  {field:"name",operator:"gte",value:"abc"},
+  {field:"annual",operator:"gte",value:100},
+  {field:"annual",operator:"lt",value:1000},
+  {field:"country",operator:"missing"},
+  {field:"annual",operator:"eq",value:23},
+  {field:"annual",operator:"eq",value:42}
+ ]});
+ assert.deepEqual(config.rules,[{field:"annual",operator:"gte",value:100},
+  {field:"annual",operator:"lt",value:1000},{field:"country",operator:"missing",value:null}]);
+ const malformed=model.safeConfig("companies",{rules:[{field:"annual",operator:"lte",value:"not-a-number"},
+  {field:"__proto__",operator:"present"},{field:"annual",operator:"gte",value:""}]});
+ assert.deepEqual(malformed.rules,[]);
+});
+test("advanced monetary and chemical numeric rules fail closed across incompatible cohorts",()=>{
+ const money=model.rank("payments",rows.payments,{metric:"entity",secondary:"status",facets:{currency:"ALL"},
+  rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
+ assert.match(money.warning,/Select USD or BRL/);
+ assert.equal(money.appliedMetric,false);
+ assert.equal(money.total,11,"Do not silently compare USD and BRL thresholds");
+ const valid=model.rank("payments",rows.payments,{metric:"entity",facets:{currency:"USD"},
+  rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
+ assert.equal(valid.warning,"");
+ assert.ok(valid.rows.every(x=>x.currency==="USD"&&x.paid>=500000000));
+ const cohorts=model.facetsFor("observations",rows.observations).cohort;
+ const unsafe=model.rank("observations",rows.observations,{metric:"chemical",facets:{cohort:"ALL"},
+  rules:[{field:"mass",operator:"gte",value:100}],limit:"all"});
+ assert.match(unsafe.warning,/Choose one source/);
+ const safe=model.rank("observations",rows.observations,{metric:"mass",facets:{cohort:cohorts[1]},limit:"all"});
+ assert.equal(safe.warning,"");
+ assert.ok(safe.summary?.known>0);
+});
+test("distribution summary is calculated across all filtered records, never only the displayed Top 10",()=>{
+ const all=model.rank("companies",rows.companies,{metric:"annual",limit:"all"});
+ const top=model.rank("companies",rows.companies,{metric:"annual",limit:10});
+ assert.equal(top.rows.length,10);
+ assert.deepEqual(top.summary,all.summary);
+ assert.equal(top.summary.known,50);
+ assert.equal(top.summary.missing,0);
+ assert.equal(top.summary.max,1786);
+ assert.equal(top.summary.min,all.rows.at(-1).annual);
+ const invalid=model.rank("payments",rows.payments,{metric:"paid",facets:{currency:"ALL"}});
+ assert.equal(invalid.summary,null);
+});
+test("third sort, AND filters, missing-only and source-safe exports have visible wired controls",()=>{
+ const html=read("docs/rankings.html"),app=read("docs/rank-app.js"),css=read("docs/rank.css");
+ for(const id of ["rkTertiary","rkTertiaryDirection","rkMissingOnly","rkAddRule","rkRuleList","rkSummary","rkExportAll"]){
+  assert.ok(html.includes('id="'+id+'"'),"Missing control "+id);
+  assert.ok(app.includes('"'+id+'"'),"Control must be wired "+id);
+ }
+ assert.match(app,/model\.rank\(/);
+ assert.match(app,/data-rule-field/);
+ assert.match(app,/getAll\("rule"\)/);
+ assert.match(app,/new URLSearchParams/);
+ assert.match(css,/rk-rule-row/);
+ assert.match(css,/rk-summary-grid/);
+ assert.ok(!model.datasets.people.fields.some(x=>/damage|guilt|liability|wealth/i.test(x.id)));
+});
