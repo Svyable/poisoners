@@ -8780,7 +8780,7 @@ window.POISON_PEOPLE = {
       "company_name": "Chevron",
       "name": "Michael K. Wirth",
       "role": "Chairman and Chief Executive Officer",
-      "role_start": "2018-02-01",
+      "role_start": null,
       "role_end": null,
       "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
       "source_links": [
@@ -8809,7 +8809,8 @@ window.POISON_PEOPLE = {
       "liability_assessment": "not_estimated",
       "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
       "research_role_key": "leadership",
-      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event.",
+      "role_start_note": "Company filing establishes the appointment month/year, but the exact calendar day has not been verified for this field."
     },
     {
       "id": "person-eimear-p-bonner",
@@ -8817,7 +8818,7 @@ window.POISON_PEOPLE = {
       "company_name": "Chevron",
       "name": "Eimear P. Bonner",
       "role": "Chief Financial Officer",
-      "role_start": "2024-03-01",
+      "role_start": null,
       "role_end": null,
       "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
       "source_links": [
@@ -8846,7 +8847,8 @@ window.POISON_PEOPLE = {
       "liability_assessment": "not_estimated",
       "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
       "research_role_key": "finance",
-      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event.",
+      "role_start_note": "Company filing establishes the appointment month/year, but the exact calendar day has not been verified for this field."
     },
     {
       "id": "person-mark-a-nelson",
@@ -8854,7 +8856,7 @@ window.POISON_PEOPLE = {
       "company_name": "Chevron",
       "name": "Mark A. Nelson",
       "role": "Vice Chairman",
-      "role_start": "2023-02-01",
+      "role_start": null,
       "role_end": null,
       "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
       "source_links": [
@@ -8883,7 +8885,8 @@ window.POISON_PEOPLE = {
       "liability_assessment": "not_estimated",
       "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability.",
       "research_role_key": "operations",
-      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event."
+      "role_match_note": "Provisional functional mapping for browsing; does not imply actual facility responsibility or participation in a particular event.",
+      "role_start_note": "Company filing establishes the appointment month/year, but the exact calendar day has not been verified for this field."
     },
     {
       "id": "person-r-hewitt-pate",
