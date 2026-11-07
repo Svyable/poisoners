@@ -58,7 +58,7 @@ function validateEvidence(r){
  return errors;
 }
 function scientificReleaseEligible(r){
- return validateEvidence(r).length===0 && r.status==="reviewed" && ["A","B"].includes(r.evidence_grade) &&
+ return ["health_impact","ecological_impact"].includes(r.claim_type) && validateEvidence(r).length===0 && r.status==="reviewed" && ["A","B"].includes(r.evidence_grade) &&
    Array.isArray(r.reviewers) && new Set(r.reviewers).size>=2 &&
    typeof r.source?.snapshot_hash_sha256==="string" &&
    /^[a-f0-9]{64}$/i.test(r.source.snapshot_hash_sha256);
