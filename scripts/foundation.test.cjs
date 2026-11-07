@@ -106,3 +106,36 @@ test("generated data is exact and reproducible offline",()=>{
  for(const f of ["docs/foundation-data.js","docs/foundation-app.js","docs/data.js","docs/app.js","scripts/ingest-evidence.cjs","src/index-kernel.cjs"])
   cp.execFileSync(process.execPath,["--check",path.join(root,f)],{stdio:"pipe"});
 });
+
+const {validateOwnershipEdge,resolveParentAt,detectCyclesAt}=require("../src/entity-graph.cjs");
+const {parseCSV,normalize,convertKg}=require("./normalize-facility-csv.cjs");
+test("legal-entity ownership respects dates and must not be guessed",()=>{
+ const e={child_entity_id:"child-1",parent_entity_id:"parent-1",relationship:"legal_parent",effective_from:"2010-01-01",effective_to:"2020-12-31",source_url:"https://example.org/dated-company-document"};
+ assert.deepEqual(validateOwnershipEdge(e),[]);
+ assert.equal(resolveParentAt([e],"child-1","2019-10-03").status,"source_linked");
+ assert.equal(resolveParentAt([e],"child-1","2024-01-01").status,"unresolved");
+ const second={...e,parent_entity_id:"parent-2"};
+ assert.equal(resolveParentAt([e,second],"child-1","2019-10-03").status,"ambiguous");
+ assert.ok(detectCyclesAt([e,{...e,child_entity_id:"parent-1",parent_entity_id:"child-1"}],"2019-01-01").length>0);
+});
+test("facility normalizer converts verified units without inventing illness or parent liability",()=>{
+ const mapping=json("data/mappings/facility-example.json");
+ const rows=parseCSV(read("tests/fixtures/facility-example.csv"));
+ assert.equal(rows.length,2);
+ assert.equal(rows[0]["FACILITY NAME"],"Example, Inc. Plant");
+ const normalized=normalize(rows,mapping);
+ assert.equal(normalized.length,3);
+ assert.equal(normalized[0].claim_type,"release");
+ assert.equal(normalized[0].evidence_grade,"C");
+ assert.equal(normalized[0].measure.unit,"kg");
+ assert.ok(Math.abs(normalized[0].measure.value-4.5359237)<1e-8);
+ assert.equal(normalized[1].measure.value,0.002);
+ assert.equal(normalized[2].measure.value,0.003);
+ for(const r of normalized)assert.deepEqual(validateEvidence(r),[]);
+ assert.throws(()=>normalize(rows,{...mapping,dioxin_grams_confirmed:false}),/Dioxin units/);
+ assert.throws(()=>convertKg(1,"unknown"),/Unsupported/);
+});
+test("normalizer rejects malformed quoted fields and inconsistent columns",()=>{
+ assert.throws(()=>parseCSV('a,b\n"unterminated,foo\n'),/Unterminated/);
+ assert.throws(()=>parseCSV("a,b\na,b,c\n"),/Column mismatch/);
+});
