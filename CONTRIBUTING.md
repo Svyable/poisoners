@@ -48,3 +48,11 @@ Before importing external data, check machine-access limitations, geography, lic
 ## Research roadmap
 
 See the [operating protocol](docs/operating-protocol.html) and the [README](README.md). The long-term 10×10 target means ten validated dossiers per country, not ten arbitrary companies or a hardcoded score.
+
+## Public officer / individual-responsibility research
+
+The [People Atlas](docs/people.html) displays publicly sourced corporate executive disclosures, not accused defendants. To suggest an officer or director, use the [public officer source issue template](.github/ISSUE_TEMPLATE/person-source.yml) and follow [the precise source/tenure/compensation validation guide](data/people/README.md). You must provide a primary report, date and exact table or page. Do not infer that compensation, a title, or company emissions caused particular individual damages. No personal home addresses, private contacts, confidential information, alleged personal profits from pollution or automatic suit recommendations are accepted.
+
+The ten research functions per firm are **research questions, not ten named or ranked wrongdoers**. Current data identifies 34 SEC-sourced public officers out of a 500-role framework, with 466 unverified research roles. Unknown means unestimated, not zero. For individual legal research, see [People methodology](docs/people-methodology.html) and consult jurisdiction-specific counsel.
+
+Run `node --test scripts/people.test.cjs` alongside the existing data and link checks before merging person-related edits. Any material allegation requires separate independently verifiable support and appropriate human scientific/legal review; the public SEC pay ledger does not meet that requirement.
