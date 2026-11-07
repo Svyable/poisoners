@@ -1,0 +1,43 @@
+name: Request a public-data correction
+description: Challenge or correct a documented public research claim. Do not upload sensitive information.
+title: "[Correction] "
+labels: ["correction", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please cite an exact public record and explain the proposed correction. This is for factual accuracy, not a claimant or medical intake. Do not disclose confidential, private or privileged materials.
+  - type: input
+    id: record_id
+    attributes:
+      label: Affected record ID or public page URL
+      placeholder: cm24-example-entity
+    validations:
+      required: true
+  - type: input
+    id: primary
+    attributes:
+      label: Public primary evidence URL
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: discrepancy
+    attributes:
+      label: Exact factual discrepancy
+      description: Quote or identify the table, year, entity, pollutant, unit, value, boundary or methodology.
+    validations:
+      required: true
+  - type: textarea
+    id: remedy
+    attributes:
+      label: Proposed corrected wording or data
+    validations:
+      required: true
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I have not included personally identifying, medical, privileged or other confidential information.
+          required: true
