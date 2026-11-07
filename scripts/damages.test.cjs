@@ -14,19 +14,19 @@ function factor(currency,year){
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.ok(d.cases.length>=7);
+ assert.ok(d.cases.length>=11);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
   assert.ok(Array.isArray(c.entities)&&c.entities.length&&c.entities.every(Boolean));
   assert.ok(c.jurisdiction&&c.matter&&c.hazard&&c.outcome_type&&c.disposition&&c.notes);
   assert.ok(["USD","BRL"].includes(c.obligation.currency));
-  assert.ok(c.obligation.year>=2010&&c.obligation.year<=d.reference_year);
+  assert.ok(c.obligation.year>=1990&&c.obligation.year<=d.reference_year);
   assert.ok(Number.isFinite(c.obligation.min)&&c.obligation.min>=0);
   assert.ok(Number.isFinite(c.obligation.max)&&c.obligation.max>=c.obligation.min);
   assert.ok(c.sources.length>=1 && c.sources.every(s=>s.name&&/^https:\/\//.test(s.url)));
   assert.ok(["confirmed_paid","partially_paid","payment_total_unverified"].includes(c.payment.status));
-  assert.match(c.payment.as_of,/^20\d\d-\d\d-\d\d$/);
+  assert.match(c.payment.as_of,/^20\d\d-\d\d(?:-\d\d)?$/);
   if(c.payment.status==="payment_total_unverified"){assert.equal(c.payment.amount,null);assert.equal(c.payment.value_year,null)}
   else {
    assert.ok(Number.isFinite(c.payment.amount)&&c.payment.amount>0);
@@ -73,6 +73,26 @@ test("source-stated payment dates are not guessed from nominal settlement years"
   assert.equal(p.status,"confirmed_paid");
   assert.equal(p.value_year,null,"No unsupported cash-payment inflation base");
  }
+});
+test("cohort joins are explicit and historical defendants stay distinguishable",()=>{
+ const names=new Set((require("../docs/dossier-register.json")).dossiers.map(d=>d.company));
+ const links=new Set();
+ for(const c of d.cases){
+  assert.ok(Array.isArray(c.indexed_entities),c.id);
+  for(const n of c.indexed_entities){
+   assert.ok(names.has(n),"Unmatched index name "+n);
+   links.add(n);
+  }
+ }
+ assert.deepEqual([...links].sort(),["Chevron","ConocoPhillips","ExxonMobil","Occidental Petroleum"].sort());
+ const ex=d.cases.find(c=>c.id==="exxon-valdez-civil-1991");
+ assert.equal(ex.payment.status,"confirmed_paid");assert.equal(ex.payment.amount,900000000);
+ assert.equal(ex.payment.value_year,null);assert.equal(ex.payment.as_of,"2001-09");
+ assert.equal(d.inflation.USD.index["1991"],136.2);
+ assert.ok(Math.abs(ex.obligation.max*d.inflation.USD.index["2025"]/d.inflation.USD.index["1991"]-2127372246)<60000);
+ const c=d.cases.find(c=>c.id==="chevron-refinery-air-2003");
+ assert.equal(c.payment.status,"confirmed_paid");assert.equal(c.payment.value_year,null);
+ assert.match(d.cases.find(c=>c.id==="occidental-passaic-2016").notes,/2026/);
 });
 test("polished monetary page meets global navigation and findability standard",()=>{
  assert.ok(html.includes('class="site-header polished-header"'));
