@@ -1,0 +1,532 @@
+{
+  "version": "4.0.0",
+  "as_of": "2026-11-07",
+  "scope": "2025 named executive officers in three US issuers; only publicly reported title and compensation, not personal damage",
+  "people": [
+    {
+      "id": "person-darren-w-woods",
+      "company_id": "exxonmobil",
+      "company_name": "ExxonMobil",
+      "name": "Darren W. Woods",
+      "role": "Chairman and Chief Executive Officer",
+      "role_start": "2017-01-01",
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000119312526147614/d16317ddef14a.htm",
+          "title": "ExxonMobil 2026 definitive proxy, Summary Compensation Table, FY2025",
+          "filing_date": "2026-04-09",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 32998628,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and changes in pension value; not realized cash or wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-kathryn-a-mikells",
+      "company_id": "exxonmobil",
+      "company_name": "ExxonMobil",
+      "name": "Kathryn A. Mikells",
+      "role": "Senior Vice President and Chief Financial Officer",
+      "role_start": "2021-08-09",
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000119312526147614/d16317ddef14a.htm",
+          "title": "ExxonMobil 2026 definitive proxy, Summary Compensation Table, FY2025",
+          "filing_date": "2026-04-09",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 17139396,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and changes in pension value; not realized cash or wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-neil-a-chapman",
+      "company_id": "exxonmobil",
+      "company_name": "ExxonMobil",
+      "name": "Neil A. Chapman",
+      "role": "Senior Vice President",
+      "role_start": "2018-01-01",
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000119312526147614/d16317ddef14a.htm",
+          "title": "ExxonMobil 2026 definitive proxy, Summary Compensation Table, FY2025",
+          "filing_date": "2026-04-09",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 17747849,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and changes in pension value; not realized cash or wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-jack-p-williams-jr",
+      "company_id": "exxonmobil",
+      "company_name": "ExxonMobil",
+      "name": "Jack P. Williams Jr.",
+      "role": "Senior Vice President",
+      "role_start": "2014-06-01",
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000119312526147614/d16317ddef14a.htm",
+          "title": "ExxonMobil 2026 definitive proxy, Summary Compensation Table, FY2025",
+          "filing_date": "2026-04-09",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 17685329,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and changes in pension value; not realized cash or wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-jon-m-gibbs",
+      "company_id": "exxonmobil",
+      "company_name": "ExxonMobil",
+      "name": "Jon M. Gibbs",
+      "role": "Senior President, ExxonMobil Global Operations",
+      "role_start": null,
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000119312526147614/d16317ddef14a.htm",
+          "title": "ExxonMobil 2026 definitive proxy, Summary Compensation Table, FY2025",
+          "filing_date": "2026-04-09",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 17238272,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and changes in pension value; not realized cash or wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-michael-k-wirth",
+      "company_id": "chevron",
+      "company_name": "Chevron",
+      "name": "Michael K. Wirth",
+      "role": "Chairman and Chief Executive Officer",
+      "role_start": "2018-02-01",
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/93410/000119312526145617/d77994ddef14a.htm",
+          "title": "Chevron 2026 definitive proxy, 2025 Summary Compensation Table, page 67",
+          "filing_date": "2026-04-08",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 26828240,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and pension valuation; not realized wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-eimear-p-bonner",
+      "company_id": "chevron",
+      "company_name": "Chevron",
+      "name": "Eimear P. Bonner",
+      "role": "Chief Financial Officer",
+      "role_start": "2024-03-01",
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/93410/000119312526145617/d77994ddef14a.htm",
+          "title": "Chevron 2026 definitive proxy, 2025 Summary Compensation Table, page 67",
+          "filing_date": "2026-04-08",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 7526063,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and pension valuation; not realized wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-mark-a-nelson",
+      "company_id": "chevron",
+      "company_name": "Chevron",
+      "name": "Mark A. Nelson",
+      "role": "Vice Chairman",
+      "role_start": "2023-02-01",
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/93410/000119312526145617/d77994ddef14a.htm",
+          "title": "Chevron 2026 definitive proxy, 2025 Summary Compensation Table, page 67",
+          "filing_date": "2026-04-08",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 11048147,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and pension valuation; not realized wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-r-hewitt-pate",
+      "company_id": "chevron",
+      "company_name": "Chevron",
+      "name": "R. Hewitt Pate",
+      "role": "Chief Legal Officer",
+      "role_start": null,
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/93410/000119312526145617/d77994ddef14a.htm",
+          "title": "Chevron 2026 definitive proxy, 2025 Summary Compensation Table, page 67",
+          "filing_date": "2026-04-08",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 9106849,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and pension valuation; not realized wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-r-clay-neff",
+      "company_id": "chevron",
+      "company_name": "Chevron",
+      "name": "R. Clay Neff",
+      "role": "President, Upstream",
+      "role_start": null,
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/93410/000119312526145617/d77994ddef14a.htm",
+          "title": "Chevron 2026 definitive proxy, 2025 Summary Compensation Table, page 67",
+          "filing_date": "2026-04-08",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 9227166,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and pension valuation; not realized wealth.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-vicki-hollub",
+      "company_id": "occidental-petroleum",
+      "company_name": "Occidental Petroleum",
+      "name": "Vicki Hollub",
+      "role": "President and Chief Executive Officer",
+      "role_start": null,
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026019816/oxy-20260319.htm",
+          "title": "Occidental 2026 definitive proxy, FY2025 Summary Compensation Table",
+          "filing_date": "2026-03-19",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 18055969,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and deferred compensation; not realized cash or personal profit from pollution.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-sunil-mathew",
+      "company_id": "occidental-petroleum",
+      "company_name": "Occidental Petroleum",
+      "name": "Sunil Mathew",
+      "role": "Senior Vice President and Chief Financial Officer",
+      "role_start": null,
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026019816/oxy-20260319.htm",
+          "title": "Occidental 2026 definitive proxy, FY2025 Summary Compensation Table",
+          "filing_date": "2026-03-19",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 5452005,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and deferred compensation; not realized cash or personal profit from pollution.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-richard-a-jackson",
+      "company_id": "occidental-petroleum",
+      "company_name": "Occidental Petroleum",
+      "name": "Richard A. Jackson",
+      "role": "Senior Vice President and Chief Operating Officer",
+      "role_start": null,
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026019816/oxy-20260319.htm",
+          "title": "Occidental 2026 definitive proxy, FY2025 Summary Compensation Table",
+          "filing_date": "2026-03-19",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 7611362,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and deferred compensation; not realized cash or personal profit from pollution.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-kenneth-dillon",
+      "company_id": "occidental-petroleum",
+      "company_name": "Occidental Petroleum",
+      "name": "Kenneth Dillon",
+      "role": "Senior Vice President and President, International Oil and Gas Operations",
+      "role_start": null,
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026019816/oxy-20260319.htm",
+          "title": "Occidental 2026 definitive proxy, FY2025 Summary Compensation Table",
+          "filing_date": "2026-03-19",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 6030681,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and deferred compensation; not realized cash or personal profit from pollution.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    },
+    {
+      "id": "person-jeff-f-simmons",
+      "company_id": "occidental-petroleum",
+      "company_name": "Occidental Petroleum",
+      "name": "Jeff F. Simmons",
+      "role": "Senior Vice President and Chief Petrotechnical Officer",
+      "role_start": null,
+      "role_end": null,
+      "role_end_note": "No termination date asserted; verify subsequent filings before displaying current status",
+      "source_links": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026019816/oxy-20260319.htm",
+          "title": "Occidental 2026 definitive proxy, FY2025 Summary Compensation Table",
+          "filing_date": "2026-03-19",
+          "locator": "Named Executive Officers and Summary Compensation Table"
+        }
+      ],
+      "compensation": {
+        "fiscal_year": 2025,
+        "currency": "USD",
+        "reported_total": 5369572,
+        "method": "SEC Summary Compensation Table total",
+        "caveat": "Total as reported under SEC summary compensation rules, including grant-date equity and deferred compensation; not realized cash or personal profit from pollution.",
+        "realized_cash": null,
+        "net_worth": null,
+        "environmental_damage_profits": null
+      },
+      "direct_facility_role": null,
+      "individual_emission_attribution": null,
+      "individual_damage_attribution": null,
+      "allegation_status": "none_asserted",
+      "evidence_review": "source_linked_compensation_only",
+      "liability_assessment": "not_estimated",
+      "notes": "Publicly named corporate officer. Title and compensation do not establish control over any particular pollution event, a tort, or legal liability."
+    }
+  ]
+}
