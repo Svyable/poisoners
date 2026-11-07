@@ -21,6 +21,13 @@
     "keywords": "research investigation builder workbench source evidence pathway air drinking water industrial releases facility compliance government records download worksheet"
   },
   {
+    "type": "page",
+    "title": "Knowledge Atlas",
+    "href": "knowledge.html#explore",
+    "description": "24 source-bound evidence field notes with original citations, limitations and next research questions",
+    "keywords": "knowledge library field notes source agency environmental exposure pathway measurement public health risk scientific evidence"
+  },
+  {
     "type": "section",
     "title": "Company climate ledger",
     "href": "index.html#ledger",

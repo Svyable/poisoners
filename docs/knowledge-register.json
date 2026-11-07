@@ -1,0 +1,509 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-07",
+  "purpose": "Curated source-bound educational field notes; not a ranked database of hazards, individual risk or legal fault.",
+  "categories": [
+    {
+      "id": "measurement",
+      "label": "Reading the data",
+      "description": "The reporting boundary, unit, time window and collection method shape every claim."
+    },
+    {
+      "id": "pathways",
+      "label": "How pollutants move",
+      "description": "Follow the five links from a source through environmental media to contact."
+    },
+    {
+      "id": "health",
+      "label": "Health & risk",
+      "description": "Understand why hazard, dose, frequency and population findings are not interchangeable."
+    },
+    {
+      "id": "records",
+      "label": "Public records & accountability",
+      "description": "Use official records and legal outcomes without overstating what they establish."
+    }
+  ],
+  "sources": [
+    {
+      "id": "atsdr-pathways",
+      "publisher": "CDC / ATSDR",
+      "title": "Overview of the Exposure Pathway Evaluation",
+      "url": "https://www.atsdr.cdc.gov/pha-guidance/conducting_scientific_evaluations/exposure_pathways/overview_of_the_exposure_pathway_evaluation.html",
+      "kind": "Agency methodology"
+    },
+    {
+      "id": "atsdr-categories",
+      "publisher": "CDC / ATSDR",
+      "title": "Exposure Pathway Categories",
+      "url": "https://www.atsdr.cdc.gov/pha-guidance/conducting_scientific_evaluations/exposure_pathways/exposure_pathways_categories.html",
+      "kind": "Agency methodology"
+    },
+    {
+      "id": "epa-tri-risk",
+      "publisher": "U.S. EPA",
+      "title": "TRI and Estimating Potential Risk",
+      "url": "https://www.epa.gov/toxics-release-inventory-tri-program/tri-and-estimating-potential-risk",
+      "kind": "Agency interpretation"
+    },
+    {
+      "id": "epa-risk",
+      "publisher": "U.S. EPA",
+      "title": "Conducting a Human Health Risk Assessment",
+      "url": "https://www.epa.gov/risk/conducting-human-health-risk-assessment",
+      "kind": "Agency methodology"
+    },
+    {
+      "id": "epa-exposure",
+      "publisher": "U.S. EPA",
+      "title": "Guidelines for Human Exposure Assessment",
+      "url": "https://www.epa.gov/risk/guidelines-human-exposure-assessment",
+      "kind": "Agency methodology"
+    },
+    {
+      "id": "epa-exposure-tools",
+      "publisher": "U.S. EPA",
+      "title": "Exposure Assessment Tools by Approaches",
+      "url": "https://www.epa.gov/expobox/exposure-assessment-tools-approaches",
+      "kind": "Agency methods"
+    },
+    {
+      "id": "usgs-groundwater",
+      "publisher": "U.S. Geological Survey",
+      "title": "Contamination of Groundwater",
+      "url": "https://www.usgs.gov/water-science-school/science/contamination-groundwater",
+      "kind": "Scientific explainer"
+    },
+    {
+      "id": "usgs-quality",
+      "publisher": "U.S. Geological Survey",
+      "title": "Groundwater Quality",
+      "url": "https://www.usgs.gov/water-science-school/science/groundwater-quality",
+      "kind": "Scientific explainer"
+    },
+    {
+      "id": "who-water",
+      "publisher": "World Health Organization",
+      "title": "Guidelines for drinking-water quality (2026 addenda)",
+      "url": "https://www.who.int/publications/i/item/9789240121225",
+      "kind": "Public-health guideline"
+    },
+    {
+      "id": "who-air",
+      "publisher": "World Health Organization",
+      "title": "Air quality, energy and health: types of pollutants",
+      "url": "https://www.who.int/teams/environment-climate-change-and-health/air-quality-and-health/health-impacts/types-of-pollutants",
+      "kind": "Public-health guideline"
+    },
+    {
+      "id": "noaa-web",
+      "publisher": "NOAA",
+      "title": "Aquatic food webs",
+      "url": "https://www.noaa.gov/education/resource-collections/marine-life/aquatic-food-webs",
+      "kind": "Scientific explainer"
+    },
+    {
+      "id": "epa-ccr",
+      "publisher": "U.S. EPA",
+      "title": "Consumer Confidence Reports: information for consumers",
+      "url": "https://www.epa.gov/ccr/ccr-information-consumers",
+      "kind": "Official public records"
+    },
+    {
+      "id": "epa-radon",
+      "publisher": "U.S. EPA",
+      "title": "Radon",
+      "url": "https://www.epa.gov/radon",
+      "kind": "Public-health guidance"
+    },
+    {
+      "id": "nih-pfas",
+      "publisher": "U.S. NIH",
+      "title": "Per- and Polyfluoroalkyl Substances (PFAS)",
+      "url": "https://health.nih.gov/health-topics-a-z/pfas",
+      "kind": "Public-health review"
+    },
+    {
+      "id": "epa-echo",
+      "publisher": "U.S. EPA",
+      "title": "Enforcement and Compliance History Online",
+      "url": "https://echo.epa.gov/",
+      "kind": "Official public records"
+    },
+    {
+      "id": "im-carbon",
+      "publisher": "InfluenceMap / Carbon Majors",
+      "title": "Carbon Majors: 2024 Data Update",
+      "url": "https://www.influencemap.org/briefing/Carbon-Majors-2024-Data-Update-35466",
+      "kind": "Published emissions dataset"
+    },
+    {
+      "id": "epa-lead",
+      "publisher": "U.S. EPA",
+      "title": "Lead (Pb) Research and the Risk Paradigm",
+      "url": "https://www.epa.gov/land-research/lead-pb-research-and-risk-paradigm",
+      "kind": "Agency scientific methods"
+    },
+    {
+      "id": "epa-tri-tool",
+      "publisher": "U.S. EPA",
+      "title": "TRI Toolbox",
+      "url": "https://www.epa.gov/toxics-release-inventory-tri-program/tri-toolbox",
+      "kind": "Official public records"
+    },
+    {
+      "id": "airnow",
+      "publisher": "U.S. EPA / partners",
+      "title": "AirNow air quality information",
+      "url": "https://www.airnow.gov/",
+      "kind": "Official air conditions"
+    },
+    {
+      "id": "who-cities",
+      "publisher": "World Health Organization",
+      "title": "WHO Ambient Air Quality Database",
+      "url": "https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database",
+      "kind": "Historical observational dataset"
+    },
+    {
+      "id": "mn-pfas-settlement",
+      "publisher": "Minnesota Pollution Control Agency",
+      "title": "PFAS in Minnesota: 3M settlement and funds",
+      "url": "https://www.pca.state.mn.us/pfas-in-minnesota",
+      "kind": "Official payment disclosure"
+    },
+    {
+      "id": "dupont-sec-settlement",
+      "publisher": "DowDuPont / U.S. SEC filing",
+      "title": "2017 annual report: C8/PFOA settlement payments",
+      "url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670018000009/a2017dwdp10-k.htm",
+      "kind": "Company regulatory filing"
+    }
+  ],
+  "topics": [
+    {
+      "id": "release-vs-dose",
+      "category": "measurement",
+      "title": "An emitted kilogram is not a human dose",
+      "insight": "A facility-reported mass tells you a quantity released, not what any person inhaled, swallowed or absorbed.",
+      "boundary": "Reported quantities require fate, transport, concentration, exposure-route and toxicity evidence before inferring health risk.",
+      "next_question": "Which chemical, release medium and exposure point could connect this inventory to an actual dose?",
+      "source_ids": [
+        "epa-tri-risk",
+        "epa-exposure"
+      ],
+      "related_href": "public-records.html#us-tri",
+      "workbench_concern": "releases"
+    },
+    {
+      "id": "corporate-production-boundary",
+      "category": "measurement",
+      "title": "Corporate production attribution is not a facility map",
+      "insight": "Carbon Majors attributes production-linked greenhouse gases to fossil-fuel and cement producers, including the combustion of sold products outside their home jurisdictions.",
+      "boundary": "That methodology does not locate every emission at the producer's headquarters or establish a locally measured toxic release.",
+      "next_question": "Does the figure include downstream combustion, and where did the physical activity occur?",
+      "source_ids": [
+        "im-carbon"
+      ],
+      "related_href": "dossiers.html#investigate",
+      "workbench_concern": null
+    },
+    {
+      "id": "country-vs-company",
+      "category": "measurement",
+      "title": "National inventories and producer totals are different ledgers",
+      "insight": "A territory-based country inventory assigns emissions to places; Carbon Majors assigns production-linked activity to producer entities.",
+      "boundary": "Adding, ranking or dividing these figures as if they share the same denominator creates misleading comparisons.",
+      "next_question": "Do the two datasets use the same year, gases, spatial boundary and scope?",
+      "source_ids": [
+        "im-carbon"
+      ],
+      "related_href": "guide.html#boundaries",
+      "workbench_concern": null
+    },
+    {
+      "id": "unit-and-period",
+      "category": "measurement",
+      "title": "A number without its unit and year is not a finding",
+      "insight": "Environmental sources can report annual tonnes released, concentrations, global CO₂-equivalents or historical totals. Each answers a different question.",
+      "boundary": "An annual mass cannot be compared directly with a concentration, and a historical estimate is not a live condition.",
+      "next_question": "Can the unit, time interval, geographic boundary and version be written beside every figure?",
+      "source_ids": [
+        "epa-tri-risk",
+        "im-carbon"
+      ],
+      "related_href": "data-access.html#sources",
+      "workbench_concern": "releases"
+    },
+    {
+      "id": "measured-modeled",
+      "category": "measurement",
+      "title": "Measured and modeled exposure are different evidence",
+      "insight": "Exposure assessments may rely on direct monitoring, indirect estimation or reconstruction, depending on data and study design.",
+      "boundary": "A modeled estimate is not a personal measurement; a single sensor may not represent other times or locations.",
+      "next_question": "What was measured directly, what was inferred, and what uncertainties accompany both?",
+      "source_ids": [
+        "epa-exposure-tools",
+        "epa-exposure"
+      ],
+      "related_href": "methodology.html#pipeline",
+      "workbench_concern": "air"
+    },
+    {
+      "id": "screening-is-not-verdict",
+      "category": "measurement",
+      "title": "A screening flag is a reason to investigate",
+      "insight": "Screening and refined exposure assessments serve different purposes. A preliminary indicator can help decide what requires a closer look.",
+      "boundary": "A screening-level result is not, by itself, a demonstrated injury, causal link or legal conclusion.",
+      "next_question": "What evidence and quality controls would a refined assessment need?",
+      "source_ids": [
+        "epa-exposure",
+        "epa-risk"
+      ],
+      "related_href": "workbench.html",
+      "workbench_concern": "releases"
+    },
+    {
+      "id": "five-link-pathway",
+      "category": "pathways",
+      "title": "The five links of an exposure pathway",
+      "insight": "ATSDR evaluates contaminant source, environmental fate and transport, exposure point, exposure route, and potentially exposed population.",
+      "boundary": "Knowing an industrial source exists does not establish that contamination reached anyone.",
+      "next_question": "Which of the five links is directly documented, and which remains unknown?",
+      "source_ids": [
+        "atsdr-pathways"
+      ],
+      "related_href": "methodology.html#pipeline",
+      "workbench_concern": "releases"
+    },
+    {
+      "id": "potential-vs-completed",
+      "category": "pathways",
+      "title": "Potential and completed pathways are not synonyms",
+      "insight": "ATSDR distinguishes potential pathways, where one or more elements remain uncertain, from completed pathways, where all five elements are present.",
+      "boundary": "Potential is not proof of contact; completed contact is not proof that injury followed.",
+      "next_question": "What evidence establishes the pathway at the relevant place and time?",
+      "source_ids": [
+        "atsdr-categories"
+      ],
+      "related_href": "workbench.html",
+      "workbench_concern": "releases"
+    },
+    {
+      "id": "completed-not-harm",
+      "category": "pathways",
+      "title": "Even completed exposure does not establish harm",
+      "insight": "A completed ATSDR pathway describes an exposure opportunity or contact; further scientific evaluation considers dose, toxicity, duration and health effects.",
+      "boundary": "A pathway classification cannot be converted directly into numbers of illnesses or assigned blame.",
+      "next_question": "What independent exposure and effect evidence would be needed next?",
+      "source_ids": [
+        "atsdr-categories",
+        "epa-risk"
+      ],
+      "related_href": "guide.html#chain",
+      "workbench_concern": "releases"
+    },
+    {
+      "id": "groundwater-transport",
+      "category": "pathways",
+      "title": "Groundwater can move dissolved contamination",
+      "insight": "USGS explains that natural and human-generated substances can enter groundwater as water moves through soil and rock; transport depends on site conditions.",
+      "boundary": "A nearby industrial operation alone does not establish that contamination reached a particular well.",
+      "next_question": "What do local flow direction, well depth, sampling dates and analytes show?",
+      "source_ids": [
+        "usgs-groundwater"
+      ],
+      "related_href": "public-records.html#us-ccr",
+      "workbench_concern": "water"
+    },
+    {
+      "id": "clear-well",
+      "category": "pathways",
+      "title": "Clear-looking groundwater is not proof of safe chemistry",
+      "insight": "Groundwater can appear clear while containing dissolved natural or human-generated constituents.",
+      "boundary": "Appearance cannot substitute for properly collected samples and laboratory analysis of relevant contaminants.",
+      "next_question": "Is this a private well or public system, and which substances were actually tested?",
+      "source_ids": [
+        "usgs-quality",
+        "who-water"
+      ],
+      "related_href": "awareness.html#water",
+      "workbench_concern": "water"
+    },
+    {
+      "id": "food-webs",
+      "category": "pathways",
+      "title": "Mercury can concentrate up aquatic food webs",
+      "insight": "NOAA describes conversion of mercury to methylmercury and its accumulation and magnification through feeding relationships.",
+      "boundary": "A fish species name alone does not establish a particular meal's concentration or a specific source of pollution.",
+      "next_question": "What species, location, advisory and contaminant-testing evidence apply?",
+      "source_ids": [
+        "noaa-web"
+      ],
+      "related_href": "awareness.html#food-waste",
+      "workbench_concern": null
+    },
+    {
+      "id": "hazard-versus-risk",
+      "category": "health",
+      "title": "Hazard is not the same as risk",
+      "insight": "Hazard identification asks whether a substance can cause an adverse effect. Risk characterization also needs relevant dose-response and exposure evidence.",
+      "boundary": "The fact that a chemical can be toxic does not quantify an individual's risk at an unspecified dose.",
+      "next_question": "Which exposure conditions make the hazard relevant to this population?",
+      "source_ids": [
+        "epa-risk"
+      ],
+      "related_href": "glossary.html",
+      "workbench_concern": null
+    },
+    {
+      "id": "four-steps",
+      "category": "health",
+      "title": "Four parts of a defensible health-risk assessment",
+      "insight": "EPA describes hazard identification, dose-response assessment, exposure assessment and risk characterization as distinct components.",
+      "boundary": "Skipping steps can turn a plausible concern into an unsupported numerical claim.",
+      "next_question": "Which component has measured evidence and which still rests on assumptions?",
+      "source_ids": [
+        "epa-risk"
+      ],
+      "related_href": "methodology.html#pipeline",
+      "workbench_concern": null
+    },
+    {
+      "id": "duration-and-frequency",
+      "category": "health",
+      "title": "Dose depends on more than one reading",
+      "insight": "Exposure assessment considers magnitude, frequency, duration, route and the exposed population, along with data quality and uncertainty.",
+      "boundary": "A single point reading cannot establish a lifetime exposure or diagnose a particular health outcome.",
+      "next_question": "What time series, duration, location and exposure-route evidence are available?",
+      "source_ids": [
+        "epa-exposure"
+      ],
+      "related_href": "workbench.html",
+      "workbench_concern": "air"
+    },
+    {
+      "id": "lead-life-stages",
+      "category": "health",
+      "title": "The vulnerable life stage can change the analysis",
+      "insight": "EPA's lead risk research considers how exposure and adverse outcomes can differ across critical life stages and how risk management may reduce harm.",
+      "boundary": "A community-average value cannot describe a particular child's exposure or medical condition.",
+      "next_question": "Which population, medium, sampling method and life stage does the evidence actually cover?",
+      "source_ids": [
+        "epa-lead"
+      ],
+      "related_href": "awareness.html#water",
+      "workbench_concern": "water"
+    },
+    {
+      "id": "pfas-not-one",
+      "category": "health",
+      "title": "PFAS is a family, not a single test result",
+      "insight": "NIH reviews different health associations for PFAS exposures; individual compounds, exposure routes and scientific evidence can differ.",
+      "boundary": "A label that says only 'PFAS' is insufficient for a compound-specific risk or source attribution.",
+      "next_question": "Which named PFAS, units, method, detection limits and reporting date were used?",
+      "source_ids": [
+        "nih-pfas"
+      ],
+      "related_href": "awareness.html#water",
+      "workbench_concern": "water"
+    },
+    {
+      "id": "radon-building",
+      "category": "health",
+      "title": "Radon risk depends on the building and measurement",
+      "insight": "EPA provides guidance on testing indoor radon and reducing elevated levels; a building-specific result is needed to understand its conditions.",
+      "boundary": "County maps or a neighbor's result cannot establish one room's radon concentration.",
+      "next_question": "Was a suitable indoor test performed, and how long did it sample?",
+      "source_ids": [
+        "epa-radon"
+      ],
+      "related_href": "awareness.html#home-work",
+      "workbench_concern": null
+    },
+    {
+      "id": "aqi-vs-average",
+      "category": "health",
+      "title": "A daily air index is not an annual exposure profile",
+      "insight": "AirNow provides current and forecast air-quality information; WHO's city database describes historical annual concentrations where available.",
+      "boundary": "Today's AQI and a historical city annual mean answer different questions and cannot describe individual dose alone.",
+      "next_question": "What monitoring site, averaging period, pollutant and date are being compared?",
+      "source_ids": [
+        "airnow",
+        "who-cities",
+        "who-air"
+      ],
+      "related_href": "public-records.html#us-airnow",
+      "workbench_concern": "air"
+    },
+    {
+      "id": "water-report-vs-tap",
+      "category": "records",
+      "title": "A supplier report does not measure every household tap",
+      "insight": "EPA's Consumer Confidence Reports describe public water system information and reported quality; local plumbing and private wells can require distinct assessment.",
+      "boundary": "A system-wide report is not a certified measurement from a particular kitchen faucet or private well.",
+      "next_question": "Who supplies the water and where would a valid point-of-use sample be collected?",
+      "source_ids": [
+        "epa-ccr",
+        "who-water"
+      ],
+      "related_href": "public-records.html#us-ccr",
+      "workbench_concern": "water"
+    },
+    {
+      "id": "tri-coverage-gaps",
+      "category": "records",
+      "title": "A reporting inventory leaves things out",
+      "insight": "EPA notes that TRI reporting covers specified chemicals and facilities under reporting requirements, not every source of exposure.",
+      "boundary": "No entry in the inventory does not prove that an area is pollution-free or that a facility has no emissions.",
+      "next_question": "Was this facility or activity within reporting scope for the substance and year?",
+      "source_ids": [
+        "epa-tri-risk",
+        "epa-tri-tool"
+      ],
+      "related_href": "public-records.html#us-tri",
+      "workbench_concern": "releases"
+    },
+    {
+      "id": "echo-status",
+      "category": "records",
+      "title": "An enforcement record needs its procedural status",
+      "insight": "EPA ECHO provides inspections, permits, compliance and enforcement records that researchers can use to investigate facilities.",
+      "boundary": "An alleged or recorded violation must not automatically be described as a final adjudication or a personal health outcome.",
+      "next_question": "What agency action, date, facility identifier and final disposition are documented?",
+      "source_ids": [
+        "epa-echo"
+      ],
+      "related_href": "public-records.html#us-echo",
+      "workbench_concern": "compliance"
+    },
+    {
+      "id": "payments-distinctions",
+      "category": "records",
+      "title": "Money paid, promised and capped are not interchangeable",
+      "insight": "Publicly reported remedies can include completed payments, future schedules, settlement obligations and maximum caps. POISONERS separates these in its evidence ledger.",
+      "boundary": "Adding overlapping amounts, changing currencies without method or treating a promise as money already paid misstates the record.",
+      "next_question": "Which legal instrument, date, original currency and paid-status disclosure supports the amount?",
+      "source_ids": [
+        "mn-pfas-settlement",
+        "dupont-sec-settlement"
+      ],
+      "related_href": "damages.html",
+      "workbench_concern": null
+    },
+    {
+      "id": "legal-proof-boundary",
+      "category": "records",
+      "title": "A public record is not a liability finding",
+      "insight": "An emissions inventory, monitoring result and enforcement entry are different classes of evidence and do not by themselves answer every legal causation question.",
+      "boundary": "Do not infer wrongdoing, fault or individual culpability solely from appearance in a dataset or job title.",
+      "next_question": "Which jurisdiction, legally established elements and adjudicated findings are actually documented?",
+      "source_ids": [
+        "epa-tri-risk",
+        "epa-echo"
+      ],
+      "related_href": "legal.html",
+      "workbench_concern": null
+    }
+  ]
+}

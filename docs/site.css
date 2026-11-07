@@ -253,3 +253,23 @@ body{overflow-x:clip}
 .records-workbench-banner>a{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 20px;background:#c2eb91;color:#152219;text-decoration:none;font:700 11px/1.4 "DM Mono",monospace;white-space:nowrap}
 @media(max-width:900px){.wb-home-promo-grid{grid-template-columns:1fr;gap:30px}.records-workbench-banner{display:block}.records-workbench-banner>a{margin-top:23px;white-space:normal}}
 @media(max-width:600px){.wb-home-promo{padding:46px 0}.wb-home-process{padding:18px}}
+
+
+/* Knowledge Atlas homepage discovery and public-record pathway. */
+.ka-home-feature{background:#0e2019;border-top:1px solid #3c5c3f;border-bottom:1px solid #3c5c3f;padding:67px 0}
+.ka-home-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:65px;align-items:center}
+.ka-home-copy h2{font-size:clamp(38px,5vw,72px);letter-spacing:-.072em;line-height:1.1;margin:15px 0 23px;color:#edf6eb}
+.ka-home-copy h2 em{font:400 italic 1em Georgia,serif;color:#c5f194}
+.ka-home-copy p{color:#b6c9ba;line-height:1.85;max-width:700px;margin-bottom:29px}
+.ka-home-button{display:inline-flex;align-items:center;min-height:48px;padding:13px 20px;background:#d0f4a0;text-decoration:none;color:#14241a;font:700 11px/1.5 "DM Mono",monospace}
+.ka-home-chapters{border:1px solid #446447;background:#14291f}
+.ka-home-chapters a{display:flex;flex-direction:column;gap:10px;padding:26px 28px;text-decoration:none;color:#e8f2e8;border-bottom:1px solid #456448}
+.ka-home-chapters a:last-child{border-bottom:0}
+.ka-home-chapters a span{font:10px "DM Mono",monospace;letter-spacing:.08em;color:#b5e092}
+.ka-home-chapters a strong{font-size:20px;font-weight:700;line-height:1.35;letter-spacing:-.035em}
+.ka-home-chapters a small{font:10px/1.5 "DM Mono",monospace;color:#c0d1bc}
+.ka-home-chapters a:hover,.ka-home-chapters a:focus-visible{background:#233b2b}
+.records-knowledge-link{padding-top:22px;padding-bottom:6px}
+.records-knowledge-link a{color:#d0f4a0;font:600 11px/1.6 "DM Mono",monospace;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.ka-home-layout{grid-template-columns:1fr;gap:27px}}
+@media(max-width:600px){.ka-home-feature{padding:46px 0}.ka-home-chapters a{padding:21px}}
