@@ -1,0 +1,57 @@
+name: Propose a public company/facility research dossier
+description: Structured public-only research lead for one facility and one measurable pathway.
+title: "[Dossier lead] "
+labels: ["research", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A company name is not a verified facility-owner relationship. A potential dossier is **not a lawsuit, misconduct finding or estimate of injury.** Submit only public material.
+  - type: dropdown
+    id: country
+    attributes:
+      label: Initial country research workstream
+      options:
+        - China
+        - United States
+        - India
+        - Russia
+        - Indonesia
+        - Brazil
+        - Iran
+        - Japan
+        - Saudi Arabia
+        - Canada
+    validations:
+      required: true
+  - type: input
+    id: entity
+    attributes:
+      label: Legal entity name (if verified)
+  - type: input
+    id: facility_id
+    attributes:
+      label: Regulatory facility ID (if published)
+  - type: input
+    id: source_url
+    attributes:
+      label: Primary public record URL
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: pathway
+    attributes:
+      label: What is reported, in which year, unit, medium and location?
+      description: Describe only what the source establishes, and specify any gaps in transport, exposure or causation.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-record integrity
+      options:
+        - label: I have excluded claimant identities, private addresses, health data and privileged materials.
+          required: true
+        - label: I understand this is a research lead requiring independent scientific and legal review.
+          required: true
