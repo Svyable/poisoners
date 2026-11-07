@@ -18,6 +18,7 @@
 - [Methodology](docs/methodology.html): historical / annual / future harm design, pollutant/receptor matrix, causal models, uncertainty, grades, proposed data ingestion.
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
 - [Case engine](docs/legal.html): ten-country preliminary legal-route map and a counsel-gated, privacy-protecting workflow.
+- [Damages & Payments Ledger](docs/damages.html): seven publicly sourced monetary outcomes, status of cash paid versus settlements or caps, exact document links, and same-currency 2025 purchasing-power comparisons; not an additive environmental injury score.
 - [Documented case studies](docs/case-studies.html): Japan's Minamata disease, BP Deepwater Horizon, Vale Brumadinho and 3M's PFAS drinking-water settlement, with official sources and distinctions between court findings, settlements and claims.
 - [Evidence record schema](schema/evidence-record.schema.json): source metadata, legal-entity and date boundaries, measurement and confidence fields.
 
@@ -180,3 +181,11 @@ To revise these materials, review original sources, update `docs/awareness-brief
 The [official environmental records directory](docs/public-records.html) links to twelve publicly accessible services in six geographic groups. These include monitoring, supplier disclosures, facility-release reports, and compliance systems. The [machine-readable portal catalog](docs/public-record-portals.json) preserves the source owner, area and time coverage, official link, and limitation of every tool. The site does not fetch, mirror, or store queries submitted to those external services.
 
 Run `node scripts/check-public-records.cjs` to check source hostnames and portal metadata; CI includes this offline check. A missing or reported pollution record alone does not establish personal exposure, environmental injury, individual misconduct or legal responsibility.
+
+## Historical monetary outcomes and 2025 inflation comparisons
+
+The [Payments Ledger](docs/damages.html) publishes seven event-specific records with [machine-readable evidence](docs/damages-data.json). The historical examples include Minnesota PFAS, the DuPont/Chemours C8 MDL resolution, Volkswagen civil and criminal agreements, Brumadinho collective reparation, Deepwater Horizon and 3M's national public-water-supplier PFAS settlement. **These records are not a complete company payment database or quantified environmental-harm dataset.**
+
+Every observation distinguishes a legally ordered or contracted nominal amount, whether actual cash was independently confirmed paid, the **date of the supporting source** and the difference between a fixed award, a ceiling and installments. A cash-paid amount with an unknown payment year does **not** get an invented inflation-adjusted cash value. Up-to ceilings are **not** payments. An historical 2022 Brazil payment figure is **not** presented as a 2026 settlement total. Multi-party and overlapping matters cannot be added as one company's total.
+
+Dollar purchasing-power comparisons use BLS 2025 annual-average CPI-U to the **obligation year**; Brazil uses sequential 2022–25 IPCA Dec/Dec rates against a 2021 notional base. No FX translation, actuarial discounting, legal interest or court-defined indexation is asserted. See the original government and SEC links within each record. Run `node --test scripts/damages.test.cjs`, the deterministic site-search build and the full CI pipeline to validate publication.

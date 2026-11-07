@@ -1,0 +1,292 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-11-07",
+  "reference_year": 2025,
+  "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
+  "inflation": {
+    "USD": {
+      "method": "US CPI-U all items, U.S. city average, annual mean (NSA); reference 2025. 2025 BLS annual average omits October due to the federal funding lapse.",
+      "source": "https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm",
+      "index": {
+        "2016": 240.007,
+        "2017": 245.12,
+        "2018": 251.107,
+        "2024": 313.689,
+        "2025": 321.943
+      }
+    },
+    "BRL": {
+      "method": "IBGE IPCA calendar-year Dec/Dec rates compounded after nominal base year through December 2025. The 2021 agreement was signed in February; December-2021 convention is only a standardized comparator, not a contractual indexation calculation.",
+      "source": "https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidoramplo.html?edicao=20932&t=series-historicas",
+      "annual_rates_percent": {
+        "2022": 5.79,
+        "2023": 4.62,
+        "2024": 4.83,
+        "2025": 4.26
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "3m-minnesota-pfas-2018",
+      "entities": [
+        "3M"
+      ],
+      "jurisdiction": "Minnesota, United States",
+      "matter": "Minnesota PFAS natural-resource settlement",
+      "hazard": "PFAS / drinking water and natural resources",
+      "outcome_type": "civil environmental settlement",
+      "disposition": "Settlement; not a damages trial verdict",
+      "obligation": {
+        "currency": "USD",
+        "year": 2018,
+        "min": 850000000,
+        "max": 850000000,
+        "kind": "Restricted state remediation grant"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 850000000,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "Minnesota Pollution Control Agency expressly reports 3M paid $850 million to settle. About $720 million was available for projects after expenses; $720 million is not a second payment. The authority confirms the $850 million was paid but does not establish the exact cash-transfer year, so no single paid-cash inflation base is assumed."
+      },
+      "notes": "Payment to the state is not a quantification of individual illness or total ecological loss.",
+      "sources": [
+        {
+          "name": "Minnesota Pollution Control Agency — PFAS in Minnesota (explicitly says paid)",
+          "url": "https://www.pca.state.mn.us/pfas-in-minnesota"
+        },
+        {
+          "name": "Minnesota Attorney General — settlement and order",
+          "url": "https://www.ag.state.mn.us/Office/Cases/3M/"
+        }
+      ]
+    },
+    {
+      "id": "dupont-chemours-c8-2017",
+      "entities": [
+        "DuPont",
+        "Chemours"
+      ],
+      "jurisdiction": "Ohio / West Virginia, United States",
+      "matter": "C8/PFOA multidistrict personal-injury litigation",
+      "hazard": "PFOA / drinking water exposure claims",
+      "outcome_type": "civil personal-injury settlement",
+      "disposition": "Settlement without admission of liability or fault",
+      "obligation": {
+        "currency": "USD",
+        "year": 2017,
+        "min": 670700000,
+        "max": 670700000,
+        "kind": "Total joint cash settlement, split equally between two companies"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 670700000,
+        "as_of": "2017-12-31",
+        "value_year": 2017,
+        "detail": "SEC-filed company disclosure says all payments completed during 2017; half paid by DuPont and half by Chemours. Amount is the combined payment, NOT $670.7m for each company."
+      },
+      "notes": "Includes litigation resolved in the MDL, not every historic or future PFOA claim; settlement was not an admission.",
+      "sources": [
+        {
+          "name": "DowDuPont SEC-filed 2017 annual report (all payments made)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670018000009/a2017dwdp10-k.htm"
+        },
+        {
+          "name": "Chemours SEC-filed 2017 Q2 report (terms and allocation)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1627223/000156459017015399/cc-10q_20170630.htm"
+        }
+      ]
+    },
+    {
+      "id": "vw-criminal-diesel-2017",
+      "entities": [
+        "Volkswagen AG"
+      ],
+      "jurisdiction": "United States",
+      "matter": "Diesel emissions-test cheating — criminal penalty",
+      "hazard": "Diesel NOx / regulatory emissions violations",
+      "outcome_type": "criminal fine",
+      "disposition": "Guilty plea and federal criminal sentence",
+      "obligation": {
+        "currency": "USD",
+        "year": 2017,
+        "min": 2800000000,
+        "max": 2800000000,
+        "kind": "Criminal fine ordered at sentencing"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 2800000000,
+        "as_of": "2018-12-18",
+        "value_year": null,
+        "detail": "U.S. Department of Justice subsequently described the $2.8 billion criminal fine as paid. DOJ confirms payment by December 2018 but does not state the exact payment date in this source; the sentence-year comparator is not treated as the cash-payment year."
+      },
+      "notes": "Separate from the up-to-$14.7bn 2016 vehicle buyback/mitigation settlement; do not combine as a single harm estimate.",
+      "sources": [
+        {
+          "name": "U.S. DOJ — 2017 guilty plea and sentencing",
+          "url": "https://www.justice.gov/archives/opa/pr/volkswagen-ag-sentenced-connection-conspiracy-cheat-us-emissions-tests"
+        },
+        {
+          "name": "U.S. DOJ — later explicit confirmation fine was paid",
+          "url": "https://www.justice.gov/archives/opa/pr/iav-gmbh-pay-35-million-criminal-fine-guilty-plea-its-role-volkswagen-ag-emissions-fraud"
+        }
+      ]
+    },
+    {
+      "id": "vale-brumadinho-2021",
+      "entities": [
+        "Vale S.A."
+      ],
+      "jurisdiction": "Minas Gerais, Brazil",
+      "matter": "Brumadinho collective reparation agreement",
+      "hazard": "Mine-tailings dam failure / watershed and communities",
+      "outcome_type": "judicial collective reparation agreement",
+      "disposition": "Judicial agreement; separate individual and criminal proceedings remain distinct",
+      "obligation": {
+        "currency": "BRL",
+        "year": 2021,
+        "min": 37689767329,
+        "max": 37689767329,
+        "kind": "Total agreed collective reparation package; includes works performed, future work and transfers"
+      },
+      "payment": {
+        "status": "partially_paid",
+        "amount": 18200000000,
+        "as_of": "2022-02-04",
+        "value_year": null,
+        "detail": "Minas Gerais environmental authority reported R$18.2bn already paid toward different agreement obligations after one year; covers multiple payment/implementation periods. This is a dated historical lower bound, not a current 2026 total. Separately, Vale's June 2026 investor reporting discloses US$15.172bn of total cumulative Brumadinho-related outlays since 2019 across a broader scope, including dam decommissioning, individual/emergency compensation and other work. That broader figure is not the cash paid under this exact 2021 agreement and must not be substituted for, added to, or currency-converted into this R$18.2bn historical observation."
+      },
+      "notes": "Agreement contains both duties to perform works and duties to transfer funds. Paid figure and package overlap; they must never be added. Multi-year cash has no single valid inflation base year.",
+      "sources": [
+        {
+          "name": "Minas Gerais — original 2021 agreement amount and scope",
+          "url": "https://www.mg.gov.br/pro-brumadinho/pagina/entenda-o-acordo-judicial-de-reparacao-ao-rompimento-em-brumadinho"
+        },
+        {
+          "name": "Minas Gerais SEMAD — R$18.2bn reported paid at first anniversary",
+          "url": "https://meioambiente.mg.gov.br/w/em-um-ano-acordo-de-reparacao-tem-avancos-importantes-para-brumadinho-e-regiao"
+        },
+        {
+          "name": "Minas Gerais — annexes, transfers and double-counting distinctions",
+          "url": "https://www.mg.gov.br/pro-brumadinho/pagina/reparacao-brumadinho-esclarecendo-os-anexos-do-acordo-judicial"
+        },
+        {
+          "name": "Vale — Brumadinho investor disclosures, second quarter 2026 (broader total outlays; separate accounting scope)",
+          "url": "https://www.vale.com/pt/esg/brumadinho"
+        }
+      ]
+    },
+    {
+      "id": "bp-deepwater-2016",
+      "entities": [
+        "BP"
+      ],
+      "jurisdiction": "Gulf of Mexico, United States",
+      "matter": "Deepwater Horizon civil global settlement",
+      "hazard": "2010 oil spill / water, ecosystems and communities",
+      "outcome_type": "civil settlement and restoration",
+      "disposition": "Court-approved consent decree",
+      "obligation": {
+        "currency": "USD",
+        "year": 2016,
+        "min": 20800000000,
+        "max": 20800000000,
+        "kind": "Total civil package including fines, NRD and economic claims"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "Long-term installments are documented; an independently reconciled company-wide paid-to-date figure was not established for this ledger."
+      },
+      "notes": "$20.8bn was agreed/court approved, NOT shown as fully paid. Do not add BP's separate 2012 criminal plea to this figure without checking scopes.",
+      "sources": [
+        {
+          "name": "U.S. DOJ — $20.8bn civil settlement",
+          "url": "https://www.justice.gov/archives/opa/pr/us-and-five-gulf-states-reach-historic-settlement-bp-resolve-civil-lawsuit-over-deepwater"
+        },
+        {
+          "name": "U.S. EPA — event timeline, consent decree and separate matters",
+          "url": "https://www.epa.gov/enforcement/deepwater-horizon-bp-gulf-america-oil-spill"
+        }
+      ]
+    },
+    {
+      "id": "vw-diesel-civil-2016",
+      "entities": [
+        "Volkswagen AG"
+      ],
+      "jurisdiction": "United States",
+      "matter": "2.0-liter diesel vehicle buybacks and mitigation",
+      "hazard": "Diesel NOx / emissions and consumer remedies",
+      "outcome_type": "civil settlement and consumer compensation",
+      "disposition": "Court-approved partial civil resolution",
+      "obligation": {
+        "currency": "USD",
+        "year": 2016,
+        "min": 0,
+        "max": 14700000000,
+        "kind": "Up to $14.7bn commitments for consumer remedies, mitigation and zero-emission investment; not a fixed cash damages award"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "This ledger has not reconciled vehicle buybacks and mitigation expenditures to actual disbursements; an up-to cap is not evidence the cap was paid."
+      },
+      "notes": "The up-to amount spans distinct categories and is not a monetary estimate of pollution damage; distinct from the later criminal fine.",
+      "sources": [
+        {
+          "name": "U.S. EPA — 2016 agreement up to $14.7bn",
+          "url": "https://www.epa.gov/archive/epa/newsreleases/volkswagen-spend-147-billion-settle-allegations-cheating-emissions-tests-and-deceiving.html"
+        },
+        {
+          "name": "U.S. EPA — civil consent decree scope",
+          "url": "https://www.epa.gov/enforcement/volkswagen-clean-air-act-civil-settlement"
+        }
+      ]
+    },
+    {
+      "id": "3m-pws-pfas-2024",
+      "entities": [
+        "3M"
+      ],
+      "jurisdiction": "United States",
+      "matter": "PFAS public-water-supplier settlement",
+      "hazard": "PFAS / public drinking-water systems",
+      "outcome_type": "civil class settlement",
+      "disposition": "Court-approved settlement without admission of wrongdoing",
+      "obligation": {
+        "currency": "USD",
+        "year": 2024,
+        "min": 10500000000,
+        "max": 12500000000,
+        "kind": "Nominal scheduled future payment range (2024–2036), not discounted expense"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-09-30",
+        "value_year": null,
+        "detail": "3M reports scheduled payments for 2024–2036, but this record does not establish a sourced cumulative amount disbursed under this exact settlement."
+      },
+      "notes": "Unlike 3M's separately paid Minnesota settlement, the total scheduled nominal value cannot be presented as already paid. No individual disease causation finding is implied.",
+      "sources": [
+        {
+          "name": "3M SEC-filed September 2026 report — payments and no admission",
+          "url": "https://investors.3m.com/financials/sec-filings/content/0000066740-26-000311/mmm-20260930.htm"
+        },
+        {
+          "name": "3M final approval announcement",
+          "url": "https://news.3m.com/2024-04-01-3M-Settlement-with-Public-Water-Suppliers-to-Address-PFAS-in-Drinking-Water-Receives-Final-Court-Approval"
+        }
+      ]
+    }
+  ]
+}

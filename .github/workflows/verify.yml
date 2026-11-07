@@ -22,6 +22,8 @@ jobs:
         run: node scripts/build-foundation.cjs --check
       - name: Run evidence-integrity, metric-model and privacy tests
         run: node --test scripts/foundation.test.cjs
+      - name: Check paid-versus-obligated monetary outcomes and inflation methodology
+        run: node --test scripts/damages.test.cjs
       - name: Validate people provenance and individual-liability safeguards
         run: node --test scripts/people.test.cjs
       - name: Check research explorer JavaScript syntax

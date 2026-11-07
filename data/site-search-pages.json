@@ -85,6 +85,13 @@
   },
   {
     "type": "page",
+    "title": "Damages & payments ledger",
+    "href": "damages.html",
+    "description": "Seven sourced environmental settlements, criminal penalties and payment statuses with original-currency 2025 purchasing-power comparisons. Not an additive liability or injury ranking.",
+    "keywords": "settlement payments paid fines damages PFAS Volkswagen BP Brumadinho inflation CPI IPCA 3M DuPont Chemours Vale"
+  },
+  {
+    "type": "page",
     "title": "Documented environmental cases",
     "href": "case-studies.html",
     "description": "Historical case studies with different scientific and legal outcomes",
