@@ -73,7 +73,7 @@ test("aggregation is blocked without explicit independent non-overlap attestatio
 test("impact claims require counterfactual and independent reviewers",()=>{
  const r={...claims[0],claim_type:"health_impact",endpoint:"deaths/year"};
  assert.ok(validateEvidence(r).some(x=>/counterfactual/.test(x)));
- assert.ok(validateEvidence(r).some(x=>/two independent/.test(x)));
+ assert.ok(validateEvidence(r).some(x=>/two distinct/.test(x)));
  assert.equal(scientificReleaseEligible(r),false);
 });
 test("privacy-sensitive named fields are rejected",()=>{
@@ -138,4 +138,9 @@ test("facility normalizer converts verified units without inventing illness or p
 test("normalizer rejects malformed quoted fields and inconsistent columns",()=>{
  assert.throws(()=>parseCSV('a,b\n"unterminated,foo\n'),/Unterminated/);
  assert.throws(()=>parseCSV("a,b\na,b,c\n"),/Column mismatch/);
+});
+
+test("chemical releases of different substances cannot be combined into a false total poison burden",()=>{
+ const base=claims[0],b={...claims[1],chemical_identifiers:[{name:"Mercury",cas:"7439-97-6"}]};
+ assert.throws(()=>sumComparable([base,b],{nonOverlapAttested:true,attestationSourceUrl:"https://example.org/assessment"}),/Incompatible/);
 });
