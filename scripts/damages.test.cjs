@@ -163,7 +163,7 @@ test("independently verified Exxon, Suncor and Ohio joint amounts retain payment
  assert.equal(criminal.payment.value_year,null);
  const mayflower=get("exxon-mayflower-2015");
  assert.equal(mayflower.payment.amount,4470000);
- assert.match(mayflower.notes,/600k/);
+ assert.match(mayflower.payment.detail,/600k/);
  assert.ok(Math.abs(mayflower.obligation.max*factor("USD",2015)-6070200)<25000);
  const creek=get("duck-otter-creeks-2024");
  assert.equal(creek.payment.amount,7282518.92);
