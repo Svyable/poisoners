@@ -36,8 +36,8 @@
   companies:{label:"Companies · producer GHG",unit_note:"2024 MtCO₂e/year; cumulative totals cover different histories",fields:[
    field("annual","2024 producer GHG","number",{unit:"MtCO₂e",meaning:"Global production-linked GHG, not a toxic or territorial release"}),
    field("cumulative","Published historical cumulative GHG","number",{unit:"MtCO₂e",meaning:"Historical periods may differ across producers; not necessarily comparable through time"}),
-   field("name","Company","text"),field("country","Home country","text"),field("sector","Producer sector","text"),field("grade","Source grade","text"),field("open","Evidence gates still open","number",{unit:"gates",meaning:"Research workflow coverage, not degree of harm"})],
-   facets:["country","sector","grade"]},
+   field("name","Company","text"),field("country","Home country","text"),field("sector","Producer sector","text"),field("grade","Source grade","text"),field("historyStatus","Historical value coverage","text"),field("open","Evidence gates still open","number",{unit:"gates",meaning:"Research workflow coverage, not degree of harm"})],
+   facets:["country","sector","grade","historyStatus"]},
   countries:{label:"Countries · territorial GHG",unit_note:"EDGAR 2025 MtCO₂e territorial; no LULUCF",fields:[
    field("territorial","2025 territorial GHG","number",{unit:"MtCO₂e",meaning:"2025 territorial greenhouse gas total, not site-specific exposure"}),
    field("name","Country","text"),field("companyCount","Company source entries","number",{unit:"entries",meaning:"Records attributed to companies domiciled here; NOT national facility releases"}),
@@ -46,11 +46,11 @@
   people:{label:"People · publicly reported pay",unit_note:"Fiscal 2025 SEC Summary Compensation Table totals, USD",fields:[
    field("pay","Reported FY2025 total pay","number",{unit:"USD",meaning:"SEC accounting figure, not realized income, net worth or illicit gain"}),
    field("name","Publicly disclosed officer","text"),field("company","Company","text"),field("role","Disclosed professional role","text"),field("function","Research function","text"),
-   field("filing","SEC filing date","text")],facets:["company","function"]},
+   field("filing","SEC filing date","text")],facets:["company","function","role","filing"]},
   roles:{label:"Research functions · 500 slots",unit_note:"Presence of public identity and research completeness only",fields:[
    field("pay","Reported FY2025 pay, where disclosed","number",{unit:"USD",meaning:"Only named SEC officers; missing values are unranked"}),
    field("company","Company","text"),field("country","Home country","text"),field("sector","Sector","text"),field("function","Research function","text"),field("identity","Officer identity status","text"),field("name","Documented officer, if any","text")],
-   facets:["country","function","identity"]},
+   facets:["company","country","sector","function","identity"]},
   payments:{label:"Legal outcomes · payments and obligations",unit_note:"All financial rankings require one original currency and one clearly defined monetary field",fields:[
    field("obligationMax","Published maximum legal commitment","number",{unit:"original currency",meaning:"Includes up-to caps, schedules, fines and fixed commitments; NOT necessarily paid, and legal categories differ"}),
    field("obligationMin","Published minimum stated amount","number",{unit:"original currency",meaning:"Zero can be a disclosed cap lower bound; NOT zero harm"}),
@@ -59,19 +59,19 @@
    field("paid","Documented paid amount","number",{unit:"original currency",meaning:"Only confirmed or dated partial payment; unknown stays unranked"}),
    field("year","Obligation/disposition year","number",{unit:"year",meaning:"Historical reporting vintage, not a continuous harm rate"}),
    field("entity","Named parties","text"),field("status","Paid evidence status","text"),field("currency","Original currency","text"),field("type","Legal outcome type","text"),field("hazard","Hazard / event","text"),field("jurisdiction","Jurisdiction","text")],
-   facets:["currency","status","type"]},
+   facets:["currency","status","type","year","jurisdiction","hazard","entity"]},
   metrics:{label:"Metric library · definitions",unit_note:"Definitions only; no company impacts or observed readings implied",fields:[
    field("name","Metric definition","text"),field("domain","Research domain","text"),field("kind","Observation type","text"),field("unit","Proposed unit","text"),field("medium","Environmental media","text"),field("receptor","Receptors","text"),field("sources","Candidate source count","number",{unit:"leads",meaning:"Number of source leads, not measurements or harm strength"}),
-   field("timeFrames","Proposed time horizons","number",{unit:"horizons",meaning:"Research coverage metadata, not exposure observations"})],
-   facets:["domain","kind","unit"]},
+   field("timeFrames","Proposed time horizons","number",{unit:"horizons",meaning:"Research coverage metadata, not exposure observations"}),field("temporal","Supported time horizons","text"),field("status","Data publication status","text"),field("sourceLeads","Candidate source IDs","text")],
+   facets:["domain","kind","unit","medium","receptor","temporal","status"]},
   chemicals:{label:"Chemical matrix · identity and hazard",unit_note:"Chemical metadata; no observed individual risk or severity ranking",fields:[
    field("name","Chemical","text"),field("symbol","Formula / group","text"),field("family","Chemical family","text"),field("cas","CAS reference","text"),field("media","Environmental media","text"),
-   field("odor","Odor description","text"),field("referenceCount","Public source references","number",{unit:"references",meaning:"Metadata source count, NOT toxicological severity"})],
-   facets:["family","media"]},
+   field("odor","Odor description","text"),field("hazards","Hazard descriptors (not severity)","text"),field("referenceCount","Public source references","number",{unit:"references",meaning:"Metadata source count, NOT toxicological severity"})],
+   facets:["family","media","odor","hazards"]},
   observations:{label:"Chemical mass · source-defined cohorts",unit_note:"National sector figures; select identical agency/source, year and unit before ranking masses",fields:[
    field("mass","Reported chemical mass","number",{unit:"source unit",meaning:"Same published aggregate inventory only; NOT equivalent toxicity per tonne"}),
    field("chemical","Substance / reported grouping","text"),field("cohort","Source, period, unit and coverage","text"),field("year","Reporting year","number",{unit:"year",meaning:"Coverage-specific published reporting period"})],
-   facets:["cohort"]}
+   facets:["cohort","chemical","year"]}
  };
  function makeRows(data){
   if(!data||!data.dossiers||!data.people||!data.payments||!data.foundation||!data.chemistry||!data.seed)throw Error("All audited public data snapshots are required");
@@ -81,7 +81,7 @@
   const companyRows=data.dossiers.dossiers.map(d=>({
    id:d.id,name:d.company,country:d.home_country,code:d.home_country_code,sector:d.sector,
    annual:asNumber(d.metric.value),cumulative:asNumber(d.metric.historical_cumulative),
-   grade:d.evidence.grade,open:d.gates.filter(x=>x.status==="open").length,
+   grade:d.evidence.grade,historyStatus:d.metric.historical_cumulative==null?"Not reported":"Published value",open:d.gates.filter(x=>x.status==="open").length,
    link:"dossiers.html?entity="+encodeURIComponent(d.id)+"#investigate",
    source:d.evidence.source.url,sourceLabel:d.evidence.source.title,
    boundary:d.metric.boundary
@@ -121,7 +121,7 @@
     };
   });
   const metricRows=data.foundation.metrics.map(m=>({
-   id:m.id,name:m.label,domain:m.domain,kind:m.kind,unit:m.unit,
+   id:m.id,name:m.label,domain:m.domain,kind:m.kind,unit:m.unit,status:m.status,temporal:m.temporal.join(", "),sourceLeads:m.source_candidates.join(", "),
    medium:m.medium.join(", "),receptor:m.receptors.join(", "),sources:m.source_candidates.length,
    timeFrames:m.temporal.length,link:"index.html#foundation",
    source:null,sourceLabel:"Candidate sources, not confirmed metric observations",
@@ -129,7 +129,7 @@
   }));
   const chemicalRows=data.chemistry.compounds.map(m=>({
    id:m.id,name:m.name,symbol:m.symbol,family:m.family,cas:m.cas??"Not assigned",
-   media:m.media.join(", "),odor:m.odor,referenceCount:m.sources.length,
+   media:m.media.join(", "),odor:m.odor,hazards:m.harm.join(", "),referenceCount:m.sources.length,
    link:"chemistry.html",source:m.sources[0]?.url||null,sourceLabel:m.sources[0]?.title||"Compound reference",
    boundary:"Chemical hazard descriptor, not a comparison of dose or harmfulness"
   }));
