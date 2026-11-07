@@ -8,6 +8,55 @@
   },
   {
     "type": "page",
+    "title": "Universal Rank & Filter Lab",
+    "href": "rankings.html#rankWorkspace",
+    "description": "Compare and stack-rank source-compatible environmental data with multi-key sorting, filters, source inspector, saved views, and CSV/JSON export.",
+    "keywords": "sort rank stack rank ranking all metrics filter company country executive people money legal payments chemistry chemical metadata source emissions"
+  },
+  {
+    "type": "section",
+    "title": "Rank company greenhouse gas observations",
+    "href": "rankings.html?dataset=companies&metric=annual#rankWorkspace",
+    "description": "Rank 2024 producer-attributed GHG within one comparable corporate dataset, with historical boundaries stated.",
+    "keywords": "rank companies carbon majors ghg climate emissions"
+  },
+  {
+    "type": "section",
+    "title": "Filter public officer pay and research functions",
+    "href": "rankings.html?dataset=people&metric=pay#rankWorkspace",
+    "description": "Sort 2025 SEC-reported executive compensation, with no claim of personal environmental responsibility.",
+    "keywords": "rank people executive compensation SEC officer salaries"
+  },
+  {
+    "type": "section",
+    "title": "Compare paid vs committed legal amounts",
+    "href": "rankings.html?dataset=payments&metric=paid&currency=USD#rankWorkspace",
+    "description": "Rank source-confirmed USD paid amounts separately from obligations, caps and other currency amounts.",
+    "keywords": "rank payments damages legal settlements actual cash paid"
+  },
+  {
+    "type": "section",
+    "title": "Filter 142 proposed environmental metric definitions",
+    "href": "rankings.html?dataset=metrics&metric=sources#rankWorkspace",
+    "description": "Sort the research ontology by source candidates and filter domain, reporting unit and media; definitions only.",
+    "keywords": "metrics ontology 142 domain source library filters"
+  },
+  {
+    "type": "section",
+    "title": "Compare reported chemical masses by source cohort",
+    "href": "rankings.html?dataset=observations&metric=mass#rankWorkspace",
+    "description": "Agency, reporting year and unit must be identical for a chemical mass ranking.",
+    "keywords": "chemicals pollutant sulphur nitrogen mercury emissions EIA EPA"
+  },
+  {
+    "type": "section",
+    "title": "Ranking comparability and missing-data policy",
+    "href": "rankings.html#rankRules",
+    "description": "Source boundaries, unknown values, payment currencies and differing chemical inventories remain separate.",
+    "keywords": "safety comparability methodology missing unknown no false precision"
+  },
+  {
+    "type": "page",
     "title": "Chemical Hazards and Stank Matrix",
     "href": "chemistry.html",
     "description": "Fourteen chemically specific sulfur, NOx, mercury, arsenic, lead, cadmium, acid mist and particulate profiles with EPA and EIA source-backed mass figures; odor is not toxicity.",

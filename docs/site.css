@@ -273,3 +273,8 @@ body{overflow-x:clip}
 .records-knowledge-link a{color:#d0f4a0;font:600 11px/1.6 "DM Mono",monospace;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:900px){.ka-home-layout{grid-template-columns:1fr;gap:27px}}
 @media(max-width:600px){.ka-home-feature{padding:46px 0}.ka-home-chapters a{padding:21px}}
+
+/* Consistent contextual entry into the source-bounded Rank Lab */
+.rk-inline-route{padding:18px 0 10px}
+.rk-inline-route a{display:inline-flex;max-width:100%;border:1px solid #749258;background:#1c2d1c;padding:13px 17px;color:var(--acid);font:500 10px/1.6 var(--mono);letter-spacing:.035em}
+.rk-inline-route a:hover{background:#d2ff621c;border-color:var(--acid)}
