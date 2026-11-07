@@ -150,7 +150,7 @@ const caseExamples=json("data/case-examples.json");
 const register=json("docs/dossier-register.json");
 test("new Dossier Lab exports exactly match deterministic source evidence",()=>{
  const result=compile({claims,companies:d.companies,countries:work.countries,sources:sources.sources,examples:caseExamples});
- assert.deepEqual(result,register);
+ assert.deepStrictEqual(JSON.parse(JSON.stringify(result)),register);
  assert.equal(result.totals.company_records,50);
  assert.equal(result.totals.documented_historical_comparators,4);
  assert.equal(result.totals.verified_multi_hazard_dossiers,0);
