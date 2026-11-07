@@ -41,7 +41,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "barium",
@@ -58,7 +59,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "chromium",
@@ -75,7 +77,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": "AEP lists chromium, not a measured Cr(VI)-specific quantity.",
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "cobalt",
@@ -92,7 +95,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "copper",
@@ -109,7 +113,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "lead",
@@ -126,7 +131,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": "AEP's reported total is 150,548 lb, one pound below the sum of rounded column values. The published total is retained."
+      "rounding_note": "AEP's reported total is 150,548 lb, one pound below the sum of rounded column values. The published total is retained.",
+      "unavailable_medium_reason": {}
     },
     {
       "id": "manganese",
@@ -143,7 +149,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "mercury",
@@ -160,7 +167,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": "AEP lists mercury, not a methylmercury-specific exposure.",
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "nickel",
@@ -177,7 +185,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "selenium",
@@ -194,7 +203,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "vanadium",
@@ -211,7 +221,10 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "water_lb": "a_below_EPA_reporting_level"
+      }
     },
     {
       "id": "zinc",
@@ -228,7 +241,8 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {}
     },
     {
       "id": "hcl-aerosol",
@@ -245,7 +259,12 @@
       "missing_code": null,
       "other_media_code": "b_only_airborne_forms_reportable",
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "water_lb": "b_airborne_forms_only_required",
+        "onsite_land_lb": "b_airborne_forms_only_required",
+        "offsite_transfer_lb": "b_airborne_forms_only_required"
+      }
     },
     {
       "id": "hf",
@@ -262,7 +281,12 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "water_lb": "a_below_EPA_reporting_level",
+        "onsite_land_lb": "a_below_EPA_reporting_level",
+        "offsite_transfer_lb": "a_below_EPA_reporting_level"
+      }
     },
     {
       "id": "h2so4-aerosol",
@@ -279,7 +303,12 @@
       "missing_code": null,
       "other_media_code": "b_only_airborne_forms_reportable",
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "water_lb": "b_airborne_forms_only_required",
+        "onsite_land_lb": "b_airborne_forms_only_required",
+        "offsite_transfer_lb": "b_airborne_forms_only_required"
+      }
     },
     {
       "id": "ammonia",
@@ -296,7 +325,11 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "onsite_land_lb": "a_below_EPA_reporting_level",
+        "offsite_transfer_lb": "a_below_EPA_reporting_level"
+      }
     },
     {
       "id": "dioxin-group",
@@ -313,7 +346,13 @@
       "missing_code": null,
       "other_media_code": null,
       "speciation_note": "Reported 7 grams of dioxins. This is NOT 7 grams of toxic equivalents (TEQ).",
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "air_lb": "dioxins_reported_in_grams_separately",
+        "water_lb": "a_below_EPA_reporting_level",
+        "onsite_land_lb": "a_below_EPA_reporting_level",
+        "offsite_transfer_lb": "a_below_EPA_reporting_level"
+      }
     },
     {
       "id": "cadmium",
@@ -330,7 +369,13 @@
       "missing_code": "a_below_EPA_reporting_level",
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "air_lb": "a_below_EPA_reporting_level",
+        "water_lb": "a_below_EPA_reporting_level",
+        "onsite_land_lb": "a_below_EPA_reporting_level",
+        "offsite_transfer_lb": "a_below_EPA_reporting_level"
+      }
     },
     {
       "id": "antimony",
@@ -347,7 +392,13 @@
       "missing_code": "a_below_EPA_reporting_level",
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "air_lb": "a_below_EPA_reporting_level",
+        "water_lb": "a_below_EPA_reporting_level",
+        "onsite_land_lb": "a_below_EPA_reporting_level",
+        "offsite_transfer_lb": "a_below_EPA_reporting_level"
+      }
     },
     {
       "id": "beryllium",
@@ -364,7 +415,13 @@
       "missing_code": "a_below_EPA_reporting_level",
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "air_lb": "a_below_EPA_reporting_level",
+        "water_lb": "a_below_EPA_reporting_level",
+        "onsite_land_lb": "a_below_EPA_reporting_level",
+        "offsite_transfer_lb": "a_below_EPA_reporting_level"
+      }
     },
     {
       "id": "silver",
@@ -381,7 +438,13 @@
       "missing_code": "a_below_EPA_reporting_level",
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "air_lb": "a_below_EPA_reporting_level",
+        "water_lb": "a_below_EPA_reporting_level",
+        "onsite_land_lb": "a_below_EPA_reporting_level",
+        "offsite_transfer_lb": "a_below_EPA_reporting_level"
+      }
     },
     {
       "id": "thallium",
@@ -398,7 +461,13 @@
       "missing_code": "a_below_EPA_reporting_level",
       "other_media_code": null,
       "speciation_note": null,
-      "rounding_note": null
+      "rounding_note": null,
+      "unavailable_medium_reason": {
+        "air_lb": "a_below_EPA_reporting_level",
+        "water_lb": "a_below_EPA_reporting_level",
+        "onsite_land_lb": "a_below_EPA_reporting_level",
+        "offsite_transfer_lb": "a_below_EPA_reporting_level"
+      }
     }
   ]
 }
