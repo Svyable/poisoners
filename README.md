@@ -158,3 +158,7 @@ Site-wide search assets live at `docs/site-search.js` and `docs/search-index.jso
 ## Maintaining the public research search
 
 Search is a static, browser-local navigation aid. The reviewed route entries live in `data/site-search-pages.json`; the 50 climate-only company labels are built from the public dossier register. Run `node scripts/build-search-index.cjs` after changing either source, then verify with `node scripts/build-search-index.cjs --check`. Do not edit `docs/search-index.json` manually, and do not use search placement as a harm or liability ranking.
+
+## Site accessibility and public discovery
+
+GitHub Pages includes a source-aware custom `docs/404.html` page and a `docs/sitemap.xml` of 12 research pages. `node scripts/check-public-site.cjs` verifies page landmarks, skip links, metadata, search dialog integration, route anchors and a one-to-one match between public climate company profiles and search entries. CI runs this check alongside the deterministic index audit. All checks are offline.
