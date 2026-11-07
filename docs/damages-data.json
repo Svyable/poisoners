@@ -95,7 +95,21 @@
         "amount": 670700000,
         "as_of": "2017-12-31",
         "value_year": 2017,
-        "detail": "SEC-filed company disclosure says all payments completed during 2017; half paid by DuPont and half by Chemours. Amount is the combined payment, NOT $670.7m for each company."
+        "detail": "SEC-filed company disclosure says all payments completed during 2017; half paid by DuPont and half by Chemours. Amount is the combined payment, NOT $670.7m for each company.",
+        "allocations": [
+          {
+            "entity": "DuPont",
+            "amount": 335350000,
+            "currency": "USD",
+            "basis": "Half of combined settlement, documented as completed during 2017"
+          },
+          {
+            "entity": "Chemours",
+            "amount": 335350000,
+            "currency": "USD",
+            "basis": "Half of combined settlement, documented as completed during 2017"
+          }
+        ]
       },
       "notes": "Includes litigation resolved in the MDL, not every historic or future PFOA claim; settlement was not an admission.",
       "sources": [
@@ -488,7 +502,21 @@
         "amount": 470000000,
         "as_of": "1989-02",
         "value_year": null,
-        "detail": "India's Department of Chemicals and Petrochemicals says $470m in compensation was deposited in February 1989. The Supreme Court's payment mechanics split the settlement between Union Carbide Corporation ($425m, including a $5m U.S. interim payment from 1985) and Union Carbide India Ltd. (rupee equivalent of $45m). Do not attribute $470m to each company, assume all cash was transferred in 1989, or treat the USD total as a single-currency bank transfer."
+        "detail": "India's Department of Chemicals and Petrochemicals says $470m in compensation was deposited in February 1989. The Supreme Court's payment mechanics split the settlement between Union Carbide Corporation ($425m, including a $5m U.S. interim payment from 1985) and Union Carbide India Ltd. (rupee equivalent of $45m). Do not attribute $470m to each company, assume all cash was transferred in 1989, or treat the USD total as a single-currency bank transfer.",
+        "allocations": [
+          {
+            "entity": "Union Carbide Corporation",
+            "amount": 425000000,
+            "currency": "USD",
+            "basis": "Court-stated USD contribution; includes earlier $5m interim payment"
+          },
+          {
+            "entity": "Union Carbide India Ltd.",
+            "amount": 45000000,
+            "currency": "USD",
+            "basis": "Court-stated USD equivalent; actually paid in Indian rupees"
+          }
+        ]
       },
       "notes": "The $470m is a collective legal settlement, not a valuation of the lives lost, lifetime medical injuries, continuing contamination, or remediation needs. The official victim-disbursement program extended long after the companies' settlement deposit. Later corporate changes must not be confused with which historical entities made the 1989 settlement.",
       "sources": [
