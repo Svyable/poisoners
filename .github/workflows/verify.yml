@@ -22,6 +22,8 @@ jobs:
         run: node scripts/build-foundation.cjs --check
       - name: Run evidence-integrity, metric-model and privacy tests
         run: node --test scripts/foundation.test.cjs
+      - name: Check documented payment, inflation and site presentation integrity
+        run: node --test scripts/damages.test.cjs
       - name: Check research explorer JavaScript syntax
         run: |
           node --check docs/foundation-app.js
