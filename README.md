@@ -148,3 +148,9 @@ The public [People Atlas](docs/people.html) supports sortable and searchable dis
 The publication pipeline is **strictly no-fault by default**: it blocks private contact or medical data, unknown salary amounts mislabeled as SEC totals, unverified dates, duplicate officers, and populated fields for unsupported personal environmental harm, purported illicit profits or liability. No website action contacts a person, builds a personal defendant list, solicits claimants or files a case. The original emissions data is producer-linked GHG, not proof of a named executive's toxic release or illness.
 
 Add a primary filing via the [public officer source template](.github/ISSUE_TEMPLATE/person-source.yml) following the [research verification guide](data/people/README.md). Run `node scripts/build-foundation.cjs`, `node scripts/build-foundation.cjs --check`, `node --test scripts/people.test.cjs`, and `node scripts/check-site-links.cjs` before reviewing changes. **No automatic publication of unverified claims.**
+
+## Website research search and glossary
+
+The header search scans a static, privacy-preserving index of public site sections, 50 company climate records and the separately caveated People Atlas. Searches are processed in the browser and are not submitted to an external service. The [research glossary](docs/glossary.html) explains climate accounting, exposure science, uncertainty and legal terminology. Search references are navigation, not evidence of harm or wrongdoing.
+
+Site-wide search assets live at `docs/site-search.js` and `docs/search-index.json`. Validate navigation with `node scripts/check-site-links.cjs`; keep named-person searches distinct from the research-only compensation and legal methodology.
