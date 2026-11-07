@@ -1,0 +1,296 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Svyable/poisoners/blob/main/schema/evidence-record.schema.json",
+  "title": "POISONERS / Environmental Evidence Record v0.1",
+  "description": "A dated, scoped, source-linked claim. No global company verdicts or unsourced damage estimates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "entity_id",
+    "claim_type",
+    "source",
+    "reporting_period",
+    "status",
+    "description",
+    "observed_or_modeled",
+    "evidence_grade",
+    "last_reviewed"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{4,79}$"
+    },
+    "entity_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "facility_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "parent_entity_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "jurisdiction": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "ISO 3166-1 alpha-2; null if genuinely non-territorial."
+    },
+    "claim_type": {
+      "enum": [
+        "emission",
+        "release",
+        "exposure",
+        "health_impact",
+        "ecological_impact",
+        "enforcement_action",
+        "legal_finding",
+        "scenario",
+        "ownership",
+        "other"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20
+    },
+    "status": {
+      "enum": [
+        "lead",
+        "corroborated",
+        "reviewed",
+        "disputed",
+        "corrected",
+        "withdrawn"
+      ]
+    },
+    "observed_or_modeled": {
+      "enum": [
+        "measurement",
+        "reported",
+        "modeled",
+        "derived",
+        "allegation",
+        "legal_finding"
+      ]
+    },
+    "chemical_identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "cas": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "media": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "air",
+          "water",
+          "soil",
+          "biota",
+          "product",
+          "cross_media",
+          "not_applicable"
+        ]
+      }
+    },
+    "receptors": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "air",
+          "water",
+          "soil",
+          "plants",
+          "animals",
+          "humans"
+        ]
+      }
+    },
+    "endpoint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reporting_period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "measure": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "value",
+        "unit"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "lower_bound": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "upper_bound": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "confidence_level": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "system_boundary": {
+          "type": "string"
+        },
+        "counterfactual": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "url",
+        "title",
+        "publisher",
+        "published_at",
+        "retrieved_at"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "snapshot_hash_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "license": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "table_or_page": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "evidence_grade": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rebuttal_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "reviewers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_reviewed": {
+      "type": "string",
+      "format": "date"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "supersedes_record_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
