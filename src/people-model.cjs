@@ -4,6 +4,7 @@
  * Roles are investigation slots, not wrongdoing ranks or defendants.
  * Pay is SEC-reported compensation, not profit from pollution.
  */
+const {privateFieldPaths}=require("./index-kernel.cjs");
 function slug(x){return String(x).normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function compilePeople({companies,countries,roles,officers,asOf="2026-11-07"}){
  if(!Array.isArray(companies)||!Array.isArray(countries)||!Array.isArray(roles)||!Array.isArray(officers))throw Error("Expected arrays");
@@ -15,6 +16,10 @@ function compilePeople({companies,countries,roles,officers,asOf="2026-11-07"}){
  const slotOwners=new Set();
  for(const p of officers){
   if(!p.name||!p.role||!keys.has(p.company_id)||!roles.some(r=>r.key===p.research_role_key))throw Error("Officer identity, role or company is not validated: "+p.id);
+  const privateFields=privateFieldPaths(p);
+  if(privateFields.length)throw Error("Personal contact/medical data is prohibited: "+privateFields.join(", "));
+  for(const [key,value] of [["role_start",p.role_start],["role_end",p.role_end]])if(value!==null&&value!==undefined&&!/^\d{4}-\d{2}-\d{2}$/.test(value))throw Error("Invalid "+key+" date for "+p.id);
+  if(p.role_start&&p.role_end&&p.role_end<p.role_start)throw Error("End of tenure predates start for "+p.id);
   if(officerIds.has(p.id))throw Error("Duplicate individual person: "+p.id);
   officerIds.add(p.id);
   const key=p.company_id+"::"+p.research_role_key;
