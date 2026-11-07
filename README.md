@@ -12,6 +12,7 @@
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
 - [Case engine](docs/legal.html): ten-country preliminary legal-route map and a counsel-gated, privacy-protecting workflow.
 - [Documented case studies](docs/case-studies.html): Japan's Minamata disease, BP Deepwater Horizon, Vale Brumadinho and 3M's PFAS drinking-water settlement, with official sources and distinctions between court findings, settlements and claims.
+- [Damages & Payments Ledger](docs/damages.html): **seven sourced monetary outcomes** covering 3M, DuPont/Chemours, Volkswagen, Vale and BP, separating actual documented cash paid from scheduled or capped settlements, with same-currency 2025 purchasing-power comparisons. [Machine-readable records](docs/damages-data.json).
 - [Evidence record schema](schema/evidence-record.schema.json): source metadata, legal-entity and date boundaries, measurement and confidence fields.
 
 **Preview locally:** run 'python3 -m http.server 8000 --directory docs' then open http://localhost:8000. **Verify:** run 'node scripts/verify.cjs'. No npm dependencies.
@@ -51,6 +52,12 @@ The ten largest sovereign-country **2025 territorial GHG emitters** in EDGAR 202
 
 **50 company records total.** Navigation associates a company with its home country, not the location of its emissions. Corporate and national emissions **use different accounting boundaries** and cannot be added as equivalent totals. Unscored countries and missing historical data are **not** zero harm.
 
+## Interpreting monetary outcomes
+
+The legal-payment ledger is **not** an environmental-harm or criminality ranking. It records the recipient, case and kind of remedy, nominal settlement/judgment, disposition year, the portion the documentary sources actually establish as paid, source date and known overlaps. A committed settlement is **not** labelled 'paid'; a missing paid-to-date total is **unknown**, not zero. Joint payments such as the 2017 DuPont/Chemours C8 settlement are entered **once**, not for each company; overlapping Vale and Volkswagen case components must never be summed.
+
+For USD, historical amounts are compared in **2025 U.S. dollars** using the BLS CPI-U annual average, 2025 / disposition-year index. BLS's 2025 annual average omits October 2025. For BRL, a **2025 reais** comparator uses the IBGE IPCA year-end factors after the base year, in the same currency; it is a standardization convention, not a judicially indexed payment or present value. Multi-year cash payments have **no single valid inflation year** and are not rebased without a disbursement schedule. Currency values are never silently converted or added. Sources and numbers reside in `docs/damages-data.json` and are checked by `scripts/damages.test.cjs`.
+
 ## The proposed Poison Index
 
 - **H — Historical:** scientifically attributable past burden by year, pollutant, pathway and endpoint, accounting for persistent and delayed effects.
@@ -83,7 +90,7 @@ No external package manager or network access is needed for the checks. Requires
 
 1. Run 'node scripts/build-foundation.cjs' to regenerate the site JSON and JS from the source registry.
 2. Run 'node scripts/build-foundation.cjs --check' to confirm those generated files are up to date.
-3. Run 'node scripts/verify.cjs' and 'node --test scripts/foundation.test.cjs' before contributing.
+3. Run 'node scripts/verify.cjs', 'node --test scripts/foundation.test.cjs' and 'node --test scripts/damages.test.cjs' before contributing.
 4. To evaluate a public evidence batch (JSON array or JSONL), run 'node scripts/ingest-evidence.cjs --input /path/to/public-records.jsonl'. This defaults to dry-run validation.
 5. To place validated public records in a **non-published review queue**, run 'node scripts/ingest-evidence.cjs --input /path/to/public-records.jsonl --write --batch public-2026-11'. The file is staged under data/evidence/staging/, never automatically published and never sent to a court.
 
