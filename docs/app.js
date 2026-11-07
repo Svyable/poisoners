@@ -10,7 +10,7 @@
   const forecast = (c) => {
     const r = state.rate / 100;
     let total = 0;
-    for (let t=1;t<=10;t++) total += c.annual * Math.pow(1+r,t);
+    for (let t=3;t<=12;t++) total += c.annual * Math.pow(1+r,t);
     return total;
   };
   const getMetric = (c) => state.period === "annual" ? c.annual : state.period === "historic" ? c.historic : forecast(c);
@@ -35,10 +35,10 @@
       const desc = {
         annual:"Published attributed 2024 production-linked emissions, million tonnes of CO₂-equivalent (MtCO₂e). Includes use of sold products and some operational sources.",
         historic:"Published cumulative production-linked emissions through 2024 (MtCO₂e) where available. A dash means not transcribed from the cited historical table — not zero emissions.",
-        future:"Illustrative 2025–2034 emissions under your selected constant annual change rate (MtCO₂e). This is a mathematical scenario, not a forecast of damage."
+        future:"Illustrative 2027–2036 emissions under your selected constant annual change rate (MtCO₂e). This is a mathematical scenario, not a forecast of damage."
       };
       $("metricNote").textContent = desc[state.period];
-      $("metricColumn").textContent = state.period==="annual" ? "2024 ATTRIBUTED EMISSIONS" : state.period==="historic" ? "HISTORICAL CUMULATIVE" : "2025–2034 SCENARIO";
+      $("metricColumn").textContent = state.period==="annual" ? "2024 ATTRIBUTED EMISSIONS" : state.period==="historic" ? "HISTORICAL CUMULATIVE" : "2027–2036 SCENARIO";
       renderLedger();
     }));
     $("rateSlider").addEventListener("input",(e) => {
