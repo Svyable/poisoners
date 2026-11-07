@@ -162,3 +162,7 @@ Search is a static, browser-local navigation aid. The reviewed route entries liv
 ## Site accessibility and public discovery
 
 GitHub Pages includes a source-aware custom `docs/404.html` page and a `docs/sitemap.xml` of 12 research pages. `node scripts/check-public-site.cjs` verifies page landmarks, skip links, metadata, search dialog integration, route anchors and a one-to-one match between public climate company profiles and search entries. CI runs this check alongside the deterministic index audit. All checks are offline.
+
+## Consistent research page shell
+
+The People Atlas and its evidence-methodology page now use the same site header, mobile navigation, breadcrumb trail, research-limit disclosure and multi-column footer as the rest of the website. Existing People Atlas DOM IDs and browser research functions are preserved. Header menu behaviors continue to work in their original applications, with shared Escape and outside-click dismissal. The offline site check enforces consistent landmarks across all public pages.

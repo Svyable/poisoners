@@ -25,6 +25,11 @@ for(const [name,html] of pages){
  assert(html.includes('src="site-search.js"'),name+": search script missing");
  assert(html.includes('href="site.css"'),name+": shared design stylesheet missing");
  assert(html.includes('href="glossary.html"'),name+": glossary link missing");
+ assert(html.includes('class="site-header polished-header"'),name+": inconsistent shared header");
+ assert(html.includes('class="site-footer"'),name+": inconsistent site-wide footer");
+ assert(html.includes('class="site-disclosure"'),name+": evidence caveat missing");
+ assert(html.includes('class="mobile-nav polished-mobile-nav"'),name+": mobile navigation missing");
+ assert(html.includes('aria-label="Primary navigation"'),name+": primary navigation needs an accessible name");
  if(name==="404.html"){
   assert(html.includes('name="robots" content="noindex"'),"404 must not be indexed");
  }else{
