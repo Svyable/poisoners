@@ -34,7 +34,8 @@ jobs:
         run: |
           node scripts/import-tri-basic.cjs \
             --input /tmp/poisoners-epa/2024_TX.csv \
-            --retrieved 2026-11-07 \
+            --retrieved "$(date -u +%F)" \
+            --expected-sha256 8863d7ae9639e4773fdc0f4fe5702e0a7e50307068fbbcbc4f5e80bb180bb30d \
             --output docs/tri-facility-releases.json
           node -e "const x=require('./docs/tri-facility-releases.json');if(x.records.length<1||x.issues.length)throw Error('No validated approved facility records or unresolved provenance issues');console.log('Facility records:',x.records.length,'SHA:',x.source.source_file_sha256)"
       - name: Validate generated published records
