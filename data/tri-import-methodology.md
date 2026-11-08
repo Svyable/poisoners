@@ -1,6 +1,8 @@
 # POISONERS · EPA TRI chemical-release ingestion (reviewed pilot)
 
-**Status, November 7, 2026:** Facility-identity research is under way. One 2024 ExxonMobil facility identity is approved in `data/tri-facility-links.json`; two additional TRI identifiers are **unapproved research candidates**. The published `docs/tri-facility-releases.json` intentionally has **zero imported records**, because a reproducible official 2024 source CSV has not yet been downloaded and validated. This is **not** evidence that any approved facility released zero chemicals.
+**Status, November 7, 2026 (America/Chicago):** The original official 2024 Texas EPA TRI Basic CSV was downloaded and processed in [read-only Actions run 42448239268](https://github.com/Svyable/poisoners/actions/runs/42448239268), size **7,474,672 bytes**, SHA-256 **`8863d7ae9639e4773fdc0f4fe5702e0a7e50307068fbbcbc4f5e80bb180bb30d`**. The reviewed 2024 Baytown Chemical Plant ID `77522XXNCH5000B` matched **41 Form R chemical submissions**, source parent and TX/Baytown/5000 Bayway physical location. The 2024 Texas file contained **9,536 records** overall; 41 candidate-site rows remained deliberately excluded. All source-normalization and owner/location checks passed without a quarantine.
+
+The audited 41 rows are now preserved in [the public readout](../docs/tri-facility-releases.json), alongside original filing control IDs, exact TRI chemicals and CAS/category codes, air fugitive/stack mass and surface-water discharges. **This is one part of an ExxonMobil chemical plant, not an ExxonMobil company-wide inventory.** The original 2024 Form R reporter values are estimates, not human exposure or guilt findings. EPA Basic can zero-fill NA or unreported quantities.
 
 ## 1. Official primary source and reporting limits
 
@@ -43,7 +45,7 @@ The EPA [TRI Basic Data Files](https://www.epa.gov/toxics-release-inventory-tri-
 https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv
 ```
 
-The corresponding national 2024 endpoint is `https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_US/csv`. These are **official download origin URLs**, not proof that a source file was ingested. In this development session the isolated research container could not fetch the binary CSV; no matched mass may be claimed from that failure. We use [a read-only GitHub Actions source-acquisition check](../.github/workflows/tri-source-research.yml) to download the **unchanged** 2024 TX file on a CI runner, check header/size, calculate SHA-256, parse Form R and upload a 14-day research artifact. **The check does not commit a source result to the public website**. The original output and any site/parent mismatch must be assessed before the approved rows can be published.
+The corresponding national 2024 endpoint is `https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_US/csv`. These are **official download origin URLs**, not proof that a source file was ingested. The isolated model container could not fetch the binary CSV, but GitHub's read-only runner fetched and verified it as described in the status section. We use [a read-only GitHub Actions source-acquisition check](../.github/workflows/tri-source-research.yml) to download the **unchanged** 2024 TX file on a CI runner, check header/size, calculate SHA-256, parse Form R and upload a 14-day research artifact. **The check itself does not commit to the public website.** A separate, independently checked code change published the matched source rows with their SHA and Form R IDs. The original output and any site/parent mismatch must be assessed before the approved rows can be published.
 
 Identity crosswalk review now also requires **STATE = TX, CITY = BAYTOWN and the 5000 Bayway street signature** in the source CSV in addition to the reviewed TRIFID and 2024 reported parent. If the location conflicts, the row is quarantined; it does not silently inherit the parent. Unknown form types fail; Form A rows are excluded. The CSV's own `DOC_CTRL_NUM`, `TRI CHEMICAL /COMPOUND ID` and `CAS NUMBER` must be preserved. The official EPA [Basic field guide](https://www.epa.gov/system/files/documents/2025-09/basic_data_files_documentation_august_2024.pdf) defines the TRI ID as a geographic location identifier *not updated for ownership changes* (p. 5), and documents zero-filled blank/NA fields and Form A records (p. 4).
 
@@ -67,13 +69,13 @@ node scripts/import-tri-basic.cjs --input /path/to/epa-2024-tx.csv \
   --output docs/tri-facility-releases.json
 ```
 
-A **source-acquisition CI artifact is not auto-publication**. We can inspect the sampled records and full provenance, then commit a reviewed JSON snapshot in a separate CI-gated change.
+A **source-acquisition CI artifact is not auto-publication**. The 41-row 2024 source snapshot was reviewed and published through a separate code commit with deterministic tests; all other Texas sites and candidate Baytown IDs remain unjoined.
 
 ## 4. Review generated evidence before publishing
 
 The importer runs locally on Node.js 22 with no npm dependencies. Follow the source acquisition commands in §3 above; then run `node --test scripts/tri-import.test.cjs` and `node scripts/verify.cjs`. A source-input checksum and URL identify what was processed but do not certify its legal ownership, analytical accuracy, or completeness.
 
-Reconcile the emitted `coverage`, `issues`, SHA-256, physical address, legal reporting-year parent, and Form R document-control IDs. A disagreement must be resolved using original agency and corporate sources, never fuzzy string matching. A matched facility is only a subset of a company; an empty output remains unknown, not zero.
+Reconcile the emitted `coverage`, `issues`, SHA-256, physical address, legal reporting-year parent, and Form R document-control IDs. A disagreement must be resolved using original agency and corporate sources, never fuzzy string matching. A matched facility is only a subset of a company; any unreported chemical, omitted environmental medium or other site remains unknown, not zero.
 
 ## 5. Required expansion gates
 
