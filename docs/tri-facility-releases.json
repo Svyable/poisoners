@@ -6,11 +6,13 @@
   "source": {
     "name": "US EPA TRI Basic Data Files",
     "landing_url": "https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present",
-    "documentation_url": "https://www.epa.gov/system/files/documents/2024-08/basic_data_files_documentation_august_2024.pdf",
+    "documentation_url": "https://www.epa.gov/system/files/documents/2025-09/basic_data_files_documentation_august_2024.pdf",
     "processing_cutoff": "2025-11-05",
     "source_file_sha256": null,
     "source_file_name": null,
-    "source_retrieved_on": null
+    "source_retrieved_on": null,
+    "source_origin_url": null,
+    "verification_scope": "No source CSV ingested. Official source endpoint identified but not retrieved; zero imported records do not mean zero releases."
   },
   "coverage": {
     "number_of_approved_facility_links": 1,
@@ -22,6 +24,7 @@
   "disclaimers": [
     "No mass is displayed as company-specific without an original EPA facility/chemical/year Form R record.",
     "An empty file means not imported. Form A zeros do not represent measured zero releases.",
-    "EPA TRI quantity is a facility-reported estimate, not a person-level exposure or injury assessment."
+    "EPA TRI quantity is a facility-reported estimate, not a person-level exposure or injury assessment.",
+    "A source-file capture workflow may generate a review-only GitHub Actions artifact; it does not publish rows without separate source and company ownership checks."
   ]
 }
