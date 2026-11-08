@@ -98,3 +98,21 @@
 .ch-operator .op-no-data{color:#9bac9c;font:400 10px/1.4 var(--mono)}
 .ch-operator .ch-source-note{margin-top:24px}
 @media(max-width:760px){.ch-operator-tools,.ch-operator-highlight{grid-template-columns:1fr}.ch-operator{padding-top:53px}}
+
+/* Evidence bridge: real mass releases -> concentration standards, NEVER direct conversion. */
+.ch-exposure{margin-top:70px;padding:70px 0 40px;border-top:1px solid #52694e}
+.ch-exposure-key{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:27px 0 26px}
+.ch-exposure-key article{border:1px solid #496248;background:#13241c;padding:22px}
+.ch-exposure-key span{display:block;color:var(--acid);font:600 10px/1.6 var(--mono);letter-spacing:.07em}
+.ch-exposure-key h3{color:#f1f4e3;font-size:22px;letter-spacing:-.045em;margin:10px 0}
+.ch-exposure-key p{font-size:12px;line-height:1.8;color:#b5c5b4;margin:0}
+.ch-exposure-controls{grid-template-columns:minmax(230px,2fr) minmax(180px,1fr)}
+.ch-exposure .ch-table th:nth-child(3),.ch-exposure .ch-table td:nth-child(3){min-width:175px}
+.ch-exposure .ch-table td strong{color:#e2f1c7}
+.ch-exposure .ch-table .ch-tag{white-space:nowrap}
+.ch-operator-totals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0 14px}
+.ch-operator-totals>div{background:#122019;border:1px solid #425940;padding:17px}
+.ch-operator-totals span{color:#a3bca6;display:block;font:500 10px/1.5 var(--mono)}
+.ch-operator-totals strong{display:block;color:#eef2d7;letter-spacing:-.055em;font-size:clamp(17px,2vw,25px);margin-top:10px}
+@media(max-width:800px){.ch-operator-totals{grid-template-columns:1fr 1fr}.ch-exposure-key{grid-template-columns:1fr}}
+@media(max-width:560px){.ch-exposure-controls,.ch-operator-totals{grid-template-columns:1fr}.ch-exposure{padding-top:50px}}

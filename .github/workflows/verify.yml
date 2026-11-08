@@ -39,6 +39,10 @@ jobs:
         run: |
           node --check docs/operator-benchmark.js
           node --test scripts/operator-benchmark.test.cjs
+      - name: Validate EPA chemical concentration standards and no cross-media safety scoring
+        run: |
+          node --check docs/exposure-benchmarks.js
+          node --test scripts/exposure-benchmarks.test.cjs
       - name: Validate people provenance and individual-liability safeguards
         run: node --test scripts/people.test.cjs
       - name: Check research explorer JavaScript syntax
