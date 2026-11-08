@@ -25,7 +25,7 @@ function exportRows(rows,data){
  "document_control_number","chemical_reported","cas_number","tri_chemical_id","tri_classification","unit",
  "onsite_air_fugitive","onsite_air_stack","onsite_air_total","onsite_water"];
  const header=[...fields,"source_file_sha256","official_source_url"];
- const lines=[header,...rows.map(r=>[...fields.map(k=>r[k]),data.source.source_file_sha256,data.source.download_url||siteLink])];
+ const lines=[header,...rows.map(r=>[...fields.map(k=>r[k]),data.source.source_file_sha256,data.source.source_origin_url||siteLink])];
  const content="\ufeff"+lines.map(x=>x.map(csvCell).join(",")).join("\r\n")+"\r\n";
  const blob=new Blob([content],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob);
  const a=document.createElement("a");a.href=url;a.download="poisoners-tri-2024-reviewed-facility-filtered.csv";
