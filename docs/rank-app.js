@@ -12,7 +12,7 @@
  const fmt=(value,field,row)=>{
   if(value===null||value===undefined||value==="")return "UNKNOWN";
   if(field.type!=="number")return String(value);
-  const n=Number(value),digits=["annual","cumulative","territorial","paid","obligationMin","obligationMax","adjustedMin","adjustedMax","pay","mass"].includes(field.id)?2:0;
+  const n=Number(value),digits=["annual","cumulative","territorial","paid","paidAdjusted","obligationMin","obligationMax","adjustedMin","adjustedMax","pay","mass"].includes(field.id)?2:0;
   const cur=row.currency||"USD";
   const pre=field.unit==="USD"||field.unit==="original currency"?(cur==="BRL"?"R$":"$"):"";
   return pre+n.toLocaleString("en-US",{maximumFractionDigits:digits})+
