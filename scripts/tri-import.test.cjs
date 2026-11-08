@@ -26,7 +26,8 @@ test("identity approvals and unapproved lookups are explicit; empty release stat
   assert.match(output.coverage.description,/not a zero-emissions/);
  }else{
   assert.equal(output.reporting_year,2024);
-  assert.ok(output.records.length>0);
+  assert.equal(output.records.length,41,"Pinned EPA 2024 Texas source should have 41 approved site Form R observations");
+  assert.equal(output.source.source_file_sha256,"8863d7ae9639e4773fdc0f4fe5702e0a7e50307068fbbcbc4f5e80bb180bb30d");
   assert.equal(output.records.length,output.coverage.number_of_imported_form_r_rows);
   assert.match(output.source.source_file_sha256,/^[a-f0-9]{64}$/);
   assert.equal(output.coverage.quarantined_parent_mismatch_rows,0);
@@ -137,7 +138,9 @@ test("site displays the non-imported source status, and browser code cannot fabr
  assert.ok(html.includes('id="facilityFileStatus"'));
  assert.ok(html.includes('id="facilityRows"'));
  assert.ok(html.includes('src="tri-facility-ui.js"'));
- assert.ok(html.includes("No 2024 chemical mass is imported yet"));
+ assert.ok(html.includes("latest audited 2024 EPA Form R entries"));
+ for(const id of ["facilityUnit","facilityOrder","facilityPositive","facilityExport","facilityGuard"])
+   assert.ok(html.includes('id="'+id+'"'),"Visible facility explorer control "+id);
  assert.ok(html.includes("~300"),"EPA coal ash facility count");
  assert.ok(html.includes("~775"),"EPA coal ash units count");
  assert.ok(html.includes('id="coal-pathways"'));
@@ -146,6 +149,10 @@ test("site displays the non-imported source status, and browser code cannot fabr
  const js=fs.readFileSync(path.join(root,"docs/tri-facility-ui.js"),"utf8");
  assert.doesNotThrow(()=>new vm.Script(js));
  assert.ok(js.includes("NOT zero emissions"));
+ assert.ok(js.includes('targetUnit==="ALL"'));
+ assert.ok(js.includes("COMPARABILITY GATE"));
+ assert.ok(js.includes("source_file_sha256"));
+ assert.ok(js.includes("data.source.source_file_sha256"));
  assert.ok(!/toxicityScore|deathScore|guiltScore|companyRank/.test(js));
 });
 
