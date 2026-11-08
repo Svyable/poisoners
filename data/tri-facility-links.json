@@ -6,9 +6,13 @@
   "authoritative_data_source": {
     "name": "U.S. EPA TRI Basic Data Files, reporting year 2024",
     "landing_page": "https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present",
-    "field_documentation": "https://www.epa.gov/system/files/documents/2024-08/basic_data_files_documentation_august_2024.pdf",
+    "field_documentation": "https://www.epa.gov/system/files/documents/2025-09/basic_data_files_documentation_august_2024.pdf",
     "processing_cutoff": "2025-11-05",
-    "retrieval_policy": "Obtain official 2024 national or state EPA Basic CSV and record a SHA-256. Do not infer a current year from page crawl dates."
+    "retrieval_policy": "Obtain official 2024 national or state EPA Basic CSV and record a SHA-256. Do not infer a current year from page crawl dates.",
+    "direct_official_csv_urls": {
+      "texas_2024": "https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv",
+      "national_2024": "https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_US/csv"
+    }
   },
   "safeguards": [
     "TRIFID denotes a physical TRI reporting location, not corporate ownership or a corporate unit.",
@@ -16,7 +20,9 @@
     "Status candidate is never used for company attribution. The importer accepts only reviewed approved links with a matching reporting year.",
     "TRI Basic Form A displays zero-filled release fields; exclude Form A from quantified Form R releases.",
     "TRI chemical categories, element/compound combinations and dioxin grams cannot be silently consolidated.",
-    "Do not interpret an empty import or unreported substance as zero emissions."
+    "Do not interpret an empty import or unreported substance as zero emissions.",
+    "Official EPA TRI Basic CSV includes state, city and street; a reporting-year parent match is insufficient if the physical location fields disagree.",
+    "Published import files require a verified SHA-256 and exact official EPA export origin URL; these checks establish file integrity and claimed source path but not independent certification of ownership or absence of error."
   ],
   "facilities": [
     {
@@ -31,7 +37,7 @@
         2024
       ],
       "review_status": "approved_facility_identity_2024",
-      "approval_scope": "Facility identity and operator/parent link for calendar 2024 only; releases require the matching EPA TRI Basic Form R CSV. Not a company-wide emissions endorsement.",
+      "approval_scope": "Facility identity and operator/parent link for calendar 2024 only; releases require the matching EPA TRI Basic Form R CSV. Not a company-wide emissions endorsement. EPA CSV rows must also match the reviewed TX/Baytown/5000 Bayway location fields before publication.",
       "expected_reported_parent_aliases": [
         "EXXON MOBIL CORP",
         "EXXON MOBIL CORPORATION",
@@ -54,7 +60,13 @@
           "detail": "ExxonMobil 2024 Baytown Complex fact sheet states Exxon Mobil Corporation 100% ownership; applies to complex, and plant is separately identified in TCEQ record."
         }
       ],
-      "caveat": "Part of a broader Baytown complex with additional TRI identifiers. Never sum those parts without verifying boundary overlap and distinct Form R submissions."
+      "caveat": "Part of a broader Baytown complex with additional TRI identifiers. Never sum those parts without verifying boundary overlap and distinct Form R submissions.",
+      "expected_location": {
+        "state": "TX",
+        "city": "BAYTOWN",
+        "street_number": "5000",
+        "street_name_token": "BAYWAY"
+      }
     },
     {
       "trifid": "94802CHVRN841ST",
