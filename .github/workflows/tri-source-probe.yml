@@ -36,6 +36,7 @@ jobs:
             --input /tmp/poisoners-epa/2024_TX.csv \
             --retrieved "$(date -u +%F)" \
             --expected-sha256 8863d7ae9639e4773fdc0f4fe5702e0a7e50307068fbbcbc4f5e80bb180bb30d \
+            --source-url 'https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv' \
             --output docs/tri-facility-releases.json
           node -e "const x=require('./docs/tri-facility-releases.json');if(x.records.length<1||x.issues.length)throw Error('No validated approved facility records or unresolved provenance issues');console.log('Facility records:',x.records.length,'SHA:',x.source.source_file_sha256)"
       - name: Validate source-backed records and browser explorer
