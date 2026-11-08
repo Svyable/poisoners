@@ -7,7 +7,7 @@ const seedContext={window:{}};vm.runInNewContext(read("docs/data.js"),seedContex
 const snapshots={dossiers:json("docs/dossier-register.json"),people:json("docs/people-register.json"),payments:json("docs/damages-data.json"),foundation:json("docs/foundation.json"),chemistry:json("docs/chemical-hazards.json"),seed:seedContext.window.POISON_DATA};
 const rows=model.makeRows(snapshots);
 test("all eight source-backed cohorts appear, with expected actual coverage",()=>{
- const counts={companies:50,countries:10,people:34,roles:500,payments:42,metrics:142,chemicals:14,observations:5};
+ const counts={companies:50,countries:10,people:34,roles:500,payments:46,metrics:142,chemicals:14,observations:5};
  assert.deepEqual(Object.fromEntries(Object.entries(rows).map(([k,r])=>[k,r.length])),counts);
  assert.equal(Object.keys(model.datasets).length,8);
  for(const [key,set] of Object.entries(model.datasets)){
@@ -93,6 +93,19 @@ test("future 2026 PFAS obligation is not repriced to 2025 or counted as paid",()
  const bp=rows.payments.find(r=>r.id==="bp-deepwater-2016");
  assert.equal(bp.paid,2258000000);
  assert.equal(bp.paidAdjusted,null,"Two selected quarters across two cash years must not be repriced as if cumulative");
+});
+test("new paid 2023-25 PFAS funds and 2026 settlement remain cash-year bounded",()=>{
+ const get=id=>rows.payments.find(r=>r.id===id);
+ const near=(x,y)=>assert.ok(Math.abs(x-y)<200,"expected "+x+" near "+y);
+ near(get("dupont-chemours-corteva-pws-2023").paidAdjusted,1252051037);
+ near(get("tyco-water-pfas-2024").paidAdjusted,769734514);
+ near(get("basf-water-pfas-2024").paidAdjusted,316605251);
+ assert.equal(get("norfolk-southern-east-palestine-class-2024").paid,600000000);
+ assert.equal(get("norfolk-southern-east-palestine-class-2024").paidAdjusted,null,"No 2026 CPI in 2025 reference");
+ assert.equal(get("3m-pws-pfas-2024").paid,34800000,"One plaintiff's net receipt is a minimum subset");
+ assert.equal(get("3m-pws-pfas-2024").paidAdjusted,34800000);
+ const mixed=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"ALL"}});
+ assert.match(mixed.warning,/Select USD or BRL/);
 });
 test("source group cohort gate blocks mixing different chemical years, units and populations",()=>{
  const blocked=model.rank("observations",rows.observations,{metric:"mass",facets:{cohort:"ALL"}});
@@ -222,7 +235,7 @@ test("advanced monetary and chemical numeric rules fail closed across incompatib
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.match(money.warning,/Select one currency/);
  assert.equal(money.appliedMetric,false);
- assert.equal(money.total,42,"Do not silently compare USD and BRL thresholds");
+ assert.equal(money.total,46,"Do not silently compare USD and BRL thresholds");
  const valid=model.rank("payments",rows.payments,{metric:"entity",facets:{currency:"USD"},
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.equal(valid.warning,"");
