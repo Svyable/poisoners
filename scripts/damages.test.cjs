@@ -8,19 +8,19 @@ const root=path.resolve(__dirname,"..");
 const d=JSON.parse(fs.readFileSync(path.join(root,"docs/damages-data.json"),"utf8"));
 const html=fs.readFileSync(path.join(root,"docs/damages.html"),"utf8");
 function factor(currency,year){
- if(currency==="USD")return d.inflation.USD.index[d.reference_year]/d.inflation.USD.index[year];
+ if(["USD","CAD","INR"].includes(currency)){const x=d.inflation[currency].index;return x[d.reference_year]/x[year];}
  if(currency==="BRL"){let v=1;for(let y=year+1;y<=d.reference_year;y++)v*=1+d.inflation.BRL.annual_rates_percent[y]/100;return v}
  throw Error("Unknown currency");
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.equal(d.cases.length,24);
+ assert.equal(d.cases.length,33);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
   assert.ok(Array.isArray(c.entities)&&c.entities.length&&c.entities.every(Boolean));
   assert.ok(c.jurisdiction&&c.matter&&c.hazard&&c.outcome_type&&c.disposition&&c.notes);
-  assert.ok(["USD","BRL"].includes(c.obligation.currency));
+  assert.ok(["USD","BRL","CAD","INR"].includes(c.obligation.currency));
   assert.ok(c.obligation.year>=1989&&c.obligation.year<=d.reference_year);
   assert.ok(Number.isFinite(c.obligation.min)&&c.obligation.min>=0);
   assert.ok(Number.isFinite(c.obligation.max)&&c.obligation.max>=c.obligation.min);
@@ -44,7 +44,7 @@ test("legal outcomes are documented events rather than an aggregate harm index",
     assert.ok(entry.date>previous,"Cash disbursements must be chronologically ordered");
     assert.ok(entry.date<=c.payment.as_of,"A cash installment cannot occur after last confirmation");
     assert.ok(Number.isFinite(entry.amount)&&entry.amount>0);
-    assert.ok(d.inflation.USD.index[entry.date.slice(0,4)],"Cash-year CPI must be sourced for every installment");
+    assert.ok(d.inflation[c.obligation.currency]?.index?.[entry.date.slice(0,4)],"Cash-year CPI must be sourced for every installment");
     previous=entry.date;total+=entry.amount;
    }
    assert.ok(Math.abs(total-c.payment.amount)<0.01,"Reconciled installments must total paid principal");
@@ -114,7 +114,7 @@ test("cohort joins are explicit and historical defendants stay distinguishable",
    links.add(n);
   }
  }
- assert.deepEqual([...links].sort(),["Chevron","ConocoPhillips","ExxonMobil","Occidental Petroleum","Suncor Energy"].sort());
+ assert.deepEqual([...links].sort(),["Canadian Natural Resources","Cenovus Energy","Chevron","ConocoPhillips","ExxonMobil","Occidental Petroleum","ONGC","Suncor Energy"].sort());
  const ex=d.cases.find(c=>c.id==="exxon-valdez-civil-1991");
  assert.equal(ex.payment.status,"confirmed_paid");assert.equal(ex.payment.amount,900000000);
  assert.equal(ex.payment.value_year,null);assert.equal(ex.payment.as_of,"2001-09");
@@ -232,4 +232,49 @@ test("independently verified Exxon, Suncor and Ohio joint amounts retain payment
  assert.ok(html.includes("PARTY RESTORATION OBLIGATIONS"));
  const dossier=fs.readFileSync(path.join(root,"docs/dossier-lab.js"),"utf8");
  assert.match(dossier,/INDIVIDUAL PAID TOTAL NOT VERIFIED/);
+});
+
+test("deep research tranche arithmetic and four distinct currency CPI systems",()=>{
+ const get=id=>d.cases.find(c=>c.id===id);
+ const ongc=get("ongc-andhra-pradesh-compensation-2023");
+ assert.equal(ongc.obligation.currency,"INR");
+ assert.equal(ongc.payment.status,"confirmed_paid");
+ assert.equal(ongc.payment.amount,227662500);
+ assert.deepEqual(ongc.payment.installments.map(t=>t.amount),[75210000,152452500]);
+ const real=ongc.payment.installments.reduce((total,t)=>total+t.amount*factor("INR",Number(t.date.slice(0,4))),0);
+ assert.ok(Math.abs(real-248745724)<10,"Unrounded 2025 INR paid-year equivalent");
+ assert.equal(ongc.payment.value_year,null,"There was no single cash-transfer year");
+ assert.equal(d.inflation.INR.index["2022"],172.150);
+ assert.equal(d.inflation.INR.index["2023"],181.883);
+ assert.equal(d.inflation.INR.index["2025"],195.083);
+ assert.equal(d.inflation.CAD.index["2025"],164.2);
+ assert.ok(Math.abs(get("cnrl-sneddon-creek-2015").obligation.max*factor("CAD",2015)-162125)<30);
+ assert.ok(Math.abs(get("husky-saskatchewan-river-2019").obligation.max*factor("CAD",2019)-3259853)<30);
+ assert.equal(d.inflation.USD.index["2011"],224.939);
+ assert.equal(d.inflation.USD.index["2012"],229.594);
+ assert.equal(d.inflation.USD.index["2008"],215.303);
+});
+test("actual paid and court-ordered sums remain separate, including Husky predecessor mapping",()=>{
+ const get=id=>d.cases.find(c=>c.id===id);
+ for(const id of ["exxonmobil-refinery-penalty-paid-2005","conocophillips-southern-ute-2011","conocophillips-kuparuk-2012"]){
+   const c=get(id);assert.equal(c.payment.status,"confirmed_paid");assert.ok(c.payment.amount>0);
+ }
+ assert.equal(get("exxonmobil-refinery-penalty-paid-2005").payment.amount,8700000);
+ assert.equal(get("conocophillips-southern-ute-2011").payment.amount,198000);
+ assert.equal(get("conocophillips-kuparuk-2012").payment.amount,45000);
+ assert.equal(get("conocophillips-kuparuk-2012").payment.value_year,2012);
+ for(const id of ["exxonmobil-refinery-stipulated-penalties-2008","cnrl-sneddon-creek-2015",
+ "husky-saskatchewan-river-2019","husky-westhazel-process-water-2022","husky-white-rose-offshore-2024"]){
+   const c=get(id);assert.equal(c.payment.status,"payment_total_unverified");assert.equal(c.payment.amount,null);
+ }
+ for(const c of d.cases.filter(c=>c.id.startsWith("husky-"))){
+  assert.deepEqual(c.indexed_entities,["Cenovus Energy"]);
+  assert.deepEqual(c.entities,["Husky Oil Operations Limited"]);
+  assert.match(c.notes,/Cenovus|2021/);
+ }
+ assert.equal(get("husky-white-rose-offshore-2024").obligation.max,2500000);
+ assert.match(get("husky-white-rose-offshore-2024").notes,/INCLUDES/);
+ assert.match(html,/Indian rupees \(INR\)/);
+ assert.match(html,/Canadian dollars \(CAD\)/);
+ assert.match(html,/paidCash2025/);
 });

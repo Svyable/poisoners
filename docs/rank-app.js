@@ -14,7 +14,7 @@
   if(field.type!=="number")return String(value);
   const n=Number(value),digits=["annual","cumulative","territorial","paid","paidAdjusted","obligationMin","obligationMax","adjustedMin","adjustedMax","pay","mass"].includes(field.id)?2:0;
   const cur=row.currency||"USD";
-  const pre=field.unit==="USD"||field.unit==="original currency"?(cur==="BRL"?"R$":"$"):"";
+  const pre=field.unit==="USD"||field.unit==="original currency"?(({USD:"$",BRL:"R$",CAD:"C$",INR:"₹"})[cur]||cur+" "):"";
   return pre+n.toLocaleString("en-US",{maximumFractionDigits:digits})+
    (["annual","cumulative","territorial"].includes(field.id)?" MtCO₂e":field.id==="mass"?" "+row.cohort.split(" · ").at(-1):"");
  };
