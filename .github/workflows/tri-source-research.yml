@@ -1,0 +1,77 @@
+name: Capture official 2024 Texas TRI source (research only)
+
+on:
+  pull_request:
+    paths:
+      - "scripts/import-tri-basic.cjs"
+      - "scripts/tri-import.test.cjs"
+      - "data/tri-facility-links.json"
+      - ".github/workflows/tri-source-research.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Retrieve unchanged official EPA 2024 TX Basic CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv"
+          echo "Downloading official source: $URL"
+          curl --fail --location --silent --show-error --retry 2 \
+            --connect-timeout 20 --max-time 240 --max-filesize 150000000 \
+            "$URL" --output "$RUNNER_TEMP/epa-tri-2024-tx.csv"
+          test -s "$RUNNER_TEMP/epa-tri-2024-tx.csv"
+          echo "Source size in bytes: $(wc -c < "$RUNNER_TEMP/epa-tri-2024-tx.csv")"
+          echo "Source SHA-256: $(sha256sum "$RUNNER_TEMP/epa-tri-2024-tx.csv" | cut -d' ' -f1)"
+          python3 - <<'PY'
+          import os,csv
+          p=os.path.join(os.environ["RUNNER_TEMP"],"epa-tri-2024-tx.csv")
+          with open(p,"r",encoding="utf-8-sig",errors="replace",newline="") as file:
+              head=next(csv.reader(file))
+          normalized=[x.upper().strip() for x in head]
+          if not any("YEAR" in x for x in normalized) or not any("TRIFID" in x for x in normalized):
+              raise SystemExit("Downloaded response is not a TRI Basic CSV header; do not publish")
+          print("Source field count:",len(head),"| first fields:",head[:5])
+          PY
+      - name: Deterministic EPA Form R facility import (artifact, NOT a production publish)
+        shell: bash
+        run: |
+          set -euo pipefail
+          RAW="$RUNNER_TEMP/epa-tri-2024-tx.csv"
+          SHA="$(sha256sum "$RAW" | cut -d' ' -f1)"
+          node scripts/import-tri-basic.cjs \
+            --input "$RAW" \
+            --retrieved 2026-11-07 \
+            --expected-sha256 "$SHA" \
+            --source-url "https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv" \
+            --output docs/tri-facility-releases.json
+          node - <<'NODE'
+          const f=require("./docs/tri-facility-releases.json");
+          console.log("SOURCE-BOUND FACILITY SUMMARY", JSON.stringify({
+            year:f.reporting_year, origin:f.source.source_origin_url, sha256:f.source.source_file_sha256,
+            status:f.source_status, coverage:f.coverage, issues:f.issues,
+            row_sample:f.records.slice(0,12).map(r=>({
+              trifid:r.trifid,facility:r.facility_name,chemical:r.chemical_reported,
+              id:r.tri_chemical_id||r.cas_number,unit:r.unit,
+              fugitive_air:r.onsite_air_fugitive,stack_air:r.onsite_air_stack,
+              water:r.onsite_water,document:r.document_control_number
+            }))
+          },null,2));
+          NODE
+      - name: Upload review-only parsed record and provenance
+        uses: actions/upload-artifact@v4
+        with:
+          name: epa-tri-2024-tx-research
+          path: docs/tri-facility-releases.json
+          if-no-files-found: error
+          retention-days: 14
