@@ -27,7 +27,9 @@ jobs:
             --output /tmp/poisoners-epa/2024_TX.csv
           test "$(wc -c </tmp/poisoners-epa/2024_TX.csv)" -gt 25000
           sha256sum /tmp/poisoners-epa/2024_TX.csv
-          head -c 480 /tmp/poisoners-epa/2024_TX.csv | tr '\r' '\n'
+          head -n 1 /tmp/poisoners-epa/2024_TX.csv | cut -c 1-15000
+          echo 'APPROVED FACILITY TRIFD ROW COUNT:'
+          grep -c '77522XXNCH5000B' /tmp/poisoners-epa/2024_TX.csv || true
       - name: Import approved source-backed facility Form R rows
         run: |
           node scripts/import-tri-basic.cjs \
