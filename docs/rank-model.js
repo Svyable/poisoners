@@ -135,7 +135,7 @@
      paid:asNumber(c.payment.amount),paidAdjusted:adjustedCashPaid(c.payment,cur,data.payments),year:yr,type:c.outcome_type,hazard:c.hazard,jurisdiction:c.jurisdiction,
      link:"damages.html?company="+encodeURIComponent(c.entities[0])+"#paymentList",
      source:c.sources[0]?.url||null,sourceLabel:c.sources[0]?.name||"Source not specified",
-     boundary:c.obligation.kind+"; "+c.disposition+"; payment: "+c.payment.status
+     boundary:c.obligation.kind+"; "+c.disposition+"; payment: "+c.payment.status+"; evidence boundary: "+c.payment.detail
     };
   });
   const metricRows=data.foundation.metrics.map(m=>({
