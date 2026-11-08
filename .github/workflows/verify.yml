@@ -33,6 +33,7 @@ jobs:
           node --check scripts/import-tri-basic.cjs
           node --check docs/tri-facility-ui.js
           node --test scripts/tri-import.test.cjs
+          node --test scripts/tri-primary-source.test.cjs
       - name: Verify source-bounded stack rankings and advanced multi-metric filters
         run: node --test scripts/rank.test.cjs
       - name: Check 2024 AEP original chemical values, media and non-ranking safeguards
