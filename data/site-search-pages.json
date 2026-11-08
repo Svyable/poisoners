@@ -64,6 +64,13 @@
   },
   {
     "type": "section",
+    "title": "EPA Exposure Benchmarks: Air NAAQS vs Drinking-Water Metals",
+    "href": "chemistry.html#exposure-benchmarks",
+    "description": "Eleven EPA reference standards: SO2 75 ppb 1-hour NAAQS, NO2 100 ppb 1-hour, PM2.5 9 µg/m³ annual; arsenic 10 µg/L, inorganic mercury 2 µg/L, cadmium 5 µg/L public-water MCLs. Concentration, not source release mass or toxicity rank.",
+    "keywords": "EPA environmental concentration legal standards air NAAQS SO2 sulfur dioxide NO2 nitrogen dioxide PM2.5 lead ambient arsenic inorganic mercury cadmium selenium chromium total barium thallium MCL public drinking water coal ash groundwater statistical design exposure"
+  },
+  {
+    "type": "section",
     "title": "AEP 2024 Coal Chemistry: Air, Water, Land and Off-site Disposal",
     "href": "chemistry.html#operator-disclosure",
     "description": "AEP System 2024 submitted TRI chemical table: 779,900 lb sulfuric acid aerosol in air; 274,760 lb hydrogen fluoride, 193 lb airborne mercury and separate heavy-metal land and off-site transfer figures. Pending company disclosure, not 50-company ranking.",
