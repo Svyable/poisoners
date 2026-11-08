@@ -64,6 +64,13 @@
   },
   {
     "type": "section",
+    "title": "ExxonMobil Baytown Chemical Plant · 2024 EPA Form R original releases",
+    "href": "chemistry.html#facility-records",
+    "description": "41 source-matched 2024 EPA Texas Form R records for one Baytown Chemical Plant TRI location, with legal parent, 5000 Bayway location, 7.47MB source SHA-256, CAS/category, original filing IDs and air/water quantities. Reported mass, not exposure, a company-wide total, or toxicity scoring.",
+    "keywords": "ExxonMobil Exxon Baytown 2024 EPA TRI 77522XXNCH5000B benzene 21300 pounds air 79 pounds water hydrochloric acid 61009 sulfuric acid aerosol 1200 hydrogen sulfide mercury compounds nitrate compounds water 77064 1 3 butadiene formaldehyde lead nickel chloromethane facility Form R"
+  },
+  {
+    "type": "section",
     "title": "EPA Exposure Benchmarks: Air NAAQS vs Drinking-Water Metals",
     "href": "chemistry.html#exposure-benchmarks",
     "description": "Eleven EPA reference standards: SO2 75 ppb 1-hour NAAQS, NO2 100 ppb 1-hour, PM2.5 9 µg/m³ annual; arsenic 10 µg/L, inorganic mercury 2 µg/L, cadmium 5 µg/L public-water MCLs. Concentration, not source release mass or toxicity rank.",
