@@ -7,7 +7,7 @@ const seedContext={window:{}};vm.runInNewContext(read("docs/data.js"),seedContex
 const snapshots={dossiers:json("docs/dossier-register.json"),people:json("docs/people-register.json"),payments:json("docs/damages-data.json"),foundation:json("docs/foundation.json"),chemistry:json("docs/chemical-hazards.json"),seed:seedContext.window.POISON_DATA};
 const rows=model.makeRows(snapshots);
 test("all eight source-backed cohorts appear, with expected actual coverage",()=>{
- const counts={companies:50,countries:10,people:34,roles:500,payments:46,metrics:142,chemicals:14,observations:5};
+ const counts={companies:50,countries:10,people:34,roles:500,payments:55,metrics:142,chemicals:14,observations:5};
  assert.deepEqual(Object.fromEntries(Object.entries(rows).map(([k,r])=>[k,r.length])),counts);
  assert.equal(Object.keys(model.datasets).length,8);
  for(const [key,set] of Object.entries(model.datasets)){
@@ -235,7 +235,7 @@ test("advanced monetary and chemical numeric rules fail closed across incompatib
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.match(money.warning,/Select one currency/);
  assert.equal(money.appliedMetric,false);
- assert.equal(money.total,46,"Do not silently compare USD and BRL thresholds");
+ assert.equal(money.total,55,"Do not silently compare USD and BRL thresholds");
  const valid=model.rank("payments",rows.payments,{metric:"entity",facets:{currency:"USD"},
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.equal(valid.warning,"");
@@ -314,4 +314,28 @@ test("2025 paid-cash rankings preserve entity grouping and show only sourced amo
  assert.ok(real.rows.find(x=>x.id==="vale-brumadinho-2021").paidAdjusted===null);
  const mixed=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"ALL"},limit:"all"});
  assert.match(mixed.warning,/Select one currency/);
+});
+
+test("verified 2023 EQT receipts are repriced by cash year while historical unknown transfers stay null",()=>{
+ const byId=id=>rows.payments.find(x=>x.id===id);
+ const gpu=byId("eqt-gpu-consent-amendment-2023");
+ const release=byId("eqt-washington-produced-water-2023");
+ const plug=byId("eqt-plugging-report-compliance-2023");
+ assert.ok(Math.abs(gpu.paidAdjusted-370860.687)<1);
+ assert.ok(Math.abs(release.paidAdjusted-4965940.821)<1);
+ assert.ok(Math.abs(plug.paidAdjusted-1584874.73)<1);
+ assert.equal(plug.paid,1500000);
+ assert.equal(plug.obligationMax,4000000);
+ assert.equal(plug.status,"partially_paid");
+ assert.ok(Math.abs(byId("eqt-tioga-phoenix-s-impoundment-fish-2015").paidAdjusted-40749.356)<1);
+ for(const id of ["transenergy-westvirginia-cwa-civil-2014","transenergy-westvirginia-cwa-criminal-2014",
+ "chesapeake-blake-fork-cwa-criminal-2012","chesapeake-westvirginia-cwa-civil-2014","arch-coal-appalachian-cwa-2011"]){
+  assert.equal(byId(id).paidAdjusted,null,"Historical paid cash known, exact calendar-year not independently established: "+id);
+  assert.ok(byId(id).paid>0);
+ }
+ const usd=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"USD"},limit:"all"});
+ assert.equal(usd.warning,"");
+ assert.ok(usd.rows.every(x=>x.currency==="USD"));
+ const cross=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"ALL"},limit:"all"});
+ assert.match(cross.warning,/Select one currency/);
 });

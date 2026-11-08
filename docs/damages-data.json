@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -22,6 +22,7 @@
         "2016": 240.007,
         "2017": 245.12,
         "2018": 251.107,
+        "2019": 255.657,
         "2020": 258.811,
         "2021": 270.97,
         "2022": 292.655,
@@ -2110,6 +2111,353 @@
         {
           "name": "East Palestine official class administrator — $600m settlement scope and fees",
           "url": "https://www.eastpalestinetrainsettlement.com/Home/FAQ"
+        }
+      ]
+    },
+    {
+      "id": "eqt-tioga-phoenix-s-impoundment-fish-2015",
+      "entities": [
+        "EQT Production Company"
+      ],
+      "indexed_entities": [
+        "EQT Corporation"
+      ],
+      "jurisdiction": "Tioga County, Pennsylvania, United States",
+      "matter": "Phoenix S wastewater impoundment, 2012 impaired-water release: Pennsylvania Fish and Boat Commission complaint",
+      "hazard": "Impaired wastewater release and fish / stream discharge allegations",
+      "outcome_type": "state fish-and-boat criminal environmental penalty",
+      "disposition": "No-contest plea to six strict-liability fish-and-boat misdemeanor charges on March 16, 2015; distinct from contested Pennsylvania DEP civil demand",
+      "obligation": {
+        "currency": "USD",
+        "year": 2015,
+        "min": 30000,
+        "max": 30000,
+        "kind": "Completed $30,000 Fish and Boat Commission penalty, NOT the separate DEP $4.53m contested civil assessment"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 30000,
+        "as_of": "2015-06-30",
+        "value_year": 2015,
+        "detail": "EQT June 2015 Form 10-Q expressly states that on March 16, 2015 the company pleaded no contest and PAID a penalty of $30,000 to resolve Pennsylvania Fish and Boat Commission's complaint. Cash year 2015 is source-stated; precise bank-transfer date is not."
+      },
+      "notes": "EQT's 2014 PADEP $4.53m claimed civil assessment is a different, contested penalty for related release impacts; it is NOT paid $30,000 plus another established $4.53m. EQT's no-contest state fish-and-boat resolution does not establish all subsequent remediation work was completed.",
+      "sources": [
+        {
+          "name": "EQT 2015 Q2 SEC Form 10-Q — Fish and Boat Commission six misdemeanors, explicitly paid $30,000",
+          "url": "https://www.sec.gov/Archives/edgar/data/33213/000003321315000011/eqt630201510q.htm"
+        }
+      ]
+    },
+    {
+      "id": "eqt-gpu-consent-amendment-2023",
+      "entities": [
+        "EQT Production Company"
+      ],
+      "indexed_entities": [
+        "EQT Corporation"
+      ],
+      "jurisdiction": "Southwest Pennsylvania, United States",
+      "matter": "Amended PADEP gas production-unit secondary containment disclosure and mapping consent order",
+      "hazard": "Oil and gas well gas-production unit secondary containment compliance",
+      "outcome_type": "state consent-order compliance penalty",
+      "disposition": "April 26, 2023 second amendment to 2020 gas production unit containment consent order, paid in May 2023",
+      "obligation": {
+        "currency": "USD",
+        "year": 2023,
+        "min": 351000,
+        "max": 351000,
+        "kind": "Separate $351,000 EQT Production PADEP amendment payment; NOT included in the distinct $4.7m produced-water release or $4m plugging order"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 351000,
+        "as_of": "2023-06-30",
+        "value_year": 2023,
+        "detail": "EQT Q2 2023 SEC filing explicitly reports full $351,000 remitted to Pennsylvania in May 2023 for the April 26 2023 GPU 2020-order amendment."
+      },
+      "notes": "GPU data correction and secondary containment is separate from the December 2021 produced-water line release and unrelated well-plugging administrative reporting; do not aggregate these legally distinct amounts into one harm-dollar figure.",
+      "sources": [
+        {
+          "name": "EQT June 30, 2023 SEC Form 10-Q, Environmental Proceedings — 'payment in full' $351,000",
+          "url": "https://www.sec.gov/Archives/edgar/data/33213/000003321323000028/eqt-20230630.htm"
+        }
+      ]
+    },
+    {
+      "id": "eqt-washington-produced-water-2023",
+      "entities": [
+        "EQT Production Company"
+      ],
+      "indexed_entities": [
+        "EQT Corporation"
+      ],
+      "jurisdiction": "Washington County, Pennsylvania, United States",
+      "matter": "December 2021 produced-water disposal line leak and Pennsylvania DEP consent assessment",
+      "hazard": "Produced wastewater release from gas well pad disposal line; affected soil / stream resources",
+      "outcome_type": "state environmental civil penalty",
+      "disposition": "May 23, 2023 PADEP consent assessment of civil penalty; company paid full amount in May 2023",
+      "obligation": {
+        "currency": "USD",
+        "year": 2023,
+        "min": 4700000,
+        "max": 4700000,
+        "kind": "$4.7m fixed administrative civil penalty tied to the produced-water release; not EQT's separate $4m plugging-reporting order"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 4700000,
+        "as_of": "2023-06-30",
+        "value_year": 2023,
+        "detail": "EQT's Q2 2023 SEC filing expressly reports it remitted PAYMENT IN FULL of the $4.7m Pennsylvania consent penalty in May 2023. The report describes ongoing voluntary Act 2 site remediation and does not value those activities as additional paid penalties."
+      },
+      "notes": "The same SEC section describes another May 23 2023 $4m plugging compliance order, which is legally distinct. Do not treat the $4.7m government penalty as total environmental cleanup cost or proof of medical harm.",
+      "sources": [
+        {
+          "name": "EQT June 30, 2023 SEC Form 10-Q, Environmental Proceedings — $4.7m remitted in full May 2023",
+          "url": "https://www.sec.gov/Archives/edgar/data/33213/000003321323000028/eqt-20230630.htm"
+        }
+      ]
+    },
+    {
+      "id": "eqt-plugging-report-compliance-2023",
+      "entities": [
+        "EQT Production Company"
+      ],
+      "indexed_entities": [
+        "EQT Corporation"
+      ],
+      "jurisdiction": "Pennsylvania, United States",
+      "matter": "2016 abandoned-well-plugging consent order: reporting certificates not all submitted",
+      "hazard": "Gas well plugging and administrative well-site restoration certificates",
+      "outcome_type": "state compliance order with civil payment and earmarked environmental project",
+      "disposition": "May 23, 2023 PADEP consent order and agreement; $1.5m paid May 2023; $2.5m allocated to future community environmental projects",
+      "obligation": {
+        "currency": "USD",
+        "year": 2023,
+        "min": 4000000,
+        "max": 4000000,
+        "kind": "Total $4m order: $1.5m paid to Pennsylvania + $2.5m designated future community environmental projects (not yet verified disbursed)"
+      },
+      "payment": {
+        "status": "partially_paid",
+        "amount": 1500000,
+        "as_of": "2023-06-30",
+        "value_year": 2023,
+        "detail": "EQT SEC Q2 2023 says the company REMITTED $1.5m to Pennsylvania in May 2023 toward a $4m consent order. The remaining $2.5m was to fund one or more later-approved community environmental projects; the reviewed filing does NOT document payments to these projects."
+      },
+      "notes": "The $4m includes $2.5m specified for future environmental projects, not an extra $2.5m on top of the $4m. EQT's same-day $4.7m produced-water incident penalty is a separate order and must never be counted as a tranche of this $4m.",
+      "sources": [
+        {
+          "name": "EQT June 30, 2023 SEC Form 10-Q, Environmental Proceedings — explicit $1.5m cash paid and remaining $2.5m future projects",
+          "url": "https://www.sec.gov/Archives/edgar/data/33213/000003321323000028/eqt-20230630.htm"
+        }
+      ]
+    },
+    {
+      "id": "transenergy-westvirginia-cwa-civil-2014",
+      "entities": [
+        "Trans Energy, Inc."
+      ],
+      "indexed_entities": [
+        "EQT Corporation"
+      ],
+      "jurisdiction": "Marshall, Wetzel and Marion Counties, West Virginia, United States",
+      "matter": "2009–2011 unauthorized wetland and stream fill at gas-production pads, EPA civil consent decree",
+      "hazard": "Unauthorized dredged / fill materials in wetlands and streams",
+      "outcome_type": "federal civil Clean Water Act penalty",
+      "disposition": "August 25, 2014 civil consent decree for $3m; Trans Energy paid $1.25m before Dec. 2016 acquisition by EQT; EQT paid remaining $1.75m in April 2017",
+      "obligation": {
+        "currency": "USD",
+        "year": 2014,
+        "min": 3000000,
+        "max": 3000000,
+        "kind": "Exactly $3m combined penalty (pre-acquisition Trans Energy $1.25m plus April 2017 EQT $1.75m); separate $10–15m estimated restoration work excluded"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 3000000,
+        "as_of": "2017-06-30",
+        "value_year": null,
+        "detail": "EQT's June 2017 SEC report explicitly confirms Trans Energy paid $1.25m of the $3m civil penalty prior to EQT's Dec. 5, 2016 acquisition and that EQT PAID the remaining $1.75m in April 2017. As the first transfer's year is not established, 2025 cash-year inflation remains uncomputed. Historical payers and timing are distinct."
+      },
+      "notes": "EQT did not own Trans Energy when underlying wetland violations occurred (2009–2011) or when the 2014 civil decree was signed. No pre-2016 wrongdoing is imputed to EQT. A separate 2014 $600k federal criminal plea covered the SAME discharge events, but it is a distinct criminal fine; do not mistake it for a tranche of the $3m civil penalty or a second restoration project.",
+      "sources": [
+        {
+          "name": "EQT June 30, 2017 SEC Form 10-Q — $1.25m pre-acquisition and $1.75m paid April 2017",
+          "url": "https://www.sec.gov/Archives/edgar/data/33213/000003321317000009/eqt630201710q.htm"
+        },
+        {
+          "name": "EQT 2016 Form 10-K — timing of Trans Energy Dec 2016 acquisition and civil/criminal obligations",
+          "url": "https://www.sec.gov/Archives/edgar/data/33213/000003321317000003/eqt-12312016x10k.htm"
+        }
+      ]
+    },
+    {
+      "id": "transenergy-westvirginia-cwa-criminal-2014",
+      "entities": [
+        "Trans Energy, Inc."
+      ],
+      "indexed_entities": [
+        "EQT Corporation"
+      ],
+      "jurisdiction": "Northern District of West Virginia, United States",
+      "matter": "2014 three Clean Water Act misdemeanor guilty pleas related to wetlands and stream discharges",
+      "hazard": "Unauthorized gas well pad construction discharges to wetlands and streams",
+      "outcome_type": "federal criminal Clean Water Act environmental fine",
+      "disposition": "October 1, 2014 plea resolving criminal charges for same incidents as the separate Trans Energy civil consent decree",
+      "obligation": {
+        "currency": "USD",
+        "year": 2014,
+        "min": 600000,
+        "max": 600000,
+        "kind": "Distinct $600,000 federal criminal fine; NOT an installment of $3m civil consent decree, even though both arise from the same violations"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 600000,
+        "as_of": "2016-12-31",
+        "value_year": null,
+        "detail": "EQT's 2016 SEC Form 10-K explicitly confirms Trans Energy PAID a $600,000 criminal fine in connection with Oct. 2014 guilty plea; payment-year not separately specified in the 2016 retrospective. Trans Energy became an EQT subsidiary in December 2016 after these proceedings."
+      },
+      "notes": "Civil and criminal enforcement both address the same underlying wetland-fill incidents: separate remedies, potentially overlapping sites, never comparable to independently quantified environmental injury. The $600k criminal fine is NOT part of the $3m paid civil penalty and should not be counted twice as two criminal payments.",
+      "sources": [
+        {
+          "name": "EQT 2016 Form 10-K — Trans Energy $600k paid criminal penalty and later acquisition",
+          "url": "https://www.sec.gov/Archives/edgar/data/33213/000003321317000003/eqt-12312016x10k.htm"
+        },
+        {
+          "name": "EQT June 2017 Form 10-Q — describes same criminal fine and completed civil amount",
+          "url": "https://www.sec.gov/Archives/edgar/data/33213/000003321317000009/eqt630201710q.htm"
+        }
+      ]
+    },
+    {
+      "id": "chesapeake-blake-fork-cwa-criminal-2012",
+      "entities": [
+        "Chesapeake Appalachia, LLC"
+      ],
+      "indexed_entities": [
+        "Expand Energy"
+      ],
+      "jurisdiction": "Blake Fork, Wetzel County, West Virginia, United States",
+      "matter": "Gas well access road construction discharged approximately 60 tons of stone and gravel into Blake Fork",
+      "hazard": "Unpermitted discharge of fill into jurisdictional stream",
+      "outcome_type": "federal criminal Clean Water Act fine",
+      "disposition": "December 2012 federal sentence, subsequent FY2013 DOJ collections confirm completed $600k cash",
+      "obligation": {
+        "currency": "USD",
+        "year": 2012,
+        "min": 600000,
+        "max": 600000,
+        "kind": "Fixed $600k criminal fine on three counts; excludes civil enforcement amounts in other watershed locations"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 600000,
+        "as_of": "2013-09-30",
+        "value_year": null,
+        "detail": "DOJ Northern District of West Virginia fiscal-year 2013 collections report explicitly states $600,000 PAID by Chesapeake Appalachia LLC following conviction for three Clean Water Act charges at Blake Fork. The court sentenced Chesapeake in December 2012, but FY2013 receipts alone cannot fix a single payment calendar year. Do not infer CPI cash-year value."
+      },
+      "notes": "Named payer Chesapeake Appalachia, LLC predates 2024 corporate rename/merger to Expand Energy. Expand did not bear its current identity at the time of the 2012 offence and cannot be described as a separate penalty payer. Other 2014 Chesapeake civil penalties may involve some of the same counties but represent a distinct legal remedy; no per-site split established.",
+      "sources": [
+        {
+          "name": "DOJ Northern WV FY2013 civil/criminal collections: Chesapeake Appalachia $600k PAID",
+          "url": "https://www.justice.gov/usao-ndwv/pr/us-attorney-s-office-collects-324068555-civil-and-criminal-actions-us-taxpayers-fiscal"
+        },
+        {
+          "name": "DOJ 2012 sentencing: $600k fine imposed for Blake Fork conviction",
+          "url": "https://www.justice.gov/archive/usao/wvn/news/2012/december/chesapeake.html"
+        },
+        {
+          "name": "Expand Energy SEC Oct 2024 Form 8-K — Chesapeake renamed Expand after Southwestern merger",
+          "url": "https://www.sec.gov/Archives/edgar/data/895126/000110465924104976/tm2425151d1_8k.htm"
+        }
+      ]
+    },
+    {
+      "id": "chesapeake-westvirginia-cwa-civil-2014",
+      "entities": [
+        "Chesapeake Appalachia, LLC"
+      ],
+      "indexed_entities": [
+        "Expand Energy"
+      ],
+      "jurisdiction": "Boone, Kanawha, Lewis, Marshall, Mingo, Preston, Upshur and Wetzel Counties, West Virginia, United States",
+      "matter": "Water Pollution Control Act and Clean Water Act civil violations at multiple gas-production sites",
+      "hazard": "Unpermitted dredge / fill and other water-pollution discharges",
+      "outcome_type": "federal-state water-quality civil penalty",
+      "disposition": "DOJ Northern District of WV FY2014 collections disclose $1.6m actually paid for civil water-law violations",
+      "obligation": {
+        "currency": "USD",
+        "year": 2014,
+        "min": 1600000,
+        "max": 1600000,
+        "kind": "DOJ FY2014 paid civil settlement amount; nominal year is FY2014 collection/reporting vintage, not a sourced exact consent-decree date"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 1600000,
+        "as_of": "2014-09-30",
+        "value_year": null,
+        "detail": "DOJ US Attorney Northern District of West Virginia 2014 fiscal year civil collection statement explicitly lists $1.6m PAID BY Chesapeake Appalachia for environmental civil violations involving eight named West Virginia counties. Fiscal year runs Oct 2013–Sept 2014; exact calendar payment year not disclosed and no paid-year CPI is computed."
+      },
+      "notes": "This is a civil case and a distinct source-reported DOJ payment from the $600k FY2013 Blake Fork CRIMINAL fine. The two proceedings include some overlapping counties and must not be represented as two independently quantified populations of polluted water, or as damages by Expand after its 2024 renaming. Original source has no county-by-county payer split.",
+      "sources": [
+        {
+          "name": "DOJ Northern WV FY2014 collections: $1.6m PAID BY Chesapeake Appalachia for civil water-pollution violations",
+          "url": "https://www.justice.gov/usao-ndwv/pr/us-attorney-s-office-collects-more-13-million-fiscal-year-2014"
+        },
+        {
+          "name": "Expand Energy SEC Oct 2024 Form 8-K — successor corporate identity and merger chronology",
+          "url": "https://www.sec.gov/Archives/edgar/data/895126/000110465924104976/tm2425151d1_8k.htm"
+        }
+      ]
+    },
+    {
+      "id": "arch-coal-appalachian-cwa-2011",
+      "entities": [
+        "Arch Coal, Inc."
+      ],
+      "indexed_entities": [
+        "Core Natural Resources"
+      ],
+      "jurisdiction": "Virginia, West Virginia and Kentucky, United States",
+      "matter": "Four Appalachian mining complexes with Clean Water Act discharge-limit violations (Coal Mac, Lone Mountain, Cumberland River and Mingo Logan)",
+      "hazard": "Coal-mine water discharges containing excess iron, manganese, suspended solids and selenium concerns",
+      "outcome_type": "federal-state civil Clean Water Act penalty",
+      "disposition": "2011 multistate consent decree, DOJ FY2012 annual enforcement report explicitly confirms the $4m was paid",
+      "obligation": {
+        "currency": "USD",
+        "year": 2011,
+        "min": 4000000,
+        "max": 4000000,
+        "kind": "Fixed $4m civil penalty split across United States and WV/KY; additional wastewater controls and selenium treatment installation excluded"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 4000000,
+        "as_of": "2012-09-30",
+        "value_year": null,
+        "detail": "US DOJ Environment and Natural Resources Division FY2012 accomplishments report explicitly says the second-largest U.S. coal supplier PAID a $4m civil Clean Water Act penalty for four mining complexes, identifying US v. Arch Coal, Inc. The agreement had been announced March 1, 2011. DOJ FY2012 publication does not establish the exact cash-transfer year, so '2011' is used only as obligation-year CPI comparator."
+      },
+      "notes": "Arch Coal renamed Arch Resources in May 2020, and merged with CONSOL in January 2025 to form Core Natural Resources. Those corporate identity events postdate all 2011 enforcement conduct: do NOT claim Core committed the earlier violations or directly paid the $4m. DOJ's estimated prevention of 2m lbs annual pollution and monitoring/selenium control costs are not separate verified cash penalties.",
+      "sources": [
+        {
+          "name": "DOJ ENRD FY2012 Accomplishments Report — expressly 'paid a $4 million civil penalty' in US v Arch Coal",
+          "url": "https://www.justice.gov/sites/default/files/enrd/legacy/2015/04/13/FY2012_ENRD_Accomplishments_Report_Final_Text_Only_11052013.pdf"
+        },
+        {
+          "name": "DOJ March 1, 2011 Arch Coal consent decree announces $4m obligation and distinct environmental controls",
+          "url": "https://www.justice.gov/archives/opa/pr/arch-coal-pay-4-million-settle-clean-water-act-violations-appalachian-mining-operations"
+        },
+        {
+          "name": "Arch SEC May 15 2020 8-K name change to Arch Resources",
+          "url": "https://www.sec.gov/Archives/edgar/data/1037676/000110465920062669/tm2019876-1_8k.htm"
+        },
+        {
+          "name": "Core Natural Resources SEC 2025 merger completion statement",
+          "url": "https://www.sec.gov/Archives/edgar/data/1710366/000119312525007135/d836647dex991.htm"
         }
       ]
     }
