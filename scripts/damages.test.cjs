@@ -14,14 +14,14 @@ function factor(currency,year){
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.equal(d.cases.length,33);
+ assert.equal(d.cases.length,36);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
   assert.ok(Array.isArray(c.entities)&&c.entities.length&&c.entities.every(Boolean));
   assert.ok(c.jurisdiction&&c.matter&&c.hazard&&c.outcome_type&&c.disposition&&c.notes);
   assert.ok(["USD","BRL","CAD","INR"].includes(c.obligation.currency));
-  assert.ok(c.obligation.year>=1989&&c.obligation.year<=d.reference_year);
+  assert.ok(c.obligation.year>=1989&&c.obligation.year<=2026);
   assert.ok(Number.isFinite(c.obligation.min)&&c.obligation.min>=0);
   assert.ok(Number.isFinite(c.obligation.max)&&c.obligation.max>=c.obligation.min);
   assert.ok(c.sources.length>=1 && c.sources.every(s=>s.name&&/^https:\/\//.test(s.url)));
@@ -32,6 +32,21 @@ test("legal outcomes are documented events rather than an aggregate harm index",
    assert.ok(Number.isFinite(c.payment.amount)&&c.payment.amount>0);
    assert.ok(c.payment.amount<=c.obligation.max,"paid total exceeds legal amount: "+c.id);
    if(c.payment.value_year!==null)assert.ok(c.payment.value_year<=d.reference_year);
+  }
+  if(c.payment.cash_periods!==undefined){
+   assert.equal(c.payment.status,"partially_paid");
+   assert.equal(c.payment.value_year,null,"Different annual cash periods are not one payment year");
+   assert.ok(Array.isArray(c.payment.cash_periods)&&c.payment.cash_periods.length>=2);
+   assert.equal(c.payment.cash_periods.reduce((v,p)=>v+p.amount,0),c.payment.amount,"Subset receipts must reconcile to reported lower bound");
+   assert.equal(new Set(c.payment.cash_periods.map(p=>p.period)).size,c.payment.cash_periods.length);
+   assert.ok(c.payment.cash_periods.every(p=>/^(19|20)[0-9]{2}-Q[1-4]$/.test(p.period)&&Number.isFinite(p.amount)&&p.amount>0&&p.currency===c.obligation.currency&&/^https:\/\//.test(p.source)));
+  }
+  if(c.payment.related_observations!==undefined){
+   assert.equal(c.payment.status,"payment_total_unverified","Cross-scope observations cannot become the narrower case paid total");
+   assert.ok(c.payment.related_observations.every(o=>Number.isFinite(o.amount_floor)&&o.amount_floor>0&&/^https:\/\//.test(o.source)&&o.label));
+  }
+  if(c.payment.historical_observations!==undefined){
+   assert.ok(c.payment.historical_observations.every(o=>Number.isFinite(o.amount)&&o.amount>0&&o.currency===c.obligation.currency&&/^https:\/\//.test(o.source)&&o.label&&o.as_of));
   }
   if(c.payment.installments!==undefined){
    assert.equal(c.payment.status,"confirmed_paid","Only completed group cash may carry a fully reconciled installment schedule");
@@ -63,7 +78,8 @@ test("legal outcomes are documented events rather than an aggregate harm index",
    },0);
    assert.ok(sum<=c.obligation.max,"Allocations exceed group settlement");
   }
-  assert.ok(Number.isFinite(factor(c.obligation.currency,c.obligation.year)));
+  if(c.obligation.year<=d.reference_year)assert.ok(Number.isFinite(factor(c.obligation.currency,c.obligation.year)));
+  else assert.equal(c.payment.amount,null,"A commitment arising after the reference CPI year cannot carry fabricated paid-cash history");
   assert.ok(!JSON.stringify(c).toLowerCase().includes("mortality estimate"));
  }
 });
@@ -253,6 +269,46 @@ test("deep research tranche arithmetic and four distinct currency CPI systems",(
  assert.equal(d.inflation.USD.index["2011"],224.939);
  assert.equal(d.inflation.USD.index["2012"],229.594);
  assert.equal(d.inflation.USD.index["2008"],215.303);
+});
+test("Volkswagen, BP, Vale and 3M payment boundaries retain source and time distinctions",()=>{
+ const get=id=>d.cases.find(c=>c.id===id);
+ const vwFine=get("vw-caa-third-civil-penalty-2017");
+ assert.equal(vwFine.payment.status,"confirmed_paid");
+ assert.equal(vwFine.payment.amount,1450000000);
+ assert.equal(vwFine.payment.value_year,null,"EPA confirms paid, not transfer year");
+ assert.match(vwFine.notes,/2.8bn/);
+ const vw=get("vw-diesel-civil-2016");
+ assert.equal(vw.payment.status,"payment_total_unverified","FTC cross-program receipts are not cash proved for 2.0L case alone");
+ assert.equal(vw.payment.amount,null);
+ assert.equal(vw.payment.related_observations[0].amount_floor,9500000000);
+ assert.match(vw.payment.related_observations[0].label,/BOTH/);
+ const bosch=get("bosch-vw-diesel-consumer-2017");
+ assert.equal(bosch.payment.status,"partially_paid");
+ assert.equal(bosch.obligation.max,327500000);
+ assert.equal(bosch.payment.amount,300000000);
+ assert.match(bosch.payment.detail,/MORE THAN/);
+ const bp=get("bp-deepwater-2016");
+ assert.equal(bp.payment.status,"partially_paid");
+ assert.equal(bp.payment.amount,2258000000);
+ assert.deepEqual(bp.payment.cash_periods.map(x=>x.period),["2025-Q2","2026-Q2"]);
+ assert.equal(bp.payment.value_year,null);
+ assert.match(bp.payment.detail,/NOT cumulative|not cumulative/i);
+ const vale=get("vale-brumadinho-2021");
+ assert.equal(vale.payment.amount,21300000000);
+ assert.equal(vale.payment.as_of,"2025-12-31");
+ assert.equal(vale.payment.value_year,null);
+ assert.deepEqual(vale.payment.historical_observations.map(x=>x.amount),[18200000000,21300000000]);
+ assert.match(vale.payment.detail,/pre-signing/);
+ const m=get("3m-afff-pi-2026");
+ assert.equal(m.obligation.year,2026);
+ assert.equal(m.obligation.max,7350000000);
+ assert.equal(m.payment.status,"payment_total_unverified");
+ assert.equal(m.payment.amount,null);
+ assert.match(m.payment.detail,/PLANNED/);
+ assert.ok(!d.inflation.USD.index["2026"],"Do not invent full-year 2026 CPI to reprice post-reference obligations");
+ assert.ok(html.includes("CROSS-PROGRAM PAID EVIDENCE"));
+ assert.ok(html.includes("VERIFIED SELECTED CASH PERIODS"));
+ assert.ok(html.includes("PREVIOUS PAYMENT OBSERVATIONS"));
 });
 test("actual paid and court-ordered sums remain separate, including Husky predecessor mapping",()=>{
  const get=id=>d.cases.find(c=>c.id===id);
