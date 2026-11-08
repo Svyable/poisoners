@@ -1,10 +1,10 @@
 # POISONERS · EPA TRI chemical-release ingestion (reviewed pilot)
 
-**Status, November 7, 2026:** Facility-identity research is under way. One 2024 ExxonMobil facility identity is approved in `data/tri-facility-links.json`; two additional TRI identifiers are **unapproved research candidates**. The published `docs/tri-facility-releases.json` intentionally has **zero imported records**, because a reproducible official 2024 source CSV has not yet been downloaded and validated. This is **not** evidence that any approved facility released zero chemicals.
+**Status, November 8, 2026 UTC:** One time-bound 2024 ExxonMobil Baytown Chemical Plant (Part) identity is approved in `data/tri-facility-links.json`; two other TRI identifiers remain unapproved candidates. The original EPA **2024 Texas TRI Basic CSV** has now been downloaded, pinned by SHA-256 and parsed into **41 individual Form R records** for the approved site. The imported file inspected 9,536 reported Texas rows; 41 candidate-site rows were excluded, and no admitted row had a parent/location mismatch. These are source-reported annual quantities, **not verified toxic exposure or injury**, and they are not a complete company inventory.
 
 ## 1. Official primary source and reporting limits
 
-Use [US EPA TRI Basic Data Files](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present), reporting year **2024**, state or national CSV. EPA says that site includes forms processed through **November 5, 2025**. Download a CSV from EPA itself, preserve the file and checksum, and record the retrieval date. Consult [EPA's field documentation](https://www.epa.gov/system/files/documents/2024-08/basic_data_files_documentation_august_2024.pdf).
+Use [US EPA TRI Basic Data Files](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present), reporting year **2024**, state or national CSV. EPA says that site includes forms processed through **November 5, 2025**. Download a CSV from EPA itself, preserve the file and checksum, and record the retrieval date. Consult [EPA's field documentation](https://www.epa.gov/system/files/documents/2025-09/basic_data_files_documentation_august_2024.pdf).
 
 The Basic CSV reports facility location (TRIFID, optional FRS), Form R's chemical identity (CAS/category, Form A vs R), reported parent, and estimates for fugitive air, stack air and water. **TRIFID is a site-location key; it does not establish who owned that site in any particular year.** EPA defines TRI parent as the highest-level owner on **December 31 of the reporting year**, and uses standardized names to normalize spelling. [EPA parent-company rule](https://www.epa.gov/toxics-release-inventory-tri-program/parent-company-definition-toxics-release-inventory-reporting). Always review independently documented time-specific operators before linking to a Carbon Majors company.
 
@@ -33,7 +33,7 @@ The [EPA Basic Data Files documentation](https://www.epa.gov/system/files/docume
 
 ### A separate operator disclosure: AEP System 2024
 
-The [AEP company PDF](https://docs.aep.com/docs/requiredpostings/tri/docs/TRI2024.pdf) is independently transcribed in `docs/coal-operator-2024.json`. This is a self-reported **AEP system-wide** coal-generation summary with mixed ownership, not a TRIFID-specific official EPA CSV, so **do not import it using this Form R tool or join it to the 50 Carbon Majors producers**. The operator explicitly marked its June 2025 submissions pending; off-site disposal transfer is not a direct on-site release. Its genuine published chemistry can nonetheless illustrate sulfuric acid mist, hydrogen fluoride, mercury and ash-metal pathways while official 2024 EPA facility files await reproducible import.
+The [AEP company PDF](https://docs.aep.com/docs/requiredpostings/tri/docs/TRI2024.pdf) is independently transcribed in `docs/coal-operator-2024.json`. This is a self-reported **AEP system-wide** coal-generation summary with mixed ownership, not a TRIFID-specific official EPA CSV, so **do not import it using this Form R tool or join it to the 50 Carbon Majors producers**. The operator explicitly marked its June 2025 submissions pending; off-site disposal transfer is not a direct on-site release. Its genuine published chemistry can nonetheless illustrate sulfuric acid mist, hydrogen fluoride, mercury and ash-metal pathways alongside the newly imported, separately bounded 2024 Baytown facility records.
 
 ## 3. Repeatable import
 
@@ -53,7 +53,8 @@ node scripts/import-tri-basic.cjs \
 node scripts/import-tri-basic.cjs \
   --input /path/to/official_2024_tri_basic.csv \
   --retrieved 2026-11-07 \
-  --expected-sha256 <64-character digest from the original source file> \
+  --expected-sha256 8863d7ae9639e4773fdc0f4fe5702e0a7e50307068fbbcbc4f5e80bb180bb30d \
+  --source-url https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv \
   --output docs/tri-facility-releases.json
 
 node --test scripts/tri-import.test.cjs
@@ -72,3 +73,17 @@ Review the emitted `coverage`, `issues`, file SHA-256 and document control numbe
 - Only after a compatible, adequately complete population is verified may a same-chemical, same-medium, same-year **release mass** ranking be displayed. A toxicity-weighted or human-outcome rank requires additional independent scientific review.
 
 This methodology intentionally makes unsupported leaderboard production harder than source review.
+
+## 5. Published 2024 EPA Texas site snapshot — source chain
+
+- Official source download: <https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv>.
+- Source year: **2024**; EPA update processed through **2025-11-05**; retrieval **2026-11-08 UTC**.
+- Original source file SHA-256: `8863d7ae9639e4773fdc0f4fe5702e0a7e50307068fbbcbc4f5e80bb180bb30d`. Regeneration deliberately fails if EPA changes these bytes before a new source review.
+- Source data inspected: **9,536** Texas rows. Approved facility `77522XXNCH5000B`: **41** matched EPA Form R rows, **one** distinct reviewed facility, **one** reporting year, reported parent name matching preapproved historical aliases, state `TX`, city `Baytown`, street number `5000` and token `BAYWAY`.
+- **41 candidate-site rows** excluded; **9,454** unrelated rows excluded; zero form A rows at approved facility; zero quarantined parent/location conflicts. Exclusions are not proof that those other plants have no releases; their ownership evidence is not yet approved.
+- Actual source field labels include `2. TRIFD`, `8. ST`, `39. TRI CHEMICAL/COMPOUND ID`, `40. CAS#`, `51. 5.1 - FUGITIVE AIR`, `52. 5.2 - STACK AIR`, `53. 5.3 - WATER`; the importer explicitly normalizes only known variants. The official field documentation retains the historical spelled-out names. Unknown schema variations fail closed.
+- Examples of *facility-reported* 2024 Form R quantities (original pounds) include benzene (**21,300 lb combined on-site air**, **79 lb water**) and ammonia (**2,530 lb on-site air**, **5,914 lb water**). These are not monitored ambient concentrations or doses and should not be converted into a toxic-harm or liability ranking.
+
+The browser [facility explorer](../docs/chemistry.html#facility-records) filters each observation by reported chemical/CAS, separate air and water pathways, units and source status; a CSV export includes document-control numbers and original EPA source checksum. Sorting different reported substances by absolute mass may be useful to inspect a filing, **but is not a comparative toxicity or risk ranking**. Future rankings of facilities should require matching chemical identity, medium, year, units and verified site scope; a cross-chemical toxicological weighting model would require independent science and endpoint assessment.
+
+This 41-record snapshot is an intentional small pilot. It does not certify that every Form R quantity is instrument-measured or that any displayed zero was independently confirmed. EPA may publish revised historical submissions; changes require retrievability, version and checksum review.
