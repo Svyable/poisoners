@@ -156,6 +156,32 @@ test("only EPA's 2024 primary Basic URLs are acceptable; digest and source URL a
   await assert.rejects(importBasic({input:tmp.file,manifest:links,retrieved:"2026-11-07",expectedSha256:"deadbeef"}),/64 hexadecimal/);
  }finally{tmp.cleanup()}
 });
+test("actual EPA 2024 Texas header spelling aliases map to documented fields without assuming a new source",async()=>{
+ for(const [label,expected] of [
+  ["2. TRIFD","TRIFID"],
+  ["8. ST","STATE"],
+  ["40. CAS#","CAS NUMBER"],
+  ["39. TRI CHEMICAL/COMPOUND ID","TRI CHEMICAL /COMPOUND ID"],
+  ["17. STANDARD PARENT CO NAME","STANDARDIZED PARENT COMPANY NAME"]
+ ])assert.equal(headerKey(label),expected,label);
+ const oldToActual=new Map([
+  ["TRIFID","TRIFD"],["STATE","ST"],["CAS NUMBER","CAS#"],
+  ["STANDARDIZED PARENT COMPANY NAME","STANDARD PARENT CO NAME"],
+  ["TRI CHEMICAL /COMPOUND ID","TRI CHEMICAL/COMPOUND ID"]
+ ]);
+ const hdr=HEADER.map((x,i)=>(i+1)+". "+(oldToActual.get(x)||x)).concat(["39. TRI CHEMICAL/COMPOUND ID"]);
+ const row=line({doc:"R240000777",chemical:"Mercury",cas:"7439-97-6",fug:"0",stack:"0.5",water:"0"});
+ const tmp=fixture([]);
+ try{
+  fs.writeFileSync(tmp.file,[hdr,row.concat(["007439976"])].map(x=>x.map(quote).join(",")).join("\r\n")+"\r\n");
+  const out=await importBasic({input:tmp.file,manifest:links,retrieved:"2026-11-07"});
+  assert.equal(out.records.length,1);
+  assert.equal(out.records[0].matched_compound_id,"hg");
+  assert.equal(out.records[0].tri_chemical_id,"007439976");
+  assert.equal(out.records[0].reported_state,"TX");
+  assert.equal(out.records[0].onsite_air_total,0.5);
+ }finally{tmp.cleanup()}
+});
 test("site displays the non-imported source status, and browser code cannot fabricate a company toxicity score",()=>{
  assert.ok(html.includes('id="facility-records"'));
  assert.ok(html.includes('id="facilityFileStatus"'));
