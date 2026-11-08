@@ -34,6 +34,14 @@ jobs:
           echo "Source size in bytes: $(wc -c < "$RUNNER_TEMP/epa-tri-2024-tx.csv")"
           echo "Source SHA-256: $(sha256sum "$RUNNER_TEMP/epa-tri-2024-tx.csv" | cut -d' ' -f1)"
           python3 - <<'PY'
+          import os,csv,zipfile,gzip,bz2,lzma
+          p0=os.path.join(os.environ["RUNNER_TEMP"],"epa-tri-2024-tx.csv")
+          with open(p0,"rb") as f: magic=f.read(100)
+          print("Source signature (hex):", magic[:16].hex())
+          print("Source prefix (escaped):", repr(magic[:90]))
+          print("Zip archive:",zipfile.is_zipfile(p0),"gzip:",magic.startswith(b"\\x1f\\x8b"),"xz:",magic.startswith(b"\\xfd7zXZ\\x00"))
+          if zipfile.is_zipfile(p0):
+              with zipfile.ZipFile(p0) as z: print("ZIP members:",[(x.filename,x.file_size) for x in z.infolist()[:10]])
           import os,csv
           p=os.path.join(os.environ["RUNNER_TEMP"],"epa-tri-2024-tx.csv")
           with open(p,"r",encoding="utf-8-sig",errors="replace",newline="") as file:
