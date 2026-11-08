@@ -20,9 +20,11 @@ test("identity approvals and unapproved lookups are explicit; empty release stat
  assert.ok(approvedRows[0].evidence.some(e=>e.type==="2024_regulatory_operator"));
  assert.ok(approvedRows[0].evidence.some(e=>e.type==="2024_corporate_ownership"));
  assert.ok(links.facilities.find(x=>x.trifid===chevron).reporting_years_approved.length===0);
- assert.equal(output.source_status,"awaiting_official_csv_import");
- assert.equal(output.records.length,0);
- assert.match(output.coverage.description,/not a zero-emissions/);
+ assert.equal(output.source_status,"official_form_r_csv_imported");
+ assert.equal(output.records.length,41);
+ assert.equal(output.coverage.inspected_csv_rows,9536);
+ assert.equal(output.coverage.quarantined_parent_mismatch_rows,0);
+ assert.match(output.coverage.description,/Not an ExxonMobil-wide inventory/);
  assert.match(qa,/Form A/);
 });
 test("CSV parser preserves quoted commas, doubled quote marks and multiline fields",async()=>{
@@ -187,7 +189,9 @@ test("site displays the non-imported source status, and browser code cannot fabr
  assert.ok(html.includes('id="facilityFileStatus"'));
  assert.ok(html.includes('id="facilityRows"'));
  assert.ok(html.includes('src="tri-facility-ui.js"'));
- assert.ok(html.includes("No 2024 chemical mass is imported yet"));
+ assert.ok(html.includes("41 source-matched EPA Form R records"));
+ assert.ok(html.includes('id="facilityStats"'));
+ assert.ok(html.includes('id="facilitySort"'));
  assert.ok(html.includes("~300"),"EPA coal ash facility count");
  assert.ok(html.includes("~775"),"EPA coal ash units count");
  assert.ok(html.includes('id="coal-pathways"'));
