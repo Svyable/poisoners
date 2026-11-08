@@ -105,7 +105,7 @@ test("new paid 2023-25 PFAS funds and 2026 settlement remain cash-year bounded",
  assert.equal(get("3m-pws-pfas-2024").paid,34800000,"One plaintiff's net receipt is a minimum subset");
  assert.equal(get("3m-pws-pfas-2024").paidAdjusted,34800000);
  const mixed=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"ALL"}});
- assert.match(mixed.warning,/Select USD or BRL/);
+ assert.match(mixed.warning,/Select one currency/);
 });
 test("source group cohort gate blocks mixing different chemical years, units and populations",()=>{
  const blocked=model.rank("observations",rows.observations,{metric:"mass",facets:{cohort:"ALL"}});
