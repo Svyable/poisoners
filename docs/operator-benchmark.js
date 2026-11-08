@@ -29,6 +29,11 @@ function init(d){
   tbody.innerHTML=rows.length?rows.map(renderRow).join(""):'<tr><td colspan="6">No matching substances. Absence from this operator report does not establish zero emissions.</td></tr>';
  };
  q.addEventListener("input",render);sort.addEventListener("change",render);render();
+ const totals=d.report.published_total_as_reported;
+ const keys=["air_lb","water_lb","onsite_land_lb","offsite_transfer_lb"];
+ const fields=$("opMediumTotals").querySelectorAll("strong");
+ if(!totals||fields.length!==4)throw Error("Source totals cannot be displayed");
+ for(let i=0;i<keys.length;i++)fields[i].textContent=fmt(totals[keys[i]])+" lb";
  $("opCoalb").textContent=fmt(d.report.coal_burned_lb)+" pounds of coal burned (context only; not a chemical denominator)";
 }
 fetch("coal-operator-2024.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(init).catch(()=>{
