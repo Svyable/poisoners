@@ -14,7 +14,7 @@ function factor(currency,year){
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.equal(d.cases.length,42);
+ assert.equal(d.cases.length,46);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
@@ -48,6 +48,22 @@ test("legal outcomes are documented events rather than an aggregate harm index",
   if(c.payment.historical_observations!==undefined){
    assert.ok(c.payment.historical_observations.every(o=>Number.isFinite(o.amount)&&o.amount>0&&o.currency===c.obligation.currency&&/^https:\/\//.test(o.source)&&o.label&&o.as_of));
   }
+  if(c.payment.recipient_observations!==undefined){
+   assert.equal(c.payment.status,"partially_paid","A single recipient's net payment is a subset, not full class cash");
+   assert.ok(Array.isArray(c.payment.recipient_observations)&&c.payment.recipient_observations.length);
+   for(const o of c.payment.recipient_observations){
+    assert.ok(o.recipient&&o.scope&&/^https:\/\//.test(o.source));
+    assert.ok(o.currency===c.obligation.currency&&o.year>=1989&&o.year<=d.reference_year);
+    assert.ok(Number.isFinite(o.amount_net)&&o.amount_net>0&&o.amount_net<=c.payment.amount);
+   }
+  }
+  if(c.payment.cash_tranches!==undefined){
+   assert.equal(c.payment.status,"confirmed_paid","These transfer tranches must reconcile to the full fund");
+   assert.equal(c.payment.value_year,null,"A 2026 cash-year cannot be extrapolated from 2025 CPI");
+   assert.ok(Array.isArray(c.payment.cash_tranches)&&c.payment.cash_tranches.length>1);
+   assert.ok(c.payment.cash_tranches.every(t=>t.year>=1989&&t.year<=2026&&Number.isFinite(t.amount)&&t.amount>0&&/^https:\/\//.test(t.source)));
+   assert.equal(c.payment.cash_tranches.reduce((sum,t)=>sum+t.amount,0),c.payment.amount);
+  }
   if(c.payment.installments!==undefined){
    assert.equal(c.payment.status,"confirmed_paid","Only completed group cash may carry a fully reconciled installment schedule");
    assert.equal(c.payment.value_year,null,"A multiyear series has no single cash year");
@@ -55,7 +71,7 @@ test("legal outcomes are documented events rather than an aggregate harm index",
    let previous="";
    let total=0;
    for(const entry of c.payment.installments){
-    assert.match(entry.date,/^(19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}$/);
+    assert.match(entry.date,/^(19|20)[0-9]{2}-[0-9]{2}(?:-[0-9]{2})?$/);
     assert.ok(entry.date>previous,"Cash disbursements must be chronologically ordered");
     assert.ok(entry.date<=c.payment.as_of,"A cash installment cannot occur after last confirmation");
     assert.ok(Number.isFinite(entry.amount)&&entry.amount>0);
@@ -384,4 +400,39 @@ test("Petrobras separate 2000 state and federal paid fines get audited IPCA and 
  assert.ok(Math.abs(g.payment.amount*factor("BRL",2000)-157002555)<10);
  assert.ok(Math.abs(p.payment.amount*factor("BRL",2000)-175913226)<10);
  assert.ok(html.includes("2001–2025"));
+});
+
+test("paid PFAS supplier funds, East Palestine cash tranches and one 3M recipient are distinct",()=>{
+ const byId=id=>d.cases.find(x=>x.id===id);
+ const close=(a,b,margin=50)=>assert.ok(Math.abs(a-b)<margin,"Expected "+a+" near "+b);
+ assert.equal(d.inflation.USD.index["2023"],304.702);
+ const tyco=byId("tyco-water-pfas-2024");
+ assert.equal(tyco.payment.status,"confirmed_paid");
+ assert.equal(tyco.payment.amount,750000000);
+ assert.equal(tyco.payment.value_year,2024);
+ close(tyco.payment.amount*factor("USD",2024),769734037,10000);
+ const basf=byId("basf-water-pfas-2024");
+ assert.equal(basf.payment.amount,316500000);
+ assert.deepEqual(basf.payment.installments.map(x=>x.date),["2024-07","2025-03"]);
+ close(basf.payment.installments.reduce((a,x)=>a+x.amount*factor("USD",Number(x.date.slice(0,4))),0),316605251,1000);
+ const joint=byId("dupont-chemours-corteva-pws-2023");
+ assert.equal(joint.payment.amount,1185000000);
+ assert.equal(joint.payment.value_year,2023);
+ assert.equal(joint.payment.allocations.reduce((sum,x)=>sum+x.amount,0),joint.payment.amount);
+ close(joint.payment.amount*factor("USD",2023),1252066055,20000);
+ const norfolk=byId("norfolk-southern-east-palestine-class-2024");
+ assert.equal(norfolk.payment.status,"confirmed_paid");
+ assert.deepEqual(norfolk.payment.cash_tranches.map(t=>t.amount),[315000000,285000000]);
+ assert.deepEqual(norfolk.payment.cash_tranches.map(t=>t.year),[2024,2026]);
+ assert.equal(norfolk.payment.value_year,null);
+ assert.match(norfolk.notes,/not full disbursements/);
+ const threeM=byId("3m-pws-pfas-2024");
+ assert.equal(threeM.payment.status,"partially_paid");
+ assert.equal(threeM.payment.amount,34800000);
+ assert.equal(threeM.payment.value_year,2025);
+ assert.equal(threeM.payment.recipient_observations[0].recipient,"California Water Service Group");
+ assert.match(threeM.payment.detail,/NET/);
+ assert.match(threeM.notes,/not 3M's aggregate/);
+ assert.ok(html.includes("RECIPIENT NET RECEIPT"));
+ assert.ok(html.includes("COMPANY CASH TRANCHES"));
 });
