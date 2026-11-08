@@ -28,7 +28,7 @@
      if(!Number.isFinite(total)||Math.abs(total-payment.amount)>0.01)return null;
      let adjusted=0;
      for(const p of payment.installments){
-       const year=/^(19|20)\\d{2}-\\d{2}(?:-\\d{2})?$/.test(p.date)?Number(p.date.slice(0,4)):null;
+       const year=/^(19|20)[0-9]{2}-[0-9]{2}(?:-[0-9]{2})?$/.test(p.date)?Number(p.date.slice(0,4)):null;
        const factor=inflationFactor(data,currency,year);
        if(factor===null)return null;
        adjusted+=p.amount*factor;
