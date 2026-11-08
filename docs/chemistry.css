@@ -116,3 +116,12 @@
 .ch-operator-totals strong{display:block;color:#eef2d7;letter-spacing:-.055em;font-size:clamp(17px,2vw,25px);margin-top:10px}
 @media(max-width:800px){.ch-operator-totals{grid-template-columns:1fr 1fr}.ch-exposure-key{grid-template-columns:1fr}}
 @media(max-width:560px){.ch-exposure-controls,.ch-operator-totals{grid-template-columns:1fr}.ch-exposure{padding-top:50px}}
+
+/* Actual EPA 2024 facility Form R readout, each card identifies its own compound and medium. */
+.ch-facility-kpis{margin-top:24px}
+.ch-facility-kpis strong{font-size:clamp(21px,2.8vw,30px);color:var(--acid)}
+.ch-facility-controls{display:grid;grid-template-columns:minmax(230px,2fr) minmax(210px,1fr);gap:16px;align-items:end}
+.ch-facility-controls label{display:flex;flex-direction:column;gap:9px;min-width:0;color:#c0d3b6;font:500 11px/1.5 var(--mono)}
+.ch-facility-controls select{background:#15251c;border:1px solid #4a624b;color:#eff4eb;padding:12px;min-height:47px;width:100%;font:500 12px var(--sans)}
+.ch-facility-controls input{width:100%;max-width:none;margin:0}
+@media(max-width:700px){.ch-facility-controls{grid-template-columns:1fr}}
