@@ -14,7 +14,7 @@ function factor(currency,year){
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.equal(d.cases.length,36);
+ assert.equal(d.cases.length,42);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
@@ -130,7 +130,7 @@ test("cohort joins are explicit and historical defendants stay distinguishable",
    links.add(n);
   }
  }
- assert.deepEqual([...links].sort(),["Canadian Natural Resources","Cenovus Energy","Chevron","ConocoPhillips","ExxonMobil","Occidental Petroleum","ONGC","Suncor Energy"].sort());
+ assert.deepEqual([...links].sort(),["Canadian Natural Resources","Cenovus Energy","Chevron","Coal India","ConocoPhillips","EOG Resources","ExxonMobil","Occidental Petroleum","ONGC","Petrobras","Suncor Energy"].sort());
  const ex=d.cases.find(c=>c.id==="exxon-valdez-civil-1991");
  assert.equal(ex.payment.status,"confirmed_paid");assert.equal(ex.payment.amount,900000000);
  assert.equal(ex.payment.value_year,null);assert.equal(ex.payment.as_of,"2001-09");
@@ -333,4 +333,55 @@ test("actual paid and court-ordered sums remain separate, including Husky predec
  assert.match(html,/Indian rupees \(INR\)/);
  assert.match(html,/Canadian dollars \(CAD\)/);
  assert.match(html,/paidCash2025/);
+});
+
+test("Coal India CCL assessment separates audited cash from contested balance",()=>{
+ const c=d.cases.find(c=>c.id==="coalindia-ccl-jharkhand-environmental-compensation-2022");
+ assert.deepEqual(c.indexed_entities,["Coal India"]);
+ assert.deepEqual(c.entities,["Central Coalfields Limited (CCL)"]);
+ assert.equal(c.obligation.max,324500000);
+ assert.equal(c.payment.status,"partially_paid");
+ assert.equal(c.payment.amount,13500000);
+ assert.equal(c.payment.value_year,null,"Financial-year evidence cannot set one unverified cash year");
+ assert.match(c.notes,/31.10 crore|31,10,00,000|31.10/);
+ assert.equal(d.inflation.INR.index["2022"],172.150);
+});
+test("EOG's SEC paid cash and EPA payment docket are not environmental project commitments",()=>{
+ const byId=id=>d.cases.find(c=>c.id===id);
+ const penn=byId("eog-punxsutawney-well-control-2010");
+ assert.equal(penn.payment.status,"confirmed_paid");
+ assert.equal(penn.payment.amount,353419);
+ assert.equal(penn.payment.value_year,2010);
+ const north=byId("eog-north-dakota-air-2017");
+ assert.equal(north.payment.amount,90375);
+ assert.equal(north.payment.value_year,2017);
+ const epa=byId("eog-epa-texas-new-mexico-2025");
+ assert.equal(epa.payment.amount,412500);
+ assert.equal(epa.payment.value_year,2025);
+ assert.match(epa.payment.detail,/Payment Received/);
+ assert.match(epa.notes,/1.98m/);
+ assert.equal(d.inflation.USD.index["2010"],218.056);
+ assert.ok(Math.abs(353419*factor("USD",2010)-521796)<10);
+});
+test("Petrobras separate 2000 state and federal paid fines get audited IPCA and no full-face double count",()=>{
+ const byId=id=>d.cases.find(c=>c.id===id);
+ const g=byId("petrobras-guanabara-bay-fine-2000");
+ const p=byId("petrobras-iguacu-barigui-parana-fine-2000");
+ for(const c of [g,p]){
+  assert.deepEqual(c.indexed_entities,["Petrobras"]);
+  assert.equal(c.payment.status,"confirmed_paid");
+  assert.equal(c.payment.value_year,2000);
+  assert.equal(c.obligation.year,2000);
+  assert.equal(c.payment.amount,c.obligation.max);
+ }
+ assert.equal(g.payment.amount,35700000);
+ assert.equal(p.payment.amount,40000000);
+ assert.match(g.notes,/51m/);
+ assert.match(p.notes,/168m/);
+ assert.equal(d.inflation.BRL.annual_rates_percent["2001"],7.67);
+ assert.equal(d.inflation.BRL.annual_rates_percent["2015"],10.67);
+ assert.ok(Math.abs(factor("BRL",2000)-4.39783066204)<1e-7);
+ assert.ok(Math.abs(g.payment.amount*factor("BRL",2000)-157002555)<10);
+ assert.ok(Math.abs(p.payment.amount*factor("BRL",2000)-175913226)<10);
+ assert.ok(html.includes("2001–2025"));
 });
