@@ -135,3 +135,16 @@ test("site displays the non-imported source status, and browser code cannot fabr
  assert.ok(js.includes("NOT zero emissions"));
  assert.ok(!/toxicityScore|deathScore|guiltScore|companyRank/.test(js));
 });
+
+
+test("real EPA 2024 Basic CSV exports normalize only exact documented outer field aliases",()=>{
+ assert.equal(headerKey("1. YEAR"),"YEAR");
+ assert.equal(headerKey("2. TRIFD"),"TRIFID");
+ assert.equal(headerKey("17. STANDARD PARENT CO NAME"),"STANDARDIZED PARENT COMPANY NAME");
+ assert.equal(headerKey("39. TRI CHEMICAL/COMPOUND ID"),"TRI CHEMICAL /COMPOUND ID");
+ assert.equal(headerKey("40. CAS#"),"CAS NUMBER");
+ assert.equal(headerKey("51. 5.1 - FUGITIVE AIR"),"5.1 - FUGITIVE AIR");
+ assert.equal(headerKey("52. 5.2 - STACK AIR"),"5.2 - STACK AIR");
+ assert.equal(headerKey("53. 5.3 - WATER"),"5.3 - WATER");
+ assert.equal(headerKey("54. 5.4 - UNDERGROUND"),"5.4 - UNDERGROUND");
+});
