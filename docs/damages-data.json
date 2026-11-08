@@ -1127,13 +1127,13 @@
       "matter": "Krishna–Godavari Basin environmental compensation for four ONGC facilities",
       "hazard": "Oil-and-gas production facilities / observed environmental noncompliance",
       "outcome_type": "tribunal-directed environmental compensation",
-      "disposition": "National Green Tribunal environmental compensation directions; Andhra Pradesh Pollution Control Board documented completed remittances",
+      "disposition": "August 2022 National Green Tribunal compensation order with completed payments through December 2023, documented by Andhra Pradesh Pollution Control Board",
       "obligation": {
         "currency": "INR",
-        "year": 2023,
+        "year": 2022,
         "min": 227662500,
         "max": 227662500,
-        "kind": "Total tribunal-directed environmental compensation; ₹7,52,10,000 paid in 2022 and ₹15,24,52,500 paid in 2023"
+        "kind": "Total ₹227,662,500 environmental compensation directed in 2022; ₹75,210,000 paid in 2022 and ₹152,452,500 paid in 2023"
       },
       "payment": {
         "status": "confirmed_paid",
