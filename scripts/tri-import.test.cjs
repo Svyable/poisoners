@@ -1,17 +1,17 @@
 "use strict";
 const test=require("node:test"),assert=require("node:assert/strict"),fs=require("node:fs"),os=require("node:os"),path=require("node:path"),vm=require("node:vm");
-const {importBasic,csvRows,parseNonnegative,headerKey}=require("./import-tri-basic.cjs");
+const {importBasic,csvRows,parseNonnegative,headerKey,officialCsvUrl}=require("./import-tri-basic.cjs");
 const root=path.resolve(__dirname,"..");
 const links=JSON.parse(fs.readFileSync(path.join(root,"data/tri-facility-links.json"),"utf8"));
 const output=JSON.parse(fs.readFileSync(path.join(root,"docs/tri-facility-releases.json"),"utf8"));
 const html=fs.readFileSync(path.join(root,"docs/chemistry.html"),"utf8");
 const qa=fs.readFileSync(path.join(root,"data/tri-import-methodology.md"),"utf8");
-const HEADER=["YEAR","TRIFID","FACILITY NAME","PARENT CO NAME","STANDARDIZED PARENT COMPANY NAME","CHEMICAL","CAS NUMBER","FORM TYPE","UNIT OF MEASURE","DOC_CTRL_NUM","5.1 – FUGITIVE AIR","5.2 – STACK AIR","5.3 – WATER"];
+const HEADER=["YEAR","TRIFID","FACILITY NAME","PARENT CO NAME","STANDARDIZED PARENT COMPANY NAME","CHEMICAL","CAS NUMBER","FORM TYPE","UNIT OF MEASURE","DOC_CTRL_NUM","5.1 – FUGITIVE AIR","5.2 – STACK AIR","5.3 – WATER","STREET ADDRESS","CITY","ST"];
 const approved="77522XXNCH5000B",chevron="94802CHVRN841ST";
 const quote=x=>/[,\r\n"]/.test(String(x))?'"'+String(x).replace(/"/g,'""')+'"':String(x);
 function fixture(rows){const dir=fs.mkdtempSync(path.join(os.tmpdir(),"tri-reviewed-"));const file=path.join(dir,"EPA_TRI_2024.csv");fs.writeFileSync(file,[HEADER,...rows].map(x=>x.map(quote).join(",")).join("\r\n")+"\r\n");return {file,cleanup:()=>fs.rmSync(dir,{recursive:true,force:true})}}
-const line=({year="2024",trifid=approved,chemical="Sulfuric acid (acid aerosols, including mists)",cas="7664-93-9",form="R",unit="Pounds",doc="R240000001",fug="5",stack="12.5",water="0",parent="Exxon Mobil Corporation"}={})=>
- [year,trifid,"ExxonMobil Baytown Chemical Plant (Part)",parent,"EXXON MOBIL CORP",chemical,cas,form,unit,doc,fug,stack,water];
+const line=({year="2024",trifid=approved,chemical="Sulfuric acid (acid aerosols, including mists)",cas="7664-93-9",form="R",unit="Pounds",doc="R240000001",fug="5",stack="12.5",water="0",parent="Exxon Mobil Corporation",street="5000 Bayway Drive",city="Baytown",state="TX"}={})=>
+ [year,trifid,"ExxonMobil Baytown Chemical Plant (Part)",parent,"EXXON MOBIL CORP",chemical,cas,form,unit,doc,fug,stack,water,street,city,state];
 test("identity approvals and unapproved lookups are explicit; empty release status is not 0",()=>{
  assert.equal(links.schema_version,1);
  assert.equal(links.facilities.length,3);
@@ -163,8 +163,39 @@ test("real EPA 2024 Basic CSV exports normalize only exact documented outer fiel
  assert.equal(headerKey("17. STANDARD PARENT CO NAME"),"STANDARDIZED PARENT COMPANY NAME");
  assert.equal(headerKey("39. TRI CHEMICAL/COMPOUND ID"),"TRI CHEMICAL /COMPOUND ID");
  assert.equal(headerKey("40. CAS#"),"CAS NUMBER");
+ assert.equal(headerKey("8. ST"),"STATE");
  assert.equal(headerKey("51. 5.1 - FUGITIVE AIR"),"5.1 - FUGITIVE AIR");
  assert.equal(headerKey("52. 5.2 - STACK AIR"),"5.2 - STACK AIR");
  assert.equal(headerKey("53. 5.3 - WATER"),"5.3 - WATER");
  assert.equal(headerKey("54. 5.4 - UNDERGROUND"),"5.4 - UNDERGROUND");
+});
+
+test("physical state, city and street must agree even when TRIFID and parent name match",async()=>{
+ const cases=[
+  {street:"1000 Other Road"},
+  {city:"Houston"},
+  {state:"LA"}
+ ];
+ for(const change of cases){
+  const f=fixture([line(change)]);
+  try{
+   const got=await importBasic({input:f.file,manifest:links,retrieved:"2026-11-07"});
+   assert.equal(got.records.length,0);
+   assert.equal(got.issues.length,1);
+   assert.equal(got.coverage.quarantined_parent_mismatch_rows,1);
+   assert.match(got.issues[0].reason,/physical facility/);
+  }finally{f.cleanup()}
+ }
+});
+test("unknown source forms fail closed; published EPA endpoint stays exact",async()=>{
+ const f=fixture([line({form:"Z"})]);
+ try{
+  await assert.rejects(importBasic({input:f.file,manifest:links,retrieved:"2026-11-07"}),/Unrecognized TRI form type/);
+ }finally{f.cleanup()}
+ const official="https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv";
+ assert.equal(officialCsvUrl(official),true);
+ for(const bad of ["https://example.com/tri.csv","https://data.epa.gov.evil.org/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv",
+ "https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2023_TX/csv"]){
+  assert.equal(officialCsvUrl(bad),false);
+ }
 });
