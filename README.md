@@ -23,7 +23,7 @@
 - [Methodology](docs/methodology.html): historical / annual / future harm design, pollutant/receptor matrix, causal models, uncertainty, grades, proposed data ingestion.
 - [Research operations protocol](docs/operating-protocol.html): public evidence chain, release gates, metric architecture and country-level workstreams.
 - [Case engine](docs/legal.html): ten-country preliminary legal-route map and a counsel-gated, privacy-protecting workflow.
-- [Damages & Payments Ledger](docs/damages.html): thirty-three publicly sourced monetary outcomes, status of cash paid versus settlements or caps, exact document links, and same-currency 2025 purchasing-power comparisons; not an additive environmental injury score.
+- [Damages & Payments Ledger](docs/damages.html): thirty-six publicly sourced monetary outcomes, status of cash paid versus settlements or caps, exact document links, and same-currency 2025 purchasing-power comparisons; not an additive environmental injury score.
 - [Documented case studies](docs/case-studies.html): Japan's Minamata disease, BP Deepwater Horizon, Vale Brumadinho and 3M's PFAS drinking-water settlement, with official sources and distinctions between court findings, settlements and claims.
 - [Evidence record schema](schema/evidence-record.schema.json): source metadata, legal-entity and date boundaries, measurement and confidence fields.
 
@@ -226,9 +226,19 @@ The [official environmental records directory](docs/public-records.html) links t
 
 Run `node scripts/check-public-records.cjs` to check source hostnames and portal metadata; CI includes this offline check. A missing or reported pollution record alone does not establish personal exposure, environmental injury, individual misconduct or legal responsibility.
 
+## November 2026: verified cash versus future commitments
+
+The 36-case payment ledger now separately identifies **Volkswagen's $1.45bn paid Clean Air Act civil fine** (EPA confirms it was paid, but does not give the disbursement year); **Bosch's more than $300m paid to consumers** under its distinct $327.5m clean-diesel fund (the recorded $300m is a conservative historical lower bound); and the **FTC's more than $9.5bn paid VW/Audi/Porsche consumer-redress cross-program observation**. That FTC sum spans the 2016 2.0-liter and 2017 3.0-liter consumer programs and must **not** be assigned as paid under the narrower 2016 $14.7bn 2.0-liter package. The same Volkswagen vehicle remedy is not an additional award when seen in both government reports.
+
+**BP's 2016 Deepwater Horizon civil agreement** now has SEC-confirmed, separate $1.129bn pre-tax disbursements in **Q2 2025 and Q2 2026**, or $2.258bn across *those two quarters only*. Other years are still unverified; this amount is neither lifetime cumulative paid cash nor a reason to assume the full $20.8bn was paid. **Vale's 2025 Form 20-F** reports R$21.3bn against its collective settlement payment obligations, including relevant pre-2021 expenditures. The older R$18.2bn 2022 Minas Gerais observation is preserved with a distinct accounting-scope note; those are not amounts to add or assume perfectly comparable.
+
+**3M's November 3, 2026 AFFF personal-injury resolution** is a new $7.35bn *nominal future commitment* through 2034 ($5.8bn accounting present value). An announced $50m installment expected in 2026 is **not evidence it has been paid**. This agreement is separate from its earlier public-water-supplier PFAS and Minnesota settlements. Because the common inflation reference is 2025, a commitment first arising in 2026 has **no computed 2025 purchasing-power comparator**, not a manufactured value.
+
+Every case retains its original-source references in [the payment ledger](docs/damages-data.json). Multiple companies, legal proceedings, jurisdictions, remedy types and accounting bases remain distinct. A settlement or fine is not a scientific estimate of total injury.
+
 ## Historical monetary outcomes and 2025 inflation comparisons
 
-The [Payments Ledger](docs/damages.html) publishes thirty-three event-specific records with [machine-readable evidence](docs/damages-data.json). The historical examples include Minnesota PFAS, DuPont/Chemours C8, Volkswagen, Brumadinho, Deepwater Horizon, 3M public-water-supplier PFAS, the 1989 Bhopal payout, Anadarko/Tronox, Exxon Valdez, Mayflower, Duck and Otter Creeks, Suncor, and separate BP/Transocean criminal-disbursement components. **These records are not a complete company payment database or quantified environmental-harm dataset.**
+The [Payments Ledger](docs/damages.html) publishes thirty-six event-specific records with [machine-readable evidence](docs/damages-data.json). The historical examples include Minnesota PFAS, DuPont/Chemours C8, Volkswagen, Brumadinho, Deepwater Horizon, 3M public-water-supplier PFAS, the 1989 Bhopal payout, Anadarko/Tronox, Exxon Valdez, Mayflower, Duck and Otter Creeks, Suncor, and separate BP/Transocean criminal-disbursement components. **These records are not a complete company payment database or quantified environmental-harm dataset.**
 
 Every observation distinguishes a legally ordered or contracted nominal amount, whether actual cash was independently confirmed paid, the **date of the supporting source** and the difference between a fixed award, a ceiling and installments. A cash-paid amount with an unknown payment year does **not** get an invented inflation-adjusted cash value. Up-to ceilings are **not** payments. An historical 2022 Brazil payment figure is **not** presented as a 2026 settlement total. Multi-party and overlapping matters cannot be added as one company's total.
 
