@@ -47,9 +47,10 @@ jobs:
           with open(p,"r",encoding="utf-8-sig",errors="replace",newline="") as file:
               head=next(csv.reader(file))
           normalized=[x.upper().strip() for x in head]
-          if not any("YEAR" in x for x in normalized) or not any("TRIFID" in x for x in normalized):
+          if not any("YEAR" in x for x in normalized) or not any("TRIFID" in x or "TRIFD" in x for x in normalized):
               raise SystemExit("Downloaded response is not a TRI Basic CSV header; do not publish")
-          print("Source field count:",len(head),"| first fields:",head[:5])
+          print("Source field count:",len(head))
+          for i,field in enumerate(head,1): print(f"EPA FIELD {i:03d}: {field!r}")
           PY
       - name: Deterministic EPA Form R facility import (artifact, NOT a production publish)
         shell: bash
