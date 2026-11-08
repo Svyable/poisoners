@@ -14,7 +14,7 @@ function factor(currency,year){
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.equal(d.cases.length,46);
+ assert.equal(d.cases.length,55);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
@@ -146,7 +146,7 @@ test("cohort joins are explicit and historical defendants stay distinguishable",
    links.add(n);
   }
  }
- assert.deepEqual([...links].sort(),["Canadian Natural Resources","Cenovus Energy","Chevron","Coal India","ConocoPhillips","EOG Resources","ExxonMobil","Occidental Petroleum","ONGC","Petrobras","Suncor Energy"].sort());
+ assert.deepEqual([...links].sort(),["Canadian Natural Resources","Cenovus Energy","Chevron","Coal India","ConocoPhillips","Core Natural Resources","EOG Resources","EQT Corporation","Expand Energy","ExxonMobil","Occidental Petroleum","ONGC","Petrobras","Suncor Energy"].sort());
  const ex=d.cases.find(c=>c.id==="exxon-valdez-civil-1991");
  assert.equal(ex.payment.status,"confirmed_paid");assert.equal(ex.payment.amount,900000000);
  assert.equal(ex.payment.value_year,null);assert.equal(ex.payment.as_of,"2001-09");
@@ -435,4 +435,65 @@ test("paid PFAS supplier funds, East Palestine cash tranches and one 3M recipien
  assert.match(threeM.notes,/not 3M's aggregate/);
  assert.ok(html.includes("RECIPIENT NET RECEIPT"));
  assert.ok(html.includes("COMPANY CASH TRANCHES"));
+});
+
+test("EQT four distinct payments preserve May 2023 full versus partial receipts",()=>{
+ const get=id=>d.cases.find(c=>c.id===id);
+ const fish=get("eqt-tioga-phoenix-s-impoundment-fish-2015");
+ assert.equal(fish.payment.amount,30000);
+ assert.equal(fish.payment.value_year,2015);
+ assert.match(fish.notes,/4.53m/);
+ const gpu=get("eqt-gpu-consent-amendment-2023");
+ const water=get("eqt-washington-produced-water-2023");
+ const plug=get("eqt-plugging-report-compliance-2023");
+ assert.deepEqual([gpu.payment.amount,water.payment.amount,plug.payment.amount],[351000,4700000,1500000]);
+ assert.deepEqual([gpu.payment.status,water.payment.status,plug.payment.status],
+  ["confirmed_paid","confirmed_paid","partially_paid"]);
+ assert.deepEqual([gpu.payment.value_year,water.payment.value_year,plug.payment.value_year],[2023,2023,2023]);
+ assert.equal(plug.obligation.max,4000000);
+ assert.match(plug.notes,/2.5m/);
+ assert.match(water.notes,/4m/);
+ assert.equal(d.inflation.USD.index["2023"],304.702);
+ assert.equal(d.inflation.USD.index["2019"],255.657);
+ assert.ok(Math.abs(water.payment.amount*factor("USD",2023)-4965940.82)<1);
+ assert.ok(Math.abs(plug.payment.amount*factor("USD",2023)-1584874.73)<1);
+});
+test("Trans Energy civil and criminal penalties reconcile without moving early checks to EQT",()=>{
+ const get=id=>d.cases.find(c=>c.id===id);
+ const civil=get("transenergy-westvirginia-cwa-civil-2014");
+ const crim=get("transenergy-westvirginia-cwa-criminal-2014");
+ assert.deepEqual(civil.entities,["Trans Energy, Inc."]);
+ assert.deepEqual(crim.entities,["Trans Energy, Inc."]);
+ assert.deepEqual(civil.indexed_entities,["EQT Corporation"]);
+ assert.equal(civil.payment.status,"confirmed_paid");
+ assert.equal(civil.payment.amount,3000000);
+ assert.equal(civil.obligation.max,3000000);
+ assert.equal(civil.payment.value_year,null,"No cash year for first $1.25m transfer");
+ assert.match(civil.payment.detail,/\$1\.25m/);
+ assert.match(civil.payment.detail,/April 2017/);
+ assert.equal(crim.payment.amount,600000);
+ assert.equal(crim.payment.value_year,null);
+ assert.match(crim.notes,/same underlying/);
+});
+test("historical Chesapeake and Arch payers remain distinct from Expand and Core corporate identities",()=>{
+ const get=id=>d.cases.find(c=>c.id===id);
+ const criminal=get("chesapeake-blake-fork-cwa-criminal-2012");
+ const civil=get("chesapeake-westvirginia-cwa-civil-2014");
+ for(const c of [criminal,civil]){
+  assert.deepEqual(c.entities,["Chesapeake Appalachia, LLC"]);
+  assert.deepEqual(c.indexed_entities,["Expand Energy"]);
+  assert.equal(c.payment.status,"confirmed_paid");
+  assert.equal(c.payment.value_year,null,"FY collections do not establish calendar-year transfer");
+  assert.ok(c.notes.includes("2024"));
+ }
+ assert.equal(criminal.payment.amount,600000);
+ assert.equal(civil.payment.amount,1600000);
+ const arch=get("arch-coal-appalachian-cwa-2011");
+ assert.deepEqual(arch.entities,["Arch Coal, Inc."]);
+ assert.deepEqual(arch.indexed_entities,["Core Natural Resources"]);
+ assert.equal(arch.payment.amount,4000000);
+ assert.equal(arch.payment.value_year,null,"FY2012 annual report does not prove 2011 cash year");
+ assert.match(arch.notes,/2020/);
+ assert.match(arch.notes,/2025/);
+ assert.equal(arch.obligation.year,2011);
 });
