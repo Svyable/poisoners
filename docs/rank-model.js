@@ -21,6 +21,23 @@
    if(currency==="BRL"){if(y<2021)return null;let factor=1;for(let k=y+1;k<=target;k++){const rate=data.inflation.BRL.annual_rates_percent[k];if(!Number.isFinite(rate))return null;factor*=1+rate/100;}return factor;}
    return null;
  }
+ function adjustedCashPaid(payment,currency,data){
+   if(!payment||!Number.isFinite(payment.amount)||payment.amount<=0)return null;
+   if(Array.isArray(payment.installments)&&payment.installments.length){
+     const total=payment.installments.reduce((sum,p)=>sum+(Number.isFinite(p.amount)?p.amount:NaN),0);
+     if(!Number.isFinite(total)||Math.abs(total-payment.amount)>0.01)return null;
+     let adjusted=0;
+     for(const p of payment.installments){
+       const year=/^(19|20)\\d{2}-\\d{2}(?:-\\d{2})?$/.test(p.date)?Number(p.date.slice(0,4)):null;
+       const factor=inflationFactor(data,currency,year);
+       if(factor===null)return null;
+       adjusted+=p.amount*factor;
+     }
+     return adjusted;
+   }
+   const factor=inflationFactor(data,currency,payment.value_year);
+   return Number.isInteger(payment.value_year)&&factor!==null?payment.amount*factor:null;
+ }
  const descriptions={
   companies:"2024 company producer-linked greenhouse-gas estimates. Product-use emissions can be included. Not a facility exposure, toxicity or injury ranking.",
   countries:"2025 territorial GHG inventories (EDGAR); different boundary from producer-linked companies. Country counts do not imply local legal fault.",
@@ -57,6 +74,7 @@
    field("adjustedMax","2025 purchasing-power upper comparator","number",{unit:"original currency",meaning:"Original-currency inflation illustration at disposition year, NOT amount legally owed"}),
    field("adjustedMin","2025 purchasing-power lower comparator","number",{unit:"original currency",meaning:"Not a current debt, future payment or exchange-rate conversion"}),
    field("paid","Documented paid amount","number",{unit:"original currency",meaning:"Only confirmed or dated partial payment; unknown stays unranked"}),
+   field("paidAdjusted","2025 paid-cash purchasing-power comparator","number",{unit:"original currency",meaning:"Inflation of verified cash year or reconciled installments only; multi-year payments without a complete dated schedule are unknown, and different legal remedies remain incomparable"}),
    field("year","Obligation/disposition year","number",{unit:"year",meaning:"Historical reporting vintage, not a continuous harm rate"}),
    field("entity","Named parties","text"),field("status","Paid evidence status","text"),field("currency","Original currency","text"),field("type","Legal outcome type","text"),field("hazard","Hazard / event","text"),field("jurisdiction","Jurisdiction","text")],
    facets:["currency","status","type","year","jurisdiction","hazard","entity"]},
@@ -114,7 +132,7 @@
      obligationMax:asNumber(c.obligation.max),obligationMin:asNumber(c.obligation.min),
      adjustedMax:factor===null?null:c.obligation.max*factor,
      adjustedMin:factor===null?null:c.obligation.min*factor,
-     paid:asNumber(c.payment.amount),year:yr,type:c.outcome_type,hazard:c.hazard,jurisdiction:c.jurisdiction,
+     paid:asNumber(c.payment.amount),paidAdjusted:adjustedCashPaid(c.payment,cur,data.payments),year:yr,type:c.outcome_type,hazard:c.hazard,jurisdiction:c.jurisdiction,
      link:"damages.html?company="+encodeURIComponent(c.entities[0])+"#paymentList",
      source:c.sources[0]?.url||null,sourceLabel:c.sources[0]?.name||"Source not specified",
      boundary:c.obligation.kind+"; "+c.disposition+"; payment: "+c.payment.status
@@ -152,7 +170,7 @@
   const f=datasets[dataset].fields.find(x=>x.id===metric);
   if(!f)return "Choose a valid metric";
   if(f.type!=="number")return "";
-  if(dataset==="payments"&&["obligationMin","obligationMax","adjustedMax","adjustedMin","paid"].includes(metric)&&config.facets?.currency==="ALL")
+  if(dataset==="payments"&&["obligationMin","obligationMax","adjustedMax","adjustedMin","paid","paidAdjusted"].includes(metric)&&config.facets?.currency==="ALL")
     return "Select USD or BRL to rank money. These currencies cannot share a numeric leaderboard.";
   if(dataset==="observations"&&config.facets?.cohort==="ALL")
     return "Choose one source/year/unit cohort to rank chemical mass. EPA short tons cannot be merged with EIA metric tonnes or different reporting years.";
