@@ -1,5 +1,5 @@
 {
-  "version": "1.7.0",
+  "version": "1.8.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -213,12 +213,28 @@
       },
       "payment": {
         "status": "partially_paid",
-        "amount": 18200000000,
-        "as_of": "2022-02-04",
+        "amount": 21300000000,
+        "as_of": "2025-12-31",
         "value_year": null,
-        "detail": "Minas Gerais environmental authority reported R$18.2bn already paid toward different agreement obligations after one year; covers multiple payment/implementation periods. This is a dated historical lower bound, not a current 2026 total. Separately, Vale's June 2026 investor reporting discloses US$15.172bn of total cumulative Brumadinho-related outlays since 2019 across a broader scope, including dam decommissioning, individual/emergency compensation and other work. That broader figure is not the cash paid under this exact 2021 agreement and must not be substituted for, added to, or currency-converted into this R$18.2bn historical observation."
+        "detail": "Vale's SEC-filed 2025 Form 20-F says that by December 31, 2025 it had fulfilled 95% of its settlement payment obligations, reporting R$21.3 billion in total for those obligations. That reporting basis includes historical commitments and R$6.3 billion of pre-signing disbursements within the wider 2021 agreement's accounting. It is NOT solely cash transferred to Minas Gerais after 2021 and must NOT be added to the state's separate R$18.2bn first-anniversary observation, Vale's R$13.7bn 'to-do' performance figures, or its wider individual compensation and post-agreement costs. Exact payment-year installments remain unreconciled.",
+        "historical_observations": [
+          {
+            "as_of": "2022-02-04",
+            "amount": 18200000000,
+            "currency": "BRL",
+            "label": "Minas Gerais first-anniversary reported payments/execution; source and accounting scope differ from Vale's later Form 20-F",
+            "source": "https://meioambiente.mg.gov.br/w/em-um-ano-acordo-de-reparacao-tem-avancos-importantes-para-brumadinho-e-regiao"
+          },
+          {
+            "as_of": "2025-12-31",
+            "amount": 21300000000,
+            "currency": "BRL",
+            "label": "Vale SEC 2025 Form 20-F — 95% of agreement payment obligations, including defined pre-settlement outlays",
+            "source": "https://www.sec.gov/Archives/edgar/data/917851/000129281426001844/valeform20f_2025.htm"
+          }
+        ]
       },
-      "notes": "Agreement contains both duties to perform works and duties to transfer funds. Paid figure and package overlap; they must never be added. Multi-year cash has no single valid inflation base year.",
+      "notes": "Agreement mixes commitments to transfer funds with duties to perform projects and certain pre-signing outlays. Its payment-obligation totals overlap the nominal R$37.69bn package, and may use different scope from the early state observation; never add them or interpret a percentage of work completed as cash paid. The R$21.3bn is not all money remitted to the state, and multi-year receipts cannot be given one price year.",
       "sources": [
         {
           "name": "Minas Gerais — original 2021 agreement amount and scope",
@@ -239,6 +255,10 @@
         {
           "name": "Vale 2Q26 ESG — broader Brumadinho payments scope, not cash under one agreement",
           "url": "https://vale.com/in/esg/brumadinho"
+        },
+        {
+          "name": "Vale — SEC 2025 Form 20-F: R$21.3bn payment obligations fulfilled through 2025, pre-signing amounts included",
+          "url": "https://www.sec.gov/Archives/edgar/data/917851/000129281426001844/valeform20f_2025.htm"
         }
       ],
       "indexed_entities": []
@@ -261,13 +281,27 @@
         "kind": "Total civil package including fines, NRD and economic claims"
       },
       "payment": {
-        "status": "payment_total_unverified",
-        "amount": null,
-        "as_of": "2026-11-07",
+        "status": "partially_paid",
+        "amount": 2258000000,
+        "as_of": "2026-06-30",
         "value_year": null,
-        "detail": "Long-term installments are documented; an independently reconciled company-wide paid-to-date figure was not established for this ledger."
+        "detail": "BP's SEC-filed second-quarter 2025 and second-quarter 2026 reports EACH expressly report $1.129bn of pre-tax payments relating to the 2016 Deepwater Horizon consent decree and settlement with the U.S. and five Gulf states. This $2.258bn is the arithmetic SUM OF TWO DISTINCT VERIFIED QUARTERS only, not cumulative lifetime cash paid under the $20.8bn resolution. Other periods' payments are not reconciled, so this is a documented partial-period lower bound; cash occurred in both 2025 and 2026 and no single 2025 paid-year inflation figure is computed.",
+        "cash_periods": [
+          {
+            "period": "2025-Q2",
+            "amount": 1129000000,
+            "currency": "USD",
+            "source": "https://www.sec.gov/Archives/edgar/data/313807/000031380725000026/bp-20250630.htm"
+          },
+          {
+            "period": "2026-Q2",
+            "amount": 1129000000,
+            "currency": "USD",
+            "source": "https://www.sec.gov/Archives/edgar/data/313807/000031380726000016/bp-20260630.htm"
+          }
+        ]
       },
-      "notes": "$20.8bn was agreed/court approved, NOT shown as fully paid. Do not add BP's separate 2012 criminal plea to this figure without checking scopes.",
+      "notes": "The $20.8bn is the 2016 civil package, not a verified fully paid amount. BP's 2025 annual report separately reports $1.169bn 2025 oil-spill operating cash outflow across a broader accounting scope; that must not be added to the Q2 2025 $1.129bn (overlapping period) or treated as entirely this agreement. The 2013 NFWF criminal plea payment in another case is a distinct legal resolution.",
       "sources": [
         {
           "name": "U.S. DOJ — $20.8bn civil settlement",
@@ -276,6 +310,18 @@
         {
           "name": "U.S. EPA — event timeline, consent decree and separate matters",
           "url": "https://www.epa.gov/enforcement/deepwater-horizon-bp-gulf-america-oil-spill"
+        },
+        {
+          "name": "BP SEC Q2 2025 — $1.129bn pre-tax paid relating to 2016 consent decree",
+          "url": "https://www.sec.gov/Archives/edgar/data/313807/000031380725000026/bp-20250630.htm"
+        },
+        {
+          "name": "BP SEC Q2 2026 — separate $1.129bn pre-tax paid relating to 2016 consent decree",
+          "url": "https://www.sec.gov/Archives/edgar/data/313807/000031380726000016/bp-20260630.htm"
+        },
+        {
+          "name": "BP SEC 2025 annual report — broader oil spill outflows and remaining obligations",
+          "url": "https://www.sec.gov/Archives/edgar/data/313807/000031380726000006/R28.htm"
         }
       ],
       "indexed_entities": []
@@ -302,7 +348,16 @@
         "amount": null,
         "as_of": "2026-11-07",
         "value_year": null,
-        "detail": "This ledger has not reconciled vehicle buybacks and mitigation expenditures to actual disbursements; an up-to cap is not evidence the cap was paid."
+        "detail": "The 2016 up-to $14.7bn package combines 2.0-liter consumer buybacks, mitigation trusts and EV investments; a complete 2.0-liter-specific cash payment reconciliation is not verified. Importantly, the FTC's July 27, 2020 final report independently confirms MORE THAN $9.5bn returned to consumers under the combined 2016 2.0-liter AND 2017 3.0-liter consumer programs, including Porsche. That cross-case paid observation cannot be allocated to the 2016 2.0-liter figure alone, cannot be treated as a payment in 2020, and is not additional to the 2016 cap.",
+        "related_observations": [
+          {
+            "as_of": "2020-07-27",
+            "currency": "USD",
+            "amount_floor": 9500000000,
+            "label": "FTC-confirmed consumer repayment by VW, Audi and Porsche across BOTH 2016 2.0-liter and 2017 3.0-liter proceedings; greater-than lower bound, not 2016 case cash",
+            "source": "https://www.ftc.gov/news-events/news/press-releases/2020/07/final-court-summary-ftc-reports-volkswagen-repaid-more-95-billion-car-buyers-who-were-deceived-clean"
+          }
+        ]
       },
       "notes": "The up-to amount spans distinct categories and is not a monetary estimate of pollution damage; distinct from the later criminal fine.",
       "sources": [
@@ -313,6 +368,10 @@
         {
           "name": "U.S. EPA — civil consent decree scope",
           "url": "https://www.epa.gov/enforcement/volkswagen-clean-air-act-civil-settlement"
+        },
+        {
+          "name": "FTC final report — more than $9.5bn repaid to consumers across 2016 and 2017 proceedings (not a 2.0-liter-only paid amount)",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2020/07/final-court-summary-ftc-reports-volkswagen-repaid-more-95-billion-car-buyers-who-were-deceived-clean"
         }
       ],
       "indexed_entities": []
@@ -1461,6 +1520,119 @@
         {
           "name": "Cenovus — January 2021 Husky combination",
           "url": "https://www.cenovus.com/Investors/Cenovus-and-Husky-transaction"
+        }
+      ]
+    },
+    {
+      "id": "vw-caa-third-civil-penalty-2017",
+      "entities": [
+        "Volkswagen AG",
+        "Volkswagen Group of America and related settling defendants"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "United States",
+      "matter": "Volkswagen third partial Clean Air Act settlement — civil penalty",
+      "hazard": "Diesel NOx / defeat-device emissions violations",
+      "outcome_type": "civil Clean Air Act penalty",
+      "disposition": "Court-approved April 13, 2017 third partial civil settlement; distinct from 2016 and 2017 consumer redress and from the $2.8bn criminal fine",
+      "obligation": {
+        "currency": "USD",
+        "year": 2017,
+        "min": 1450000000,
+        "max": 1450000000,
+        "kind": "Fixed Clean Air Act civil penalty under third partial settlement; NOT the vehicle buyback, consumer compensation, or $2.8bn criminal fine"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 1450000000,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "US EPA's official Volkswagen Clean Air Act Civil Settlement page explicitly says that under the third partial settlement Volkswagen HAS PAID a $1.45bn civil penalty. That page does not establish which specific settlement defendant remitted which share or the exact cash transfer year; no paid-year CPI is inferred."
+      },
+      "notes": "This fixed $1.45bn penalty must not be double-counted against Volkswagen's separately listed up-to $14.7bn first partial settlement or $2.8bn DOJ criminal fine. Historical EPA civil allegations are not a health-harm dollar estimate. Multiple settling legal entities prevent per-defendant cash attribution.",
+      "sources": [
+        {
+          "name": "US EPA — Volkswagen Clean Air Act Civil Settlement, section Civil Penalty expressly states paid $1.45bn",
+          "url": "https://www.epa.gov/enforcement/volkswagen-clean-air-act-civil-settlement"
+        }
+      ]
+    },
+    {
+      "id": "bosch-vw-diesel-consumer-2017",
+      "entities": [
+        "Robert Bosch GmbH",
+        "Robert Bosch LLC"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "United States",
+      "matter": "Bosch emissions-software supplier's Volkswagen/Audi/Porsche clean-diesel consumer class settlement",
+      "hazard": "Diesel NOx / emission defeat-device technology and consumer redress",
+      "outcome_type": "civil consumer compensation class settlement",
+      "disposition": "2017 court-approved Bosch class settlement in VW diesel MDL, separate payer from Volkswagen, Audi and Porsche",
+      "obligation": {
+        "currency": "USD",
+        "year": 2017,
+        "min": 327500000,
+        "max": 327500000,
+        "kind": "Bosch's fixed non-reversionary $327.5m consumer settlement fund, including permitted administrative and attorney allocations"
+      },
+      "payment": {
+        "status": "partially_paid",
+        "amount": 300000000,
+        "as_of": "2020-07-27",
+        "value_year": null,
+        "detail": "The FTC's July 27, 2020 final status report explicitly says MORE THAN $300m that Bosch paid to consumers, separate from the over-$9.5bn Volkswagen/Porsche consumer repayment. The $300m here is a CONSERVATIVE ROUNDED FLOOR of explicitly verified paid benefits, NOT an exact total, not a payment dated 2020, and not proof the full $327.5m settlement fund was disbursed to consumers."
+      },
+      "notes": "Bosch's payments are distinct from Volkswagen/Porsche, but the same vehicle-claims cohort is involved. Bosch's $327.5m fund includes non-consumer allocations, while the FTC describes over $300m to consumers; do not sum this with a Bosch fund deposit as if two separate events. The paid-year series is unknown.",
+      "sources": [
+        {
+          "name": "FTC July 2020 final status report — note 1: more than $300m Bosch paid to consumers, excluded from VW $9.5bn",
+          "url": "https://www.ftc.gov/system/files/documents/cases/1623006vwfinalstatusreport.pdf"
+        },
+        {
+          "name": "Bosch court settlement administrator — fixed $327.5m fund, class scope and final distributions",
+          "url": "https://www.boschvwsettlement.com/en"
+        },
+        {
+          "name": "Bosch settlement administrator FAQ — supplemental distribution in February 2022",
+          "url": "https://www.boschvwsettlement.com/en/Home/FAQ"
+        }
+      ]
+    },
+    {
+      "id": "3m-afff-pi-2026",
+      "entities": [
+        "3M"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "U.S. federal AFFF MDL (South Carolina) and related claims",
+      "matter": "2026 PFAS/AFFF personal injury litigation broad resolution",
+      "hazard": "PFAS / aqueous film-forming foam personal-injury claims",
+      "outcome_type": "conditional personal-injury civil settlement commitment",
+      "disposition": "November 3, 2026 announced agreement subject to participation, claims administration and related contingencies; not a paid judgment",
+      "obligation": {
+        "currency": "USD",
+        "year": 2026,
+        "min": 7350000000,
+        "max": 7350000000,
+        "kind": "Nominal PRE-TAX future commitment through 2034; separately disclosed $5.8bn present-value accounting charge is NOT an additional obligation"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "3M's November 3, 2026 SEC-filed announcement commits to $7.35bn nominal payments over nine years, including a PLANNED $50m 2026 payment and no planned payment in 2027. No completed 2026 disbursement under this agreement has been established by the source as of this ledger revision. Neither the scheduled $50m nor the discounted $5.8bn charge is booked as money paid."
+      },
+      "notes": "This is personal-injury resolution (subject to claimants' participation and settlement contingencies), distinct from 3M's 2024 $10.5bn–$12.5bn public-water-supplier settlement and from its historical Minnesota payment. The reference inflation year is 2025, before this 2026 obligation, so NO 2025 purchasing-power comparator is computed without a supported 2026 annual CPI basis. Settling does not establish each claimant's causation or constitute admission.",
+      "sources": [
+        {
+          "name": "3M SEC 8-K Exhibit 99.1, dated Nov. 3, 2026 — $7.35bn nominal, $5.8bn present value, planned $50m 2026",
+          "url": "https://investors.3m.com/financials/sec-filings/content/0000066740-26-000318/pressrelease-xnov2026xv2.htm"
+        },
+        {
+          "name": "3M 2026 settlement agreement exhibit — contingent PFAS personal-injury claims procedures",
+          "url": "https://investors.3m.com/financials/sec-filings/content/0000066740-26-000318/msa.htm"
         }
       ]
     }
