@@ -410,7 +410,7 @@ test("paid PFAS supplier funds, East Palestine cash tranches and one 3M recipien
  assert.equal(tyco.payment.status,"confirmed_paid");
  assert.equal(tyco.payment.amount,750000000);
  assert.equal(tyco.payment.value_year,2024);
- close(tyco.payment.amount*factor("USD",2024),769734037,10000);
+ close(tyco.payment.amount*factor("USD",2024),769734514,100);
  const basf=byId("basf-water-pfas-2024");
  assert.equal(basf.payment.amount,316500000);
  assert.deepEqual(basf.payment.installments.map(x=>x.date),["2024-07","2025-03"]);
@@ -419,7 +419,7 @@ test("paid PFAS supplier funds, East Palestine cash tranches and one 3M recipien
  assert.equal(joint.payment.amount,1185000000);
  assert.equal(joint.payment.value_year,2023);
  assert.equal(joint.payment.allocations.reduce((sum,x)=>sum+x.amount,0),joint.payment.amount);
- close(joint.payment.amount*factor("USD",2023),1252066055,20000);
+ close(joint.payment.amount*factor("USD",2023),1252051037,100);
  const norfolk=byId("norfolk-southern-east-palestine-class-2024");
  assert.equal(norfolk.payment.status,"confirmed_paid");
  assert.deepEqual(norfolk.payment.cash_tranches.map(t=>t.amount),[315000000,285000000]);
