@@ -20,9 +20,22 @@ test("identity approvals and unapproved lookups are explicit; empty release stat
  assert.ok(approvedRows[0].evidence.some(e=>e.type==="2024_regulatory_operator"));
  assert.ok(approvedRows[0].evidence.some(e=>e.type==="2024_corporate_ownership"));
  assert.ok(links.facilities.find(x=>x.trifid===chevron).reporting_years_approved.length===0);
- assert.equal(output.source_status,"awaiting_official_csv_import");
- assert.equal(output.records.length,0);
- assert.match(output.coverage.description,/not a zero-emissions/);
+ assert.ok(["awaiting_official_csv_import","official_form_r_csv_imported"].includes(output.source_status));
+ if(output.source_status==="awaiting_official_csv_import"){
+  assert.equal(output.records.length,0);
+  assert.match(output.coverage.description,/not a zero-emissions/);
+ }else{
+  assert.equal(output.reporting_year,2024);
+  assert.ok(output.records.length>0);
+  assert.equal(output.records.length,output.coverage.number_of_imported_form_r_rows);
+  assert.match(output.source.source_file_sha256,/^[a-f0-9]{64}$/);
+  assert.equal(output.coverage.quarantined_parent_mismatch_rows,0);
+  assert.ok(output.records.every(r=>r.trifid===approved&&r.reporting_year===2024&&r.review_status==="facility_identity_and_2024_parent_verified"));
+  assert.equal(new Set(output.records.map(r=>r.document_control_number)).size,output.records.length);
+  assert.ok(output.records.every(r=>r.source_listing_url.startsWith("https://www.epa.gov/")));
+  assert.ok(output.records.every(r=>r.unit==="lb"||r.unit==="g"));
+ }
+
  assert.match(qa,/Form A/);
 });
 test("CSV parser preserves quoted commas, doubled quote marks and multiline fields",async()=>{
