@@ -276,5 +276,5 @@ test("actual paid and court-ordered sums remain separate, including Husky predec
  assert.match(get("husky-white-rose-offshore-2024").notes,/INCLUDES/);
  assert.match(html,/Indian rupees \(INR\)/);
  assert.match(html,/Canadian dollars \(CAD\)/);
- assert.match(html,/trancheComparable/);
+ assert.match(html,/paidCash2025/);
 });
