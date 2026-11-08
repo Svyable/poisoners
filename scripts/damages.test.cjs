@@ -101,7 +101,7 @@ test("documented split payments and overlapping cases carry cautions",()=>{
  assert.deepEqual(c.entities,["DuPont","Chemours"]);
  assert.match(c.payment.detail,/combined payment|half paid/i);
  assert.match(d.cases.find(x=>x.id==="vw-diesel-civil-2016").notes,/criminal fine/);
- assert.match(d.cases.find(x=>x.id==="vale-brumadinho-2021").notes,/must never be added/);
+ assert.match(d.cases.find(x=>x.id==="vale-brumadinho-2021").notes,/(must never be added|never add them)/);
 });
 test("ledger page is discoverable, script parses, source and method labels visible",()=>{
  for(const id of ["paymentSearch","paymentStatus","paymentCurrency","paymentList","paymentCount"])
