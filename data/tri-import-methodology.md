@@ -69,34 +69,11 @@ node scripts/import-tri-basic.cjs --input /path/to/epa-2024-tx.csv \
 
 A **source-acquisition CI artifact is not auto-publication**. We can inspect the sampled records and full provenance, then commit a reviewed JSON snapshot in a separate CI-gated change.
 
-## 4. Existing importer workflow (legacy overview)
+## 4. Review generated evidence before publishing
 
+The importer runs locally on Node.js 22 with no npm dependencies. Follow the source acquisition commands in §3 above; then run `node --test scripts/tri-import.test.cjs` and `node scripts/verify.cjs`. A source-input checksum and URL identify what was processed but do not certify its legal ownership, analytical accuracy, or completeness.
 
-
-No network access is required after downloading a matching **official EPA Basic CSV**. The script uses Node.js 22 and has no npm dependencies.
-
-```bash
-# Download the reporting-year 2024, selected-state or national Basic CSV from the EPA site above.
-sha256sum /path/to/official_2024_tri_basic.csv
-
-# Audit and quarantine potential parent-name mismatches without changing site data.
-node scripts/import-tri-basic.cjs \
-  --input /path/to/official_2024_tri_basic.csv \
-  --retrieved 2026-11-07 \
-  --dry-run
-
-# Publish only when a source file has been reviewed and the parent crosswalk is current:
-node scripts/import-tri-basic.cjs \
-  --input /path/to/official_2024_tri_basic.csv \
-  --retrieved 2026-11-07 \
-  --expected-sha256 <64-character digest from the original source file> \
-  --output docs/tri-facility-releases.json
-
-node --test scripts/tri-import.test.cjs
-node scripts/verify.cjs
-```
-
-Review the emitted `coverage`, `issues`, file SHA-256 and document control numbers, then commit **both evidence and resulting file** through CI. Any parent disagreement is quarantined, never auto-corrected by string fuzzing. This pilot admits only an explicitly reviewed 2024 facility parent name and site ID; candidates are skipped. Even after a successful import, the site will show only matching approved rows from **that particular EPA source file**, not a national or entire-company total.
+Reconcile the emitted `coverage`, `issues`, SHA-256, physical address, legal reporting-year parent, and Form R document-control IDs. A disagreement must be resolved using original agency and corporate sources, never fuzzy string matching. A matched facility is only a subset of a company; an empty output remains unknown, not zero.
 
 ## 5. Required expansion gates
 
