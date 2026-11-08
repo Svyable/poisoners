@@ -116,3 +116,16 @@
 .ch-operator-totals strong{display:block;color:#eef2d7;letter-spacing:-.055em;font-size:clamp(17px,2vw,25px);margin-top:10px}
 @media(max-width:800px){.ch-operator-totals{grid-template-columns:1fr 1fr}.ch-exposure-key{grid-template-columns:1fr}}
 @media(max-width:560px){.ch-exposure-controls,.ch-operator-totals{grid-template-columns:1fr}.ch-exposure{padding-top:50px}}
+
+
+/* EPA audited facility Form R quantity explorer */
+.ch-facility-controls{display:grid;grid-template-columns:minmax(220px,1.5fr) repeat(3,minmax(140px,1fr));gap:12px;margin:20px 0 13px}
+.ch-facility-controls label{font:500 10px/1.65 var(--mono);color:#b1c9b1;text-transform:uppercase;letter-spacing:.025em}
+.ch-facility-controls input,.ch-facility-controls select{width:100%;display:block;margin-top:9px;padding:12px;min-height:46px;border:1px solid #4a674c;background:#15251b;color:#e9f5e6;font:500 12px var(--sans);border-radius:0}
+.ch-facility-controls input:focus,.ch-facility-controls select:focus{outline:1px solid var(--acid);outline-offset:1px}
+.ch-facility-result-head{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:18px 0 10px}
+.ch-facility-result-head button{background:transparent;border:1px solid #a3d65d;color:var(--acid);font:600 10px var(--mono);padding:12px 15px}
+.ch-facility-result-head button:disabled{opacity:.4}
+#facilityGuard{border-left:2px solid var(--acid);padding:10px 12px;background:#d2ff620d}
+@media(max-width:1120px){.ch-facility-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.ch-facility-controls{grid-template-columns:1fr}.ch-facility-result-head{align-items:start;flex-direction:column}}
