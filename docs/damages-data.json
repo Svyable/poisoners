@@ -1,5 +1,5 @@
 {
-  "version": "1.5.0",
+  "version": "1.6.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -19,6 +19,8 @@
         "2017": 245.12,
         "2018": 251.107,
         "2020": 258.811,
+        "2021": 270.97,
+        "2022": 292.655,
         "2024": 313.689,
         "2025": 321.943
       },
@@ -880,6 +882,210 @@
         {
           "name": "USFWS 2019 announcement regarding natural resource damages settlement",
           "url": "https://www.fws.gov/press-release/2019-10/draft-restoration-plan-available-suncor-energy-oil-spill"
+        }
+      ]
+    },
+    {
+      "id": "avx-new-bedford-2013",
+      "entities": [
+        "AVX Corporation"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "New Bedford Harbor, Massachusetts, United States",
+      "matter": "New Bedford Harbor PCB sediment Superfund cash-out cleanup settlement",
+      "hazard": "Polychlorinated biphenyls (PCBs) / contaminated sediment, fisheries and ecological resources",
+      "outcome_type": "CERCLA civil cleanup cash-out settlement",
+      "disposition": "2013 federal court-approved supplemental consent decree, following a 2012 agreement",
+      "obligation": {
+        "currency": "USD",
+        "year": 2013,
+        "min": 366250000,
+        "max": 366250000,
+        "kind": "Fixed $366.25m principal, with additional interest; separate from AVX's earlier 1992 agreement"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 366250000,
+        "as_of": "2015-05-26",
+        "value_year": null,
+        "installments": [
+          {
+            "date": "2013-10-18",
+            "amount": 133350000
+          },
+          {
+            "date": "2014-03-26",
+            "amount": 110820000
+          },
+          {
+            "date": "2015-05-26",
+            "amount": 122080000
+          }
+        ],
+        "detail": "AVX/Kyocera SEC disclosures establish all three completed principal disbursements: $133.35m on Oct. 18, 2013, $110.82m on Mar. 26, 2014, and the prepaid third/final $122.08m on May 26, 2015. Amounts reconcile exactly to $366.25m. Separately paid interest (including $4.0m and $0.8m reported in AVX's earlier 10-K, and $1.11m on the final payment) is excluded from this principal-only comparator."
+      },
+      "notes": "The original agreement was announced in 2012, approved in 2013 and settled in three different cash years. This principal is additional to AVX's 1992 settlement; it is not all-in cleanup expenditure, not a judgment for individual illness, and not extra payments by parent Kyocera. The cash-year CPI comparator sums individually repriced installments rather than repricing all cash at 2013. Historical corporate predecessor attribution remains separate from modern operators.",
+      "sources": [
+        {
+          "name": "US EPA — New Bedford Harbor settlement and cleanup scope",
+          "url": "https://www.epa.gov/enforcement/case-summary-avx-agrees-pay-366250000-towards-clean-new-bedford-harbor-mass"
+        },
+        {
+          "name": "AVX SEC 2015 Form 10-K — first two actual payment dates and interest",
+          "url": "https://www.sec.gov/Archives/edgar/data/859163/000085916315000024/avx-20150331x10k.htm"
+        },
+        {
+          "name": "Kyocera SEC 2014 Form 6-K — exact $133.35m/$110.82m principal installments",
+          "url": "https://www.sec.gov/Archives/edgar/data/57083/000119312514161016/d711265d6k.htm"
+        },
+        {
+          "name": "Kyocera SEC 2016 Form 20-F — final $122.08m paid May 26, 2015",
+          "url": "https://www.sec.gov/Archives/edgar/data/57083/000119312516632093/d117945d20f.htm"
+        }
+      ]
+    },
+    {
+      "id": "delaware-pfas-nrd-2021",
+      "entities": [
+        "Chemours",
+        "DuPont",
+        "Corteva"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "Delaware, United States",
+      "matter": "State of Delaware PFAS and other historic chemical natural-resource damages settlement",
+      "hazard": "PFAS and historical chemical releases / natural resources and environmental restoration",
+      "outcome_type": "state natural-resource damages civil settlement",
+      "disposition": "July 2021 state agreement, with principal paid January 2022; potential supplemental trigger is distinct",
+      "obligation": {
+        "currency": "USD",
+        "year": 2021,
+        "min": 50000000,
+        "max": 50000000,
+        "kind": "Fixed $50m initial natural-resource damages resolution; conditional supplemental payment up to $25m is not included"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 50000000,
+        "as_of": "2022-01",
+        "value_year": 2022,
+        "allocations": [
+          {
+            "entity": "Chemours",
+            "amount": 25000000,
+            "currency": "USD",
+            "basis": "State of Delaware official allocated contribution; Chemours SEC filing confirms total deposited January 2022"
+          },
+          {
+            "entity": "DuPont",
+            "amount": 12500000,
+            "currency": "USD",
+            "basis": "State of Delaware official allocated contribution; SEC filings say the companies paid in 2022"
+          },
+          {
+            "entity": "Corteva",
+            "amount": 12500000,
+            "currency": "USD",
+            "basis": "State of Delaware official allocated contribution; SEC filings say the companies paid in 2022"
+          }
+        ],
+        "detail": "Chemours SEC 2024 filing says the parties paid the entire $50m to Delaware in January 2022. The state allocated $25m Chemours, $12.5m DuPont, and $12.5m Corteva. These three payer amounts add to one $50m group settlement, not $50m each. Payment month is known; annual CPI-U still provides a consistent comparison."
+      },
+      "notes": "A separate conditional supplement up to $25m was specified in the 2021 settlement and was subsequently linked to later Ohio PFAS litigation. It is excluded from this $50m principal case. Do not add it, or count future state claims and independent water-supplier settlements as this payment.",
+      "sources": [
+        {
+          "name": "State of Delaware — agreement, fixed principal and three-company allocation",
+          "url": "https://news.delaware.gov/2021/07/13/state-resolves-natural-resource-damage-claims/"
+        },
+        {
+          "name": "Chemours SEC 2024 Form 10-Q — initial $50m paid January 2022",
+          "url": "https://investors.chemours.com/static-files/6b721bd3-8575-48cc-99e8-2ace45380987"
+        },
+        {
+          "name": "DuPont SEC 2022 annual report — payment of allocated share January 2022",
+          "url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670023000008/R26.htm"
+        }
+      ]
+    },
+    {
+      "id": "ohio-c8-mdl-2024",
+      "entities": [
+        "Chemours",
+        "DuPont",
+        "Corteva / EIDP"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "Ohio and West Virginia federal multidistrict litigation, United States",
+      "matter": "Later C8/PFOA personal-injury MDL claims resolved in 2024–2025",
+      "hazard": "PFOA / individual exposure claims",
+      "outcome_type": "civil personal-injury settlement",
+      "disposition": "November 2024 negotiated settlement, case dismissal and completion of second/final payment by March 2025",
+      "obligation": {
+        "currency": "USD",
+        "year": 2024,
+        "min": 58500000,
+        "max": 58500000,
+        "kind": "Combined later-case settlement totaling $58.5m; separate from the companies' much larger 2017 Ohio C8 settlement"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 58500000,
+        "as_of": "2025-03",
+        "value_year": null,
+        "detail": "Chemours' September 2025 SEC filing identifies total $58.5m and that Chemours paid $14.75m in December 2024 and $14.5m in March 2025 ($29.25m in aggregate). DuPont's SEC filing says DuPont paid $11m in December 2024 and $10m in March 2025, and the companies made the second and final settlement payment in March. DuPont/Corteva's combined agreed contribution is $29.25m; a separately verified cash payment for Corteva is not inferred from residual arithmetic. Individual-cash allocations are deliberately omitted rather than fabricating a three-company cash ledger."
+      },
+      "notes": "2024/2025 cash occurred in multiple years without a reconciled case-wide split by cash year, so paid-year CPI is not computed. This resolution concerns later cases, not duplicate counting of the completed $670.7m 2017 MDL settlement. The settled claims do not establish causation or wrongdoing for every exposure.",
+      "sources": [
+        {
+          "name": "Chemours SEC 2025 Q3 Form 10-Q — $58.5m and paid 2024/2025 installments",
+          "url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312525269765/cc-20250930.htm"
+        },
+        {
+          "name": "DuPont SEC 2026 Q1 Form 10-Q — 2024/2025 payments and final completion",
+          "url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000031/dd-20260331.htm"
+        },
+        {
+          "name": "DuPont SEC 2025 Q1 Form 10-Q — initial payment and case closure",
+          "url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670025000020/dd-20250331.htm"
+        }
+      ]
+    },
+    {
+      "id": "duke-nc-coal-ash-criminal-2015",
+      "entities": [
+        "Duke Energy Carolinas LLC",
+        "Duke Energy Progress Inc.",
+        "Duke Energy Business Services LLC"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "North Carolina, United States",
+      "matter": "Dan River coal-ash spill and wider Clean Water Act violations criminal pleas",
+      "hazard": "Coal ash and coal-ash wastewater / North Carolina rivers and wetlands",
+      "outcome_type": "criminal fines and court-directed environmental benefit payments",
+      "disposition": "May 14, 2015 guilty pleas by three Duke Energy subsidiaries",
+      "obligation": {
+        "currency": "USD",
+        "year": 2015,
+        "min": 102000000,
+        "max": 102000000,
+        "kind": "$68m aggregate criminal fines plus $34m community-service and wetlands land/conservation commitments; separate from estimated $3.4bn future coal-ash basin obligations"
+      },
+      "payment": {
+        "status": "partially_paid",
+        "amount": 58700000,
+        "as_of": "2015-05-14",
+        "value_year": 2015,
+        "detail": "DOJ Middle District of North Carolina's FY2015 collection report states $58.7m of the $102m was paid to that district on May 14, 2015. This is an explicitly documented district-level receipt, not proof that the other $43.3m remained unpaid, or that the entire $102m is criminal fines. Other jurisdictions and project payments have not been independently reconciled."
+      },
+      "notes": "This dated $58.7m is a verified lower-bound disbursement within the larger $102m group criminal resolution; never add them. It cannot be assigned to a single named subsidiary from this source. The separate $3.4bn coal-ash impoundment obligation estimate is not a cash fine, claim damages, or included settlement sum.",
+      "sources": [
+        {
+          "name": "DOJ Middle District NC — explicitly $58.7m paid May 14, 2015",
+          "url": "https://www.justice.gov/usao-mdnc/pr/middle-district-north-carolina-us-attorney-s-office-collects-more-90-million-us"
+        },
+        {
+          "name": "DOJ — aggregate 2015 pleas, fines and $34m environmental benefits",
+          "url": "https://www.justice.gov/archives/opa/pr/duke-energy-subsidiaries-plead-guilty-and-sentenced-pay-102-million-clean-water-act-crimes"
         }
       ]
     }
