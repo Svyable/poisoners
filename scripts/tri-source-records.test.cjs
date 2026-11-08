@@ -81,7 +81,7 @@ test("metal category labels and Basic zero-filled values are not silently reclas
  assert.match(byCas.get("191-24-2").zero_caveat,/blank or NA/);
  assert.equal(d.records.some(r=>r.toxicity_score!==undefined),false);
  assert.equal(d.records.some(r=>r.attributable_deaths!==undefined),false);
- assert.ok(d.disclaimers.some(x=>x.includes("not an ExxonMobil")));
+ assert.match(d.coverage.description,/Not an ExxonMobil-wide inventory/);
 });
 test("chemical explorer exposes original Form R rows with source-identity validation, mass-only sorts and 4 selected metrics",()=>{
  for(const id of ["facilityStats","facilityRows","facilitySort","facilityQuery","facilityFileStatus"])
