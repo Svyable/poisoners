@@ -272,7 +272,8 @@ test("deep CPI comparison preserves concurrent AVX paid years and new ONGC INR c
  const cad=model.rank("payments",rows.payments,{metric:"adjustedMax",facets:{currency:"CAD"},limit:"all"});
  assert.equal(cad.rows.length,4);assert.equal(cad.warning,"");
  const inr=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"INR"},limit:"all"});
- assert.equal(inr.rows.length,1);assert.equal(inr.warning,"");
+ assert.equal(inr.rows.length,2);assert.equal(inr.warning,"");
+ assert.equal(inr.rows.filter(x=>x.paidAdjusted!=null).length,1,"Only ONGC has a documented individual cash year; Coal India has a financial-year total");
 });
 
 test("2025 paid-cash rankings preserve entity grouping and show only sourced amounts for new cases",()=>{
