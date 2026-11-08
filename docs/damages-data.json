@@ -1,5 +1,5 @@
 {
-  "version": "1.9.0",
+  "version": "2.0.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -25,6 +25,7 @@
         "2020": 258.811,
         "2021": 270.97,
         "2022": 292.655,
+        "2023": 304.702,
         "2024": 313.689,
         "2025": 321.943
       },
@@ -417,13 +418,23 @@
         "kind": "Nominal scheduled future payment range (2024–2036), not discounted expense"
       },
       "payment": {
-        "status": "payment_total_unverified",
-        "amount": null,
-        "as_of": "2026-09-30",
-        "value_year": null,
-        "detail": "3M reports scheduled payments for 2024–2036, but this record does not establish a sourced cumulative amount disbursed under this exact settlement."
+        "status": "partially_paid",
+        "amount": 34800000,
+        "as_of": "2026-02-27",
+        "value_year": 2025,
+        "detail": "California Water Service Group's SEC-filed 2025 report says it received its first two of ten unequal 3M public-water-supplier settlement installments during 2025, totaling $34.8m NET of legal fees and expenses. This verifies cash reaching ONE water utility, not all 3M payments to the nationwide settlement class, and not gross 3M spending (which could be larger). The nationwide paid-to-date total remains unreconciled.",
+        "recipient_observations": [
+          {
+            "recipient": "California Water Service Group",
+            "year": 2025,
+            "amount_net": 34800000,
+            "currency": "USD",
+            "source": "https://www.sec.gov/Archives/edgar/data/1035201/000162828026012444/cwt-20251231.htm",
+            "scope": "First two of ten unequal payments; utility received funds net of legal fees/expenses. This is not a nationwide disbursement or gross payer total."
+          }
+        ]
       },
-      "notes": "Unlike 3M's separately paid Minnesota settlement, the total scheduled nominal value cannot be presented as already paid. No individual disease causation finding is implied.",
+      "notes": "The $34.8m is one named utility's NET 2025 settlement receipts, a documented minimum subset, not 3M's aggregate or gross paid under the up-to $12.5bn nationwide PWS settlement. Future installments scheduled through 2036 are not cash already paid. This PWS class is separate from Minnesota and the 2026 AFFF personal-injury commitment. Do not sum a settlement funding payment and downstream recipient disbursement.",
       "sources": [
         {
           "name": "3M SEC-filed September 2026 report — payments and no admission",
@@ -432,6 +443,10 @@
         {
           "name": "3M final approval announcement",
           "url": "https://news.3m.com/2024-04-01-3M-Settlement-with-Public-Water-Suppliers-to-Address-PFAS-in-Drinking-Water-Receives-Final-Court-Approval"
+        },
+        {
+          "name": "California Water Service Group SEC 2025 10-K — first two 3M PWS installments $34.8m net received",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035201/000162828026012444/cwt-20251231.htm"
         }
       ],
       "indexed_entities": []
@@ -1894,6 +1909,207 @@
         {
           "name": "Bonde 2001: state fine paid, separate federal IBAMA R$168m challenged",
           "url": "https://www.bonde.com.br/bondenews/parana/transpetro-pode-levar-terceira-multa"
+        }
+      ]
+    },
+    {
+      "id": "tyco-water-pfas-2024",
+      "entities": [
+        "Tyco Fire Products LP"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "United States — nationwide public drinking-water systems",
+      "matter": "Tyco AFFF/PFAS public-water-supplier settlement",
+      "hazard": "PFAS / AFFF contamination of public drinking-water sources",
+      "outcome_type": "civil class settlement fund",
+      "disposition": "2024 court-approved water systems settlement; final required fund deposit December 2024",
+      "obligation": {
+        "currency": "USD",
+        "year": 2024,
+        "min": 750000000,
+        "max": 750000000,
+        "kind": "Fixed $750m settlement fund inclusive of fees and administration; not health damage valuation"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 750000000,
+        "as_of": "2024-12-31",
+        "value_year": 2024,
+        "detail": "Johnson Controls' SEC filing confirms Tyco paid the FULL $750m amount, including final $415m in December 2024. Earlier filings identify $250m paid June 2024 and approximately $85m during fiscal Q4 2024, all within calendar 2024. Contributions to the settlement fund are not proof all water-system claimants received distributions."
+      },
+      "notes": "Tyco Fire Products was an indirect Johnson Controls subsidiary. Insurance recoveries are not extra defendant payments. Downstream distributions and settlement administrator spending are not new company cash obligations. This is separate from settlements paid by other AFFF manufacturers.",
+      "sources": [
+        {
+          "name": "Johnson Controls SEC fiscal Q3 2026 — full $750m paid; final $415m in Dec 2024",
+          "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344426000087/R25.htm"
+        },
+        {
+          "name": "Johnson Controls SEC 2024 report — $250m June and $85m fiscal Q4 2024",
+          "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344424000064/R29.htm"
+        },
+        {
+          "name": "Official PFAS water settlement administrator — Tyco fund terms",
+          "url": "https://www.pfaswatersettlement.com/frequently-asked-questions-tyco/"
+        }
+      ]
+    },
+    {
+      "id": "basf-water-pfas-2024",
+      "entities": [
+        "BASF Corporation"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "United States — nationwide public drinking-water systems",
+      "matter": "BASF AFFF/PFAS water-supplier settlement",
+      "hazard": "PFAS / drinking-water sources and historical AFFF surfactant product allegations",
+      "outcome_type": "civil class settlement fund",
+      "disposition": "2024 class settlement; annual report confirms 2024 and 2025 payments",
+      "obligation": {
+        "currency": "USD",
+        "year": 2024,
+        "min": 316500000,
+        "max": 316500000,
+        "kind": "$312.5m PFAS claims settlement plus $4m administration costs"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 316500000,
+        "as_of": "2025-12-31",
+        "value_year": null,
+        "installments": [
+          {
+            "date": "2024-07",
+            "amount": 4000000
+          },
+          {
+            "date": "2025-03",
+            "amount": 312500000
+          }
+        ],
+        "detail": "BASF's 2025 annual report explicitly confirms subsidiary paid $4m administration cost in July 2024 and $312.5m settlement fund amount in March 2025. The $316.5m principal is completely reconciled across two month-precision payment observations. Annual CPI is indexed separately by year. No unsupported day of month is assumed."
+      },
+      "notes": "The affected historic surfactant line was sold by Ciba before BASF acquired Ciba. Potential insurance recovery does not cancel or add to the gross company settlement paid. Subsequent water-system disbursement from the settlement fund is not a second BASF payment.",
+      "sources": [
+        {
+          "name": "BASF 2025 Annual Report — paid $4m July 2024 and $312.5m March 2025",
+          "url": "https://report.basf.com/2025/en/financial-statements/notes/risks-from-litigation.html"
+        },
+        {
+          "name": "BASF May 2024 settlement announcement and stated components",
+          "url": "https://www.basf.com/us/en/media/news-releases/2024/05/basf-corporation-enters-class-settlement-with-u-s--public-water-"
+        }
+      ]
+    },
+    {
+      "id": "dupont-chemours-corteva-pws-2023",
+      "entities": [
+        "Chemours",
+        "DuPont",
+        "Corteva"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "United States — nationwide public water systems",
+      "matter": "Chemours, DuPont and Corteva PFAS nationwide water district settlement",
+      "hazard": "PFAS including PFOA and HFPO-DA / drinking-water remediation claims",
+      "outcome_type": "funded civil class settlement",
+      "disposition": "Funded Q3 2023 and final court judgment April 2024",
+      "obligation": {
+        "currency": "USD",
+        "year": 2023,
+        "min": 1185000000,
+        "max": 1185000000,
+        "kind": "Fixed $1.185bn jointly funded qualified water-district settlement fund"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 1185000000,
+        "as_of": "2023-09-30",
+        "value_year": 2023,
+        "allocations": [
+          {
+            "entity": "Chemours",
+            "amount": 592000000,
+            "currency": "USD",
+            "basis": "About $592m contribution as disclosed; rounded approximation"
+          },
+          {
+            "entity": "DuPont",
+            "amount": 400000000,
+            "currency": "USD",
+            "basis": "DuPont explicitly paid $400m in Q3 2023"
+          },
+          {
+            "entity": "Corteva",
+            "amount": 193000000,
+            "currency": "USD",
+            "basis": "About $193m contribution as disclosed; rounded approximation"
+          }
+        ],
+        "detail": "DuPont's SEC filing confirms the three companies COLLECTIVELY contributed $1.185bn cash in Q3 2023 to a qualified settlement fund, with approximately $592m Chemours, $400m DuPont and $193m Corteva. Corteva subsequently says restricted settlement cash was released in April 2024 when judgment became final. Release of funds and downstream distributions are NOT new company payments."
+      },
+      "notes": "These are one set of water-supplier class claims, distinct from 2017 C8 personal-injury and 2021 Delaware natural-resource damages cases. Three contribution amounts are reported with approximate precision, though they sum to the fund total. Net utility receipts are subsets of this pre-funded total; do not double-count them.",
+      "sources": [
+        {
+          "name": "DuPont SEC — $1.185bn contributed in Q3 2023 and payer shares",
+          "url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670024000008/R26.htm"
+        },
+        {
+          "name": "Corteva SEC Q3 2024 — restricted fund cash released April 2024",
+          "url": "https://www.sec.gov/Archives/edgar/data/30554/000175567224000024/ctva-20240930.htm"
+        },
+        {
+          "name": "DuPont SEC Q2 2024 — $400m actual cash outflow",
+          "url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670024000031/dd-20240630.htm"
+        }
+      ]
+    },
+    {
+      "id": "norfolk-southern-east-palestine-class-2024",
+      "entities": [
+        "Norfolk Southern Corporation"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "East Palestine, Ohio and surrounding Pennsylvania, United States",
+      "matter": "East Palestine derailment class and optional personal injury settlement",
+      "hazard": "2023 rail derailment / vinyl chloride and other hazardous chemical releases",
+      "outcome_type": "civil community and personal-injury class settlement",
+      "disposition": "2024 court-approved $600m class fund; final company payment March 2026",
+      "obligation": {
+        "currency": "USD",
+        "year": 2024,
+        "min": 600000000,
+        "max": 600000000,
+        "kind": "$600m total settlement fund including fees/administration, not all cash distributed to individual claimants"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 600000000,
+        "as_of": "2026-03-31",
+        "value_year": null,
+        "cash_tranches": [
+          {
+            "year": 2024,
+            "amount": 315000000,
+            "source": "https://www.sec.gov/Archives/edgar/data/702165/000162828026066836/nsc-20260930.htm"
+          },
+          {
+            "year": 2026,
+            "month": 3,
+            "amount": 285000000,
+            "source": "https://www.sec.gov/Archives/edgar/data/702165/000162828026066836/nsc-20260930.htm"
+          }
+        ],
+        "detail": "Norfolk Southern's Q3 2026 SEC filing confirms $315m paid to the settlement in 2024 and the FINAL $285m company payment in March 2026, totaling $600m. The 2026 CPI-U calendar-year annual mean is unavailable against the ledger's 2025 reference, so combined actual paid-cash CPI is intentionally NOT COMPUTED."
+      },
+      "notes": "Company-to-fund deposits are not full disbursements to class members. Class attorneys and administration are paid out of this SAME fund. This is separate from the 2024 proposed federal EPA/DOJ cleanup and penalty package over $310m and separate village agreement; neither is added as completed cash.",
+      "sources": [
+        {
+          "name": "Norfolk Southern SEC Q3 2026 — 2024 $315m + March 2026 $285m actually paid",
+          "url": "https://www.sec.gov/Archives/edgar/data/702165/000162828026066836/nsc-20260930.htm"
+        },
+        {
+          "name": "East Palestine official class administrator — $600m settlement scope and fees",
+          "url": "https://www.eastpalestinetrainsettlement.com/Home/FAQ"
         }
       ]
     }
