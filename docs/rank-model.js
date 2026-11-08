@@ -17,7 +17,7 @@
  function inflationFactor(data,currency,year){
    const y=Number(year),target=Number(data.reference_year);
    if(!Number.isInteger(y)||y>target)return null;
-   if(currency==="USD"){const n=data.inflation.USD.index[y],d=data.inflation.USD.index[target];return Number.isFinite(n)&&Number.isFinite(d)&&n>0?d/n:null;}
+   if(["USD","CAD","INR"].includes(currency)){const idx=data.inflation[currency]?.index,n=idx?.[y],d=idx?.[target];return Number.isFinite(n)&&Number.isFinite(d)&&n>0?d/n:null;}
    if(currency==="BRL"){if(y<2021)return null;let factor=1;for(let k=y+1;k<=target;k++){const rate=data.inflation.BRL.annual_rates_percent[k];if(!Number.isFinite(rate))return null;factor*=1+rate/100;}return factor;}
    return null;
  }
@@ -171,7 +171,7 @@
   if(!f)return "Choose a valid metric";
   if(f.type!=="number")return "";
   if(dataset==="payments"&&["obligationMin","obligationMax","adjustedMax","adjustedMin","paid","paidAdjusted"].includes(metric)&&config.facets?.currency==="ALL")
-    return "Select USD or BRL to rank money. These currencies cannot share a numeric leaderboard.";
+    return "Select one currency (USD, BRL, CAD or INR) to rank money. These currencies cannot share a numeric leaderboard.";
   if(dataset==="observations"&&config.facets?.cohort==="ALL")
     return "Choose one source/year/unit cohort to rank chemical mass. EPA short tons cannot be merged with EIA metric tonnes or different reporting years.";
   return "";

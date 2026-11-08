@@ -10,7 +10,7 @@
   if(els.some(id=>!$(id)))return;
   const byId=new Map(db.dossiers.map(d=>[d.id,d]));
   let paymentCases=[];
-  const paymentMoney=(n,c)=>(c==="BRL"?"R$":"$")+Number(n).toLocaleString("en-US",{maximumFractionDigits:2});
+  const paymentMoney=(n,c)=>(({USD:"$",BRL:"R$",CAD:"C$",INR:"₹"})[c]||c+" ")+Number(n).toLocaleString("en-US",{maximumFractionDigits:2});
   const validId=new URLSearchParams(location.search).get("entity");
   const first=[...db.dossiers].sort((a,b)=>a.company.localeCompare(b.company))[0].id;
   const state={query:"",country:"ALL",sector:"ALL",sort:"alpha",selected:byId.has(validId)?validId:first,
@@ -68,7 +68,7 @@
       const amount=allocation
         ? (allocation.paid_amount!=null?money(allocation.paid_amount)+" INDIVIDUAL PAID":"INDIVIDUAL PAID TOTAL NOT VERIFIED; "+money(allocation.obligation_amount)+" DOCUMENTED RESTORATION OBLIGATION")
         : p.amount==null?"AMOUNT NOT RECONCILED":money(p.amount)+" CASE-LEVEL TOTAL"+(c.entities.length>1?" (MULTIPLE HISTORIC LEGAL PARTIES)":"");
-      const boundary=allocation&&allocation.paid_amount==null?" · five-party collection documented; Chevron cash share not separately certified":"";
+      const boundary=allocation&&allocation.paid_amount==null?" · group collection documented; individual cash share not certified":c.indexed_entities?.includes("Cenovus Energy")&&c.entities.includes("Husky Oil Operations Limited")?" · historical Husky subsidiary case; not a finding that Cenovus paid":"";
       return '<li><strong>'+esc(c.matter)+'</strong> · '+esc(status)+' · '+esc(amount)+esc(boundary)+' <small>('+esc(p.as_of)+')</small></li>';
     }).join("");
     const paymentBlock='<div class="lab-profile-section"><div class="lab-profile-section-label"><span>HISTORICAL FINANCIAL OUTCOMES / SEPARATE EVIDENCE</span><small>'+linkedPayments.length+' LINKED CASE(S)</small></div>'+

@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.7.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -12,6 +12,9 @@
         "1991": 136.2,
         "2003": 184,
         "2005": 195.3,
+        "2008": 215.303,
+        "2011": 224.939,
+        "2012": 229.594,
         "2013": 232.957,
         "2014": 236.736,
         "2015": 237.017,
@@ -34,6 +37,29 @@
         "2023": 4.62,
         "2024": 4.83,
         "2025": 4.26
+      }
+    },
+    "CAD": {
+      "method": "Statistics Canada annual-average, not seasonally adjusted, Canada all-items CPI (2002=100), 2025 reference. Canada-dollar comparisons only, no exchange-rate conversion.",
+      "source": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810000501",
+      "source_historical": "https://catalogue.data.gov.bc.ca/dataset/2c75c627-3eb6-41ee-bb54-7b089eade484/resource/93e4367b-56af-4e1c-aea7-48fb48f0727c/download/cpi_annual_averages.pdf",
+      "index": {
+        "2015": 126.6,
+        "2019": 136,
+        "2022": 151.2,
+        "2024": 160.9,
+        "2025": 164.2
+      }
+    },
+    "INR": {
+      "method": "India national CPI Combined (rural + urban), all items, 2012=100, 2025 calendar-year comparator. Annual indices are arithmetic means of the twelve government-published monthly index levels, rounded to three decimals. 2025 reconstructed Jan–Mar from RBI fiscal 2024-25 and Apr–Dec from RBI fiscal 2025-26. Distinct payment years must be inflation-adjusted separately; not contractual interest, legal compensation or FX conversion.",
+      "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2110779&lang=2&reg=48",
+      "source_2025": "https://rbi.org.in/SCRIPTs/PublicationsView.aspx?id=23988",
+      "index": {
+        "2022": 172.15,
+        "2023": 181.883,
+        "2024": 190.883,
+        "2025": 195.083
       }
     }
   },
@@ -1086,6 +1112,355 @@
         {
           "name": "DOJ — aggregate 2015 pleas, fines and $34m environmental benefits",
           "url": "https://www.justice.gov/archives/opa/pr/duke-energy-subsidiaries-plead-guilty-and-sentenced-pay-102-million-clean-water-act-crimes"
+        }
+      ]
+    },
+    {
+      "id": "ongc-andhra-pradesh-compensation-2023",
+      "entities": [
+        "Oil and Natural Gas Corporation Limited (ONGC)"
+      ],
+      "indexed_entities": [
+        "ONGC"
+      ],
+      "jurisdiction": "Andhra Pradesh, India",
+      "matter": "Krishna–Godavari Basin environmental compensation for four ONGC facilities",
+      "hazard": "Oil-and-gas production facilities / observed environmental noncompliance",
+      "outcome_type": "tribunal-directed environmental compensation",
+      "disposition": "National Green Tribunal environmental compensation directions; Andhra Pradesh Pollution Control Board documented completed remittances",
+      "obligation": {
+        "currency": "INR",
+        "year": 2023,
+        "min": 227662500,
+        "max": 227662500,
+        "kind": "Total tribunal-directed environmental compensation; ₹7,52,10,000 paid in 2022 and ₹15,24,52,500 paid in 2023"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 227662500,
+        "as_of": "2025-07-15",
+        "value_year": null,
+        "detail": "AP Pollution Control Board report dated July 15, 2025 explicitly records ONGC's September 14, 2022 payment of ₹7,52,10,000 and December 22, 2023 payment of ₹15,24,52,500, total ₹22,76,62,500. 2025 purchasing power of actual cash is calculated tranche-by-tranche and is not computed from a fictitious single payment year. Payment of compensation does not establish that separate site compliance issues were resolved.",
+        "installments": [
+          {
+            "date": "2022-09-14",
+            "amount": 75210000
+          },
+          {
+            "date": "2023-12-22",
+            "amount": 152452500
+          }
+        ]
+      },
+      "notes": "Four ONGC facility assessments belong to a single total, not four payments to multiply. Facility compliance and additional notices after this payment are separate; do not treat the 2025 administrative report as a new financial obligation or reinterpret these payments as quantified injury to individuals.",
+      "sources": [
+        {
+          "name": "Andhra Pradesh Pollution Control Board — July 2025 report to National Green Tribunal (payments and dates)",
+          "url": "https://www.greentribunal.gov.in/sites/default/files/news_updates/EA%2012%20of%202023%20Report%20by%20R7_0.pdf"
+        },
+        {
+          "name": "Reserve Bank of India — combined CPI monthly levels to support 2025 calendar comparator",
+          "url": "https://rbi.org.in/SCRIPTs/PublicationsView.aspx?id=23988"
+        }
+      ]
+    },
+    {
+      "id": "exxonmobil-refinery-penalty-paid-2005",
+      "entities": [
+        "ExxonMobil Corporation"
+      ],
+      "indexed_entities": [
+        "ExxonMobil"
+      ],
+      "jurisdiction": "United States — seven refineries",
+      "matter": "2005 nationwide ExxonMobil refinery Clean Air Act settlement civil penalty",
+      "hazard": "Refinery SO2, NOx and other air emissions / Clean Air Act violations",
+      "outcome_type": "civil air-quality penalty",
+      "disposition": "2005 federal/state refinery consent decree, subsequent EPA retrospective explicitly confirms penalty paid",
+      "obligation": {
+        "currency": "USD",
+        "year": 2005,
+        "min": 8700000,
+        "max": 8700000,
+        "kind": "$8.7m civil penalty including state shares; excludes $570m+ projected control technologies and $9.7m environmental-project commitments"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 8700000,
+        "as_of": "2008-12-17",
+        "value_year": null,
+        "detail": "In its December 2008 account of later violations, EPA explicitly says ExxonMobil paid the $8.7m penalty under the 2005 settlement. Exact date(s) of the cash transfer are not supplied, so 2005 CPI is an agreement-year comparator only."
+      },
+      "notes": "Original 2005 penalty is distinct from the additional 2008 stipulated penalties at four refineries. More than $570m control spending and $9.7m environment projects were commitments, not proved cash disbursements to claimants and not included in the $8.7m penalty.",
+      "sources": [
+        {
+          "name": "US EPA — ExxonMobil refinery settlement, 2008 overview explicitly confirms 2005 $8.7m paid",
+          "url": "https://www.epa.gov/enforcement/exxonmobil-refinery-settlement"
+        }
+      ]
+    },
+    {
+      "id": "exxonmobil-refinery-stipulated-penalties-2008",
+      "entities": [
+        "ExxonMobil Corporation"
+      ],
+      "indexed_entities": [
+        "ExxonMobil"
+      ],
+      "jurisdiction": "United States — Baytown, Beaumont, Torrance and Baton Rouge refineries",
+      "matter": "2008 stipulated penalties for breaches of 2005 refinery consent decree",
+      "hazard": "Refinery sulfur-content monitoring and air emission controls",
+      "outcome_type": "stipulated civil air-quality penalties",
+      "disposition": "December 2008 agreement to collect stipulated penalties under the earlier court decree",
+      "obligation": {
+        "currency": "USD",
+        "year": 2008,
+        "min": 6064500,
+        "max": 6064500,
+        "kind": "$5.93m Baytown + $122,500 Beaumont + $9,000 Torrance + $3,000 Baton Rouge = $6,064,500 agreed stipulated penalties"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "EPA confirms ExxonMobil AGREED TO PAY $6,064,500 in 2008 and identifies four site allocations. The reviewed EPA case summary does not confirm when the sums were actually remitted or that all were paid; do not label the agreement a completed cash payment."
+      },
+      "notes": "This is a subsequent 2008 order to remedy breaches of the 2005 agreement, NOT a second instance of the paid 2005 $8.7m penalty; keep penalty vintages distinct. Site subdivisions are parts of this $6,064,500 aggregate, not additional awards.",
+      "sources": [
+        {
+          "name": "US EPA — 2008 stipulated penalties detail, not a cash receipt",
+          "url": "https://www.epa.gov/enforcement/exxonmobil-refinery-settlement"
+        }
+      ]
+    },
+    {
+      "id": "conocophillips-southern-ute-2011",
+      "entities": [
+        "ConocoPhillips"
+      ],
+      "indexed_entities": [
+        "ConocoPhillips"
+      ],
+      "jurisdiction": "Southern Ute Reservation, Colorado, United States",
+      "matter": "Southern Ute compressor station Clean Air Act settlement",
+      "hazard": "Gas-compressor air pollutants and leaking components",
+      "outcome_type": "civil air-quality penalty",
+      "disposition": "2011 EPA Region 8 administrative settlement",
+      "obligation": {
+        "currency": "USD",
+        "year": 2011,
+        "min": 198000,
+        "max": 198000,
+        "kind": "Civil penalty paid; separate equipment replacement and mitigation work excluded"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 198000,
+        "as_of": "2016-12-20",
+        "value_year": null,
+        "detail": "EPA's Next Generation Compliance enforcement retrospective (edited Dec. 20, 2016), Region 8 section, explicitly states 'ConocoPhillips paid a $198,000 penalty'. It does not identify the date of the cash transfer."
+      },
+      "notes": "A distinct Colorado gas-compressor matter, not the 2005 ConocoPhillips multistate refinery Clean Air Act consent decree. Installing lower-emission technology is not another proved cash penalty.",
+      "sources": [
+        {
+          "name": "US EPA — Next Generation Compliance Settlement Highlights, Region 8; explicit paid wording",
+          "url": "https://19january2021snapshot.epa.gov/sites/static/files/2016-05/documents/nextgen-enfsettlementhighlights.pdf"
+        }
+      ]
+    },
+    {
+      "id": "conocophillips-kuparuk-2012",
+      "entities": [
+        "ConocoPhillips Alaska Inc."
+      ],
+      "indexed_entities": [
+        "ConocoPhillips"
+      ],
+      "jurisdiction": "Kuparuk, Alaska, United States",
+      "matter": "Kuparuk Unit flow-line oil discharge to tundra",
+      "hazard": "Oil/water release to arctic tundra in December 2007",
+      "outcome_type": "civil water-quality penalty",
+      "disposition": "December 2012 US EPA consent agreement and final order",
+      "obligation": {
+        "currency": "USD",
+        "year": 2012,
+        "min": 45000,
+        "max": 45000,
+        "kind": "EPA civil oil-discharge penalty; separate Alaska state recovery/restoration duties excluded"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 45000,
+        "as_of": "2012-12-17",
+        "value_year": 2012,
+        "detail": "EPA's December 17, 2012 announcement explicitly states that as part of the final settlement ConocoPhillips Alaska 'paid a $45,000 penalty.' Payment is confirmed by that date in the same calendar year as the agreement, so the cash-year CPI comparator is defensible."
+      },
+      "notes": "ConocoPhillips also agreed separately with Alaska to recover and restore affected tundra. The $45,000 EPA penalty must not be presented as covering those uncosted restoration duties or as a measured ecological-loss estimate.",
+      "sources": [
+        {
+          "name": "US EPA — 2012 Kuparuk oil discharge settlement, states company paid $45,000",
+          "url": "https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/11d762200a09de5185257ad7006f76e5.html"
+        }
+      ]
+    },
+    {
+      "id": "cnrl-sneddon-creek-2015",
+      "entities": [
+        "Canadian Natural Resources Limited"
+      ],
+      "indexed_entities": [
+        "Canadian Natural Resources"
+      ],
+      "jurisdiction": "Alberta, Canada",
+      "matter": "Sneddon Creek crude-oil discharge Fisheries Act guilty plea and sentence",
+      "hazard": "2010 oil discharge to Sneddon Creek, a Peace River tributary",
+      "outcome_type": "Fisheries Act environmental fine and damages-fund penalty",
+      "disposition": "2015 Provincial Court guilty plea and $125,000 sentence",
+      "obligation": {
+        "currency": "CAD",
+        "year": 2015,
+        "min": 125000,
+        "max": 125000,
+        "kind": "C$113,000 to Environmental Damages Fund + C$12,000 fine; court-ordered, not independently documented as remitted"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "Environment Canada says CNRL was 'sentenced to pay' C$125,000 and uses future tense for the split between fund and fine. The public conviction registry records a sentence, not a payment receipt; completed cash disbursement is not verified in the reviewed sources."
+      },
+      "notes": "Guilty plea for environmental offence and sentence are established facts; payment status is unverified. C$125,000 is a court disposition, NOT a monetized estimate of damaged fish, water or ecological services.",
+      "sources": [
+        {
+          "name": "Environment Canada — March 2015 CNRL sentencing notice",
+          "url": "https://www.canada.ca/en/environment-climate-change/services/environmental-enforcement/notifications/canadian-natural-resources-penalty-spill.html"
+        },
+        {
+          "name": "Canada Environmental Offenders Registry — CNRL 2015 conviction",
+          "url": "https://environmental-protection.canada.ca/offenders-registry/Home/Record?RefNumber=109"
+        }
+      ]
+    },
+    {
+      "id": "husky-saskatchewan-river-2019",
+      "entities": [
+        "Husky Oil Operations Limited"
+      ],
+      "indexed_entities": [
+        "Cenovus Energy"
+      ],
+      "jurisdiction": "Saskatchewan, Canada",
+      "matter": "2016 Husky North Saskatchewan River pipeline spill conviction",
+      "hazard": "Approximately 90,000 litres of crude oil entering North Saskatchewan River / fish and migratory birds",
+      "outcome_type": "criminal environmental fines",
+      "disposition": "2019 Husky guilty plea for Fisheries Act and Migratory Birds Convention Act offences",
+      "obligation": {
+        "currency": "CAD",
+        "year": 2019,
+        "min": 2700000,
+        "max": 2700000,
+        "kind": "C$2.5m Fisheries Act fine + C$200,000 migratory-bird fine directed to Environmental Damages Fund"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "Canada's June 12, 2019 notice says Husky 'has been ordered to pay' C$2.7m and specifies funds 'will be directed' to the EDF; no bank or trustee receipt confirms full remittance in the reviewed source."
+      },
+      "notes": "Husky Oil Operations was the legal defendant in 2019, BEFORE Husky Energy combined with Cenovus in January 2021. The Cenovus cohort association is historical-successor context only, NOT a claim that Cenovus committed the original 2016 violation or paid Husky's 2019 fine. A distinct later Husky spill case must not be combined.",
+      "sources": [
+        {
+          "name": "Environment and Climate Change Canada — June 2019 guilty plea and fines",
+          "url": "https://www.canada.ca/en/environment-climate-change/news/2019/06/husky-oil-operations-limited-fined-27-million-for-federal-offences-related-to-the-pipeline-release-of-oil-into-the-north-saskatchewan-river.html"
+        },
+        {
+          "name": "Cenovus — 2021 completion of Husky combination (successor relationship only)",
+          "url": "https://www.cenovus.com/Investors/Cenovus-and-Husky-transaction"
+        }
+      ]
+    },
+    {
+      "id": "husky-westhazel-process-water-2022",
+      "entities": [
+        "Husky Oil Operations Limited"
+      ],
+      "indexed_entities": [
+        "Cenovus Energy"
+      ],
+      "jurisdiction": "Saskatchewan, Canada",
+      "matter": "2018 Westhazel process-water pipeline discharge Fisheries Act case",
+      "hazard": "Approximately 2.8 million litres of process water into the environment",
+      "outcome_type": "criminal environmental fine",
+      "disposition": "2022 Husky guilty plea and sentence for Fisheries Act offence",
+      "obligation": {
+        "currency": "CAD",
+        "year": 2022,
+        "min": 600000,
+        "max": 600000,
+        "kind": "C$600,000 court-imposed fine directed to the Canadian Environmental Damages Fund"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "Canada's April 29, 2022 announcement states Husky 'was fined' C$600,000 and the fine 'will be directed' to the EDF. It is not an independently confirmed disbursement. Husky was by this point in the Cenovus group, but the named legal defendant is Husky Oil Operations Limited."
+      },
+      "notes": "Not the 2016 North Saskatchewan River crude-oil pipeline case or the 2018 Newfoundland offshore White Rose case. Historic legal-entity linkage does not establish what amount, if any, Cenovus itself paid.",
+      "sources": [
+        {
+          "name": "Environment and Climate Change Canada — April 2022 Husky Westhazel sentence",
+          "url": "https://www.canada.ca/en/environment-climate-change/services/environmental-enforcement/notifications/husky-oil-operations-limited-fined-fisheries-act-offence.html"
+        },
+        {
+          "name": "Cenovus — Husky combined with Cenovus January 2021",
+          "url": "https://www.cenovus.com/Investors/Cenovus-and-Husky-transaction"
+        }
+      ]
+    },
+    {
+      "id": "husky-white-rose-offshore-2024",
+      "entities": [
+        "Husky Oil Operations Limited"
+      ],
+      "indexed_entities": [
+        "Cenovus Energy"
+      ],
+      "jurisdiction": "Newfoundland and Labrador offshore, Canada",
+      "matter": "2018 White Rose oil spill three-offence federal sentence",
+      "hazard": "2018 offshore crude-oil release / fish and migratory birds",
+      "outcome_type": "environmental criminal fines and related penalty",
+      "disposition": "2024 federal Fisheries, migratory-bird and Atlantic Accord charges and court sentence",
+      "obligation": {
+        "currency": "CAD",
+        "year": 2024,
+        "min": 2500000,
+        "max": 2500000,
+        "kind": "C$2.4m designated to Environmental Damages Fund + C$100,000 Receiver General = total C$2.5m sentence"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "The April 26, 2024 Canadian enforcement notice says Husky was 'ordered to pay' C$2m plus C$500,000. Of the C$2.5m, C$2.4m 'will be directed' to EDF and C$100,000 to Receiver General. It does not show proof of full payment."
+      },
+      "notes": "Do not add C$2m and C$2.5m as separate awards: C$2.5m already INCLUDES the C$2m component. The original spill occurred in 2018, before the 2021 Husky–Cenovus combination; index name is historical context, not an automatic finding against Cenovus.",
+      "sources": [
+        {
+          "name": "Environment and Climate Change Canada — April 2024 Husky White Rose total sentence and destinations",
+          "url": "https://www.canada.ca/en/environment-climate-change/news/2024/04/husky-oil-operations-limited-fined-25-million-for-three-offences-under-federal-legislation-related-to-crude-oil-release-in-newfoundland-and-labrado.html"
+        },
+        {
+          "name": "Canada Environmental Offenders Registry — Husky White Rose proceedings",
+          "url": "https://environmental-protection.canada.ca/offenders-registry/Home/Record?RefNumber=305&wbdisable=true"
+        },
+        {
+          "name": "Cenovus — January 2021 Husky combination",
+          "url": "https://www.cenovus.com/Investors/Cenovus-and-Husky-transaction"
         }
       ]
     }
