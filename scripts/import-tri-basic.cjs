@@ -12,7 +12,18 @@ const norm=s=>String(s??"").normalize("NFKC").replace(/[–—−]/g,"-").replac
 const parentNorm=s=>norm(s).replace(/[^A-Z0-9]+/g,"");
 /* EPA Basic CSV exports can number their headers ("1. YEAR", "51. 5.1 - FUGITIVE AIR").
    NFKC and dash normalization preserve true 5.1 field codes while removing outer numbering. */
-const headerKey=s=>norm(s).replace(/^\d+\.\s+(?=\S)/,"").replace(/\s*-\s*/g," - ").trim();
+const FIELD_ALIASES=new Map([
+ ["TRIFD","TRIFID"], // EPA 2024 Texas export field 2 vs published field guide "TRIFID"
+ ["ST","STATE"], // field 8
+ ["CAS#","CAS NUMBER"], // field 40
+ ["TRI CHEMICAL/COMPOUND ID","TRI CHEMICAL /COMPOUND ID"], // field 39
+ ["TRI CHEMICAL / COMPOUND ID","TRI CHEMICAL /COMPOUND ID"],
+ ["STANDARD PARENT CO NAME","STANDARDIZED PARENT COMPANY NAME"] // field 17
+]);
+const headerKey=s=>{
+ const normalized=norm(s).replace(/^\d+\.\s+(?=\S)/,"").replace(/\s*-\s*/g," - ").trim();
+ return FIELD_ALIASES.get(normalized)||normalized;
+};
 const REQUIRED=["YEAR","TRIFID","FACILITY NAME","STREET ADDRESS","CITY","STATE","PARENT CO NAME","CHEMICAL","CAS NUMBER","FORM TYPE","UNIT OF MEASURE","DOC_CTRL_NUM","5.1 - FUGITIVE AIR","5.2 - STACK AIR","5.3 - WATER"];
 const CHEMICAL_IDS=new Map([
  ["7664-93-9","h2so4"],["7439-97-6","hg"],["7440-38-2","arsenic"],
