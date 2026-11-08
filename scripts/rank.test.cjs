@@ -7,7 +7,7 @@ const seedContext={window:{}};vm.runInNewContext(read("docs/data.js"),seedContex
 const snapshots={dossiers:json("docs/dossier-register.json"),people:json("docs/people-register.json"),payments:json("docs/damages-data.json"),foundation:json("docs/foundation.json"),chemistry:json("docs/chemical-hazards.json"),seed:seedContext.window.POISON_DATA};
 const rows=model.makeRows(snapshots);
 test("all eight source-backed cohorts appear, with expected actual coverage",()=>{
- const counts={companies:50,countries:10,people:34,roles:500,payments:33,metrics:142,chemicals:14,observations:5};
+ const counts={companies:50,countries:10,people:34,roles:500,payments:36,metrics:142,chemicals:14,observations:5};
  assert.deepEqual(Object.fromEntries(Object.entries(rows).map(([k,r])=>[k,r.length])),counts);
  assert.equal(Object.keys(model.datasets).length,8);
  for(const [key,set] of Object.entries(model.datasets)){
@@ -79,6 +79,20 @@ test("cash-year 2025 CPI ranks only evidenced payments within one currency",()=>
  const ranked=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"USD"},limit:"all"});
  assert.equal(ranked.warning,"");
  assert.ok(ranked.rows.filter(x=>x.paidAdjusted===null).every(x=>x.rank===null));
+});
+test("future 2026 PFAS obligation is not repriced to 2025 or counted as paid",()=>{
+ const c=rows.payments.find(r=>r.id==="3m-afff-pi-2026");
+ assert.ok(c);
+ assert.equal(c.year,2026);
+ assert.equal(c.obligationMax,7350000000);
+ assert.equal(c.adjustedMax,null,"2026 to 2025 factor requires a future annual CPI unavailable in reference table");
+ assert.equal(c.paid,null);
+ assert.equal(c.paidAdjusted,null);
+ const vw=rows.payments.find(r=>r.id==="vw-diesel-civil-2016");
+ assert.equal(vw.paid,null,"Cross-program FTC report must not be assigned to a 2.0L case");
+ const bp=rows.payments.find(r=>r.id==="bp-deepwater-2016");
+ assert.equal(bp.paid,2258000000);
+ assert.equal(bp.paidAdjusted,null,"Two selected quarters across two cash years must not be repriced as if cumulative");
 });
 test("source group cohort gate blocks mixing different chemical years, units and populations",()=>{
  const blocked=model.rank("observations",rows.observations,{metric:"mass",facets:{cohort:"ALL"}});
@@ -208,7 +222,7 @@ test("advanced monetary and chemical numeric rules fail closed across incompatib
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.match(money.warning,/Select one currency/);
  assert.equal(money.appliedMetric,false);
- assert.equal(money.total,33,"Do not silently compare USD and BRL thresholds");
+ assert.equal(money.total,36,"Do not silently compare USD and BRL thresholds");
  const valid=model.rank("payments",rows.payments,{metric:"entity",facets:{currency:"USD"},
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.equal(valid.warning,"");
