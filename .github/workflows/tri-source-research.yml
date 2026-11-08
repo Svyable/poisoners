@@ -1,0 +1,59 @@
+# Reproducibility gate for the pinned 2024 EPA Texas TRI Basic source snapshot.
+# Read-only: official bytes are downloaded to runner temp and no files are pushed.
+name: Reproduce official EPA 2024 Texas Form R evidence
+on:
+  pull_request:
+    paths:
+      - "scripts/import-tri-basic.cjs"
+      - "scripts/tri-import.test.cjs"
+      - "data/tri-facility-links.json"
+      - "docs/tri-facility-releases.json"
+      - ".github/workflows/tri-source-research.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Download exact original EPA 2024 Texas Basic CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE='https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv'
+          curl --fail --location --silent --show-error --retry 3 --connect-timeout 25 --max-time 240 --max-filesize 150000000 \
+            "$SOURCE" --output "$RUNNER_TEMP/2024_TX.csv"
+          test "$(wc -c <"$RUNNER_TEMP/2024_TX.csv")" -gt 25000
+          SHA="$(sha256sum "$RUNNER_TEMP/2024_TX.csv" | cut -d' ' -f1)"
+          echo "Official EPA 2024 TX Basic file SHA-256: $SHA"
+          test "$SHA" = "8863d7ae9639e4773fdc0f4fe5702e0a7e50307068fbbcbc4f5e80bb180bb30d"
+          python3 - <<'PY'
+          import os,csv
+          p=os.path.join(os.environ["RUNNER_TEMP"],"2024_TX.csv")
+          with open(p,encoding="utf-8-sig",newline="") as f: cols=next(csv.reader(f))
+          labels=[x.split(". ",1)[-1].strip().upper() for x in cols]
+          if len(cols)!=122 or "TRIFD" not in labels or "CAS#" not in labels or "DOC_CTRL_NUM" not in labels:
+            raise SystemExit("Unreviewed EPA CSV schema change: source requires manual update")
+          print("Verified live 122-column EPA TRI Basic export schema.")
+          PY
+      - name: Reproduce and compare every published facility Form R record
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp docs/tri-facility-releases.json "$RUNNER_TEMP/published.json"
+          node scripts/import-tri-basic.cjs \
+            --input "$RUNNER_TEMP/2024_TX.csv" \
+            --retrieved 2026-11-08 \
+            --source-url 'https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_TX/csv' \
+            --expected-sha256 8863d7ae9639e4773fdc0f4fe5702e0a7e50307068fbbcbc4f5e80bb180bb30d \
+            --output docs/tri-facility-releases.json
+          cmp "$RUNNER_TEMP/published.json" docs/tri-facility-releases.json
+          node --test scripts/tri-import.test.cjs
+          echo 'Pinned EPA source generated the exact committed 41-record dataset.'
