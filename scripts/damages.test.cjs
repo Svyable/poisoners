@@ -110,7 +110,7 @@ test("inflation indexing preserves original currency and calculations",()=>{
  close(get("bp-deepwater-2016").obligation.max*factor("USD",2016),27.9e9);
  close(get("vale-brumadinho-2021").obligation.max*factor("BRL",2021),45.59e9);
  assert.equal(get("vale-brumadinho-2021").payment.value_year,null,"Do not assign one price year to multi-year transfers");
- assert.equal(get("3m-pws-pfas-2024").payment.amount,null,"Do not mistake scheduled amounts for cash received");
+ assert.equal(get("3m-pws-pfas-2024").payment.amount,34800000,"Documented single utility net cash is not nationwide paid total");
 });
 test("documented split payments and overlapping cases carry cautions",()=>{
  const c=d.cases.find(x=>x.id==="dupont-chemours-c8-2017");
