@@ -1,5 +1,5 @@
 {
-  "version": "1.7.0",
+  "version": "1.9.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -13,6 +13,7 @@
         "2003": 184,
         "2005": 195.3,
         "2008": 215.303,
+        "2010": 218.056,
         "2011": 224.939,
         "2012": 229.594,
         "2013": 232.957,
@@ -30,14 +31,36 @@
       "source_historical": "https://www.minneapolisfed.org/about-us/monetary-policy/inflation-calculator/consumer-price-index-1913-"
     },
     "BRL": {
-      "method": "IBGE IPCA calendar-year Dec/Dec rates compounded after nominal base year through December 2025. The 2021 agreement was signed in February; December-2021 convention is only a standardized comparator, not a contractual indexation calculation.",
+      "method": "IBGE national IPCA calendar-year December/December rates (2001–2025) compounded from the year after the nominal disposition year through Dec. 2025. For the 2000 Petrobras spill cases the 2000 payment year is corroborated by contemporary reporting; the resulting 2025 BRL figures are standardized calendar-year purchasing-power comparisons, not legal interest or a settlement adjustment. The 2021 Vale agreement was signed in February; use of Dec. 2021 as the notional base remains an annual-calendar comparator only.",
       "source": "https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidoramplo.html?edicao=20932&t=series-historicas",
       "annual_rates_percent": {
+        "2001": 7.67,
+        "2002": 12.53,
+        "2003": 9.3,
+        "2004": 7.6,
+        "2005": 5.69,
+        "2006": 3.14,
+        "2007": 4.46,
+        "2008": 5.9,
+        "2009": 4.31,
+        "2010": 5.91,
+        "2011": 6.5,
+        "2012": 5.84,
+        "2013": 5.91,
+        "2014": 6.41,
+        "2015": 10.67,
+        "2016": 6.29,
+        "2017": 2.95,
+        "2018": 3.75,
+        "2019": 4.31,
+        "2020": 4.52,
+        "2021": 10.06,
         "2022": 5.79,
         "2023": 4.62,
         "2024": 4.83,
         "2025": 4.26
-      }
+      },
+      "source_historical": "https://www.ipeadata.gov.br/ExibeSerie.aspx?module=M&serid=1410807112"
     },
     "CAD": {
       "method": "Statistics Canada annual-average, not seasonally adjusted, Canada all-items CPI (2002=100), 2025 reference. Canada-dollar comparisons only, no exchange-rate conversion.",
@@ -213,12 +236,28 @@
       },
       "payment": {
         "status": "partially_paid",
-        "amount": 18200000000,
-        "as_of": "2022-02-04",
+        "amount": 21300000000,
+        "as_of": "2025-12-31",
         "value_year": null,
-        "detail": "Minas Gerais environmental authority reported R$18.2bn already paid toward different agreement obligations after one year; covers multiple payment/implementation periods. This is a dated historical lower bound, not a current 2026 total. Separately, Vale's June 2026 investor reporting discloses US$15.172bn of total cumulative Brumadinho-related outlays since 2019 across a broader scope, including dam decommissioning, individual/emergency compensation and other work. That broader figure is not the cash paid under this exact 2021 agreement and must not be substituted for, added to, or currency-converted into this R$18.2bn historical observation."
+        "detail": "Vale's SEC-filed 2025 Form 20-F says that by December 31, 2025 it had fulfilled 95% of its settlement payment obligations, reporting R$21.3 billion in total for those obligations. That reporting basis includes historical commitments and R$6.3 billion of pre-signing disbursements within the wider 2021 agreement's accounting. It is NOT solely cash transferred to Minas Gerais after 2021 and must NOT be added to the state's separate R$18.2bn first-anniversary observation, Vale's R$13.7bn 'to-do' performance figures, or its wider individual compensation and post-agreement costs. Exact payment-year installments remain unreconciled.",
+        "historical_observations": [
+          {
+            "as_of": "2022-02-04",
+            "amount": 18200000000,
+            "currency": "BRL",
+            "label": "Minas Gerais first-anniversary reported payments/execution; source and accounting scope differ from Vale's later Form 20-F",
+            "source": "https://meioambiente.mg.gov.br/w/em-um-ano-acordo-de-reparacao-tem-avancos-importantes-para-brumadinho-e-regiao"
+          },
+          {
+            "as_of": "2025-12-31",
+            "amount": 21300000000,
+            "currency": "BRL",
+            "label": "Vale SEC 2025 Form 20-F — 95% of agreement payment obligations, including defined pre-settlement outlays",
+            "source": "https://www.sec.gov/Archives/edgar/data/917851/000129281426001844/valeform20f_2025.htm"
+          }
+        ]
       },
-      "notes": "Agreement contains both duties to perform works and duties to transfer funds. Paid figure and package overlap; they must never be added. Multi-year cash has no single valid inflation base year.",
+      "notes": "Agreement mixes commitments to transfer funds with duties to perform projects and certain pre-signing outlays. Its payment-obligation totals overlap the nominal R$37.69bn package, and may use different scope from the early state observation; never add them or interpret a percentage of work completed as cash paid. The R$21.3bn is not all money remitted to the state, and multi-year receipts cannot be given one price year.",
       "sources": [
         {
           "name": "Minas Gerais — original 2021 agreement amount and scope",
@@ -239,6 +278,10 @@
         {
           "name": "Vale 2Q26 ESG — broader Brumadinho payments scope, not cash under one agreement",
           "url": "https://vale.com/in/esg/brumadinho"
+        },
+        {
+          "name": "Vale — SEC 2025 Form 20-F: R$21.3bn payment obligations fulfilled through 2025, pre-signing amounts included",
+          "url": "https://www.sec.gov/Archives/edgar/data/917851/000129281426001844/valeform20f_2025.htm"
         }
       ],
       "indexed_entities": []
@@ -261,13 +304,27 @@
         "kind": "Total civil package including fines, NRD and economic claims"
       },
       "payment": {
-        "status": "payment_total_unverified",
-        "amount": null,
-        "as_of": "2026-11-07",
+        "status": "partially_paid",
+        "amount": 2258000000,
+        "as_of": "2026-06-30",
         "value_year": null,
-        "detail": "Long-term installments are documented; an independently reconciled company-wide paid-to-date figure was not established for this ledger."
+        "detail": "BP's SEC-filed second-quarter 2025 and second-quarter 2026 reports EACH expressly report $1.129bn of pre-tax payments relating to the 2016 Deepwater Horizon consent decree and settlement with the U.S. and five Gulf states. This $2.258bn is the arithmetic SUM OF TWO DISTINCT VERIFIED QUARTERS only, not cumulative lifetime cash paid under the $20.8bn resolution. Other periods' payments are not reconciled, so this is a documented partial-period lower bound; cash occurred in both 2025 and 2026 and no single 2025 paid-year inflation figure is computed.",
+        "cash_periods": [
+          {
+            "period": "2025-Q2",
+            "amount": 1129000000,
+            "currency": "USD",
+            "source": "https://www.sec.gov/Archives/edgar/data/313807/000031380725000026/bp-20250630.htm"
+          },
+          {
+            "period": "2026-Q2",
+            "amount": 1129000000,
+            "currency": "USD",
+            "source": "https://www.sec.gov/Archives/edgar/data/313807/000031380726000016/bp-20260630.htm"
+          }
+        ]
       },
-      "notes": "$20.8bn was agreed/court approved, NOT shown as fully paid. Do not add BP's separate 2012 criminal plea to this figure without checking scopes.",
+      "notes": "The $20.8bn is the 2016 civil package, not a verified fully paid amount. BP's 2025 annual report separately reports $1.169bn 2025 oil-spill operating cash outflow across a broader accounting scope; that must not be added to the Q2 2025 $1.129bn (overlapping period) or treated as entirely this agreement. The 2013 NFWF criminal plea payment in another case is a distinct legal resolution.",
       "sources": [
         {
           "name": "U.S. DOJ — $20.8bn civil settlement",
@@ -276,6 +333,18 @@
         {
           "name": "U.S. EPA — event timeline, consent decree and separate matters",
           "url": "https://www.epa.gov/enforcement/deepwater-horizon-bp-gulf-america-oil-spill"
+        },
+        {
+          "name": "BP SEC Q2 2025 — $1.129bn pre-tax paid relating to 2016 consent decree",
+          "url": "https://www.sec.gov/Archives/edgar/data/313807/000031380725000026/bp-20250630.htm"
+        },
+        {
+          "name": "BP SEC Q2 2026 — separate $1.129bn pre-tax paid relating to 2016 consent decree",
+          "url": "https://www.sec.gov/Archives/edgar/data/313807/000031380726000016/bp-20260630.htm"
+        },
+        {
+          "name": "BP SEC 2025 annual report — broader oil spill outflows and remaining obligations",
+          "url": "https://www.sec.gov/Archives/edgar/data/313807/000031380726000006/R28.htm"
         }
       ],
       "indexed_entities": []
@@ -302,7 +371,16 @@
         "amount": null,
         "as_of": "2026-11-07",
         "value_year": null,
-        "detail": "This ledger has not reconciled vehicle buybacks and mitigation expenditures to actual disbursements; an up-to cap is not evidence the cap was paid."
+        "detail": "The 2016 up-to $14.7bn package combines 2.0-liter consumer buybacks, mitigation trusts and EV investments; a complete 2.0-liter-specific cash payment reconciliation is not verified. Importantly, the FTC's July 27, 2020 final report independently confirms MORE THAN $9.5bn returned to consumers under the combined 2016 2.0-liter AND 2017 3.0-liter consumer programs, including Porsche. That cross-case paid observation cannot be allocated to the 2016 2.0-liter figure alone, cannot be treated as a payment in 2020, and is not additional to the 2016 cap.",
+        "related_observations": [
+          {
+            "as_of": "2020-07-27",
+            "currency": "USD",
+            "amount_floor": 9500000000,
+            "label": "FTC-confirmed consumer repayment by VW, Audi and Porsche across BOTH 2016 2.0-liter and 2017 3.0-liter proceedings; greater-than lower bound, not 2016 case cash",
+            "source": "https://www.ftc.gov/news-events/news/press-releases/2020/07/final-court-summary-ftc-reports-volkswagen-repaid-more-95-billion-car-buyers-who-were-deceived-clean"
+          }
+        ]
       },
       "notes": "The up-to amount spans distinct categories and is not a monetary estimate of pollution damage; distinct from the later criminal fine.",
       "sources": [
@@ -313,6 +391,10 @@
         {
           "name": "U.S. EPA — civil consent decree scope",
           "url": "https://www.epa.gov/enforcement/volkswagen-clean-air-act-civil-settlement"
+        },
+        {
+          "name": "FTC final report — more than $9.5bn repaid to consumers across 2016 and 2017 proceedings (not a 2.0-liter-only paid amount)",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2020/07/final-court-summary-ftc-reports-volkswagen-repaid-more-95-billion-car-buyers-who-were-deceived-clean"
         }
       ],
       "indexed_entities": []
@@ -1461,6 +1543,357 @@
         {
           "name": "Cenovus — January 2021 Husky combination",
           "url": "https://www.cenovus.com/Investors/Cenovus-and-Husky-transaction"
+        }
+      ]
+    },
+    {
+      "id": "vw-caa-third-civil-penalty-2017",
+      "entities": [
+        "Volkswagen AG",
+        "Volkswagen Group of America and related settling defendants"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "United States",
+      "matter": "Volkswagen third partial Clean Air Act settlement — civil penalty",
+      "hazard": "Diesel NOx / defeat-device emissions violations",
+      "outcome_type": "civil Clean Air Act penalty",
+      "disposition": "Court-approved April 13, 2017 third partial civil settlement; distinct from 2016 and 2017 consumer redress and from the $2.8bn criminal fine",
+      "obligation": {
+        "currency": "USD",
+        "year": 2017,
+        "min": 1450000000,
+        "max": 1450000000,
+        "kind": "Fixed Clean Air Act civil penalty under third partial settlement; NOT the vehicle buyback, consumer compensation, or $2.8bn criminal fine"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 1450000000,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "US EPA's official Volkswagen Clean Air Act Civil Settlement page explicitly says that under the third partial settlement Volkswagen HAS PAID a $1.45bn civil penalty. That page does not establish which specific settlement defendant remitted which share or the exact cash transfer year; no paid-year CPI is inferred."
+      },
+      "notes": "This fixed $1.45bn penalty must not be double-counted against Volkswagen's separately listed up-to $14.7bn first partial settlement or $2.8bn DOJ criminal fine. Historical EPA civil allegations are not a health-harm dollar estimate. Multiple settling legal entities prevent per-defendant cash attribution.",
+      "sources": [
+        {
+          "name": "US EPA — Volkswagen Clean Air Act Civil Settlement, section Civil Penalty expressly states paid $1.45bn",
+          "url": "https://www.epa.gov/enforcement/volkswagen-clean-air-act-civil-settlement"
+        }
+      ]
+    },
+    {
+      "id": "bosch-vw-diesel-consumer-2017",
+      "entities": [
+        "Robert Bosch GmbH",
+        "Robert Bosch LLC"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "United States",
+      "matter": "Bosch emissions-software supplier's Volkswagen/Audi/Porsche clean-diesel consumer class settlement",
+      "hazard": "Diesel NOx / emission defeat-device technology and consumer redress",
+      "outcome_type": "civil consumer compensation class settlement",
+      "disposition": "2017 court-approved Bosch class settlement in VW diesel MDL, separate payer from Volkswagen, Audi and Porsche",
+      "obligation": {
+        "currency": "USD",
+        "year": 2017,
+        "min": 327500000,
+        "max": 327500000,
+        "kind": "Bosch's fixed non-reversionary $327.5m consumer settlement fund, including permitted administrative and attorney allocations"
+      },
+      "payment": {
+        "status": "partially_paid",
+        "amount": 300000000,
+        "as_of": "2020-07-27",
+        "value_year": null,
+        "detail": "The FTC's July 27, 2020 final status report explicitly says MORE THAN $300m that Bosch paid to consumers, separate from the over-$9.5bn Volkswagen/Porsche consumer repayment. The $300m here is a CONSERVATIVE ROUNDED FLOOR of explicitly verified paid benefits, NOT an exact total, not a payment dated 2020, and not proof the full $327.5m settlement fund was disbursed to consumers."
+      },
+      "notes": "Bosch's payments are distinct from Volkswagen/Porsche, but the same vehicle-claims cohort is involved. Bosch's $327.5m fund includes non-consumer allocations, while the FTC describes over $300m to consumers; do not sum this with a Bosch fund deposit as if two separate events. The paid-year series is unknown.",
+      "sources": [
+        {
+          "name": "FTC July 2020 final status report — note 1: more than $300m Bosch paid to consumers, excluded from VW $9.5bn",
+          "url": "https://www.ftc.gov/system/files/documents/cases/1623006vwfinalstatusreport.pdf"
+        },
+        {
+          "name": "Bosch court settlement administrator — fixed $327.5m fund, class scope and final distributions",
+          "url": "https://www.boschvwsettlement.com/en"
+        },
+        {
+          "name": "Bosch settlement administrator FAQ — supplemental distribution in February 2022",
+          "url": "https://www.boschvwsettlement.com/en/Home/FAQ"
+        }
+      ]
+    },
+    {
+      "id": "3m-afff-pi-2026",
+      "entities": [
+        "3M"
+      ],
+      "indexed_entities": [],
+      "jurisdiction": "U.S. federal AFFF MDL (South Carolina) and related claims",
+      "matter": "2026 PFAS/AFFF personal injury litigation broad resolution",
+      "hazard": "PFAS / aqueous film-forming foam personal-injury claims",
+      "outcome_type": "conditional personal-injury civil settlement commitment",
+      "disposition": "November 3, 2026 announced agreement subject to participation, claims administration and related contingencies; not a paid judgment",
+      "obligation": {
+        "currency": "USD",
+        "year": 2026,
+        "min": 7350000000,
+        "max": 7350000000,
+        "kind": "Nominal PRE-TAX future commitment through 2034; separately disclosed $5.8bn present-value accounting charge is NOT an additional obligation"
+      },
+      "payment": {
+        "status": "payment_total_unverified",
+        "amount": null,
+        "as_of": "2026-11-07",
+        "value_year": null,
+        "detail": "3M's November 3, 2026 SEC-filed announcement commits to $7.35bn nominal payments over nine years, including a PLANNED $50m 2026 payment and no planned payment in 2027. No completed 2026 disbursement under this agreement has been established by the source as of this ledger revision. Neither the scheduled $50m nor the discounted $5.8bn charge is booked as money paid."
+      },
+      "notes": "This is personal-injury resolution (subject to claimants' participation and settlement contingencies), distinct from 3M's 2024 $10.5bn–$12.5bn public-water-supplier settlement and from its historical Minnesota payment. The reference inflation year is 2025, before this 2026 obligation, so NO 2025 purchasing-power comparator is computed without a supported 2026 annual CPI basis. Settling does not establish each claimant's causation or constitute admission.",
+      "sources": [
+        {
+          "name": "3M SEC 8-K Exhibit 99.1, dated Nov. 3, 2026 — $7.35bn nominal, $5.8bn present value, planned $50m 2026",
+          "url": "https://investors.3m.com/financials/sec-filings/content/0000066740-26-000318/pressrelease-xnov2026xv2.htm"
+        },
+        {
+          "name": "3M 2026 settlement agreement exhibit — contingent PFAS personal-injury claims procedures",
+          "url": "https://investors.3m.com/financials/sec-filings/content/0000066740-26-000318/msa.htm"
+        }
+      ]
+    },
+    {
+      "id": "coalindia-ccl-jharkhand-environmental-compensation-2022",
+      "entities": [
+        "Central Coalfields Limited (CCL)"
+      ],
+      "indexed_entities": [
+        "Coal India"
+      ],
+      "jurisdiction": "Jharkhand, India",
+      "matter": "Jharkhand State Pollution Control Board environmental-compensation assessment across five CCL mines, including Amarpali open-cast mine",
+      "hazard": "Coal-mine operations and environmental compliance assessed by the Jharkhand pollution-control authority",
+      "outcome_type": "administrative environmental compensation assessment / partly paid",
+      "disposition": "JSPCB levied ₹32.45 crore during the 2021–2022 reporting year; Coal India's consolidated financial-report auditor recorded only ₹1.35 crore paid at Amarpali by March 2022",
+      "obligation": {
+        "currency": "INR",
+        "year": 2022,
+        "min": 324500000,
+        "max": 324500000,
+        "kind": "₹32.45 crore administrative assessment across five CCL mines; ₹31.10 crore remainder expressly disputed by company, not accepted liability"
+      },
+      "payment": {
+        "status": "partially_paid",
+        "amount": 13500000,
+        "as_of": "2022-03-31",
+        "value_year": null,
+        "detail": "Coal India's 2021–22 Annual Report, Comptroller and Auditor-General consolidated audit comment B.4, explicitly records CCL PAID ₹1.35 crore in respect of Amarpali OPC while ₹31.10 crore of the wider ₹32.45 crore JSPCB assessment was unpaid at the FY2022 reporting date. The company did not recognize the contested balance as a liability. Cash transfer year is not independently identified within the 2021–22 financial year, so do not compute 2025 purchasing power for the paid-cash subset."
+      },
+      "notes": "Record is a five-mine regulator assessment, NOT a fine solely for Amarpali and NOT ₹32.45 crore confirmed paid. ₹31.10 crore reported unpaid as of 31 March 2022 cannot be presumed unpaid through 2026. The auditor disputed the accounting nonprovision and management disputed recognition. Coal India is the listed parent; CCL is the legal operating subsidiary. Amount is not a quantified measure of injury, mortality, or damage.",
+      "sources": [
+        {
+          "name": "Coal India 2021–22 revised annual report — CAG audit para B.4, reported 2022-08-05",
+          "url": "https://d3u7ubx0okog7j.cloudfront.net/documents/BSENSERAR2122.pdf"
+        },
+        {
+          "name": "Coal India 2021–22 NSE-filed original annual accounts — CAG audit and management response",
+          "url": "https://nsearchives.nseindia.com/corporate/COALINDIA_29072022171548_NSEBSEAR2122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "eog-punxsutawney-well-control-2010",
+      "entities": [
+        "EOG Resources, Inc."
+      ],
+      "indexed_entities": [
+        "EOG Resources"
+      ],
+      "jurisdiction": "Clearfield County, Pennsylvania, United States",
+      "matter": "Punxsutawney Hunt Club No. 36H gas well-control incident on June 3, 2010",
+      "hazard": "Uncontrolled gas well / Pennsylvania air, water, oil-and-gas and waste-control allegations",
+      "outcome_type": "state oil-and-gas environmental penalty and response-cost reimbursement",
+      "disposition": "July 12, 2010 consent order with Pennsylvania Department of Environmental Protection; completed payment disclosed in EOG SEC 2010 Q2 report",
+      "obligation": {
+        "currency": "USD",
+        "year": 2010,
+        "min": 353419,
+        "max": 353419,
+        "kind": "Fixed $353,419 combined civil penalty INCLUDING Pennsylvania DEP emergency response costs (not solely a punitive fine)"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 353419,
+        "as_of": "2010-08",
+        "value_year": 2010,
+        "detail": "EOG's SEC Form 10-Q for quarter ended June 30, 2010, Item 1 Legal Proceedings, describes the July 12, 2010 consent order and explicitly says EOG 'has paid' $353,419. The public filing is from 2010, so actual cash year 2010 is established, although exact transaction day is not."
+      },
+      "notes": "Do not add the response costs included within $353,419 again. Also do not interpret the payment as proof that every operating-practice change was completed. Separate from North Dakota 2017 or Texas/New Mexico 2025 settlements.",
+      "sources": [
+        {
+          "name": "EOG SEC Form 10-Q, 2010 Q2, Part II Item 1 Legal Proceedings",
+          "url": "https://www.sec.gov/Archives/edgar/data/821189/000082118910000037/eog2qtr10-q.htm"
+        }
+      ]
+    },
+    {
+      "id": "eog-north-dakota-air-2017",
+      "entities": [
+        "EOG Resources, Inc."
+      ],
+      "indexed_entities": [
+        "EOG Resources"
+      ],
+      "jurisdiction": "North Dakota, United States",
+      "matter": "Air-emission control and leak detection North Dakota Department of Health consent decree",
+      "hazard": "Oil and gas production air emissions / leak detection and repair compliance",
+      "outcome_type": "state air-quality civil penalty",
+      "disposition": "North Dakota district court approved settlement August 2017, EOG discloses actual cash payment in November 2017",
+      "obligation": {
+        "currency": "USD",
+        "year": 2017,
+        "min": 90375,
+        "max": 90375,
+        "kind": "Final reduced civil penalty $90,375 paid; original $400,000 base penalty was reduced and environmental-project offset applied"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 90375,
+        "as_of": "2017-11",
+        "value_year": 2017,
+        "detail": "EOG 2017 SEC Form 10-K Item 3 says EOG paid a final penalty of $90,375 to the North Dakota Department of Health in November 2017 after contractual reductions and supplementary environmental project offset."
+      },
+      "notes": "The $400,000 initial base penalty is NOT extra cash received. Separate EOG leak-detection program expenditure and SEP funding are not included as additional government penalty payments. No admission beyond consent decree described in filing.",
+      "sources": [
+        {
+          "name": "EOG 2017 Form 10-K, Item 3 Legal Proceedings, final NDDOH fine",
+          "url": "https://www.sec.gov/Archives/edgar/data/821189/000082118918000012/a2017123110-k.htm"
+        }
+      ]
+    },
+    {
+      "id": "eog-epa-texas-new-mexico-2025",
+      "entities": [
+        "EOG Resources Inc."
+      ],
+      "indexed_entities": [
+        "EOG Resources"
+      ],
+      "jurisdiction": "Texas and New Mexico, United States",
+      "matter": "EPA Region 6 Clean Air Act storage-vessel and state implementation plan enforcement settlement, docket CAA-06-2025-3303",
+      "hazard": "Oil and gas production fugitive VOC and air permitting control systems",
+      "outcome_type": "federal administrative Clean Air Act civil penalty",
+      "disposition": "January 2025 EPA consent agreement and final order; agency docket closed February 7, 2025 with disposition 'Payment Received'",
+      "obligation": {
+        "currency": "USD",
+        "year": 2025,
+        "min": 412500,
+        "max": 412500,
+        "kind": "$412,500 EPA civil penalty under paragraph 59; supplemental environmental project minimum $1.98m is NOT this fine"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 412500,
+        "as_of": "2025-02-07",
+        "value_year": 2025,
+        "detail": "EPA public docket CAA-06-2025-3303 identifies the case as Closed 2025-02-07 with disposition 'Payment Received'. The signed EPA consent agreement states $412,500 EPA civil penalty in paragraph 59. Both documents are required together: a payment-received docket alone does not reveal the dollar figure, and an order alone does not prove a cash receipt. The date is docket closure, not a claimed banking timestamp."
+      },
+      "notes": "EPA consent settlement states EOG neither admits nor denies particular factual allegations. Excludes $1.98m supplemental environmental project and conditional stipulated penalties (e.g. $2.268m if project not completed). This $412,500 is not the separately indexed '$2.5m' gross case value in third-party penalty aggregators.",
+      "sources": [
+        {
+          "name": "US EPA Administrative Enforcement Docket CAA-06-2025-3303 — Payment Received, closed 2025-02-07",
+          "url": "https://yosemite.epa.gov/OA/RHC/EPAAdmin.nsf/6f3c7ca72426e21b852575400050f48e/a0a54e77d9b9883485258c2d00791700!OpenDocument"
+        },
+        {
+          "name": "US EPA Region 6 signed 2025 consent agreement — paragraph 59 exact $412,500 fine",
+          "url": "https://yosemite.epa.gov/OA/RHC/EPAAdmin.nsf/Filings/32B4BAFF8BA7194785258C2D00791701/%24File/2025-3303.pdf"
+        }
+      ]
+    },
+    {
+      "id": "petrobras-guanabara-bay-fine-2000",
+      "entities": [
+        "Petróleo Brasileiro S.A. (Petrobras)"
+      ],
+      "indexed_entities": [
+        "Petrobras"
+      ],
+      "jurisdiction": "Guanabara Bay, Rio de Janeiro, Brazil",
+      "matter": "January 2000 oil-pipeline spill into Guanabara Bay and mangrove environment",
+      "hazard": "Marine fuel oil release and coastal / mangrove pollution",
+      "outcome_type": "IBAMA administrative environmental fine",
+      "disposition": "2000 federal IBAMA fine originally assessed at R$51m, paid promptly with a 30% early-payment discount",
+      "obligation": {
+        "currency": "BRL",
+        "year": 2000,
+        "min": 35700000,
+        "max": 35700000,
+        "kind": "R$35.7m actual settled IBAMA fine after early-payment discount from R$51m initial face assessment; no separate compensation for individual fishers included"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 35700000,
+        "as_of": "2000-01-27",
+        "value_year": 2000,
+        "detail": "Contemporaneous January 27, 2000 reporting confirms Petrobras already paid IBAMA at once and explains the 30% discount on R$51m (R$35.7m net). A Brazilian Chamber of Deputies testimony in November 2006 and subsequent federal news retrospectives independently confirm approximately R$35m was paid. The final exact R$35.7m is corroborated by historical reporting and public-prosecutor scholarship. Payment year 2000 is independently evidenced."
+      },
+      "notes": "R$51m originally assessed was reduced by a 30% legally applied early-payment discount; the additional R$15.3m difference was reportedly directed to environmental initiatives, but this is NOT another IBAMA cash penalty nor universally proof of completed community damages. R$35.7m was an administrative fine, not evidence that litigation involving fishing families was fully compensated. Do not combine with Petrobras's different July 2000 Paraná/Iguaçu fine.",
+      "sources": [
+        {
+          "name": "Brazilian federal MPF prosecutor training research — recorded R$35.7m net paid (historical analysis)",
+          "url": "https://escola.mpu.mp.br/publicacoesepesquisas/nao-periodicos/obras-avulsas/e-books-esmpu/valoracao-do-dano-ambiental-em-inquerito-civil-publico/view/%2B%2Bwidget%2B%2Bform.widgets.arquivo/%40%40download/Valora%C3%A7%C3%A3o%2Bdo%2Bdano%2Bambiental%2Bem%2Binqu%C3%A9rito%2Bcivil%2Bp%C3%BAblico.pdf"
+        },
+        {
+          "name": "Folha de Londrina, 2000-01-27: 'Petrobras pagou à vista' after 30% discount on R$51m",
+          "url": "https://www.folhadelondrina.com.br/geral/parte-da-multa-paga-pela-petrobras-vai-para-cofres-do-rj-251546.html"
+        },
+        {
+          "name": "Brazilian Chamber of Deputies November 2006 transcript: executive testimony confirms approximately R$35m paid",
+          "url": "https://imagem.camara.gov.br/Imagem/d/pdf/DCD02NOV2006.pdf"
+        },
+        {
+          "name": "Agência Brasil (Brazil public news agency), 2013 retrospective confirms ~R$35m fine paid",
+          "url": "https://memoria.ebc.com.br/agenciabrasil//noticia/2013-09-17/petrobras-tera-de-indenizar-mais-dois-pescadores-por-vazamento-na-baia-de-guanabara"
+        }
+      ]
+    },
+    {
+      "id": "petrobras-iguacu-barigui-parana-fine-2000",
+      "entities": [
+        "Petróleo Brasileiro S.A. (Petrobras)"
+      ],
+      "indexed_entities": [
+        "Petrobras"
+      ],
+      "jurisdiction": "Araucária, Paraná, Brazil — Iguaçu and Barigui rivers",
+      "matter": "July 16, 2000 pipeline failure at Refinaria Presidente Getúlio Vargas (REPAR) and four-million-litre oil release to rivers",
+      "hazard": "Crude oil discharge into Iguaçu/Barigui rivers",
+      "outcome_type": "Paraná state environmental administrative fine",
+      "disposition": "Paraná State Environment Institute (IAP) R$50m face amount, paid at early-payment discounted R$40m in 2000",
+      "obligation": {
+        "currency": "BRL",
+        "year": 2000,
+        "min": 40000000,
+        "max": 40000000,
+        "kind": "R$40m state IAP fine paid after early-payment discount from R$50m original face amount"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 40000000,
+        "as_of": "2000-11-06",
+        "value_year": 2000,
+        "detail": "Folha Online's contemporaneous November 6, 2000 chronology says Petrobras paid R$40m after discount on the state's original R$50m fine. Gazeta do Povo's 2007 investigative retrospective likewise says the R$40m was paid to Paraná's IAP. The distinct federal IBAMA R$168m assessment was being contested, not confirmed paid."
+      },
+      "notes": "Distinct from the January 2000 Guanabara Bay federal IBAMA fine. R$40m is the Paraná IAP paid fine; the additional federal IBAMA R$168m assessment was separately disputed and is excluded from actual payment. State fine does not include separately sought environmental remediation or individual compensation, and two government fines for one event must not be presumed both received.",
+      "sources": [
+        {
+          "name": "Folha de S.Paulo, November 2000 Petrobras accident chronology: R$40m paid following discount",
+          "url": "https://www1.folha.uol.com.br/folha/cotidiano/ult95u13874.shtml"
+        },
+        {
+          "name": "Gazeta do Povo 2007 retrospective: IAP received R$40m for the 2000 Iguaçu/Barigui spill",
+          "url": "https://www.gazetadopovo.com.br/vida-e-cidadania/tres-desastres-sete-anos-e-apenas-uma-multa-paga-an7z90komaoveqha6s7a6k4su/"
+        },
+        {
+          "name": "Bonde 2001: state fine paid, separate federal IBAMA R$168m challenged",
+          "url": "https://www.bonde.com.br/bondenews/parana/transpetro-pode-levar-terceira-multa"
         }
       ]
     }
