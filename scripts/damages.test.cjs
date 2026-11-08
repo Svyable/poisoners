@@ -14,7 +14,7 @@ function factor(currency,year){
 }
 test("legal outcomes are documented events rather than an aggregate harm index",()=>{
  assert.equal(d.reference_year,2025);
- assert.equal(d.cases.length,20);
+ assert.equal(d.cases.length,24);
  const ids=new Set();
  for(const c of d.cases){
   assert.ok(!ids.has(c.id),c.id);ids.add(c.id);
@@ -32,6 +32,22 @@ test("legal outcomes are documented events rather than an aggregate harm index",
    assert.ok(Number.isFinite(c.payment.amount)&&c.payment.amount>0);
    assert.ok(c.payment.amount<=c.obligation.max,"paid total exceeds legal amount: "+c.id);
    if(c.payment.value_year!==null)assert.ok(c.payment.value_year<=d.reference_year);
+  }
+  if(c.payment.installments!==undefined){
+   assert.equal(c.payment.status,"confirmed_paid","Only completed group cash may carry a fully reconciled installment schedule");
+   assert.equal(c.payment.value_year,null,"A multiyear series has no single cash year");
+   assert.ok(Array.isArray(c.payment.installments)&&c.payment.installments.length>1);
+   let previous="";
+   let total=0;
+   for(const entry of c.payment.installments){
+    assert.match(entry.date,/^(19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}$/);
+    assert.ok(entry.date>previous,"Cash disbursements must be chronologically ordered");
+    assert.ok(entry.date<=c.payment.as_of,"A cash installment cannot occur after last confirmation");
+    assert.ok(Number.isFinite(entry.amount)&&entry.amount>0);
+    assert.ok(d.inflation.USD.index[entry.date.slice(0,4)],"Cash-year CPI must be sourced for every installment");
+    previous=entry.date;total+=entry.amount;
+   }
+   assert.ok(Math.abs(total-c.payment.amount)<0.01,"Reconciled installments must total paid principal");
   }
   if(c.party_allocations!==undefined){
    assert.ok(Array.isArray(c.party_allocations)&&c.party_allocations.length>0);
@@ -133,6 +149,37 @@ test("historical confirmed payments use actual cash years and explicit overlap b
  }
  assert.equal(byId("bp-gulf-nfwf-criminal-2013").payment.amount,2394000000);
  assert.equal(byId("transocean-gulf-nfwf-criminal-2013").payment.amount,150000000);
+});
+test("four new settlements retain payment status, precise AVX cash-year CPI and distinct obligations",()=>{
+ const get=id=>d.cases.find(c=>c.id===id);
+ assert.equal(d.inflation.USD.index["2021"],270.970);
+ assert.equal(d.inflation.USD.index["2022"],292.655);
+ const avx=get("avx-new-bedford-2013");
+ assert.equal(avx.payment.status,"confirmed_paid");
+ assert.equal(avx.obligation.year,2013);
+ assert.equal(avx.payment.amount,366250000);
+ assert.deepEqual(avx.payment.installments.map(x=>x.date),["2013-10-18","2014-03-26","2015-05-26"]);
+ const paid2025=avx.payment.installments.reduce((sum,x)=>sum+x.amount*factor("USD",Number(x.date.slice(0,4))),0);
+ assert.ok(Math.abs(paid2025-500817158)<10);
+ assert.ok(Math.abs(paid2025-avx.payment.amount*factor("USD",2013))>5000000,"Installment year matters");
+ const del=get("delaware-pfas-nrd-2021");
+ assert.equal(del.payment.amount,50000000);
+ assert.equal(del.payment.value_year,2022);
+ assert.equal(del.payment.allocations.reduce((n,x)=>n+x.amount,0),del.payment.amount);
+ assert.equal(del.payment.allocations.find(a=>a.entity==="Chemours").amount,25000000);
+ const later=get("ohio-c8-mdl-2024");
+ assert.equal(later.payment.status,"confirmed_paid");
+ assert.equal(later.payment.amount,58500000);
+ assert.equal(later.payment.value_year,null,"No fabricated aggregate cash-year index for mixed-year payments");
+ assert.match(later.notes,/2017/);
+ const duke=get("duke-nc-coal-ash-criminal-2015");
+ assert.equal(duke.payment.status,"partially_paid");
+ assert.equal(duke.payment.amount,58700000);
+ assert.equal(duke.payment.value_year,2015);
+ assert.equal(duke.obligation.max,102000000);
+ assert.match(duke.notes,/never add them/);
+ assert.ok(html.includes("VERIFIED CASH INSTALLMENTS"));
+ assert.ok(html.includes("paidCash2025"));
 });
 test("company splits are explicit, source-identified and never doubled",()=>{
  for(const id of ["dupont-chemours-c8-2017","union-carbide-bhopal-1989"]){
