@@ -18,7 +18,7 @@
    const y=Number(year),target=Number(data.reference_year);
    if(!Number.isInteger(y)||y>target)return null;
    if(["USD","CAD","INR"].includes(currency)){const idx=data.inflation[currency]?.index,n=idx?.[y],d=idx?.[target];return Number.isFinite(n)&&Number.isFinite(d)&&n>0?d/n:null;}
-   if(currency==="BRL"){if(y<2021)return null;let factor=1;for(let k=y+1;k<=target;k++){const rate=data.inflation.BRL.annual_rates_percent[k];if(!Number.isFinite(rate))return null;factor*=1+rate/100;}return factor;}
+   if(currency==="BRL"){if(y<2000)return null;let factor=1;for(let k=y+1;k<=target;k++){const rate=data.inflation.BRL.annual_rates_percent[k];if(!Number.isFinite(rate))return null;factor*=1+rate/100;}return factor;}
    return null;
  }
  function adjustedCashPaid(payment,currency,data){

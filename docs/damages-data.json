@@ -1,5 +1,5 @@
 {
-  "version": "1.8.0",
+  "version": "1.9.0",
   "as_of": "2026-11-07",
   "reference_year": 2025,
   "purpose": "Historical legally documented monetary outcomes, not a measure of toxic harm, fault, mortality or an additive company score.",
@@ -13,6 +13,7 @@
         "2003": 184,
         "2005": 195.3,
         "2008": 215.303,
+        "2010": 218.056,
         "2011": 224.939,
         "2012": 229.594,
         "2013": 232.957,
@@ -30,14 +31,36 @@
       "source_historical": "https://www.minneapolisfed.org/about-us/monetary-policy/inflation-calculator/consumer-price-index-1913-"
     },
     "BRL": {
-      "method": "IBGE IPCA calendar-year Dec/Dec rates compounded after nominal base year through December 2025. The 2021 agreement was signed in February; December-2021 convention is only a standardized comparator, not a contractual indexation calculation.",
+      "method": "IBGE national IPCA calendar-year December/December rates (2001–2025) compounded from the year after the nominal disposition year through Dec. 2025. For the 2000 Petrobras spill cases the 2000 payment year is corroborated by contemporary reporting; the resulting 2025 BRL figures are standardized calendar-year purchasing-power comparisons, not legal interest or a settlement adjustment. The 2021 Vale agreement was signed in February; use of Dec. 2021 as the notional base remains an annual-calendar comparator only.",
       "source": "https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidoramplo.html?edicao=20932&t=series-historicas",
       "annual_rates_percent": {
+        "2001": 7.67,
+        "2002": 12.53,
+        "2003": 9.3,
+        "2004": 7.6,
+        "2005": 5.69,
+        "2006": 3.14,
+        "2007": 4.46,
+        "2008": 5.9,
+        "2009": 4.31,
+        "2010": 5.91,
+        "2011": 6.5,
+        "2012": 5.84,
+        "2013": 5.91,
+        "2014": 6.41,
+        "2015": 10.67,
+        "2016": 6.29,
+        "2017": 2.95,
+        "2018": 3.75,
+        "2019": 4.31,
+        "2020": 4.52,
+        "2021": 10.06,
         "2022": 5.79,
         "2023": 4.62,
         "2024": 4.83,
         "2025": 4.26
-      }
+      },
+      "source_historical": "https://www.ipeadata.gov.br/ExibeSerie.aspx?module=M&serid=1410807112"
     },
     "CAD": {
       "method": "Statistics Canada annual-average, not seasonally adjusted, Canada all-items CPI (2002=100), 2025 reference. Canada-dollar comparisons only, no exchange-rate conversion.",
@@ -1633,6 +1656,244 @@
         {
           "name": "3M 2026 settlement agreement exhibit — contingent PFAS personal-injury claims procedures",
           "url": "https://investors.3m.com/financials/sec-filings/content/0000066740-26-000318/msa.htm"
+        }
+      ]
+    },
+    {
+      "id": "coalindia-ccl-jharkhand-environmental-compensation-2022",
+      "entities": [
+        "Central Coalfields Limited (CCL)"
+      ],
+      "indexed_entities": [
+        "Coal India"
+      ],
+      "jurisdiction": "Jharkhand, India",
+      "matter": "Jharkhand State Pollution Control Board environmental-compensation assessment across five CCL mines, including Amarpali open-cast mine",
+      "hazard": "Coal-mine operations and environmental compliance assessed by the Jharkhand pollution-control authority",
+      "outcome_type": "administrative environmental compensation assessment / partly paid",
+      "disposition": "JSPCB levied ₹32.45 crore during the 2021–2022 reporting year; Coal India's consolidated financial-report auditor recorded only ₹1.35 crore paid at Amarpali by March 2022",
+      "obligation": {
+        "currency": "INR",
+        "year": 2022,
+        "min": 324500000,
+        "max": 324500000,
+        "kind": "₹32.45 crore administrative assessment across five CCL mines; ₹31.10 crore remainder expressly disputed by company, not accepted liability"
+      },
+      "payment": {
+        "status": "partially_paid",
+        "amount": 13500000,
+        "as_of": "2022-03-31",
+        "value_year": null,
+        "detail": "Coal India's 2021–22 Annual Report, Comptroller and Auditor-General consolidated audit comment B.4, explicitly records CCL PAID ₹1.35 crore in respect of Amarpali OPC while ₹31.10 crore of the wider ₹32.45 crore JSPCB assessment was unpaid at the FY2022 reporting date. The company did not recognize the contested balance as a liability. Cash transfer year is not independently identified within the 2021–22 financial year, so do not compute 2025 purchasing power for the paid-cash subset."
+      },
+      "notes": "Record is a five-mine regulator assessment, NOT a fine solely for Amarpali and NOT ₹32.45 crore confirmed paid. ₹31.10 crore reported unpaid as of 31 March 2022 cannot be presumed unpaid through 2026. The auditor disputed the accounting nonprovision and management disputed recognition. Coal India is the listed parent; CCL is the legal operating subsidiary. Amount is not a quantified measure of injury, mortality, or damage.",
+      "sources": [
+        {
+          "name": "Coal India 2021–22 revised annual report — CAG audit para B.4, reported 2022-08-05",
+          "url": "https://d3u7ubx0okog7j.cloudfront.net/documents/BSENSERAR2122.pdf"
+        },
+        {
+          "name": "Coal India 2021–22 NSE-filed original annual accounts — CAG audit and management response",
+          "url": "https://nsearchives.nseindia.com/corporate/COALINDIA_29072022171548_NSEBSEAR2122.pdf"
+        }
+      ]
+    },
+    {
+      "id": "eog-punxsutawney-well-control-2010",
+      "entities": [
+        "EOG Resources, Inc."
+      ],
+      "indexed_entities": [
+        "EOG Resources"
+      ],
+      "jurisdiction": "Clearfield County, Pennsylvania, United States",
+      "matter": "Punxsutawney Hunt Club No. 36H gas well-control incident on June 3, 2010",
+      "hazard": "Uncontrolled gas well / Pennsylvania air, water, oil-and-gas and waste-control allegations",
+      "outcome_type": "state oil-and-gas environmental penalty and response-cost reimbursement",
+      "disposition": "July 12, 2010 consent order with Pennsylvania Department of Environmental Protection; completed payment disclosed in EOG SEC 2010 Q2 report",
+      "obligation": {
+        "currency": "USD",
+        "year": 2010,
+        "min": 353419,
+        "max": 353419,
+        "kind": "Fixed $353,419 combined civil penalty INCLUDING Pennsylvania DEP emergency response costs (not solely a punitive fine)"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 353419,
+        "as_of": "2010-08",
+        "value_year": 2010,
+        "detail": "EOG's SEC Form 10-Q for quarter ended June 30, 2010, Item 1 Legal Proceedings, describes the July 12, 2010 consent order and explicitly says EOG 'has paid' $353,419. The public filing is from 2010, so actual cash year 2010 is established, although exact transaction day is not."
+      },
+      "notes": "Do not add the response costs included within $353,419 again. Also do not interpret the payment as proof that every operating-practice change was completed. Separate from North Dakota 2017 or Texas/New Mexico 2025 settlements.",
+      "sources": [
+        {
+          "name": "EOG SEC Form 10-Q, 2010 Q2, Part II Item 1 Legal Proceedings",
+          "url": "https://www.sec.gov/Archives/edgar/data/821189/000082118910000037/eog2qtr10-q.htm"
+        }
+      ]
+    },
+    {
+      "id": "eog-north-dakota-air-2017",
+      "entities": [
+        "EOG Resources, Inc."
+      ],
+      "indexed_entities": [
+        "EOG Resources"
+      ],
+      "jurisdiction": "North Dakota, United States",
+      "matter": "Air-emission control and leak detection North Dakota Department of Health consent decree",
+      "hazard": "Oil and gas production air emissions / leak detection and repair compliance",
+      "outcome_type": "state air-quality civil penalty",
+      "disposition": "North Dakota district court approved settlement August 2017, EOG discloses actual cash payment in November 2017",
+      "obligation": {
+        "currency": "USD",
+        "year": 2017,
+        "min": 90375,
+        "max": 90375,
+        "kind": "Final reduced civil penalty $90,375 paid; original $400,000 base penalty was reduced and environmental-project offset applied"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 90375,
+        "as_of": "2017-11",
+        "value_year": 2017,
+        "detail": "EOG 2017 SEC Form 10-K Item 3 says EOG paid a final penalty of $90,375 to the North Dakota Department of Health in November 2017 after contractual reductions and supplementary environmental project offset."
+      },
+      "notes": "The $400,000 initial base penalty is NOT extra cash received. Separate EOG leak-detection program expenditure and SEP funding are not included as additional government penalty payments. No admission beyond consent decree described in filing.",
+      "sources": [
+        {
+          "name": "EOG 2017 Form 10-K, Item 3 Legal Proceedings, final NDDOH fine",
+          "url": "https://www.sec.gov/Archives/edgar/data/821189/000082118918000012/a2017123110-k.htm"
+        }
+      ]
+    },
+    {
+      "id": "eog-epa-texas-new-mexico-2025",
+      "entities": [
+        "EOG Resources Inc."
+      ],
+      "indexed_entities": [
+        "EOG Resources"
+      ],
+      "jurisdiction": "Texas and New Mexico, United States",
+      "matter": "EPA Region 6 Clean Air Act storage-vessel and state implementation plan enforcement settlement, docket CAA-06-2025-3303",
+      "hazard": "Oil and gas production fugitive VOC and air permitting control systems",
+      "outcome_type": "federal administrative Clean Air Act civil penalty",
+      "disposition": "January 2025 EPA consent agreement and final order; agency docket closed February 7, 2025 with disposition 'Payment Received'",
+      "obligation": {
+        "currency": "USD",
+        "year": 2025,
+        "min": 412500,
+        "max": 412500,
+        "kind": "$412,500 EPA civil penalty under paragraph 59; supplemental environmental project minimum $1.98m is NOT this fine"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 412500,
+        "as_of": "2025-02-07",
+        "value_year": 2025,
+        "detail": "EPA public docket CAA-06-2025-3303 identifies the case as Closed 2025-02-07 with disposition 'Payment Received'. The signed EPA consent agreement states $412,500 EPA civil penalty in paragraph 59. Both documents are required together: a payment-received docket alone does not reveal the dollar figure, and an order alone does not prove a cash receipt. The date is docket closure, not a claimed banking timestamp."
+      },
+      "notes": "EPA consent settlement states EOG neither admits nor denies particular factual allegations. Excludes $1.98m supplemental environmental project and conditional stipulated penalties (e.g. $2.268m if project not completed). This $412,500 is not the separately indexed '$2.5m' gross case value in third-party penalty aggregators.",
+      "sources": [
+        {
+          "name": "US EPA Administrative Enforcement Docket CAA-06-2025-3303 — Payment Received, closed 2025-02-07",
+          "url": "https://yosemite.epa.gov/OA/RHC/EPAAdmin.nsf/6f3c7ca72426e21b852575400050f48e/a0a54e77d9b9883485258c2d00791700!OpenDocument"
+        },
+        {
+          "name": "US EPA Region 6 signed 2025 consent agreement — paragraph 59 exact $412,500 fine",
+          "url": "https://yosemite.epa.gov/OA/RHC/EPAAdmin.nsf/Filings/32B4BAFF8BA7194785258C2D00791701/%24File/2025-3303.pdf"
+        }
+      ]
+    },
+    {
+      "id": "petrobras-guanabara-bay-fine-2000",
+      "entities": [
+        "Petróleo Brasileiro S.A. (Petrobras)"
+      ],
+      "indexed_entities": [
+        "Petrobras"
+      ],
+      "jurisdiction": "Guanabara Bay, Rio de Janeiro, Brazil",
+      "matter": "January 2000 oil-pipeline spill into Guanabara Bay and mangrove environment",
+      "hazard": "Marine fuel oil release and coastal / mangrove pollution",
+      "outcome_type": "IBAMA administrative environmental fine",
+      "disposition": "2000 federal IBAMA fine originally assessed at R$51m, paid promptly with a 30% early-payment discount",
+      "obligation": {
+        "currency": "BRL",
+        "year": 2000,
+        "min": 35700000,
+        "max": 35700000,
+        "kind": "R$35.7m actual settled IBAMA fine after early-payment discount from R$51m initial face assessment; no separate compensation for individual fishers included"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 35700000,
+        "as_of": "2000-01-27",
+        "value_year": 2000,
+        "detail": "Contemporaneous January 27, 2000 reporting confirms Petrobras already paid IBAMA at once and explains the 30% discount on R$51m (R$35.7m net). A Brazilian Chamber of Deputies testimony in November 2006 and subsequent federal news retrospectives independently confirm approximately R$35m was paid. The final exact R$35.7m is corroborated by historical reporting and public-prosecutor scholarship. Payment year 2000 is independently evidenced."
+      },
+      "notes": "R$51m originally assessed was reduced by a 30% legally applied early-payment discount; the additional R$15.3m difference was reportedly directed to environmental initiatives, but this is NOT another IBAMA cash penalty nor universally proof of completed community damages. R$35.7m was an administrative fine, not evidence that litigation involving fishing families was fully compensated. Do not combine with Petrobras's different July 2000 Paraná/Iguaçu fine.",
+      "sources": [
+        {
+          "name": "Brazilian federal MPF prosecutor training research — recorded R$35.7m net paid (historical analysis)",
+          "url": "https://escola.mpu.mp.br/publicacoesepesquisas/nao-periodicos/obras-avulsas/e-books-esmpu/valoracao-do-dano-ambiental-em-inquerito-civil-publico/view/%2B%2Bwidget%2B%2Bform.widgets.arquivo/%40%40download/Valora%C3%A7%C3%A3o%2Bdo%2Bdano%2Bambiental%2Bem%2Binqu%C3%A9rito%2Bcivil%2Bp%C3%BAblico.pdf"
+        },
+        {
+          "name": "Folha de Londrina, 2000-01-27: 'Petrobras pagou à vista' after 30% discount on R$51m",
+          "url": "https://www.folhadelondrina.com.br/geral/parte-da-multa-paga-pela-petrobras-vai-para-cofres-do-rj-251546.html"
+        },
+        {
+          "name": "Brazilian Chamber of Deputies November 2006 transcript: executive testimony confirms approximately R$35m paid",
+          "url": "https://imagem.camara.gov.br/Imagem/d/pdf/DCD02NOV2006.pdf"
+        },
+        {
+          "name": "Agência Brasil (Brazil public news agency), 2013 retrospective confirms ~R$35m fine paid",
+          "url": "https://memoria.ebc.com.br/agenciabrasil//noticia/2013-09-17/petrobras-tera-de-indenizar-mais-dois-pescadores-por-vazamento-na-baia-de-guanabara"
+        }
+      ]
+    },
+    {
+      "id": "petrobras-iguacu-barigui-parana-fine-2000",
+      "entities": [
+        "Petróleo Brasileiro S.A. (Petrobras)"
+      ],
+      "indexed_entities": [
+        "Petrobras"
+      ],
+      "jurisdiction": "Araucária, Paraná, Brazil — Iguaçu and Barigui rivers",
+      "matter": "July 16, 2000 pipeline failure at Refinaria Presidente Getúlio Vargas (REPAR) and four-million-litre oil release to rivers",
+      "hazard": "Crude oil discharge into Iguaçu/Barigui rivers",
+      "outcome_type": "Paraná state environmental administrative fine",
+      "disposition": "Paraná State Environment Institute (IAP) R$50m face amount, paid at early-payment discounted R$40m in 2000",
+      "obligation": {
+        "currency": "BRL",
+        "year": 2000,
+        "min": 40000000,
+        "max": 40000000,
+        "kind": "R$40m state IAP fine paid after early-payment discount from R$50m original face amount"
+      },
+      "payment": {
+        "status": "confirmed_paid",
+        "amount": 40000000,
+        "as_of": "2000-11-06",
+        "value_year": 2000,
+        "detail": "Folha Online's contemporaneous November 6, 2000 chronology says Petrobras paid R$40m after discount on the state's original R$50m fine. Gazeta do Povo's 2007 investigative retrospective likewise says the R$40m was paid to Paraná's IAP. The distinct federal IBAMA R$168m assessment was being contested, not confirmed paid."
+      },
+      "notes": "Distinct from the January 2000 Guanabara Bay federal IBAMA fine. R$40m is the Paraná IAP paid fine; the additional federal IBAMA R$168m assessment was separately disputed and is excluded from actual payment. State fine does not include separately sought environmental remediation or individual compensation, and two government fines for one event must not be presumed both received.",
+      "sources": [
+        {
+          "name": "Folha de S.Paulo, November 2000 Petrobras accident chronology: R$40m paid following discount",
+          "url": "https://www1.folha.uol.com.br/folha/cotidiano/ult95u13874.shtml"
+        },
+        {
+          "name": "Gazeta do Povo 2007 retrospective: IAP received R$40m for the 2000 Iguaçu/Barigui spill",
+          "url": "https://www.gazetadopovo.com.br/vida-e-cidadania/tres-desastres-sete-anos-e-apenas-uma-multa-paga-an7z90komaoveqha6s7a6k4su/"
+        },
+        {
+          "name": "Bonde 2001: state fine paid, separate federal IBAMA R$168m challenged",
+          "url": "https://www.bonde.com.br/bondenews/parana/transpetro-pode-levar-terceira-multa"
         }
       ]
     }
