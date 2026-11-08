@@ -7,7 +7,7 @@ const seedContext={window:{}};vm.runInNewContext(read("docs/data.js"),seedContex
 const snapshots={dossiers:json("docs/dossier-register.json"),people:json("docs/people-register.json"),payments:json("docs/damages-data.json"),foundation:json("docs/foundation.json"),chemistry:json("docs/chemical-hazards.json"),seed:seedContext.window.POISON_DATA};
 const rows=model.makeRows(snapshots);
 test("all eight source-backed cohorts appear, with expected actual coverage",()=>{
- const counts={companies:50,countries:10,people:34,roles:500,payments:20,metrics:142,chemicals:14,observations:5};
+ const counts={companies:50,countries:10,people:34,roles:500,payments:24,metrics:142,chemicals:14,observations:5};
  assert.deepEqual(Object.fromEntries(Object.entries(rows).map(([k,r])=>[k,r.length])),counts);
  assert.equal(Object.keys(model.datasets).length,8);
  for(const [key,set] of Object.entries(model.datasets)){
@@ -64,6 +64,21 @@ test("payment money sort refuses mixed currency and produces comparable currency
  assert.equal(brl.rows.length,1);
  assert.equal(brl.rows[0].currency,"BRL");
  assert.equal(brl.rows[0].rank,1);
+});
+test("cash-year 2025 CPI ranks only evidenced payments within one currency",()=>{
+ const byId=id=>rows.payments.find(r=>r.id===id);
+ const near=(x,y,tol=30)=>assert.ok(Math.abs(x-y)<tol,`Expected ${x} near ${y}`);
+ near(byId("avx-new-bedford-2013").paidAdjusted,500817157.565);
+ near(byId("delaware-pfas-nrd-2021").paidAdjusted,55003844.117);
+ near(byId("duke-nc-coal-ash-criminal-2015").paidAdjusted,79732905.657);
+ assert.equal(byId("ohio-c8-mdl-2024").paidAdjusted,null,"Known group cash with unresolved year splits remains unknown");
+ assert.equal(byId("bp-gulf-nfwf-criminal-2013").paidAdjusted,null,"Multi-year cash may not be indexed at plea year");
+ const mixed=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"ALL"}});
+ assert.match(mixed.warning,/Select USD or BRL/);
+ assert.ok(mixed.rows.every(x=>x.rank===null));
+ const ranked=model.rank("payments",rows.payments,{metric:"paidAdjusted",facets:{currency:"USD"},limit:"all"});
+ assert.equal(ranked.warning,"");
+ assert.ok(ranked.rows.filter(x=>x.paidAdjusted===null).every(x=>x.rank===null));
 });
 test("source group cohort gate blocks mixing different chemical years, units and populations",()=>{
  const blocked=model.rank("observations",rows.observations,{metric:"mass",facets:{cohort:"ALL"}});
@@ -193,7 +208,7 @@ test("advanced monetary and chemical numeric rules fail closed across incompatib
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.match(money.warning,/Select USD or BRL/);
  assert.equal(money.appliedMetric,false);
- assert.equal(money.total,20,"Do not silently compare USD and BRL thresholds");
+ assert.equal(money.total,24,"Do not silently compare USD and BRL thresholds");
  const valid=model.rank("payments",rows.payments,{metric:"entity",facets:{currency:"USD"},
   rules:[{field:"paid",operator:"gte",value:500000000}],limit:"all"});
  assert.equal(valid.warning,"");
