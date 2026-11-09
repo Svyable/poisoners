@@ -1,19 +1,21 @@
 /* Browser-only research planner. User notes never enter URL or network requests. */
 (() => {
   "use strict";
-  const model=window.POISON_WORKBENCH_MODEL;
-  if(!model)return;
+  const model=window.POISON_WORKBENCH_MODEL,machine=window.POISON_INTERACTION;
+  if(!model||!machine)return;
   const $=id=>document.getElementById(id);
   const concern=$("wbConcern"),region=$("wbRegion"),sourceList=$("wbSources"),stepsEl=$("wbSteps"),status=$("wbStatus");
   if(!concern||!region||!sourceList||!stepsEl||!status)return;
   const states=new Map();
   let plan=null;
   let catalog=null;
+  let catalogState=machine.makeResource(),catalogRequest=null;
+  const exposeCatalogPhase=()=>{status.dataset.resourceState=catalogState.phase;status.setAttribute("aria-busy",String(catalogState.phase==="loading"));};
   const esc=x=>String(x??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   const initial=new URLSearchParams(location.search);
-  const isAllowed=(list,id)=>list.some(x=>x.id===id);
-  const initialConcern=isAllowed(model.concerns,initial.get("concern"))?initial.get("concern"):"air";
-  const initialRegion=isAllowed(model.regions,initial.get("region"))?initial.get("region"):"united-states";
+  const allowed={concerns:model.concerns.map(x=>x.id),regions:model.regions.map(x=>x.id)};
+  let selection=machine.chooseSelection(null,{type:"INIT",concern:initial.get("concern"),region:initial.get("region")},allowed).state;
+  const initialConcern=selection.concern,initialRegion=selection.region;
   for(const [control,options,selected] of [[concern,model.concerns,initialConcern],[region,model.regions,initialRegion]]) {
     for(const option of options){const el=document.createElement("option");el.value=option.id;el.textContent=option.label;control.appendChild(el);}
     control.value=selected;
@@ -70,24 +72,34 @@
     $("wbProgressFill").parentElement.setAttribute("aria-valuenow",String(reviewed));
     $("wbProgressText").textContent=reviewed+" of "+plan.steps.length+" steps marked reviewed. This does not establish verification.";
   }
-  function updateLink(){
+  function updateLink(effect){
+    if(effect==="none")return; // Back/forward restores never rewrite browser history.
     const url=new URL(location.href);
     url.search="";
     url.searchParams.set("concern",concern.value);
     url.searchParams.set("region",region.value);
     url.hash="";
-    history.replaceState(null,"",url.pathname+url.search);
+    history[effect==="push"?"pushState":"replaceState"](null,"",url.pathname+url.search);
   }
-  function render(){
+  function render(eventType="INIT"){
     if(!catalog)return;
-    plan=model.getPlan(catalog,{concern:concern.value,region:region.value});
+    const next=machine.chooseSelection(selection,{type:eventType,concern:concern.value,region:region.value},allowed);
+    selection=next.state;
+    concern.value=selection.concern;region.value=selection.region;
+    plan=model.getPlan(catalog,{concern:selection.concern,region:selection.region});
     $("wbQuestion").textContent=plan.concern.short;
     $("wbQuestionDetail").textContent=plan.concern.description;
     $("wbRegionName").textContent=plan.region.label;
-    renderSources();renderSteps();updateLink();
+    renderSources();renderSteps();updateLink(next.effect);
     setStatus("Plan updated for "+plan.concern.label+" in "+plan.region.label+".");
   }
-  for(const control of [concern,region])control.addEventListener("change",render);
+  for(const control of [concern,region])control.addEventListener("change",()=>render("SELECT"));
+  window.addEventListener("popstate",()=>{
+    const params=new URLSearchParams(location.search);
+    concern.value=params.get("concern")||allowed.concerns[0];
+    region.value=params.get("region")||allowed.regions[0];
+    render("RESTORE"); // Existing local notes stay keyed by concern|region.
+  });
   stepsEl.addEventListener("change",e=>{
     const article=e.target.closest("[data-step]");
     if(article && e.target.matches('input[type="checkbox"]')){
@@ -124,15 +136,27 @@
     }catch(_){setStatus("Copy this page's URL from the address bar. Notes never appear in the URL.");}
   });
   $("wbPrint").addEventListener("click",()=>window.print());
-  fetch("public-record-portals.json").then(r=>{
-    if(!r.ok)throw Error("Catalog not available");
-    return r.json();
-  }).then(data=>{
-    if(!Array.isArray(data.portals)||!data.reviewed_on)throw Error("Catalog invalid");
-    catalog=data;render();
-  }).catch(()=>{
-    setStatus("Official record catalog could not be loaded.");
-    sourceList.innerHTML='<div class="wb-source-empty"><strong>Research source list unavailable.</strong><p>Use the published directory and its verified source links directly.</p><a href="public-records.html">OPEN OFFICIAL RECORDS DIRECTORY ↗</a></div>';
-    $("wbSourceSummary").textContent="Source catalog unavailable — no live conclusions shown.";
-  });
+  function loadCatalog(){
+    if(catalogRequest)return catalogRequest;
+    catalogState=machine.transitionResource(catalogState,{type:"LOAD"});exposeCatalogPhase();
+    const request=catalogState.request;
+    catalogRequest=fetch("public-record-portals.json").then(r=>{
+      if(!r.ok)throw Error("Catalog not available");
+      return r.json();
+    }).then(data=>{
+      if(!Array.isArray(data.portals)||!data.reviewed_on)throw Error("Catalog invalid");
+      catalogState=machine.transitionResource(catalogState,{type:"SUCCEED",request});exposeCatalogPhase();
+      if(catalogState.phase!=="ready")return;
+      catalog=data;render("INIT");
+    }).catch(()=>{
+      catalogState=machine.transitionResource(catalogState,{type:"FAIL",request});exposeCatalogPhase();
+      setStatus("Official record catalog could not be loaded.");
+      sourceList.innerHTML='<div class="wb-source-empty"><strong>Research source list unavailable.</strong><p>Use the published directory or retry the local public-source snapshot.</p><a href="public-records.html">OPEN OFFICIAL RECORDS DIRECTORY ↗</a> <button type="button" id="wbRetrySources">RETRY SOURCE CATALOG</button></div>';
+      $("wbSourceSummary").textContent="Source catalog unavailable — no live conclusions shown.";
+      $("wbRetrySources").addEventListener("click",loadCatalog);
+    }).finally(()=>{catalogRequest=null;});
+    return catalogRequest;
+  }
+  exposeCatalogPhase();
+  loadCatalog();
 })();

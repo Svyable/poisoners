@@ -3,8 +3,8 @@
  */
 (() => {
  "use strict";
- const model=window.POISON_RANK_MODEL,$=id=>document.getElementById(id);
- if(!model||!$("rkMain")&&!$("rankMain"))return;
+ const model=window.POISON_RANK_MODEL,machine=window.POISON_INTERACTION,$=id=>document.getElementById(id);
+ if(!model||!machine||!$("rkMain")&&!$("rankMain"))return;
  const required=["rkCohortTabs","rkSearch","rkMetric","rkDirection","rkSecondary","rkSecondaryDirection","rkTertiary","rkTertiaryDirection","rkLimit","rkFacetGrid","rkMin","rkMax","rkOnlyKnown","rkMissingOnly","rkAddRule","rkRuleList","rkSummary","rkExportAll","rkReset","rkCopyLink","rkSaveView","rkSavedViews","rkDeleteSaved","rkCsv","rkJson","rkColumns","rkTableHead","rkTableBody","rkResultsTitle","rkResultsCount","rkAvailable","rkWarning","rkBoundary","rkInspect","rkCompare","rkRowsShown","rkActionStatus","rkMeasureDescription"];
  if(required.some(x=>!$(x)))return;
  const esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -21,6 +21,12 @@
  const allowed=new Set(Object.keys(model.datasets));
  const urlParams=new URLSearchParams(location.search),initialCohort=allowed.has(urlParams.get("dataset"))?urlParams.get("dataset"):"companies";
  const state={cohort:initialCohort,config:{},selected:null,pins:[],columnMap:{},data:null,rows:null,result:null,initial:true};
+ let snapshotState=machine.makeResource(),loading=false,bound=false;
+ const exposePhase=()=>{
+  const root=$("rkMain")||$("rankMain");
+  root.dataset.resourceState=snapshotState.phase; // Only the public load phase; no stored views.
+  root.setAttribute("aria-busy",String(snapshotState.phase==="loading"));
+ };
  const storeKey="poisoners:ranklab:views:v1";
  let saved=[];
  try{const s=JSON.parse(localStorage.getItem(storeKey)||"[]");saved=Array.isArray(s)?s.filter(v=>allowed.has(v.cohort)&&v.config):[]}catch{}
@@ -44,7 +50,7 @@
    if(fieldSet.has(p.get("tertiary"))&&p.get("tertiary")!==cfg.metric&&p.get("tertiary")!==cfg.secondary)cfg.tertiary=p.get("tertiary");
    if(p.get("tertiaryDirection")==="desc")cfg.tertiaryDirection="desc";
    cfg.query=(p.get("q")||"").slice(0,150);
-   const allowedLimit=[10,25,50,100,"all"];let l=p.get("limit");if(allowedLimit.includes(l))cfg.limit=l==="all"?"all":Number(l);
+   const allowedLimit=["10","25","50","100","all"];let l=p.get("limit");if(allowedLimit.includes(l))cfg.limit=l==="all"?"all":Number(l);
    for(const f of schema.facets){const v=p.get(f);if(v&&model.facetsFor(cohort,state.rows[cohort])[f].includes(v))cfg.facets[f]=v;}
    for(const name of ["min","max"]){const v=p.get(name);if(v!==null&&v!==""&&Number.isFinite(Number(v)))cfg[name]=Number(v);}
    cfg.onlyKnown=p.get("known")==="1";
@@ -357,12 +363,16 @@
      saved.splice(i,1);safeSaved();renderSaved();status("Saved view removed from this browser.");
    });
    document.addEventListener("keydown",e=>{
-     if(e.key==="/"&&!["INPUT","SELECT","TEXTAREA"].includes(document.activeElement?.tagName)){e.preventDefault();$("rkSearch").focus();}
+     if(e.key==="/"&&!e.defaultPrevented&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!e.repeat&&!["INPUT","SELECT","TEXTAREA"].includes(document.activeElement?.tagName)){e.preventDefault();$("rkSearch").focus();}
      if(e.key==="Escape"&&document.activeElement===$("rkSearch")){state.config.query="";render();}
    });
    window.addEventListener("popstate",()=>{const p=new URLSearchParams(location.search),ds=allowed.has(p.get("dataset"))?p.get("dataset"):"companies";switchTo(ds,readURL(ds));});
  }
  async function start(){
+   if(loading)return; // Retry button cannot issue duplicate concurrent requests.
+   loading=true;
+   snapshotState=machine.transitionResource(snapshotState,{type:"LOAD"});exposePhase();
+   const request=snapshotState.request;
    try{
      const paths=["dossier-register.json","people-register.json","damages-data.json","foundation.json","chemical-hazards.json"];
      const raw=await Promise.all(paths.map(p=>fetch(p).then(r=>{if(!r.ok)throw Error(p+" HTTP "+r.status);return r.json()})));
@@ -375,14 +385,19 @@
      $("rkStatPeople").textContent=state.rows.people.length;
      $("rkStatMetrics").textContent=state.rows.metrics.length;
      state.config=readURL(state.cohort);
-     bind();renderSaved();render();
+     if(!bound){bind();bound=true;}
+     renderSaved();render();
+     snapshotState=machine.transitionResource(snapshotState,{type:"SUCCEED",request});exposePhase();
      status("Source snapshots loaded. All sorting and filters run locally in your browser.");
    }catch(error){
+     snapshotState=machine.transitionResource(snapshotState,{type:"FAIL",request});exposePhase();
      $("rkResultsTitle").textContent="Could not load local evidence snapshots";
-     $("rkResultsCount").textContent="Open the source data links below or serve this site over HTTP.";
-     $("rkTableBody").innerHTML='<tr><td colspan="5" class="rk-empty">Public snapshots unavailable. <a href="data-access.html">Access the source records ↗</a>. No fabricated values are shown.</td></tr>';
-     status(String(error.message||error));
-   }
+     $("rkResultsCount").textContent="Open the source data links below or retry the source snapshot.";
+     $("rkTableBody").innerHTML='<tr><td colspan="5" class="rk-empty">Public snapshots unavailable. <a href="data-access.html">Access the source records ↗</a>. No fabricated values are shown. <button type="button" data-rank-retry>RETRY LOADING SNAPSHOTS</button></td></tr>';
+     status("Evidence snapshot unavailable. "+String(error.message||error));
+   }finally{loading=false;}
  }
+ $("rkTableBody").addEventListener("click",e=>{if(e.target.closest("button[data-rank-retry]"))start();});
+ exposePhase();
  start();
 })();
