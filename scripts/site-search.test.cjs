@@ -153,3 +153,30 @@ test("slash shortcut and arrow-key navigation keep focus inside the active dialo
  h.dialog.close();
  assert.equal(h.document.activeElement,h.opener);
 });
+
+
+test("in-dialog retry recovers from a failed index without losing typed query or focus",async()=>{
+ const first=deferred(),second=deferred();let calls=0;
+ const h=harness(()=>++calls===1?first.promise:second.promise);
+ h.opener.emit("click");
+ h.input.value="mercury";h.input.emit("input");
+ first.reject(Error("offline"));await flush();
+ assert.equal(h.dialog.dataset.searchState,"error");
+ assert.equal(h.results.attributes["aria-busy"],"false");
+ const retry=h.results.children.find(x=>x.tagName==="BUTTON");
+ assert.ok(retry,"A focusable Retry search button must be visible in the error state");
+ assert.match(retry.textContent,/Retry/);
+ const guide=h.results.children.find(x=>x.tagName==="A"&&x.href==="guide.html");
+ assert.ok(guide,"Public research fallback should work without the search index");
+ retry.emit("click");
+ assert.equal(h.dialog.dataset.searchState,"loading");
+ assert.equal(h.input.value,"mercury","Retry must not discard the current query");
+ assert.equal(h.document.activeElement,h.input);
+ second.resolve(index([entry("Mercury source","chemistry.html"),entry("Other source","guide.html")]));
+ await flush();
+ assert.equal(h.dialog.dataset.searchState,"results");
+ assert.equal(h.status.textContent,"1 matching public record");
+ assert.equal(h.results.querySelectorAll("a").length,1);
+ assert.equal(calls,2);
+ h.dialog.close();assert.equal(h.document.activeElement,h.opener);
+});
