@@ -3,7 +3,7 @@
   "audited_on": "2026-11-08",
   "project": "Svyable/poisoners",
   "scope": "Behavioral state transitions in public static UI, source data, research CLI and scheduled CI automation; page navigation is not itself a standalone state machine.",
-  "lifecycle_policy": "Observed machines describe current imperative handlers, not generic-reducer adoption. The search-index loader is explicitly implemented by its native guarded transition table; Rank Lab snapshot loading, Workbench catalog loading and Workbench concern/region navigation use the separate pure shared transitions in docs/site.js. Native dialog visibility stays browser-owned; data and scheduled workflows are evidence gates.",
+  "lifecycle_policy": "Observed machines describe current imperative handlers, not generic-reducer adoption. The search-index loader is explicitly implemented by its native guarded transition table; Rank Lab snapshot loading, Workbench catalog loading and Workbench concern/region navigation use the separate pure shared transitions in docs/site.js. Native dialog visibility stays browser-owned; data and scheduled workflows are evidence gates. The UI owner audit also records the previously omitted AEP operator browser and EPA exposure benchmark loader/filter states as observed, not explicit.",
   "cross_cutting_guards": [
     "Never infer zero from missing environmental measurements, corporate payment receipts, or officer identity.",
     "Never turn a source hyperlink into causal verification, legal guilt or person-level exposure.",
@@ -1879,6 +1879,172 @@
         }
       ],
       "agent_guard": "Shared pure selection transition validates concern and region before writing navigation. INIT replaces the canonical link, SELECT pushes only changed valid choices, and RESTORE (popstate) writes no history. Per-pair worksheet notes stay browser-memory-only and never enter URLs."
+    },
+    {
+      "id": "operator-benchmark-loader",
+      "owner": "docs/operator-benchmark.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "ready",
+        "error"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "FETCH",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "VALIDATE",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "FAIL",
+          "to": "error"
+        }
+      ],
+      "agent_guard": "The 2024 AEP report is an official-source transcription with an explicit fallback when the JSON cannot load; do not treat missing data as zero emissions or invent a retry that is not implemented."
+    },
+    {
+      "id": "operator-benchmark-filter",
+      "owner": "docs/operator-benchmark.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered",
+        "empty"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "QUERY",
+          "to": "filtered"
+        },
+        {
+          "from": "all",
+          "event": "SORT",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "QUERY",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "NO_MATCH",
+          "to": "empty"
+        },
+        {
+          "from": "filtered",
+          "event": "CLEAR",
+          "to": "all"
+        },
+        {
+          "from": "empty",
+          "event": "QUERY",
+          "to": "filtered"
+        },
+        {
+          "from": "empty",
+          "event": "CLEAR",
+          "to": "all"
+        }
+      ],
+      "agent_guard": "Four AEP release media are reported in pounds; dioxin grams are a separate value, null reporting notation is not zero, and a higher mass cannot be presented as higher toxicity."
+    },
+    {
+      "id": "exposure-benchmark-loader",
+      "owner": "docs/exposure-benchmarks.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "ready",
+        "error"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "FETCH",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "VALIDATE",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "FAIL",
+          "to": "error"
+        }
+      ],
+      "agent_guard": "Only EPA public air and drinking-water concentration reference values can populate the benchmark. If unavailable, show source JSON fallback; absence is not a finding of clean conditions."
+    },
+    {
+      "id": "exposure-benchmark-filter",
+      "owner": "docs/exposure-benchmarks.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered",
+        "empty"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "MEDIUM",
+          "to": "filtered"
+        },
+        {
+          "from": "all",
+          "event": "QUERY",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "QUERY",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "NO_MATCH",
+          "to": "empty"
+        },
+        {
+          "from": "filtered",
+          "event": "CLEAR",
+          "to": "all"
+        },
+        {
+          "from": "empty",
+          "event": "QUERY",
+          "to": "filtered"
+        },
+        {
+          "from": "empty",
+          "event": "CLEAR",
+          "to": "all"
+        }
+      ],
+      "agent_guard": "EPA ambient air NAAQS and drinking water MCL limits have different units, media and averaging times. Never rank them together or infer a site concentration from an emitted mass."
     }
   ]
 }
