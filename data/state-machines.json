@@ -1,0 +1,1839 @@
+{
+  "schema_version": 1,
+  "audited_on": "2026-11-08",
+  "project": "Svyable/poisoners",
+  "scope": "Behavioral state transitions in public static UI, source data, research CLI and scheduled CI automation; page navigation is not itself a standalone state machine.",
+  "lifecycle_policy": "Inventory describes observed code unless mode=explicit; only the search index loader currently implements an explicit transition table. Native dialog visibility is an observed browser-owned lifecycle. Other observed machines are NOT claimed to be migrated. Data and pipeline entries are evidence gates, not independent verification.",
+  "cross_cutting_guards": [
+    "Never infer zero from missing environmental measurements, corporate payment receipts, or officer identity.",
+    "Never turn a source hyperlink into causal verification, legal guilt or person-level exposure.",
+    "Never mix different currencies, source years, reporting boundaries or units in a numeric leaderboard.",
+    "Never silently attribute a group payment to a single defendant or add a settlement payment to a downstream recipient receipt.",
+    "Never transmit workbench notes or personal research to navigation URLs or search-index fetches.",
+    "Always keep generated public snapshots reproducible and CI-gated."
+  ],
+  "machines": [
+    {
+      "id": "global-search-dialog",
+      "owner": "docs/site-search.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "closed",
+      "states": [
+        "closed",
+        "open"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "closed",
+          "event": "OPEN",
+          "to": "open"
+        },
+        {
+          "from": "open",
+          "event": "CLOSE",
+          "to": "closed"
+        }
+      ],
+      "agent_guard": "Focus restores to opener on close; the user query stays in the browser."
+    },
+    {
+      "id": "global-search-index",
+      "owner": "docs/site-search.js",
+      "group": "ui",
+      "mode": "explicit",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "ready",
+        "error"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "load",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "resolve",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "reject",
+          "to": "error"
+        },
+        {
+          "from": "error",
+          "event": "retry",
+          "to": "loading"
+        }
+      ],
+      "agent_guard": "Global search index loader has an explicit four-phase transition table and a shared pending promise. Open modal sessions reuse the same fetch, errors can retry, and close/cycle guards prevent late responses from painting a closed or newer dialog."
+    },
+    {
+      "id": "site-shell-mobile-nav",
+      "owner": "docs/site.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "closed",
+      "states": [
+        "closed",
+        "open"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "closed",
+          "event": "TOGGLE",
+          "to": "open"
+        },
+        {
+          "from": "open",
+          "event": "TOGGLE",
+          "to": "closed"
+        },
+        {
+          "from": "open",
+          "event": "ESCAPE",
+          "to": "closed"
+        },
+        {
+          "from": "open",
+          "event": "OUTSIDE_CLICK",
+          "to": "closed"
+        },
+        {
+          "from": "open",
+          "event": "NAVIGATE",
+          "to": "closed"
+        }
+      ],
+      "agent_guard": "aria-expanded and actual hidden state must agree; Escape restores focus."
+    },
+    {
+      "id": "legacy-page-mobile-nav",
+      "owner": "docs/site.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "closed",
+      "states": [
+        "closed",
+        "open"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "closed",
+          "event": "PAGE_TOGGLE",
+          "to": "open"
+        },
+        {
+          "from": "open",
+          "event": "ESCAPE",
+          "to": "closed"
+        },
+        {
+          "from": "open",
+          "event": "OUTSIDE_CLICK",
+          "to": "closed"
+        },
+        {
+          "from": "open",
+          "event": "NAVIGATE",
+          "to": "closed"
+        }
+      ],
+      "agent_guard": "Do not attach a second toggle handler in the common shell."
+    },
+    {
+      "id": "page-link-copy",
+      "owner": "docs/site.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "copied",
+        "fallback"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "COPY",
+          "to": "copied"
+        },
+        {
+          "from": "idle",
+          "event": "CLIPBOARD_DENIED",
+          "to": "fallback"
+        },
+        {
+          "from": "copied",
+          "event": "COPY",
+          "to": "copied"
+        },
+        {
+          "from": "fallback",
+          "event": "COPY",
+          "to": "copied"
+        }
+      ],
+      "agent_guard": "Never claim clipboard success without permission; fallback is manual URL."
+    },
+    {
+      "id": "observatory-period",
+      "owner": "docs/app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "annual",
+      "states": [
+        "annual",
+        "historical",
+        "scenario"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "annual",
+          "event": "SHOW_HISTORICAL",
+          "to": "historical"
+        },
+        {
+          "from": "historical",
+          "event": "SHOW_ANNUAL",
+          "to": "annual"
+        },
+        {
+          "from": "annual",
+          "event": "SHOW_SCENARIO",
+          "to": "scenario"
+        },
+        {
+          "from": "historical",
+          "event": "SHOW_SCENARIO",
+          "to": "scenario"
+        },
+        {
+          "from": "scenario",
+          "event": "SHOW_ANNUAL",
+          "to": "annual"
+        },
+        {
+          "from": "scenario",
+          "event": "SHOW_HISTORICAL",
+          "to": "historical"
+        }
+      ],
+      "agent_guard": "Scenario estimates are not injury or legal-damage rankings."
+    },
+    {
+      "id": "observatory-scenario-rate",
+      "owner": "docs/app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "default",
+      "states": [
+        "default",
+        "adjusted"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "default",
+          "event": "RATE_INPUT",
+          "to": "adjusted"
+        },
+        {
+          "from": "adjusted",
+          "event": "RATE_INPUT",
+          "to": "adjusted"
+        },
+        {
+          "from": "adjusted",
+          "event": "RESET",
+          "to": "default"
+        }
+      ],
+      "agent_guard": "Future values are conditional calculations, not historical observations."
+    },
+    {
+      "id": "observatory-heatmap-focus",
+      "owner": "docs/app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "unselected",
+      "states": [
+        "unselected",
+        "selected"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "unselected",
+          "event": "CHOOSE_CELL",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "CHOOSE_CELL",
+          "to": "selected"
+        }
+      ],
+      "agent_guard": "Selected pathway is an explanatory comparison, not a source verification."
+    },
+    {
+      "id": "observatory-dossier-dialog",
+      "owner": "docs/app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "closed",
+      "states": [
+        "closed",
+        "open"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "closed",
+          "event": "OPEN_DOSSIER",
+          "to": "open"
+        },
+        {
+          "from": "open",
+          "event": "CLOSE",
+          "to": "closed"
+        },
+        {
+          "from": "open",
+          "event": "BACKDROP",
+          "to": "closed"
+        }
+      ],
+      "agent_guard": "Do not conflate source-linked profile with confirmed toxicity or liability."
+    },
+    {
+      "id": "foundation-metric-browser",
+      "owner": "docs/foundation-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered",
+        "empty"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "FILTER",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "SEARCH_EMPTY",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "RESET",
+          "to": "all"
+        },
+        {
+          "from": "filtered",
+          "event": "RESET",
+          "to": "all"
+        },
+        {
+          "from": "filtered",
+          "event": "FILTER",
+          "to": "filtered"
+        }
+      ],
+      "agent_guard": "Filtered-out metric definitions do not imply zero observed releases."
+    },
+    {
+      "id": "foundation-page-size",
+      "owner": "docs/foundation-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "first-page",
+      "states": [
+        "first-page",
+        "expanded"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "first-page",
+          "event": "MORE",
+          "to": "expanded"
+        },
+        {
+          "from": "expanded",
+          "event": "MORE",
+          "to": "expanded"
+        },
+        {
+          "from": "expanded",
+          "event": "FILTER",
+          "to": "first-page"
+        }
+      ],
+      "agent_guard": "Pagination controls presentation only, not measured coverage."
+    },
+    {
+      "id": "foundation-source-directory",
+      "owner": "docs/foundation-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "SEARCH",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "SEARCH",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "CLEAR",
+          "to": "all"
+        }
+      ],
+      "agent_guard": "Source candidates have different vintages and access limits."
+    },
+    {
+      "id": "foundation-country-detail",
+      "owner": "docs/foundation-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "default",
+      "states": [
+        "default",
+        "selected"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "default",
+          "event": "CHOOSE_COUNTRY",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "CHOOSE_COUNTRY",
+          "to": "selected"
+        }
+      ],
+      "agent_guard": "Country references are research routes, not a damage total."
+    },
+    {
+      "id": "dossier-filter",
+      "owner": "docs/dossier-lab.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered",
+        "empty"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "SEARCH",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "NO_RESULTS",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "RESET",
+          "to": "all"
+        },
+        {
+          "from": "filtered",
+          "event": "CLEAR",
+          "to": "all"
+        },
+        {
+          "from": "filtered",
+          "event": "SEARCH",
+          "to": "filtered"
+        }
+      ],
+      "agent_guard": "No matching record is not evidence that a company has no impacts."
+    },
+    {
+      "id": "dossier-selected-entity",
+      "owner": "docs/dossier-lab.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "default",
+      "states": [
+        "default",
+        "selected"
+      ],
+      "persistence": "url",
+      "transitions": [
+        {
+          "from": "default",
+          "event": "CHOOSE",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "CHOOSE",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "FILTER_RESELECT",
+          "to": "selected"
+        }
+      ],
+      "agent_guard": "URL entity must refer to an existing public dossier and remain in the selected cohort."
+    },
+    {
+      "id": "dossier-compare-guard",
+      "owner": "docs/dossier-lab.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "comparable",
+      "states": [
+        "comparable",
+        "blocked"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "comparable",
+          "event": "CHANGE_INCOMPATIBLE",
+          "to": "blocked"
+        },
+        {
+          "from": "blocked",
+          "event": "CHANGE_COMPATIBLE",
+          "to": "comparable"
+        }
+      ],
+      "agent_guard": "Do not compare different reporting years, units or accounting boundaries."
+    },
+    {
+      "id": "dossier-case-examples",
+      "owner": "docs/dossier-lab.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "selected",
+        "empty"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "CHOOSE_CASE",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "CHOOSE_CASE",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "EMPTY_FILTER",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "CLEAR_FILTER",
+          "to": "all"
+        }
+      ],
+      "agent_guard": "Historical example claims retain their individual source boundaries."
+    },
+    {
+      "id": "dossier-payment-snapshot",
+      "owner": "docs/dossier-lab.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "ready",
+        "unavailable"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "FETCH",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "RESOLVE",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "FAIL",
+          "to": "unavailable"
+        },
+        {
+          "from": "ready",
+          "event": "RENDER",
+          "to": "ready"
+        }
+      ],
+      "agent_guard": "Payment source fetch must not convert unknown paid total into zero."
+    },
+    {
+      "id": "rank-snapshots-loader",
+      "owner": "docs/rank-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "ready",
+        "error"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "LOAD",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "VALIDATED",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "HTTP_ERROR",
+          "to": "error"
+        },
+        {
+          "from": "loading",
+          "event": "SCHEMA_ERROR",
+          "to": "error"
+        }
+      ],
+      "agent_guard": "Unloaded or incomplete datasets must not produce numeric rank rows."
+    },
+    {
+      "id": "rank-cohort-config",
+      "owner": "docs/rank-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "default",
+      "states": [
+        "default",
+        "configured"
+      ],
+      "persistence": "url",
+      "transitions": [
+        {
+          "from": "default",
+          "event": "SELECT_DATASET",
+          "to": "configured"
+        },
+        {
+          "from": "configured",
+          "event": "CHANGE_FILTER",
+          "to": "configured"
+        },
+        {
+          "from": "configured",
+          "event": "RESET",
+          "to": "default"
+        },
+        {
+          "from": "configured",
+          "event": "RESTORE_URL",
+          "to": "configured"
+        }
+      ],
+      "agent_guard": "Only source-bounded cohorts and sanitized facets may be ranked."
+    },
+    {
+      "id": "rank-compatibility-gate",
+      "owner": "docs/rank-model.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "comparable",
+      "states": [
+        "comparable",
+        "blocked",
+        "empty"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "comparable",
+          "event": "MIX_CURRENCIES",
+          "to": "blocked"
+        },
+        {
+          "from": "comparable",
+          "event": "MIX_INCOMPATIBLE",
+          "to": "blocked"
+        },
+        {
+          "from": "blocked",
+          "event": "SELECT_VALID_COHORT",
+          "to": "comparable"
+        },
+        {
+          "from": "comparable",
+          "event": "NO_MATCHES",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "CHANGE_FILTER",
+          "to": "comparable"
+        }
+      ],
+      "agent_guard": "Withhold numerical ranks for mixed currencies/units and unknown values."
+    },
+    {
+      "id": "rank-row-inspection",
+      "owner": "docs/rank-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "none",
+      "states": [
+        "none",
+        "selected"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "none",
+          "event": "INSPECT",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "INSPECT",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "CHANGE_COHORT",
+          "to": "none"
+        }
+      ],
+      "agent_guard": "Selected source row cannot be carried into a different cohort."
+    },
+    {
+      "id": "rank-compare-pins",
+      "owner": "docs/rank-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "none",
+      "states": [
+        "none",
+        "one",
+        "two"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "none",
+          "event": "PIN",
+          "to": "one"
+        },
+        {
+          "from": "one",
+          "event": "PIN",
+          "to": "two"
+        },
+        {
+          "from": "two",
+          "event": "UNPIN",
+          "to": "one"
+        },
+        {
+          "from": "one",
+          "event": "UNPIN",
+          "to": "none"
+        },
+        {
+          "from": "two",
+          "event": "CLEAR",
+          "to": "none"
+        },
+        {
+          "from": "one",
+          "event": "CHANGE_COHORT",
+          "to": "none"
+        }
+      ],
+      "agent_guard": "Comparison is limited to two source rows within the same dataset."
+    },
+    {
+      "id": "rank-saved-views",
+      "owner": "docs/rank-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "empty",
+      "states": [
+        "empty",
+        "saved",
+        "unavailable"
+      ],
+      "persistence": "localStorage",
+      "transitions": [
+        {
+          "from": "empty",
+          "event": "SAVE",
+          "to": "saved"
+        },
+        {
+          "from": "saved",
+          "event": "RESTORE",
+          "to": "saved"
+        },
+        {
+          "from": "saved",
+          "event": "DELETE",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "STORAGE_DENIED",
+          "to": "unavailable"
+        },
+        {
+          "from": "unavailable",
+          "event": "RETRY",
+          "to": "saved"
+        }
+      ],
+      "agent_guard": "Local-only saved view, no server upload; validate dataset and config on restore."
+    },
+    {
+      "id": "rank-export-and-share",
+      "owner": "docs/rank-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "exported",
+        "fallback"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "EXPORT",
+          "to": "exported"
+        },
+        {
+          "from": "idle",
+          "event": "COPY_DENIED",
+          "to": "fallback"
+        },
+        {
+          "from": "exported",
+          "event": "EXPORT",
+          "to": "exported"
+        },
+        {
+          "from": "fallback",
+          "event": "MANUAL_COPY",
+          "to": "idle"
+        }
+      ],
+      "agent_guard": "Exports are filtered, source-linked and explicit about missing/blocked ranking."
+    },
+    {
+      "id": "people-company-selection",
+      "owner": "docs/people-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "default",
+      "states": [
+        "default",
+        "selected",
+        "empty"
+      ],
+      "persistence": "url",
+      "transitions": [
+        {
+          "from": "default",
+          "event": "CHOOSE",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "CHOOSE",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "EMPTY_FILTER",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "CLEAR_FILTER",
+          "to": "selected"
+        }
+      ],
+      "agent_guard": "Company record and named officer identity are different coverage states."
+    },
+    {
+      "id": "people-person-detail",
+      "owner": "docs/people-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "none",
+      "states": [
+        "none",
+        "selected"
+      ],
+      "persistence": "url",
+      "transitions": [
+        {
+          "from": "none",
+          "event": "OPEN",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "OPEN",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "CHANGE_COMPANY",
+          "to": "none"
+        },
+        {
+          "from": "selected",
+          "event": "CLEAR",
+          "to": "none"
+        }
+      ],
+      "agent_guard": "An officer's public title/pay is not individual environmental culpability."
+    },
+    {
+      "id": "people-filters",
+      "owner": "docs/people-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered",
+        "empty"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "SEARCH",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "NO_MATCH",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "RESET",
+          "to": "all"
+        },
+        {
+          "from": "filtered",
+          "event": "RESET",
+          "to": "all"
+        }
+      ],
+      "agent_guard": "Unknown officer identity never becomes a negative claim."
+    },
+    {
+      "id": "people-bookmarks",
+      "owner": "docs/people-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "none",
+      "states": [
+        "none",
+        "some",
+        "filtered"
+      ],
+      "persistence": "localStorage",
+      "transitions": [
+        {
+          "from": "none",
+          "event": "STAR",
+          "to": "some"
+        },
+        {
+          "from": "some",
+          "event": "STAR",
+          "to": "some"
+        },
+        {
+          "from": "some",
+          "event": "UNSTAR",
+          "to": "none"
+        },
+        {
+          "from": "some",
+          "event": "FAVORITES_ONLY",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "SHOW_ALL",
+          "to": "some"
+        }
+      ],
+      "agent_guard": "Bookmarks remain in local browser storage, without a server upload."
+    },
+    {
+      "id": "people-legal-route-tabs",
+      "owner": "docs/people-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "default",
+      "states": [
+        "default",
+        "selected"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "default",
+          "event": "CHOOSE_ROUTE",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "CHOOSE_ROUTE",
+          "to": "selected"
+        }
+      ],
+      "agent_guard": "Legal-route status is a research prompt, not an allegation."
+    },
+    {
+      "id": "damages-snapshot-loader",
+      "owner": "docs/damages.html",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "ready",
+        "error"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "FETCH",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "VALIDATED",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "FAILED",
+          "to": "error"
+        }
+      ],
+      "agent_guard": "Never portray promised amounts as actual cash paid."
+    },
+    {
+      "id": "damages-filters",
+      "owner": "docs/damages.html",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered",
+        "empty"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "SEARCH",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "EMPTY",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "CLEAR",
+          "to": "all"
+        },
+        {
+          "from": "filtered",
+          "event": "CLEAR",
+          "to": "all"
+        }
+      ],
+      "agent_guard": "No cross-case cumulative monetary score; currency and legal scopes remain distinct."
+    },
+    {
+      "id": "chemistry-snapshot-loader",
+      "owner": "docs/chemistry.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "ready",
+        "error"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "FETCH",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "VALIDATED",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "FAILED",
+          "to": "error"
+        }
+      ],
+      "agent_guard": "Chemical descriptors are not observed individual toxicity scores."
+    },
+    {
+      "id": "chemistry-sorting-filtering",
+      "owner": "docs/chemistry.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "alphabetical",
+      "states": [
+        "alphabetical",
+        "filtered",
+        "mass-bound"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "alphabetical",
+          "event": "SEARCH",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "CHANGE_SORT",
+          "to": "mass-bound"
+        },
+        {
+          "from": "mass-bound",
+          "event": "CHANGE_SORT",
+          "to": "alphabetical"
+        },
+        {
+          "from": "filtered",
+          "event": "RESET",
+          "to": "alphabetical"
+        }
+      ],
+      "agent_guard": "Mass sort must disclose source units/year and cannot imply toxicity."
+    },
+    {
+      "id": "tri-facility-loader",
+      "owner": "docs/tri-facility-ui.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "empty",
+        "ready",
+        "error"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "FETCH",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "EMPTY",
+          "to": "empty"
+        },
+        {
+          "from": "loading",
+          "event": "APPROVED_ROWS",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "ERROR",
+          "to": "error"
+        }
+      ],
+      "agent_guard": "No imported Form R rows must never become zero emissions."
+    },
+    {
+      "id": "tri-mass-comparability",
+      "owner": "docs/tri-facility-ui.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "single-unit",
+      "states": [
+        "single-unit",
+        "blocked"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "single-unit",
+          "event": "CHOOSE_ALL_UNITS",
+          "to": "blocked"
+        },
+        {
+          "from": "blocked",
+          "event": "CHOOSE_UNIT",
+          "to": "single-unit"
+        },
+        {
+          "from": "single-unit",
+          "event": "FILTER",
+          "to": "single-unit"
+        }
+      ],
+      "agent_guard": "Pounds and grams cannot share a numerical mass ranking."
+    },
+    {
+      "id": "workbench-catalog-loader",
+      "owner": "docs/workbench-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "idle",
+      "states": [
+        "idle",
+        "loading",
+        "ready",
+        "unavailable"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "idle",
+          "event": "FETCH",
+          "to": "loading"
+        },
+        {
+          "from": "loading",
+          "event": "VALIDATED",
+          "to": "ready"
+        },
+        {
+          "from": "loading",
+          "event": "FAIL",
+          "to": "unavailable"
+        }
+      ],
+      "agent_guard": "If the reviewed catalog is unavailable, show source directory fallback."
+    },
+    {
+      "id": "workbench-plan-selection",
+      "owner": "docs/workbench-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "default",
+      "states": [
+        "default",
+        "changed",
+        "coverage-gap"
+      ],
+      "persistence": "url",
+      "transitions": [
+        {
+          "from": "default",
+          "event": "CHANGE",
+          "to": "changed"
+        },
+        {
+          "from": "changed",
+          "event": "NO_REGIONAL_SOURCE",
+          "to": "coverage-gap"
+        },
+        {
+          "from": "coverage-gap",
+          "event": "CHANGE",
+          "to": "changed"
+        },
+        {
+          "from": "changed",
+          "event": "CHANGE",
+          "to": "changed"
+        }
+      ],
+      "agent_guard": "No regional portal is a coverage gap, not a finding of clean air/water."
+    },
+    {
+      "id": "workbench-worksheet",
+      "owner": "docs/workbench-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "untouched",
+      "states": [
+        "untouched",
+        "in-progress",
+        "reviewed"
+      ],
+      "persistence": "memory",
+      "transitions": [
+        {
+          "from": "untouched",
+          "event": "CHECK",
+          "to": "in-progress"
+        },
+        {
+          "from": "in-progress",
+          "event": "CHECK",
+          "to": "reviewed"
+        },
+        {
+          "from": "reviewed",
+          "event": "UNCHECK",
+          "to": "in-progress"
+        },
+        {
+          "from": "in-progress",
+          "event": "RESET",
+          "to": "untouched"
+        },
+        {
+          "from": "reviewed",
+          "event": "RESET",
+          "to": "untouched"
+        }
+      ],
+      "agent_guard": "Checks only record user review. Notes remain in volatile browser memory and are excluded from shared URLs."
+    },
+    {
+      "id": "knowledge-filter-and-hash",
+      "owner": "docs/knowledge-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered",
+        "empty"
+      ],
+      "persistence": "url",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "FILTER",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "NO_MATCHES",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "RESET",
+          "to": "all"
+        },
+        {
+          "from": "filtered",
+          "event": "OPEN_HASH",
+          "to": "all"
+        }
+      ],
+      "agent_guard": "Deep link unhides and opens the requested static evidence note."
+    },
+    {
+      "id": "pathways-filter-and-hash",
+      "owner": "docs/pathways-app.js",
+      "group": "ui",
+      "mode": "observed",
+      "initial": "all",
+      "states": [
+        "all",
+        "filtered",
+        "empty"
+      ],
+      "persistence": "url",
+      "transitions": [
+        {
+          "from": "all",
+          "event": "FILTER",
+          "to": "filtered"
+        },
+        {
+          "from": "filtered",
+          "event": "NO_MATCHES",
+          "to": "empty"
+        },
+        {
+          "from": "empty",
+          "event": "RESET",
+          "to": "all"
+        },
+        {
+          "from": "filtered",
+          "event": "OPEN_HASH",
+          "to": "all"
+        }
+      ],
+      "agent_guard": "Deep link unhides and opens a static chemical evidence route."
+    },
+    {
+      "id": "tri-import-gate",
+      "owner": "scripts/import-tri-basic.cjs",
+      "group": "pipeline",
+      "mode": "observed",
+      "initial": "input",
+      "states": [
+        "input",
+        "parsed",
+        "approved",
+        "quarantined",
+        "rejected",
+        "audited",
+        "published"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "input",
+          "event": "PARSE",
+          "to": "parsed"
+        },
+        {
+          "from": "parsed",
+          "event": "VERIFY_IDENTITY",
+          "to": "approved"
+        },
+        {
+          "from": "parsed",
+          "event": "MISMATCH",
+          "to": "quarantined"
+        },
+        {
+          "from": "parsed",
+          "event": "INVALID",
+          "to": "rejected"
+        },
+        {
+          "from": "approved",
+          "event": "DRY_RUN",
+          "to": "audited"
+        },
+        {
+          "from": "approved",
+          "event": "PUBLISH",
+          "to": "published"
+        },
+        {
+          "from": "quarantined",
+          "event": "REPORT",
+          "to": "audited"
+        }
+      ],
+      "agent_guard": "Only approved facility/date/parent matches are attributable. Invalid or quarantined rows cannot silently enter a company's data."
+    },
+    {
+      "id": "evidence-intake-gate",
+      "owner": "scripts/ingest-evidence.cjs",
+      "group": "pipeline",
+      "mode": "observed",
+      "initial": "incoming",
+      "states": [
+        "incoming",
+        "validated",
+        "rejected",
+        "staged",
+        "audited"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "incoming",
+          "event": "VALIDATE",
+          "to": "validated"
+        },
+        {
+          "from": "incoming",
+          "event": "INVALID",
+          "to": "rejected"
+        },
+        {
+          "from": "validated",
+          "event": "WRITE",
+          "to": "staged"
+        },
+        {
+          "from": "validated",
+          "event": "DRY_RUN",
+          "to": "audited"
+        }
+      ],
+      "agent_guard": "Intake records cannot self-assert independently reviewed status. Only public material; no case identification."
+    },
+    {
+      "id": "facility-csv-normalizer",
+      "owner": "scripts/normalize-facility-csv.cjs",
+      "group": "pipeline",
+      "mode": "observed",
+      "initial": "unmapped",
+      "states": [
+        "unmapped",
+        "mapped",
+        "valid",
+        "rejected",
+        "staged",
+        "audited"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "unmapped",
+          "event": "MAPPING_PROVIDED",
+          "to": "mapped"
+        },
+        {
+          "from": "mapped",
+          "event": "VALIDATE",
+          "to": "valid"
+        },
+        {
+          "from": "mapped",
+          "event": "INVALID",
+          "to": "rejected"
+        },
+        {
+          "from": "valid",
+          "event": "WRITE",
+          "to": "staged"
+        },
+        {
+          "from": "valid",
+          "event": "DRY_RUN",
+          "to": "audited"
+        }
+      ],
+      "agent_guard": "Unmapped units, unknown provenance or unjustified conversion must be rejected."
+    },
+    {
+      "id": "payment-evidence-grade",
+      "owner": "docs/damages-data.json",
+      "group": "data",
+      "mode": "observed",
+      "initial": "payment_total_unverified",
+      "states": [
+        "payment_total_unverified",
+        "partially_paid",
+        "confirmed_paid"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "payment_total_unverified",
+          "event": "VERIFY_RECIPIENT",
+          "to": "partially_paid"
+        },
+        {
+          "from": "payment_total_unverified",
+          "event": "VERIFY_FULL",
+          "to": "confirmed_paid"
+        },
+        {
+          "from": "partially_paid",
+          "event": "VERIFY_FULL",
+          "to": "confirmed_paid"
+        },
+        {
+          "from": "confirmed_paid",
+          "event": "RETRACT_EVIDENCE",
+          "to": "partially_paid"
+        },
+        {
+          "from": "partially_paid",
+          "event": "RETRACT_EVIDENCE",
+          "to": "payment_total_unverified"
+        }
+      ],
+      "agent_guard": "Full agreement does not prove paid. Named-recipient net sums are lower bounds; historical defendant and accounting scope must match."
+    },
+    {
+      "id": "dossier-source-gate",
+      "owner": "docs/dossier-register.json",
+      "group": "data",
+      "mode": "observed",
+      "initial": "open",
+      "states": [
+        "open",
+        "linked"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "open",
+          "event": "ATTACH_SOURCE",
+          "to": "linked"
+        },
+        {
+          "from": "linked",
+          "event": "REVOKE_UNRELIABLE_SOURCE",
+          "to": "open"
+        }
+      ],
+      "agent_guard": "Source linked is not measurement verified or causal attribution."
+    },
+    {
+      "id": "tri-publication-status",
+      "owner": "docs/tri-facility-releases.json",
+      "group": "data",
+      "mode": "observed",
+      "initial": "awaiting_source",
+      "states": [
+        "awaiting_source",
+        "processed",
+        "published",
+        "empty"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "awaiting_source",
+          "event": "IMPORT_CSV",
+          "to": "processed"
+        },
+        {
+          "from": "processed",
+          "event": "APPROVE_ROWS",
+          "to": "published"
+        },
+        {
+          "from": "processed",
+          "event": "NO_APPROVED_ROWS",
+          "to": "empty"
+        },
+        {
+          "from": "published",
+          "event": "SOURCE_REVOKED",
+          "to": "awaiting_source"
+        }
+      ],
+      "agent_guard": "No approved observed data must not be summarized as zero emissions."
+    },
+    {
+      "id": "generated-artifact-check",
+      "owner": "scripts/build-search-index.cjs",
+      "group": "pipeline",
+      "mode": "observed",
+      "initial": "stale",
+      "states": [
+        "stale",
+        "fresh",
+        "failed"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "stale",
+          "event": "REGENERATE",
+          "to": "fresh"
+        },
+        {
+          "from": "fresh",
+          "event": "CHECK",
+          "to": "fresh"
+        },
+        {
+          "from": "stale",
+          "event": "CHECK",
+          "to": "failed"
+        },
+        {
+          "from": "fresh",
+          "event": "SOURCE_CHANGED",
+          "to": "stale"
+        }
+      ],
+      "agent_guard": "Derived index must match the reviewed dossiers/knowledge/pathways sources; CI --check fails when stale."
+    },
+    {
+      "id": "official-source-monitor",
+      "owner": "scripts/audit-sources.cjs",
+      "group": "pipeline",
+      "mode": "observed",
+      "initial": "unqueried",
+      "states": [
+        "unqueried",
+        "checking",
+        "reachable",
+        "needs-review"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "unqueried",
+          "event": "CHECK",
+          "to": "checking"
+        },
+        {
+          "from": "checking",
+          "event": "VALID",
+          "to": "reachable"
+        },
+        {
+          "from": "checking",
+          "event": "HEAD_FAILURE",
+          "to": "needs-review"
+        },
+        {
+          "from": "needs-review",
+          "event": "RECHECK",
+          "to": "checking"
+        }
+      ],
+      "agent_guard": "An HTTP failure is not proof a legal claim or underlying scientific source is false."
+    },
+    {
+      "id": "source-monitor-schedule",
+      "owner": ".github/workflows/source-monitor.yml",
+      "group": "automation",
+      "mode": "observed",
+      "initial": "scheduled",
+      "states": [
+        "scheduled",
+        "running",
+        "reported",
+        "failed"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "scheduled",
+          "event": "START",
+          "to": "running"
+        },
+        {
+          "from": "running",
+          "event": "COMPLETE",
+          "to": "reported"
+        },
+        {
+          "from": "running",
+          "event": "FAIL",
+          "to": "failed"
+        },
+        {
+          "from": "reported",
+          "event": "NEXT_SCHEDULE",
+          "to": "scheduled"
+        },
+        {
+          "from": "failed",
+          "event": "NEXT_SCHEDULE",
+          "to": "scheduled"
+        }
+      ],
+      "agent_guard": "Reports link availability only, not downstream evidence verification."
+    },
+    {
+      "id": "tri-source-research-schedule",
+      "owner": ".github/workflows/tri-source-research.yml",
+      "group": "automation",
+      "mode": "observed",
+      "initial": "requested",
+      "states": [
+        "requested",
+        "downloading",
+        "audit",
+        "failed",
+        "reviewable",
+        "eligible"
+      ],
+      "persistence": "filesystem",
+      "transitions": [
+        {
+          "from": "requested",
+          "event": "FETCH",
+          "to": "downloading"
+        },
+        {
+          "from": "downloading",
+          "event": "CHECKSUM",
+          "to": "audit"
+        },
+        {
+          "from": "downloading",
+          "event": "HTTP_FAIL",
+          "to": "failed"
+        },
+        {
+          "from": "audit",
+          "event": "REVIEW",
+          "to": "reviewable"
+        },
+        {
+          "from": "reviewable",
+          "event": "APPROVE_IMPORT",
+          "to": "eligible"
+        }
+      ],
+      "agent_guard": "Official EPA file bytes and SHA must be inspected before a curated import; never auto-attribute unknown facilities."
+    }
+  ]
+}
