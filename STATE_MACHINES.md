@@ -49,3 +49,21 @@ A state machine here means a user-observable or data-safety phase with permitted
 - Distinguish empty from error from unknown. Neither of the last two may become a zero, an all-clear, or a valid rank.
 - Preserve URL and local-only boundaries. Workbench notes are private to the current browser session.
 - Test forbidden paths: double open, close while pending, retry, empty data, mixed units, invalid filters, unavailable sources.
+
+
+## Machine-readable extension and agent interface
+
+The [audited state-machine registry](data/state-machines.json) expands this human-oriented map into **51 separately identifiable state dimensions** (41 UI, 5 pipelines, 3 source-data gates, 2 scheduled automations). Entries include the owning file, states, events, allowed edges, persistence and the critical evidence/agent guard. Only the global search *index loader* is marked as implemented with an explicit transition table. The open/closed modal itself is browser-native; other state diagrams document observable behavior, **not** a claim that it has been migrated into a new runtime framework.
+
+A small, read-only inspector returns JSON and refuses impossible transitions:
+
+~~~sh
+node scripts/state-machine.cjs list
+node scripts/state-machine.cjs show global-search-index
+node scripts/state-machine.cjs replay global-search-index load reject retry resolve
+node --test scripts/state-machines.test.cjs
+~~~
+
+These commands are safe for a development agent: no browser clicks, server changes, downloads, clipboard actions or research-note persistence. Replay describes allowed events; it cannot prove that a real-world settlement was paid or that a source was independently verified. When updating a UI or data process, keep its documented guard and transition table synchronized with the behavior, and mark it explicit only when code truly implements that transition boundary. The existing browser search tests remain authoritative for runtime focus, keyboard, loading/error, retry and late-response behavior.
+
+The registry deliberately includes historical legal payment status and public-source intake **as evidence-flow contracts**, without using a generic reducer to mutate those sources. The substantive financial/chemical tests remain the authoritative integrity gates.
