@@ -53,7 +53,7 @@ A state machine here means a user-observable or data-safety phase with permitted
 
 ## Machine-readable extension and agent interface
 
-The [audited state-machine registry](data/state-machines.json) expands this human-oriented map into **51 separately identifiable state dimensions** (41 UI, 5 pipelines, 3 source-data gates, 2 scheduled automations). Entries include the owning file, states, events, allowed edges, persistence and the critical evidence/agent guard. Only the global search *index loader* is marked as implemented with an explicit transition table. The open/closed modal itself is browser-native; other state diagrams document observable behavior, **not** a claim that it has been migrated into a new runtime framework.
+The [audited state-machine registry](data/state-machines.json) expands this human-oriented map into **52 separately identifiable state dimensions** (42 UI, 5 pipelines, 3 source-data gates, 2 scheduled automations). Entries include the owning file, states, events, allowed edges, persistence and the critical evidence/agent guard. Four high-risk flows are now marked explicit: the global search *index loader* using its local tested transition table, and Rank Lab snapshot loading plus Workbench catalog loading and URL selection using the tested pure transitions in docs/site.js. The open/closed modal itself is browser-native; other state diagrams document observable behavior, **not** a claim that they have been migrated into a new runtime framework.
 
 A small, read-only inspector returns JSON and refuses impossible transitions:
 
@@ -67,3 +67,15 @@ node --test scripts/state-machines.test.cjs
 These commands are safe for a development agent: no browser clicks, server changes, downloads, clipboard actions or research-note persistence. Replay describes allowed events; it cannot prove that a real-world settlement was paid or that a source was independently verified. When updating a UI or data process, keep its documented guard and transition table synchronized with the behavior, and mark it explicit only when code truly implements that transition boundary. The existing browser search tests remain authoritative for runtime focus, keyboard, loading/error, retry and late-response behavior.
 
 The registry deliberately includes historical legal payment status and public-source intake **as evidence-flow contracts**, without using a generic reducer to mutate those sources. The substantive financial/chemical tests remain the authoritative integrity gates.
+
+## Incremental UX / DX / AX hardening (2026-11-08)
+
+A second audit found that the site-wide search state lifecycle had already been made explicit with comprehensive native-dialog tests. Rather than replacing that proven implementation with a second engine, it remains the single owner of search transitions. The canonical registry and read-only replay CLI above continue to be the only machine catalog and agent interface.
+
+Three more high-risk flows now implement a **small pure contract** in `docs/site.js`: Rank Lab multi-snapshot resource loading, Workbench official-source catalog loading, and Workbench concern/region URL history. The browser-global `window.POISON_INTERACTION` exposes only public transition functions and fixed metadata. It has no storage, network or note access; adopted loaders project only `data-resource-state` and `aria-busy`, never query strings or user research notes.
+
+**Concrete UX defects found and fixed:** failed Rank/Workbench source loads now expose accessible Retry actions rather than requiring refresh; Workbench SELECT pushes real history and RESTORE via popstate does not create another entry; Rank share links now restore numeric row limits from query strings correctly; a Rank page-level slash shortcut no longer overrides the site-wide search key handler; People pages now load the shared runtime before the search code. All original legal-payment, science, currency, source and privacy gates stay unchanged.
+
+**Tests:** `node --test scripts/interaction-states.test.cjs` checks pure transitions, stale completions, invalid navigation, all interactive owner registration, cross-page script order and the Rank/Workbench fixes. The existing `scripts/site-search.test.cjs` remains the authoritative executable search-dialog test. `scripts/state-machines.test.cjs` validates all 52 state diagrams and agent replay CLI, including the newly explicit machines. The full CI workflow runs them together.
+
+**Migration honesty:** the other 48 machines still describe observed state behavior or evidence/pipeline gates. No universal Redux/XState-style runtime has been introduced; the separate domain-specific guards are more valuable than homogenizing all filters or making source data mutable. Agent changes must update `data/state-machines.json`, add source-level tests and preserve the associated `agent_guard` before making another machine explicit.

@@ -81,10 +81,14 @@ jobs:
           node --test scripts/pathways.test.cjs
       - name: Verify global search lifecycle and cross-app state contracts
         run: |
+          node --check docs/site.js
           node --check docs/site-search.js
+          node --check docs/rank-app.js
+          node --check docs/workbench-app.js
           node --check scripts/state-machine.cjs
           node --test scripts/site-search.test.cjs
           node --test scripts/state-machines.test.cjs
+          node --test scripts/interaction-states.test.cjs
           node scripts/build-search-index.cjs --check
       - name: Audit public HTML accessibility and local research navigation
         run: node scripts/check-public-site.cjs

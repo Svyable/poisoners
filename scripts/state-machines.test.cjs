@@ -5,9 +5,9 @@ const root=path.resolve(__dirname,"..");
 const catalog=JSON.parse(fs.readFileSync(path.join(root,"data/state-machines.json"),"utf8"));
 const cli=require("./state-machine.cjs");
 
-test("51 audited machines are unique, reachable and linked to actual owner files",()=>{
+test("52 audited machines are unique, reachable and linked to actual owner files",()=>{
  assert.equal(catalog.schema_version,1);
- assert.equal(catalog.machines.length,51);
+ assert.equal(catalog.machines.length,52);
  const ids=new Set(),groups=new Set();
  for(const m of catalog.machines){
   assert.match(m.id,/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
@@ -34,14 +34,14 @@ test("51 audited machines are unique, reachable and linked to actual owner files
   assert.deepEqual(m.states.filter(x=>!reachable.has(x)),[],m.id+" has unreachable states");
  }
  assert.deepEqual([...groups].sort(),["automation","data","pipeline","ui"].sort());
- assert.equal(catalog.machines.filter(m=>m.mode==="explicit").length,1,"Do not claim native browser dialog or observed flows were migrated to a reducer");
+ assert.equal(catalog.machines.filter(m=>m.mode==="explicit").length,4,"Only search, Rank source, Workbench source and Workbench navigation have explicit running transitions");
  assert.equal(catalog.machines.find(m=>m.id==="global-search-index").mode,"explicit");
  assert.equal(catalog.machines.find(m=>m.id==="global-search-dialog").mode,"observed");
 });
 
 test("agent tooling emits machine-readable catalogs and refuses invented state events",()=>{
  const list=cli.main(["list"]);
- assert.equal(list.count,51);
+ assert.equal(list.count,52);
  const search=cli.main(["show","global-search-index"]);
  assert.equal(search.initial,"idle");
  assert.deepEqual(search.transitions.map(t=>t.event),["load","resolve","reject","retry"]);
@@ -77,4 +77,22 @@ test("data-evidence and private worksheet transitions cannot be mislabeled as ve
  assert.match(notes.agent_guard,/Notes remain in volatile browser memory/);
  assert.ok(catalog.cross_cutting_guards.some(x=>x.includes("workbench notes")));
  assert.ok(catalog.cross_cutting_guards.some(x=>x.includes("currencies")));
+});
+
+test("shared pure Rank and Workbench contracts are reflected by canonical transition table",()=>{
+ const byId=id=>catalog.machines.find(m=>m.id===id);
+ for(const id of ["rank-snapshots-loader","workbench-catalog-loader"]){
+  const m=byId(id);
+  assert.equal(m.mode,"explicit");
+  assert.deepEqual(m.states,["idle","loading","ready","error"]);
+  assert.ok(m.transitions.some(t=>t.from==="error"&&t.event==="LOAD"&&t.to==="loading"));
+  assert.ok(m.transitions.some(t=>t.from==="loading"&&t.event==="FAIL"&&t.to==="error"));
+  assert.ok(m.transitions.some(t=>t.from==="loading"&&t.event==="SUCCEED"&&t.to==="ready"));
+  assert.match(m.agent_guard,/retry|request/i);
+ }
+ const selection=byId("workbench-history-navigation");
+ assert.equal(selection.mode,"explicit");
+ assert.equal(selection.persistence,"url");
+ assert.deepEqual(selection.transitions.map(t=>t.event),["INIT","SELECT","RESTORE"]);
+ assert.match(selection.agent_guard,/notes|browser-memory-only/i);
 });

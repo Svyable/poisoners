@@ -3,7 +3,7 @@
   "audited_on": "2026-11-08",
   "project": "Svyable/poisoners",
   "scope": "Behavioral state transitions in public static UI, source data, research CLI and scheduled CI automation; page navigation is not itself a standalone state machine.",
-  "lifecycle_policy": "Inventory describes observed code unless mode=explicit; only the search index loader currently implements an explicit transition table. Native dialog visibility is an observed browser-owned lifecycle. Other observed machines are NOT claimed to be migrated. Data and pipeline entries are evidence gates, not independent verification.",
+  "lifecycle_policy": "Observed machines describe current imperative handlers, not generic-reducer adoption. The search-index loader is explicitly implemented by its native guarded transition table; Rank Lab snapshot loading, Workbench catalog loading and Workbench concern/region navigation use the separate pure shared transitions in docs/site.js. Native dialog visibility stays browser-owned; data and scheduled workflows are evidence gates.",
   "cross_cutting_guards": [
     "Never infer zero from missing environmental measurements, corporate payment receipts, or officer identity.",
     "Never turn a source hyperlink into causal verification, legal guilt or person-level exposure.",
@@ -616,7 +616,7 @@
       "id": "rank-snapshots-loader",
       "owner": "docs/rank-app.js",
       "group": "ui",
-      "mode": "observed",
+      "mode": "explicit",
       "initial": "idle",
       "states": [
         "idle",
@@ -633,21 +633,26 @@
         },
         {
           "from": "loading",
-          "event": "VALIDATED",
+          "event": "SUCCEED",
           "to": "ready"
         },
         {
           "from": "loading",
-          "event": "HTTP_ERROR",
+          "event": "FAIL",
           "to": "error"
         },
         {
-          "from": "loading",
-          "event": "SCHEMA_ERROR",
-          "to": "error"
+          "from": "error",
+          "event": "LOAD",
+          "to": "loading"
+        },
+        {
+          "from": "ready",
+          "event": "LOAD",
+          "to": "loading"
         }
       ],
-      "agent_guard": "Unloaded or incomplete datasets must not produce numeric rank rows."
+      "agent_guard": "The shared pure resource reducer models idle/loading/ready/error and request tokens. A failed source snapshot shows an accessible retry; one in-flight request and one-time UI binding prevent duplicate actions or fabricated rankings."
     },
     {
       "id": "rank-cohort-config",
@@ -1259,33 +1264,43 @@
       "id": "workbench-catalog-loader",
       "owner": "docs/workbench-app.js",
       "group": "ui",
-      "mode": "observed",
+      "mode": "explicit",
       "initial": "idle",
       "states": [
         "idle",
         "loading",
         "ready",
-        "unavailable"
+        "error"
       ],
       "persistence": "memory",
       "transitions": [
         {
           "from": "idle",
-          "event": "FETCH",
+          "event": "LOAD",
           "to": "loading"
         },
         {
           "from": "loading",
-          "event": "VALIDATED",
+          "event": "SUCCEED",
           "to": "ready"
         },
         {
           "from": "loading",
           "event": "FAIL",
-          "to": "unavailable"
+          "to": "error"
+        },
+        {
+          "from": "error",
+          "event": "LOAD",
+          "to": "loading"
+        },
+        {
+          "from": "ready",
+          "event": "LOAD",
+          "to": "loading"
         }
       ],
-      "agent_guard": "If the reviewed catalog is unavailable, show source directory fallback."
+      "agent_guard": "A pure request-token reducer tracks official portal catalog loading. HTTP/schema failure shows a direct official source fallback plus an accessible retry. No research notes or selections are transmitted."
     },
     {
       "id": "workbench-plan-selection",
@@ -1834,6 +1849,36 @@
         }
       ],
       "agent_guard": "Official EPA file bytes and SHA must be inspected before a curated import; never auto-attribute unknown facilities."
+    },
+    {
+      "id": "workbench-history-navigation",
+      "owner": "docs/workbench-app.js",
+      "group": "ui",
+      "mode": "explicit",
+      "initial": "initial",
+      "states": [
+        "initial",
+        "selected"
+      ],
+      "persistence": "url",
+      "transitions": [
+        {
+          "from": "initial",
+          "event": "INIT",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "SELECT",
+          "to": "selected"
+        },
+        {
+          "from": "selected",
+          "event": "RESTORE",
+          "to": "selected"
+        }
+      ],
+      "agent_guard": "Shared pure selection transition validates concern and region before writing navigation. INIT replaces the canonical link, SELECT pushes only changed valid choices, and RESTORE (popstate) writes no history. Per-pair worksheet notes stay browser-memory-only and never enter URLs."
     }
   ]
 }
