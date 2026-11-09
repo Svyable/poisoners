@@ -4,6 +4,10 @@
 
 > **Research platform v5 chemical-first addition, November 7, 2026.** The site contains 50 source-linked corporate records from one published 2024 greenhouse-gas attribution dataset, plus the ten highest-emitting sovereign countries in EDGAR's 2025 GHG inventory. It does **not** contain 100 fully researched company dossiers, toxicity rankings, proven deaths attributable to those companies, or findings of unlawful conduct.
 
+## State machines: UX, DX, AX
+
+The [cross-app state-machine audit](STATE_MACHINES.md) inventories **51 actual interaction, research-data and pipeline state machines** in a [machine-readable event/guard registry](data/state-machines.json). The shared local search now uses explicit, retryable and race-safe dialog/index states with focus restoration and no user-query upload. Developers and agents can inspect or replay allowed transitions via the dependency-free [state machine CLI](scripts/state-machine.cjs), with [CI regression tests](scripts/state-machines.test.cjs) for search loading, retry, stale results and source boundaries. The registry distinguishes **observed** implicit behavior from the two search machines actually **implemented explicitly**; this is not a blanket rewrite of working UIs.
+
 ## The website
 
 - [Universal Rank & Filter Lab](docs/rankings.html): eight source-bounded research cohorts with metric switching, three-key lexicographic ranking (no synthetic composite score), up to four AND-linked field filters, unknown-only or known-only views, full-cohort min/percentile/median/max summaries, country/sector/status/chemical facets, numeric ranges, source details, pinned two-record comparisons, device-local saved views, shareable links and CSV/JSON export. Unknown remains unranked; different currencies or chemical reporting groups cannot share a leaderboard.
