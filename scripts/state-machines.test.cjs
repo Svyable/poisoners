@@ -5,9 +5,9 @@ const root=path.resolve(__dirname,"..");
 const catalog=JSON.parse(fs.readFileSync(path.join(root,"data/state-machines.json"),"utf8"));
 const cli=require("./state-machine.cjs");
 
-test("52 audited machines are unique, reachable and linked to actual owner files",()=>{
+test("56 audited machines are unique, reachable and linked to actual owner files",()=>{
  assert.equal(catalog.schema_version,1);
- assert.equal(catalog.machines.length,52);
+ assert.equal(catalog.machines.length,56);
  const ids=new Set(),groups=new Set();
  for(const m of catalog.machines){
   assert.match(m.id,/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
@@ -41,7 +41,7 @@ test("52 audited machines are unique, reachable and linked to actual owner files
 
 test("agent tooling emits machine-readable catalogs and refuses invented state events",()=>{
  const list=cli.main(["list"]);
- assert.equal(list.count,52);
+ assert.equal(list.count,56);
  const search=cli.main(["show","global-search-index"]);
  assert.equal(search.initial,"idle");
  assert.deepEqual(search.transitions.map(t=>t.event),["load","resolve","reject","retry"]);
