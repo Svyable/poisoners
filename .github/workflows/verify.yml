@@ -79,9 +79,11 @@ jobs:
           node --check docs/pathways-app.js
           node scripts/build-pathways.cjs --check
           node --test scripts/pathways.test.cjs
-      - name: Verify deterministic site search
+      - name: Verify deterministic site search and all observable state machine contracts
         run: |
           node --check docs/site-search.js
+          node --check scripts/state-machine.cjs
+          node --test scripts/state-machines.test.cjs
           node scripts/build-search-index.cjs --check
       - name: Audit public HTML accessibility and local research navigation
         run: node scripts/check-public-site.cjs
