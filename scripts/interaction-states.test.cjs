@@ -64,7 +64,7 @@ test("Workbench URL selection supports INIT/SELECT/RESTORE without leaking notes
 
 test("canonical registry covers every production interactive browser owner and marks 4 explicit reducers",()=>{
  assert.equal(registry.schema_version,1);
- assert.equal(registry.machines.length,52);
+ assert.equal(registry.machines.length,56);
  const owners=new Set(registry.machines.map(m=>m.owner));
  const interactive=fs.readdirSync(path.join(root,"docs")).filter(name=>name.endsWith(".js")&&
   /addEventListener\s*\(/.test(read("docs/"+name)));
