@@ -60,18 +60,31 @@
   results.replaceChildren();view("error");
   status.textContent="Search temporarily unavailable";
   const p=document.createElement("p");p.className="site-search-empty";
-  p.textContent="Use Start here, Open data or Dossier Lab instead. Close and reopen search to retry.";
+  p.textContent="The public index could not be loaded. Try again or open the research guide instead.";
   results.append(p);
+  const retry=document.createElement("button");retry.type="button";retry.className="site-search-retry";
+  retry.textContent="Retry search";retry.setAttribute("aria-label","Retry loading the public search index");
+  retry.addEventListener("click",()=>{
+   if(indexStatus!=="error"||!dialog.open)return;
+   const cycle=++openCycle;
+   startLoad(cycle);input.focus();
+  });
+  const fallback=document.createElement("a");fallback.className="site-search-fallback";fallback.href="guide.html";
+  fallback.textContent="Open research guide ↗";results.append(retry,fallback);
  }
- async function openSearch(){
-  if(!dialog.showModal){location.href="guide.html";return;}
-  const cycle=++openCycle;
-  previousFocus=document.activeElement;dialog.showModal();input.value="";input.focus();
-  // Ready indexes are cached: no misleading loading flash or redundant fetch.
-  if(indexStatus==="ready"){render();return;}
+ async function startLoad(cycle){
+  if(indexStatus==="ready"){if(dialog.open&&cycle===openCycle)render();return;}
   results.replaceChildren();view("loading");status.textContent="Loading local search index…";
   try{await load();if(dialog.open&&cycle===openCycle)render();}
   catch(_){if(dialog.open&&cycle===openCycle)showError();}
+ }
+ async function openSearch(){
+  if(!dialog.showModal){location.href="guide.html";return;}
+  if(dialog.open)return;
+  const cycle=++openCycle;
+  previousFocus=document.activeElement;dialog.showModal();input.value="";input.focus();
+  // Reuse ready data without a flash, and share in-flight requests across sessions.
+  await startLoad(cycle);
  }
  opener.addEventListener("click",openSearch);
  dialog.querySelector("[data-site-search-close]").addEventListener("click",()=>dialog.close());
