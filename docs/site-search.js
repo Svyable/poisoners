@@ -2,15 +2,36 @@
 (() => {
  const dialog=document.getElementById("siteSearchDialog"),opener=document.querySelector("[data-site-search-open]"),input=document.getElementById("siteSearchInput"),results=document.getElementById("siteSearchResults"),status=document.getElementById("siteSearchStatus");
  if(!dialog||!opener||!input||!results||!status)return;
- let records=[],promise=null,previousFocus=null;
+
+ // The index has one lifecycle, independent of how often the dialog opens.
+ // idle -> loading -> ready; loading -> error -> loading on the next attempt.
+ // Keep modal visibility in the native dialog.open state, not a second boolean.
+ const transitions=Object.freeze({
+  idle:{load:"loading"},loading:{resolve:"ready",reject:"error"},
+  ready:{},error:{retry:"loading"}
+ });
+ let indexStatus="idle",records=[],pending=null,previousFocus=null,openCycle=0;
+ function advance(event){
+  const next=transitions[indexStatus][event];
+  if(!next)throw Error("Invalid site-search transition: "+indexStatus+" / "+event);
+  indexStatus=next;
+ }
+ function view(phase){
+  dialog.dataset.searchState=phase;
+  results.setAttribute("aria-busy",String(phase==="loading"));
+ }
  const normalize=s=>String(s??"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
  const types={page:"PAGE",section:"RESEARCH SECTION",company:"CLIMATE-ONLY COMPANY RECORD",knowledge:"EVIDENCE FIELD NOTE",pathway:"CHEMICAL EVIDENCE ROUTE"};
  function load(){
-  if(!promise)promise=fetch("search-index.json").then(r=>{if(!r.ok)throw Error("Index unavailable");return r.json();}).then(d=>{
-   if(!Array.isArray(d.entries))throw Error("Invalid index");
+  if(indexStatus==="ready")return Promise.resolve();
+  if(indexStatus==="loading")return pending;
+  advance(indexStatus==="error"?"retry":"load");
+  pending=fetch("search-index.json").then(r=>{if(!r.ok)throw Error("Index unavailable");return r.json();}).then(d=>{
+   if(!d||!Array.isArray(d.entries))throw Error("Invalid index");
    records=d.entries.filter(e=>e&&/^[a-z0-9-]+\.html(?:\?[^#]*)?(?:#[A-Za-z0-9-]+)?$/.test(e.href));
-  }).catch(e=>{promise=null;throw e});
-  return promise;
+   advance("resolve");
+  }).catch(e=>{advance("reject");throw e}).finally(()=>{pending=null});
+  return pending;
  }
  function score(e,q){
   const t=normalize(e.title),k=normalize(e.keywords),d=normalize(e.description),words=normalize(q).split(/\s+/).filter(Boolean),combined=t+" "+k+" "+d;
@@ -19,8 +40,10 @@
   return (t===normalize(q)?100:t.startsWith(normalize(q))?50:0)+words.reduce((n,w)=>n+(t.split(" ").some(v=>v.startsWith(w))?25:k.includes(w)?9:2),0)+(e.type==="page"?2:0);
  }
  function render(){
+  if(indexStatus!=="ready")return;
   const q=input.value.trim(),found=records.map((e,i)=>({e,i,s:score(e,q)})).filter(x=>x.s>=0).sort((a,b)=>b.s-a.s||a.i-b.i);
-  results.replaceChildren();status.textContent=q?found.length+" matching public record"+(found.length===1?"":"s"):"Suggested research pages";
+  results.replaceChildren();view(found.length?"results":"empty");
+  status.textContent=q?found.length+" matching public record"+(found.length===1?"":"s"):"Suggested research pages";
   if(!found.length){const p=document.createElement("p");p.className="site-search-empty";p.textContent="No matches. Try a company, source, case or research topic.";results.append(p);return;}
   for(const {e} of found.slice(0,10)){
    const a=document.createElement("a");a.className="site-search-result";a.href=e.href;
@@ -33,18 +56,33 @@
   }
   if(found.length>10){const p=document.createElement("p");p.className="site-search-empty";p.textContent="Showing ten results. Narrow the terms for a closer match.";results.append(p);}
  }
+ function showError(){
+  results.replaceChildren();view("error");
+  status.textContent="Search temporarily unavailable";
+  const p=document.createElement("p");p.className="site-search-empty";
+  p.textContent="Use Start here, Open data or Dossier Lab instead. Close and reopen search to retry.";
+  results.append(p);
+ }
  async function openSearch(){
   if(!dialog.showModal){location.href="guide.html";return;}
-  previousFocus=document.activeElement;dialog.showModal();input.value="";input.focus();results.replaceChildren();status.textContent="Loading local search index…";
-  try{await load();if(dialog.open)render();}
-  catch(_){status.textContent="Search temporarily unavailable";const p=document.createElement("p");p.className="site-search-empty";p.textContent="Use Start here, Open data or Dossier Lab instead.";results.append(p);}
+  const cycle=++openCycle;
+  previousFocus=document.activeElement;dialog.showModal();input.value="";input.focus();
+  // Ready indexes are cached: no misleading loading flash or redundant fetch.
+  if(indexStatus==="ready"){render();return;}
+  results.replaceChildren();view("loading");status.textContent="Loading local search index…";
+  try{await load();if(dialog.open&&cycle===openCycle)render();}
+  catch(_){if(dialog.open&&cycle===openCycle)showError();}
  }
  opener.addEventListener("click",openSearch);
  dialog.querySelector("[data-site-search-close]").addEventListener("click",()=>dialog.close());
- dialog.addEventListener("close",()=>previousFocus?.focus?.());
+ dialog.addEventListener("close",()=>{
+  ++openCycle;view("closed");previousFocus?.focus?.();
+ });
  dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close();});
- input.addEventListener("input",()=>{if(records.length)render();});
- dialog.querySelectorAll("[data-site-query]").forEach(button=>button.addEventListener("click",()=>{input.value=button.dataset.siteQuery;input.focus();if(records.length)render();}));
+ input.addEventListener("input",()=>{if(indexStatus==="ready"&&dialog.open)render();});
+ dialog.querySelectorAll("[data-site-query]").forEach(button=>button.addEventListener("click",()=>{
+  input.value=button.dataset.siteQuery;input.focus();if(indexStatus==="ready"&&dialog.open)render();
+ }));
  input.addEventListener("keydown",e=>{if(e.key==="ArrowDown"){const first=results.querySelector("a");if(first){e.preventDefault();first.focus();}}});
  results.addEventListener("keydown",e=>{
   if(e.key!=="ArrowDown"&&e.key!=="ArrowUp")return;

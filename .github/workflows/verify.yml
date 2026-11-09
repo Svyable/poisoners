@@ -82,6 +82,7 @@ jobs:
       - name: Verify deterministic site search
         run: |
           node --check docs/site-search.js
+          node --test scripts/site-search.test.cjs
           node scripts/build-search-index.cjs --check
       - name: Audit public HTML accessibility and local research navigation
         run: node scripts/check-public-site.cjs
